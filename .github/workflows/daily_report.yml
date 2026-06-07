@@ -1,0 +1,46 @@
+name: Reporte diario Seed Café
+
+on:
+  schedule:
+    # 12:00 UTC ≈ 06:00 hora de Ciudad de México (UTC-6 / UTC-5 en horario de verano)
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+    inputs:
+      fecha:
+        description: "Fecha a descargar (YYYY-MM-DD). Vacío = ayer."
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  generar-reporte:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependencias
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+
+      - name: Descargar reportes de RecoPOS
+        env:
+          RECOPOS_USER: ${{ secrets.RECOPOS_USER }}
+          RECOPOS_PASSWORD: ${{ secrets.RECOPOS_PASSWORD }}
+        run: python scraper.py ${{ github.event.inputs.fecha }}
+
+      - name: Generar dashboard HTML
+        run: python generate_report.py ${{ github.event.inputs.fecha }}
+
+      - name: Publicar cambios (datos + dashboard)
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Reporte automático: actualiza datos y dashboard"
+          file_pattern: "data/*.xlsx docs/index.html"

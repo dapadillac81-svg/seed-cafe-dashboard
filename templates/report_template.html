@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ store_name }} — KPIs {{ target_date }}</title>
+  <style>
+    :root {
+      --bg: #f6f3ee;
+      --card: #ffffff;
+      --ink: #2b2118;
+      --accent: #6f4e37;
+      --accent-light: #b08968;
+      --good: #2f7d4f;
+      --bad: #b3392c;
+      --muted: #8a7b6c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    header {
+      background: var(--accent);
+      color: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 1.4rem; }
+    header p { margin: 4px 0 0; font-size: 0.85rem; opacity: 0.85; }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .kpi-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 14px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .kpi-card .label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .kpi-card .value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+    .kpi-card .delta { font-size: 0.8rem; margin-top: 4px; }
+    .delta.up { color: var(--good); }
+    .delta.down { color: var(--bad); }
+    .chart-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      overflow-x: auto;
+    }
+    .empty {
+      text-align: center;
+      color: var(--muted);
+      padding: 24px;
+      font-size: 0.9rem;
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.75rem;
+      padding: 16px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>☕ {{ store_name }} — KPIs del día</h1>
+    <p>Reporte de ventas: {{ target_date }} · generado {{ generated_at }}</p>
+  </header>
+  <main>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="label">Ventas totales</div>
+        <div class="value">${{ "%.0f"|format(kpis.total_ventas) }}</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Transacciones</div>
+        <div class="value">{{ kpis.num_transacciones }}</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Ticket promedio</div>
+        <div class="value">${{ "%.0f"|format(kpis.ticket_promedio) }}</div>
+        {% if kpis.ticket_delta is not none %}
+          {% if kpis.ticket_delta >= 0 %}
+            <div class="delta up">▲ ${{ "%.0f"|format(kpis.ticket_delta) }} vs. promedio reciente</div>
+          {% else %}
+            <div class="delta down">▼ ${{ "%.0f"|format(-kpis.ticket_delta) }} vs. promedio reciente</div>
+          {% endif %}
+        {% endif %}
+      </div>
+      <div class="kpi-card">
+        <div class="label">Reembolsos</div>
+        <div class="value">${{ "%.0f"|format(kpis.total_reembolsado) }}</div>
+        <div class="delta">{{ kpis.num_reembolsos }} orden(es)</div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      {% if charts.hourly %}{{ charts.hourly|safe }}{% else %}<div class="empty">Sin datos por hora para este día</div>{% endif %}
+    </div>
+    <div class="chart-card">
+      {% if charts.top_products %}{{ charts.top_products|safe }}{% else %}<div class="empty">Sin detalle de productos para este día</div>{% endif %}
+    </div>
+    <div class="chart-card">
+      {% if charts.category %}{{ charts.category|safe }}{% else %}<div class="empty">Sin desglose por categoría para este día</div>{% endif %}
+    </div>
+    <div class="chart-card">
+      {% if charts.comparativa %}{{ charts.comparativa|safe }}{% else %}<div class="empty">Aún no hay suficiente histórico para comparar</div>{% endif %}
+    </div>
+  </main>
+  <footer>Generado automáticamente desde RecoPOS · Seed Café</footer>
+</body>
+</html>

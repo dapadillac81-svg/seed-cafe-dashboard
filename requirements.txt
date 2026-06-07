@@ -1,0 +1,5 @@
+pandas
+openpyxl
+plotly
+jinja2
+playwright
