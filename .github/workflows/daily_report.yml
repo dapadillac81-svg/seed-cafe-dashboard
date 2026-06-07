@@ -2,13 +2,9 @@ name: Reporte diario Seed Café
 
 on:
   schedule:
-    # 12:00 UTC ≈ 06:00 hora de Ciudad de México (UTC-6 / UTC-5 en horario de verano)
-    - cron: "0 12 * * *"
-  workflow_dispatch:
-    inputs:
-      fecha:
-        description: "Fecha a descargar (YYYY-MM-DD). Vacío = ayer."
-        required: false
+    # 13:00 UTC ≈ 07:00 hora de Ciudad de México (UTC-6 / UTC-5 en horario de verano)
+    - cron: "0 13 * * *"
+  workflow_dispatch: {}
 
 permissions:
   contents: write
@@ -22,7 +18,8 @@ jobs:
 
       # Los .xlsx con detalle de ventas son sensibles y NO se suben al repo
       # (que es público en esta fase piloto). Se conservan entre ejecuciones
-      # usando el caché de Actions, que es privado del repositorio.
+      # (junto con el manifiesto de archivos ya procesados) usando el caché de
+      # Actions, que es privado del repositorio.
       - name: Restaurar histórico de datos (caché privado)
         uses: actions/cache@v4
         with:
@@ -37,18 +34,17 @@ jobs:
           python-version: "3.12"
 
       - name: Instalar dependencias
-        run: |
-          pip install -r requirements.txt
-          python -m playwright install --with-deps chromium
+        run: pip install -r requirements.txt
 
-      - name: Descargar reportes de RecoPOS
+      - name: Buscar y descargar archivos nuevos en Google Drive
+        id: sync
         env:
-          RECOPOS_USER: ${{ secrets.RECOPOS_USER }}
-          RECOPOS_PASSWORD: ${{ secrets.RECOPOS_PASSWORD }}
-        run: python scraper.py ${{ github.event.inputs.fecha }}
+          GDRIVE_SERVICE_ACCOUNT_JSON: ${{ secrets.GDRIVE_SERVICE_ACCOUNT_JSON }}
+          GDRIVE_FOLDER_ID: ${{ secrets.GDRIVE_FOLDER_ID }}
+        run: python drive_watcher.py
 
       - name: Generar dashboard HTML
-        run: python generate_report.py ${{ github.event.inputs.fecha }}
+        run: python generate_report.py
 
       - name: Publicar dashboard (solo HTML con KPIs agregados)
         uses: stefanzweifel/git-auto-commit-action@v5
