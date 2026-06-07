@@ -71,7 +71,17 @@ Luego abre `docs/index.html` en tu navegador.
 
 ## Privacidad (modo piloto)
 
-Por ahora el repositorio es **público**, así que las cifras de ventas quedan
-visibles en la URL de GitHub Pages (aunque el link no esté listado en ningún
-buscador). Cuando quieras, podemos migrar a un repositorio privado (requiere
-GitHub Pro, ~$4 USD/mes) sin cambiar nada del resto del flujo.
+El repositorio es **público**, así que el **dashboard agregado** (`docs/index.html`
+con los KPIs del día) queda visible en la URL de GitHub Pages, aunque el link no
+esté listado en ningún buscador.
+
+Para no exponer datos más sensibles, **los archivos `.xlsx` con el detalle de
+cada orden NUNCA se suben al repositorio** (están en `.gitignore`). En su lugar,
+el workflow los conserva entre ejecuciones usando el **caché de GitHub Actions**,
+que es privado del repositorio y no es accesible públicamente — así se mantiene
+el histórico necesario para las comparativas sin publicar transacciones
+individuales.
+
+Cuando quieras, podemos migrar todo a un repositorio privado (requiere GitHub
+Pro, ~$4 USD/mes) sin cambiar nada del resto del flujo — y entonces sí podríamos
+considerar guardar también los `.xlsx` en el repo si conviene.

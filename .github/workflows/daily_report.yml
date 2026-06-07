@@ -20,6 +20,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Los .xlsx con detalle de ventas son sensibles y NO se suben al repo
+      # (que es público en esta fase piloto). Se conservan entre ejecuciones
+      # usando el caché de Actions, que es privado del repositorio.
+      - name: Restaurar histórico de datos (caché privado)
+        uses: actions/cache@v4
+        with:
+          path: data
+          key: recopos-data-${{ github.run_id }}
+          restore-keys: |
+            recopos-data-
+
       - name: Configurar Python
         uses: actions/setup-python@v5
         with:
@@ -39,8 +50,8 @@ jobs:
       - name: Generar dashboard HTML
         run: python generate_report.py ${{ github.event.inputs.fecha }}
 
-      - name: Publicar cambios (datos + dashboard)
+      - name: Publicar dashboard (solo HTML con KPIs agregados)
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Reporte automático: actualiza datos y dashboard"
-          file_pattern: "data/*.xlsx docs/index.html"
+          commit_message: "Reporte automático: actualiza dashboard"
+          file_pattern: "docs/index.html"
