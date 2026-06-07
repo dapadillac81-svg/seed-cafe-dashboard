@@ -90,7 +90,7 @@ def build_top_products_chart(items_df: pd.DataFrame, target_date, top_n=10):
         return None
     by_product = (
         day.groupby("Nombre de producto")
-        .agg(cantidad=("Cantidad", "sum"), monto=("Precio total después del descuento", "sum"))
+        .agg(cantidad=("Cantidad", "sum"), monto=("Precio total después del descuento (modificado)", "sum"))
         .sort_values("monto", ascending=False)
         .head(top_n)
         .reset_index()
