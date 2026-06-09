@@ -98,18 +98,18 @@ def build_top_products_chart(items_df: pd.DataFrame, target_date, top_n=10):
     by_product = (
         day.groupby("Nombre de producto")
         .agg(cantidad=("Cantidad", "sum"), monto=("Precio total después del descuento (modificado)", "sum"))
-        .sort_values("monto", ascending=False)
+        .sort_values("cantidad", ascending=False)
         .head(top_n)
         .reset_index()
-        .sort_values("monto")
+        .sort_values("cantidad")
     )
     fig = px.bar(
         by_product,
-        x="monto",
+        x="cantidad",
         y="Nombre de producto",
         orientation="h",
-        text=by_product["monto"].apply(lambda v: f"${v:,.0f}"),
-        labels={"monto": "Ventas ($)", "Nombre de producto": ""},
+        text=by_product["cantidad"].apply(lambda v: f"{v:,.0f}"),
+        labels={"cantidad": "Piezas vendidas", "Nombre de producto": ""},
         title=f"Top {top_n} productos del día",
     )
     fig.update_traces(textposition="outside")
