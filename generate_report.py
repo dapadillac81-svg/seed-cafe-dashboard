@@ -162,15 +162,16 @@ def build_comparativa_chart(orders_df: pd.DataFrame, target_date, days=14):
     return _fig_to_html(fig)
 
 
-def render_report(target_date=None):
-    data = dl.load_all_data(DATA_DIR)
+def _render_one(template, data, target_date, all_dates, generated_at):
+    """Genera el HTML de un día y lo guarda en docs/YYYY-MM-DD.html."""
     orders_df, items_df, categoria_df = data["orders"], data["items"], data["categoria"]
+    idx = list(all_dates).index(target_date)
 
-    if orders_df.empty:
-        raise SystemExit("No hay datos de órdenes en la carpeta 'data'. Nada que reportar.")
+    prev_date = all_dates[idx - 1] if idx > 0 else None
+    next_date = all_dates[idx + 1] if idx < len(all_dates) - 1 else None
 
-    if target_date is None:
-        target_date = dl.latest_date(orders_df)
+    prev_url = f"{prev_date}.html" if prev_date else None
+    next_url = f"{next_date}.html" if next_date else "index.html" if next_date is None and idx < len(all_dates) - 1 else None
 
     kpis = compute_kpis(orders_df, target_date)
     charts = {
@@ -180,25 +181,51 @@ def render_report(target_date=None):
         "comparativa": build_comparativa_chart(orders_df, target_date),
     }
 
-    env = Environment(loader=FileSystemLoader(TEMPLATES_DIR), autoescape=True)
-    template = env.get_template("report_template.html")
     html = template.render(
         store_name="Seed Café",
         target_date=target_date.strftime("%d-%m-%Y"),
-        generated_at=pd.Timestamp.now(tz="America/Mexico_City").strftime("%d-%m-%Y %H:%M"),
+        generated_at=generated_at,
         kpis=kpis,
         charts=charts,
+        prev_url=prev_url,
+        next_url=next_url,
     )
+    return html
+
+
+def render_report(target_date=None):
+    data = dl.load_all_data(DATA_DIR)
+    orders_df, items_df, categoria_df = data["orders"], data["items"], data["categoria"]
+
+    if orders_df.empty:
+        raise SystemExit("No hay datos de órdenes en la carpeta 'data'. Nada que reportar.")
+
+    all_dates = dl.available_dates(orders_df)
+    latest = dl.latest_date(orders_df)
+    generated_at = pd.Timestamp.now(tz="America/Mexico_City").strftime("%d-%m-%Y %H:%M")
+
+    env = Environment(loader=FileSystemLoader(TEMPLATES_DIR), autoescape=True)
+    template = env.get_template("report_template.html")
 
     os.makedirs(DOCS_DIR, exist_ok=True)
-    out_path = os.path.join(DOCS_DIR, "index.html")
-    with open(out_path, "w", encoding="utf-8") as f:
-        f.write(html)
-    print(f"Reporte generado: {out_path} (fecha: {target_date})")
-    return out_path
+
+    # Genera una página por cada fecha disponible
+    for d in all_dates:
+        html = _render_one(template, data, d, all_dates, generated_at)
+        out_path = os.path.join(DOCS_DIR, f"{d}.html")
+        with open(out_path, "w", encoding="utf-8") as f:
+            f.write(html)
+        print(f"  Generado: {out_path}")
+
+    # index.html = día más reciente (sin botón → para no ir al futuro)
+    html_latest = _render_one(template, data, latest, all_dates, generated_at)
+    # Quita el link "siguiente" en index.html (ya es el más reciente)
+    idx_path = os.path.join(DOCS_DIR, "index.html")
+    with open(idx_path, "w", encoding="utf-8") as f:
+        f.write(html_latest)
+    print(f"Reporte principal: {idx_path} (fecha: {latest})")
+    return idx_path
 
 
 if __name__ == "__main__":
-    arg = sys.argv[1] if len(sys.argv) > 1 else None
-    target = pd.to_datetime(arg).date() if arg else None
-    render_report(target)
+    render_report()

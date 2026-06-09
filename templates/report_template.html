@@ -91,6 +91,33 @@
     .chart-card .plotly-graph-div * {
       touch-action: pan-y !important;
     }
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 16px;
+      background: var(--card);
+      border-bottom: 1px solid #e8e0d8;
+    }
+    .nav-bar a {
+      display: inline-block;
+      padding: 8px 18px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    .nav-bar a.disabled {
+      background: #d0c8bf;
+      pointer-events: none;
+    }
+    .nav-bar .nav-fecha {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+    }
     .empty {
       text-align: center;
       color: var(--muted);
@@ -111,6 +138,11 @@
     <h1>KPIs del día</h1>
     <p>Reporte de ventas: {{ target_date }} · generado {{ generated_at }}</p>
   </header>
+  <div class="nav-bar">
+    <a href="{{ prev_url }}" {% if not prev_url %}class="disabled"{% endif %}>&#8592;</a>
+    <span class="nav-fecha">{{ target_date }}</span>
+    <a href="{{ next_url }}" {% if not next_url %}class="disabled"{% endif %}>&#8594;</a>
+  </div>
   <main>
     <div class="kpi-grid">
       <div class="kpi-card">
