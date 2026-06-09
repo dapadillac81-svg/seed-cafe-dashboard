@@ -106,9 +106,9 @@ def build_top_products_chart(items_df: pd.DataFrame, target_date, top_n=10):
         title=f"Top {top_n} productos del día",
     )
     fig.update_layout(
-        font=dict(size=10),
-        yaxis=dict(tickfont=dict(size=9)),
-        height=320,
+        font=dict(size=9),
+        yaxis=dict(tickfont=dict(size=7)),
+        height=300,
     )
     return _fig_to_html(fig)
 
