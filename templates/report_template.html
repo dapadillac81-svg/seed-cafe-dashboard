@@ -70,10 +70,10 @@
       box-shadow: 0 1px 3px rgba(0,0,0,0.08);
       overflow-x: auto;
     }
-    /* Evita que Plotly capture eventos táctiles al hacer scroll en móvil */
-    .chart-card .plotly-graph-div {
+    /* Evita que Plotly capture el scroll táctil en móvil */
+    .chart-card .plotly-graph-div,
+    .chart-card .plotly-graph-div * {
       touch-action: pan-y !important;
-      pointer-events: none;
     }
     .empty {
       text-align: center;
@@ -136,5 +136,21 @@
     </div>
   </main>
   <footer>Generado automáticamente desde RecoPOS · Seed Café</footer>
+  <script>
+    // Desactiva zoom, drag y doble clic en todos los gráficos de Plotly
+    document.addEventListener('DOMContentLoaded', function() {
+      function fijarGraficos() {
+        var divs = document.querySelectorAll('.plotly-graph-div');
+        divs.forEach(function(div) {
+          if (window.Plotly && div.layout !== undefined) {
+            window.Plotly.relayout(div, {dragmode: false});
+            div.on('plotly_doubleclick', function() { return false; });
+          }
+        });
+      }
+      // Espera a que Plotly termine de renderizar
+      setTimeout(fijarGraficos, 800);
+    });
+  </script>
 </body>
 </html>
