@@ -70,6 +70,11 @@
       box-shadow: 0 1px 3px rgba(0,0,0,0.08);
       overflow-x: auto;
     }
+    /* Evita que Plotly capture eventos táctiles al hacer scroll en móvil */
+    .chart-card .plotly-graph-div {
+      touch-action: pan-y !important;
+      pointer-events: none;
+    }
     .empty {
       text-align: center;
       color: var(--muted);
