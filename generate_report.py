@@ -68,16 +68,23 @@ def build_hourly_chart(orders_df: pd.DataFrame, target_date):
     by_hour = (
         day.groupby("hora")["Monto total de orden"]
         .agg(ventas="sum", ordenes="count")
-        .reindex(range(0, 24), fill_value=0)
+        .reindex(range(8, 21), fill_value=0)
         .reset_index()
     )
+    by_hour["hora_label"] = by_hour["hora"].apply(lambda h: f"{h}:00")
     fig = px.bar(
         by_hour,
-        x="hora",
+        x="hora_label",
         y="ventas",
-        hover_data=["ordenes"],
-        labels={"hora": "Hora del día", "ventas": "Ventas ($)"},
-        title="Ventas por hora",
+        text=by_hour["ventas"].apply(lambda v: f"${v:,.0f}" if v > 0 else ""),
+        labels={"hora_label": "Hora", "ventas": "Ventas ($)"},
+        title="Ventas por hora (8 AM – 8 PM)",
+    )
+    fig.update_traces(textposition="outside", textfont_size=9)
+    fig.update_layout(
+        xaxis=dict(tickangle=0),
+        yaxis=dict(visible=False),
+        bargap=0.3,
     )
     return _fig_to_html(fig, include_js=True)
 
