@@ -25,8 +25,17 @@
     header {
       background: var(--accent);
       color: #fff;
-      padding: 20px 16px;
+      padding: 16px;
       text-align: center;
+    }
+    header img {
+      height: 72px;
+      width: auto;
+      display: block;
+      margin: 0 auto 8px;
+      border-radius: 8px;
+      background: #fff;
+      padding: 4px;
     }
     header h1 { margin: 0; font-size: 1.4rem; }
     header p { margin: 4px 0 0; font-size: 0.85rem; opacity: 0.85; }
@@ -91,7 +100,8 @@
 </head>
 <body>
   <header>
-    <h1>☕ {{ store_name }} — KPIs del día</h1>
+    <img src="logo.png" alt="Seed Café">
+    <h1>KPIs del día</h1>
     <p>Reporte de ventas: {{ target_date }} · generado {{ generated_at }}</p>
   </header>
   <main>
