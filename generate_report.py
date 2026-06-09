@@ -101,13 +101,15 @@ def build_top_products_chart(items_df: pd.DataFrame, target_date, top_n=10):
         x="monto",
         y="Nombre de producto",
         orientation="h",
-        hover_data=["cantidad"],
+        text=by_product["monto"].apply(lambda v: f"${v:,.0f}"),
         labels={"monto": "Ventas ($)", "Nombre de producto": ""},
         title=f"Top {top_n} productos del día",
     )
+    fig.update_traces(textposition="outside")
     fig.update_layout(
         font=dict(size=9),
         yaxis=dict(tickfont=dict(size=7)),
+        xaxis=dict(visible=False),
         height=300,
     )
     return _fig_to_html(fig)
