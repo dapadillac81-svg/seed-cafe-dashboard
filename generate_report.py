@@ -105,6 +105,11 @@ def build_top_products_chart(items_df: pd.DataFrame, target_date, top_n=10):
         labels={"monto": "Ventas ($)", "Nombre de producto": ""},
         title=f"Top {top_n} productos del día",
     )
+    fig.update_layout(
+        font=dict(size=10),
+        yaxis=dict(tickfont=dict(size=9)),
+        height=320,
+    )
     return _fig_to_html(fig)
 
 
