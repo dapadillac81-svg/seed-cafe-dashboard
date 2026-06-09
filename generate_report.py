@@ -80,9 +80,9 @@ def build_hourly_chart(orders_df: pd.DataFrame, target_date):
         labels={"hora_label": "Hora", "ventas": "Ventas ($)"},
         title="Ventas por hora (8 AM – 8 PM)",
     )
-    fig.update_traces(textposition="outside", textfont_size=9)
+    fig.update_traces(textposition="outside", textfont_size=12)
     fig.update_layout(
-        xaxis=dict(tickangle=0),
+        xaxis=dict(tickangle=0, tickfont=dict(size=8)),
         yaxis=dict(visible=False),
         bargap=0.3,
     )
