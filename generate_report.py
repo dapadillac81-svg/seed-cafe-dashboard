@@ -107,8 +107,8 @@ def build_top_products_chart(items_df: pd.DataFrame, target_date, top_n=10):
     )
     fig.update_traces(textposition="outside")
     fig.update_layout(
-        font=dict(size=9),
-        yaxis=dict(tickfont=dict(size=7)),
+        font=dict(size=11),
+        yaxis=dict(tickfont=dict(size=9)),
         xaxis=dict(visible=False),
         height=300,
     )
