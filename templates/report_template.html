@@ -11,6 +11,13 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Seed Café">
   <link rel="apple-touch-icon" href="icon-192.png">
+  <script>
+    // Si vamos a saltar a un gráfico recordado, oculta la página hasta
+    // colocarla en su lugar, para que no se vea el "salto" al inicio.
+    if (sessionStorage.getItem('seedcafe_scroll_chart')) {
+      document.documentElement.style.visibility = 'hidden';
+    }
+  </script>
   <style>
     :root {
       --bg: #f6f3ee;
@@ -238,12 +245,16 @@
             var top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 8;
             window.scrollTo(0, Math.max(top, 0));
           }
+          // Ya se posicionó (o no existe el gráfico): mostrar la página
+          document.documentElement.style.visibility = 'visible';
           attempts++;
           if (attempts < maxAttempts) {
             setTimeout(tryScroll, 350);
           }
         };
         setTimeout(tryScroll, 100);
+      } else {
+        document.documentElement.style.visibility = 'visible';
       }
 
       // Al darle a "anterior"/"siguiente", guarda qué gráfico se estaba viendo
