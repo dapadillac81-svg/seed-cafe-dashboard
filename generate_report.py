@@ -224,7 +224,7 @@ def build_milk_chart(items_df: pd.DataFrame, target_date, color_map: dict):
     fig.update_traces(textposition="outside")
     fig.update_layout(
         font=dict(size=11),
-        yaxis=dict(tickfont=dict(size=9)),
+        yaxis=dict(tickfont=dict(size=9), autorange="reversed"),
         xaxis=dict(visible=False),
         showlegend=False,
         height=max(160, 35 * len(by_leche) + 60),
