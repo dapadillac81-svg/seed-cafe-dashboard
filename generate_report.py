@@ -139,39 +139,53 @@ def build_category_chart(categoria_df: pd.DataFrame, target_date):
     return _fig_to_html(fig)
 
 
-def build_top_categoria_chart(categoria_df: pd.DataFrame, target_date, top_n=10):
+def build_top_categoria_charts(categoria_df: pd.DataFrame, target_date, top_n=10):
+    """Devuelve una lista de (nombre_categoria, html_grafico) — un top N de
+    productos por cada categoría con ventas ese día, ordenadas de mayor a
+    menor venta total."""
     if categoria_df.empty:
-        return None
+        return []
     day = categoria_df[categoria_df["fecha"] == target_date]
     if day.empty:
-        return None
-    by_product = (
-        day.groupby(["Nombre de producto", "Clasificación"])
-        .agg(cantidad=("Cantidad", "sum"))
-        .reset_index()
-        .sort_values("cantidad", ascending=False)
-        .head(top_n)
-        .sort_values("cantidad")
+        return []
+
+    # Orden de categorías por venta total del día (de mayor a menor)
+    orden_categorias = (
+        day.groupby("Clasificación")["Monto"].sum().sort_values(ascending=False).index.tolist()
     )
-    fig = px.bar(
-        by_product,
-        x="cantidad",
-        y="Nombre de producto",
-        color="Clasificación",
-        orientation="h",
-        text=by_product["cantidad"].apply(lambda v: f"{v:,.0f}"),
-        labels={"cantidad": "Piezas vendidas", "Nombre de producto": "", "Clasificación": "Categoría"},
-        title=f"Top {top_n} productos por categoría",
-    )
-    fig.update_traces(textposition="outside")
-    fig.update_layout(
-        font=dict(size=11),
-        yaxis=dict(tickfont=dict(size=9)),
-        xaxis=dict(visible=False),
-        height=320,
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0, font=dict(size=9)),
-    )
-    return _fig_to_html(fig)
+
+    resultados = []
+    for categoria in orden_categorias:
+        sub = day[day["Clasificación"] == categoria]
+        by_product = (
+            sub.groupby("Nombre de producto")
+            .agg(cantidad=("Cantidad", "sum"))
+            .reset_index()
+            .sort_values("cantidad", ascending=False)
+            .head(top_n)
+            .sort_values("cantidad")
+        )
+        if by_product.empty:
+            continue
+        fig = px.bar(
+            by_product,
+            x="cantidad",
+            y="Nombre de producto",
+            orientation="h",
+            text=by_product["cantidad"].apply(lambda v: f"{v:,.0f}"),
+            labels={"cantidad": "Piezas vendidas", "Nombre de producto": ""},
+            title=f"Top {top_n} — {categoria.title()}",
+        )
+        fig.update_traces(textposition="outside")
+        height = max(160, 35 * len(by_product) + 60)
+        fig.update_layout(
+            font=dict(size=11),
+            yaxis=dict(tickfont=dict(size=9)),
+            xaxis=dict(visible=False),
+            height=height,
+        )
+        resultados.append((categoria, _fig_to_html(fig)))
+    return resultados
 
 
 def build_comparativa_chart(orders_df: pd.DataFrame, target_date, days=14):
@@ -213,9 +227,10 @@ def _render_one(template, data, target_date, all_dates, generated_at):
         "hourly": build_hourly_chart(orders_df, target_date),
         "top_products": build_top_products_chart(items_df, target_date),
         "category": build_category_chart(categoria_df, target_date),
-        "top_categoria": build_top_categoria_chart(categoria_df, target_date),
         "comparativa": build_comparativa_chart(orders_df, target_date),
     }
+
+    top_categoria_charts = build_top_categoria_charts(categoria_df, target_date)
 
     html = template.render(
         store_name="Seed Café",
@@ -223,6 +238,7 @@ def _render_one(template, data, target_date, all_dates, generated_at):
         generated_at=generated_at,
         kpis=kpis,
         charts=charts,
+        top_categoria_charts=top_categoria_charts,
         prev_url=prev_url,
         next_url=next_url,
     )
