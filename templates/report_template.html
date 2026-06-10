@@ -12,9 +12,9 @@
   <meta name="apple-mobile-web-app-title" content="Seed Café">
   <link rel="apple-touch-icon" href="icon-192.png">
   <script>
-    // Si vamos a saltar a un gráfico recordado, oculta la página hasta
-    // colocarla en su lugar, para que no se vea el "salto" al inicio.
-    if (sessionStorage.getItem('seedcafe_scroll_chart')) {
+    // Oculta la página de inicio hasta saber si hay que pedir contraseña
+    // o saltar a un gráfico recordado, para que no se vea ningún "salto".
+    if (localStorage.getItem('seedcafe_auth') !== 'ok' || sessionStorage.getItem('seedcafe_scroll_chart')) {
       document.documentElement.style.visibility = 'hidden';
     }
   </script>
@@ -141,9 +141,71 @@
       font-size: 0.75rem;
       padding: 16px;
     }
+    .auth-gate {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 5000;
+      visibility: visible;
+    }
+    .auth-gate.hidden { display: none; }
+    .auth-box {
+      background: var(--card);
+      padding: 24px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      width: 90%;
+      max-width: 320px;
+    }
+    .auth-box img {
+      height: 60px;
+      width: auto;
+      margin-bottom: 12px;
+      border-radius: 8px;
+    }
+    .auth-box h2 { margin: 0 0 4px; font-size: 1.1rem; }
+    .auth-box p.hint { margin: 0 0 12px; font-size: 0.8rem; color: var(--muted); }
+    .auth-box input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border: 1px solid #d0c8bf;
+      border-radius: 8px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+    .auth-box button {
+      width: 100%;
+      padding: 10px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    .auth-error {
+      color: var(--bad);
+      font-size: 0.85rem;
+      margin-top: 8px;
+    }
   </style>
 </head>
 <body>
+  <div id="auth-gate" class="auth-gate">
+    <div class="auth-box">
+      <img src="logo.png" alt="Seed Café">
+      <h2>Acceso restringido</h2>
+      <p class="hint">Ingresa la contraseña para ver el dashboard</p>
+      <input type="password" id="auth-pass" placeholder="Contraseña" autocomplete="off">
+      <button id="auth-submit" type="button">Entrar</button>
+      <p id="auth-error" class="auth-error" style="display:none;">Contraseña incorrecta, intenta de nuevo</p>
+    </div>
+  </div>
   <header>
     <img src="logo.png" alt="Seed Café">
     <h1>KPIs del día</h1>
@@ -210,8 +272,21 @@
   </main>
   <footer>Generado automáticamente desde RecoPOS · Seed Café</footer>
   <script>
-    // Desactiva zoom, drag y doble clic en todos los gráficos de Plotly
-    document.addEventListener('DOMContentLoaded', function() {
+    // Contraseña de acceso (guardada como hash SHA-256, no en texto plano)
+    var AUTH_HASH = 'a554bba8759bde36eac13fe2aaa3701d158c41be25b46f0dd0c1850faa874c27';
+    var AUTH_KEY = 'seedcafe_auth';
+
+    function sha256Hex(text) {
+      var data = new TextEncoder().encode(text);
+      return crypto.subtle.digest('SHA-256', data).then(function(buf) {
+        return Array.prototype.map.call(new Uint8Array(buf), function(b) {
+          return ('0' + b.toString(16)).slice(-2);
+        }).join('');
+      });
+    }
+
+    function initDashboard() {
+      // Desactiva zoom, drag y doble clic en todos los gráficos de Plotly
       function fijarGraficos() {
         var divs = document.querySelectorAll('.plotly-graph-div');
         divs.forEach(function(div) {
@@ -223,10 +298,8 @@
       }
       // Espera a que Plotly termine de renderizar
       setTimeout(fijarGraficos, 800);
-    });
 
-    // Mantiene la posición en el mismo gráfico al cambiar de día
-    document.addEventListener('DOMContentLoaded', function() {
+      // Mantiene la posición en el mismo gráfico al cambiar de día
       var STORAGE_KEY = 'seedcafe_scroll_chart';
       var navBar = document.querySelector('.nav-bar');
       var navHeight = navBar ? navBar.offsetHeight : 0;
@@ -295,6 +368,47 @@
             sessionStorage.removeItem(STORAGE_KEY);
           }
         });
+      });
+    }
+
+    // Pantalla de acceso con contraseña
+    document.addEventListener('DOMContentLoaded', function() {
+      var gate = document.getElementById('auth-gate');
+      var input = document.getElementById('auth-pass');
+      var btn = document.getElementById('auth-submit');
+      var err = document.getElementById('auth-error');
+
+      function unlock() {
+        gate.classList.add('hidden');
+        document.documentElement.style.visibility = 'visible';
+        initDashboard();
+      }
+
+      if (localStorage.getItem(AUTH_KEY) === 'ok') {
+        unlock();
+        return;
+      }
+
+      // Hay que pedir contraseña: mostrar la página solo para ver el candado
+      document.documentElement.style.visibility = 'visible';
+      gate.classList.remove('hidden');
+      input.focus();
+
+      function tryLogin() {
+        sha256Hex(input.value).then(function(hash) {
+          if (hash === AUTH_HASH) {
+            localStorage.setItem(AUTH_KEY, 'ok');
+            unlock();
+          } else {
+            err.style.display = 'block';
+            input.value = '';
+            input.focus();
+          }
+        });
+      }
+      btn.addEventListener('click', tryLogin);
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') tryLogin();
       });
     });
   </script>
