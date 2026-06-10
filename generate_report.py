@@ -97,6 +97,50 @@ def _nombre_base(nombre: str) -> str:
     return re.sub(r"\s*[（(].*?[）)]\s*$", "", str(nombre)).strip()
 
 
+def _tipo_leche(nombre: str) -> str | None:
+    """Extrae el tipo de leche de la variante entre paréntesis, si existe.
+    Ej. '...（02 LECHE DESLACTOSADA）' -> 'LECHE DESLACTOSADA'.
+    Devuelve None si el producto no trae variante de leche (ej. agua, panes)."""
+    m = re.search(r"[（(](.*?)[）)]\s*$", str(nombre))
+    if not m:
+        return None
+    variante = m.group(1).strip()
+    # Quita prefijos numéricos tipo "01 ", "02 ", "13 ", "14 +12"
+    variante = re.sub(r"^\d+\s*", "", variante)
+    variante = re.sub(r"\+\d+$", "", variante).strip()
+    if "LECHE" not in variante.upper():
+        return None
+    return variante.title()
+
+
+def build_milk_chart(items_df: pd.DataFrame, target_date):
+    if items_df.empty:
+        return None
+    day = items_df[(items_df["fecha"] == target_date) & (~items_df["es_reembolso"])].copy()
+    if day.empty:
+        return None
+    day["tipo_leche"] = day["Nombre de producto"].apply(_tipo_leche)
+    day = day.dropna(subset=["tipo_leche"])
+    if day.empty:
+        return None
+    by_leche = (
+        day.groupby("tipo_leche")["Cantidad"]
+        .sum()
+        .reset_index()
+        .sort_values("Cantidad", ascending=False)
+    )
+    fig = px.pie(
+        by_leche,
+        names="tipo_leche",
+        values="Cantidad",
+        title="Tipos de leche pedidos",
+        hole=0.4,
+    )
+    fig.update_traces(textinfo="label+value")
+    fig.update_layout(showlegend=False)
+    return _fig_to_html(fig)
+
+
 def build_top_products_chart(items_df: pd.DataFrame, target_date, top_n=10):
     if items_df.empty:
         return None
@@ -235,6 +279,7 @@ def _render_one(template, data, target_date, all_dates, generated_at):
     charts = {
         "hourly": build_hourly_chart(orders_df, target_date),
         "top_products": build_top_products_chart(items_df, target_date),
+        "milk": build_milk_chart(items_df, target_date),
         "category": build_category_chart(categoria_df, target_date),
         "comparativa": build_comparativa_chart(orders_df, target_date),
     }
