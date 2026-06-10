@@ -97,6 +97,13 @@ def _nombre_base(nombre: str) -> str:
     return re.sub(r"\s*[（(].*?[）)]\s*$", "", str(nombre)).strip()
 
 
+def _slug(texto: str) -> str:
+    """Convierte un texto en un identificador simple para usar como
+    data-chart-id (para recordar la posición de scroll entre días)."""
+    texto = re.sub(r"[^a-zA-Z0-9]+", "-", str(texto)).strip("-").lower()
+    return texto or "cat"
+
+
 def _tipo_leche(nombre: str) -> str | None:
     """Extrae el tipo de leche de la variante entre paréntesis, si existe.
     Ej. '...（02 LECHE DESLACTOSADA）' -> 'LECHE DESLACTOSADA'.
@@ -237,7 +244,7 @@ def build_top_categoria_charts(categoria_df: pd.DataFrame, target_date, top_n=10
             xaxis=dict(visible=False),
             height=height,
         )
-        resultados.append((categoria, _fig_to_html(fig)))
+        resultados.append((f"cat-{_slug(categoria)}", _fig_to_html(fig)))
     return resultados
 
 

@@ -175,26 +175,26 @@
       </div>
     </div>
 
-    <div class="chart-card">
+    <div class="chart-card" data-chart-id="hourly">
       {% if charts.hourly %}{{ charts.hourly|safe }}{% else %}<div class="empty">Sin datos por hora para este día</div>{% endif %}
     </div>
-    <div class="chart-card">
+    <div class="chart-card" data-chart-id="category">
       {% if charts.category %}{{ charts.category|safe }}{% else %}<div class="empty">Sin desglose por categoría para este día</div>{% endif %}
     </div>
-    <div class="chart-card">
+    <div class="chart-card" data-chart-id="top_products">
       {% if charts.top_products %}{{ charts.top_products|safe }}{% else %}<div class="empty">Sin detalle de productos para este día</div>{% endif %}
     </div>
     {% if charts.milk %}
-    <div class="chart-card">
+    <div class="chart-card" data-chart-id="milk">
       {{ charts.milk|safe }}
     </div>
     {% endif %}
-    {% for nombre_cat, chart_html in top_categoria_charts %}
-    <div class="chart-card">
+    {% for chart_id, chart_html in top_categoria_charts %}
+    <div class="chart-card" data-chart-id="{{ chart_id }}">
       {{ chart_html|safe }}
     </div>
     {% endfor %}
-    <div class="chart-card">
+    <div class="chart-card" data-chart-id="comparativa">
       {% if charts.comparativa %}{{ charts.comparativa|safe }}{% else %}<div class="empty">Aún no hay suficiente histórico para comparar</div>{% endif %}
     </div>
   </main>
@@ -213,6 +213,52 @@
       }
       // Espera a que Plotly termine de renderizar
       setTimeout(fijarGraficos, 800);
+    });
+
+    // Mantiene la posición en el mismo gráfico al cambiar de día
+    document.addEventListener('DOMContentLoaded', function() {
+      var STORAGE_KEY = 'seedcafe_scroll_chart';
+      var navBar = document.querySelector('.nav-bar');
+      var navHeight = navBar ? navBar.offsetHeight : 0;
+
+      // Al cargar la página, si hay un gráfico recordado, baja hasta él
+      var savedId = sessionStorage.getItem(STORAGE_KEY);
+      if (savedId) {
+        var target = document.querySelector('.chart-card[data-chart-id="' + savedId + '"]');
+        if (target) {
+          setTimeout(function() {
+            var top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 8;
+            window.scrollTo(0, Math.max(top, 0));
+          }, 900);
+        }
+      }
+
+      // Al darle a "anterior"/"siguiente", guarda qué gráfico se estaba viendo
+      document.querySelectorAll('.nav-bar a:not(.disabled)').forEach(function(link) {
+        link.addEventListener('click', function() {
+          var cards = document.querySelectorAll('.chart-card[data-chart-id]');
+          var current = null;
+          cards.forEach(function(card) {
+            var rect = card.getBoundingClientRect();
+            if (rect.top <= navHeight + 10 && rect.bottom > navHeight + 10) {
+              current = card;
+            }
+          });
+          if (!current) {
+            for (var i = 0; i < cards.length; i++) {
+              if (cards[i].getBoundingClientRect().bottom > navHeight) {
+                current = cards[i];
+                break;
+              }
+            }
+          }
+          if (current) {
+            sessionStorage.setItem(STORAGE_KEY, current.getAttribute('data-chart-id'));
+          } else {
+            sessionStorage.removeItem(STORAGE_KEY);
+          }
+        });
+      });
     });
   </script>
 </body>
