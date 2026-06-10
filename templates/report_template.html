@@ -185,6 +185,9 @@
     <div class="chart-card" data-chart-id="hourly">
       {% if charts.hourly %}{{ charts.hourly|safe }}{% else %}<div class="empty">Sin datos por hora para este día</div>{% endif %}
     </div>
+    <div class="chart-card" data-chart-id="hourly_category">
+      {% if charts.hourly_category %}{{ charts.hourly_category|safe }}{% else %}<div class="empty">Sin desglose por hora y categoría para este día</div>{% endif %}
+    </div>
     <div class="chart-card" data-chart-id="category">
       {% if charts.category %}{{ charts.category|safe }}{% else %}<div class="empty">Sin desglose por categoría para este día</div>{% endif %}
     </div>

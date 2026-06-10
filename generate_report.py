@@ -90,6 +90,67 @@ def build_hourly_chart(orders_df: pd.DataFrame, target_date):
     return _fig_to_html(fig, include_js=True)
 
 
+def build_hourly_category_chart(orders_df: pd.DataFrame, items_df: pd.DataFrame, categoria_df: pd.DataFrame, target_date):
+    """Barras apiladas: piezas vendidas por hora (8 AM - 8 PM), desglosadas
+    por categoría de producto."""
+    if items_df.empty or categoria_df.empty:
+        return None
+    day_items = items_df[(items_df["fecha"] == target_date) & (~items_df["es_reembolso"])].copy()
+    if day_items.empty:
+        return None
+
+    # Mapa producto base -> categoría, usando todo el histórico de categoria_df
+    cat_map_df = categoria_df.copy()
+    cat_map_df["nombre_base"] = cat_map_df["Nombre de producto"].apply(_nombre_base)
+    cat_map = (
+        cat_map_df.groupby("nombre_base")["Clasificación"]
+        .agg(lambda s: s.mode().iloc[0] if not s.mode().empty else "OTROS")
+        .to_dict()
+    )
+
+    day_items["nombre_base"] = day_items["Nombre de producto"].apply(_nombre_base)
+    day_items["categoria"] = day_items["nombre_base"].map(cat_map).fillna("OTROS")
+
+    day_items = day_items.merge(
+        orders_df[["No. de orden", "Hora de orden"]], on="No. de orden", how="left"
+    )
+    day_items["hora"] = day_items["Hora de orden"].dt.hour
+
+    by_hour_cat = day_items.groupby(["hora", "categoria"])["Cantidad"].sum().reset_index()
+
+    categorias = sorted(by_hour_cat["categoria"].unique())
+    full = pd.MultiIndex.from_product([range(8, 21), categorias], names=["hora", "categoria"]).to_frame(index=False)
+    by_hour_cat = full.merge(by_hour_cat, on=["hora", "categoria"], how="left").fillna(0)
+    by_hour_cat["hora_label"] = by_hour_cat["hora"].apply(lambda h: f"{h}:00")
+
+    fig = px.bar(
+        by_hour_cat,
+        x="hora_label",
+        y="Cantidad",
+        color="categoria",
+        color_discrete_sequence=px.colors.qualitative.Light24,
+        labels={"hora_label": "Hora", "Cantidad": "Piezas vendidas", "categoria": "Categoría"},
+        title="Pedidos por hora y categoría",
+    )
+    fig.update_layout(
+        barmode="stack",
+        xaxis=dict(tickangle=0, tickfont=dict(size=8)),
+        yaxis=dict(visible=False),
+        bargap=0.3,
+        legend=dict(
+            orientation="h",
+            yanchor="top",
+            y=-0.15,
+            xanchor="center",
+            x=0.5,
+            font=dict(size=9),
+            title=None,
+        ),
+        margin=dict(b=120),
+    )
+    return _fig_to_html(fig)
+
+
 def _nombre_base(nombre: str) -> str:
     """Quita la variante entre paréntesis (ej. tipo de leche) del nombre del
     producto, para agrupar 'CAPUCCINO/16 OZ (LECHE LIGHT)' y
@@ -285,6 +346,7 @@ def _render_one(template, data, target_date, all_dates, generated_at):
     kpis = compute_kpis(orders_df, target_date)
     charts = {
         "hourly": build_hourly_chart(orders_df, target_date),
+        "hourly_category": build_hourly_category_chart(orders_df, items_df, categoria_df, target_date),
         "top_products": build_top_products_chart(items_df, target_date),
         "milk": build_milk_chart(items_df, target_date),
         "category": build_category_chart(categoria_df, target_date),
