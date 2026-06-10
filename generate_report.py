@@ -366,6 +366,132 @@ def build_comparativa_chart(orders_df: pd.DataFrame, target_date, days=14):
     return _fig_to_html(fig)
 
 
+DIAS_SEMANA = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
+
+
+def compute_forecast(items_df: pd.DataFrame, categoria_df: pd.DataFrame, forecast_date) -> dict:
+    """Calcula cantidades sugeridas de producción para `forecast_date`.
+
+    Para cada producto, usa el promedio de piezas vendidas en días con el
+    mismo día de la semana que `forecast_date` (si hay al menos 2
+    registrados); si no, usa el promedio general de todos los días con
+    historial. Devuelve un dict con metadatos + lista de (categoria,
+    [productos]) ordenada por categoría y cantidad descendente.
+    """
+    forecast_ts = pd.Timestamp(forecast_date)
+    dia_semana = DIAS_SEMANA[forecast_ts.dayofweek]
+
+    if items_df.empty:
+        return {
+            "categorias": [],
+            "dia_semana": dia_semana,
+            "dias_mismo_dia": 0,
+            "dias_totales": 0,
+        }
+
+    df = items_df[~items_df["es_reembolso"]].copy()
+    df["nombre_base"] = df["Nombre de producto"].apply(_nombre_base)
+    df["fecha_dt"] = pd.to_datetime(df["fecha"])
+    df["dia_semana"] = df["fecha_dt"].dt.dayofweek
+
+    daily = df.groupby(["fecha_dt", "dia_semana", "nombre_base"])["Cantidad"].sum().reset_index()
+
+    dias_totales = daily["fecha_dt"].nunique()
+    same_dow = daily[daily["dia_semana"] == forecast_ts.dayofweek]
+    dias_mismo_dia = same_dow["fecha_dt"].nunique()
+
+    avg_overall = daily.groupby("nombre_base")["Cantidad"].mean()
+    avg_same_dow = same_dow.groupby("nombre_base")["Cantidad"].mean()
+
+    productos = sorted(daily["nombre_base"].unique())
+    rows = []
+    for p in productos:
+        if dias_mismo_dia >= 2 and p in avg_same_dow.index:
+            valor = avg_same_dow[p]
+        else:
+            valor = avg_overall.get(p, 0)
+        cantidad = max(0, round(valor))
+        if cantidad > 0:
+            rows.append({"producto": p, "cantidad_sugerida": cantidad})
+
+    fc = pd.DataFrame(rows)
+
+    # Mapa producto base -> categoría (usando todo el histórico)
+    if not categoria_df.empty and not fc.empty:
+        cat_map_df = categoria_df.copy()
+        cat_map_df["nombre_base"] = cat_map_df["Nombre de producto"].apply(_nombre_base)
+        cat_map = (
+            cat_map_df.groupby("nombre_base")["Clasificación"]
+            .agg(lambda s: s.mode().iloc[0] if not s.mode().empty else "OTROS")
+            .to_dict()
+        )
+        fc["categoria"] = fc["producto"].map(cat_map).fillna("OTROS")
+    elif not fc.empty:
+        fc["categoria"] = "OTROS"
+
+    categorias = []
+    if not fc.empty:
+        for categoria, grupo in fc.groupby("categoria"):
+            grupo = grupo.sort_values("cantidad_sugerida", ascending=False)
+            categorias.append((categoria, grupo.to_dict("records")))
+        # Ordena las categorías por la cantidad total sugerida (mayor a menor)
+        categorias.sort(key=lambda c: sum(p["cantidad_sugerida"] for p in c[1]), reverse=True)
+
+    return {
+        "categorias": categorias,
+        "dia_semana": dia_semana,
+        "dias_mismo_dia": dias_mismo_dia,
+        "dias_totales": dias_totales,
+    }
+
+
+def _render_pronostico(env, data, latest_date, generated_at):
+    """Genera docs/pronostico.html y docs/pronostico.json con el plan de
+    producción sugerido para el día siguiente al más reciente."""
+    items_df, categoria_df = data["items"], data["categoria"]
+    forecast_date = pd.Timestamp(latest_date) + pd.Timedelta(days=1)
+
+    forecast = compute_forecast(items_df, categoria_df, forecast_date)
+
+    template = env.get_template("pronostico_template.html")
+    html = template.render(
+        store_name="Seed Café",
+        fecha_objetivo=forecast_date.strftime("%d-%m-%Y"),
+        generated_at=generated_at,
+        categorias=forecast["categorias"],
+        dia_semana=forecast["dia_semana"],
+        dias_mismo_dia=forecast["dias_mismo_dia"],
+        dias_totales=forecast["dias_totales"],
+    )
+    out_path = os.path.join(DOCS_DIR, "pronostico.html")
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write(html)
+    print(f"  Generado: {out_path}")
+
+    # JSON para integración futura con la app de inventario
+    productos_json = []
+    for categoria, productos in forecast["categorias"]:
+        for p in productos:
+            productos_json.append({
+                "producto": p["producto"],
+                "categoria": categoria,
+                "cantidad_sugerida": int(p["cantidad_sugerida"]),
+            })
+    payload = {
+        "fecha_objetivo": forecast_date.strftime("%Y-%m-%d"),
+        "dia_semana": forecast["dia_semana"],
+        "generado": generated_at,
+        "dias_historial_mismo_dia": forecast["dias_mismo_dia"],
+        "dias_historial_total": forecast["dias_totales"],
+        "productos": productos_json,
+    }
+    json_path = os.path.join(DOCS_DIR, "pronostico.json")
+    with open(json_path, "w", encoding="utf-8") as f:
+        import json
+        json.dump(payload, f, ensure_ascii=False, indent=2)
+    print(f"  Generado: {json_path}")
+
+
 def _render_one(template, data, target_date, all_dates, generated_at, category_color_map, milk_color_map):
     """Genera el HTML de un día y lo guarda en docs/YYYY-MM-DD.html."""
     orders_df, items_df, categoria_df = data["orders"], data["items"], data["categoria"]
@@ -440,6 +566,10 @@ def render_report(target_date=None):
     with open(idx_path, "w", encoding="utf-8") as f:
         f.write(html_latest)
     print(f"Reporte principal: {idx_path} (fecha: {latest})")
+
+    # Plan de producción / pronóstico para el día siguiente
+    _render_pronostico(env, data, latest, generated_at)
+
     return idx_path
 
 

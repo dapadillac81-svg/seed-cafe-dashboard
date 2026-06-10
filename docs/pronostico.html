@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seed Café — Plan de producción</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#6f4e37">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Dashboard">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <script>
+    if (localStorage.getItem('seedcafe_auth') !== 'ok') {
+      document.documentElement.style.visibility = 'hidden';
+    }
+  </script>
+  <style>
+    :root {
+      --bg: #f6f3ee;
+      --card: #ffffff;
+      --ink: #2b2118;
+      --accent: #6f4e37;
+      --accent-light: #b08968;
+      --good: #2f7d4f;
+      --bad: #b3392c;
+      --muted: #8a7b6c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    header {
+      background: var(--accent);
+      color: #fff;
+      padding: 16px;
+      text-align: center;
+    }
+    header img {
+      height: 72px;
+      width: auto;
+      display: block;
+      margin: 0 auto 8px;
+      border-radius: 8px;
+      background: #fff;
+      padding: 4px;
+    }
+    header h1 { margin: 0; font-size: 1.4rem; }
+    header p { margin: 4px 0 0; font-size: 0.85rem; opacity: 0.85; }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+    .nav-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 16px;
+      background: var(--card);
+      border-bottom: 1px solid #e8e0d8;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    }
+    .nav-bar a {
+      display: inline-block;
+      padding: 8px 18px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: bold;
+    }
+    .info-box {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .cat-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 8px 14px;
+      margin-bottom: 14px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .cat-card h3 {
+      margin: 8px 0;
+      font-size: 1rem;
+      color: var(--accent);
+      border-bottom: 1px solid #e8e0d8;
+      padding-bottom: 6px;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    table td {
+      padding: 7px 4px;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #f1ece5;
+    }
+    table tr:last-child td { border-bottom: none; }
+    table td.cant {
+      text-align: right;
+      font-weight: 700;
+      color: var(--accent);
+      white-space: nowrap;
+      padding-left: 10px;
+    }
+    .empty {
+      text-align: center;
+      color: var(--muted);
+      padding: 24px;
+      font-size: 0.9rem;
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.75rem;
+      padding: 16px;
+    }
+    .auth-gate {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 5000;
+      visibility: visible;
+    }
+    .auth-gate.hidden { display: none; }
+    .auth-box {
+      background: var(--card);
+      padding: 24px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      width: 90%;
+      max-width: 320px;
+    }
+    .auth-box img {
+      height: 60px;
+      width: auto;
+      margin-bottom: 12px;
+      border-radius: 8px;
+    }
+    .auth-box h2 { margin: 0 0 4px; font-size: 1.1rem; }
+    .auth-box p.hint { margin: 0 0 12px; font-size: 0.8rem; color: var(--muted); }
+    .auth-box input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border: 1px solid #d0c8bf;
+      border-radius: 8px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+    .auth-box button {
+      width: 100%;
+      padding: 10px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    .auth-error {
+      color: var(--bad);
+      font-size: 0.85rem;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div id="auth-gate" class="auth-gate">
+    <div class="auth-box">
+      <img src="logo.png" alt="Seed Café">
+      <h2>Acceso restringido</h2>
+      <p class="hint">Ingresa la contraseña para ver el dashboard</p>
+      <input type="password" id="auth-pass" placeholder="Contraseña" autocomplete="off">
+      <button id="auth-submit" type="button">Entrar</button>
+      <p id="auth-error" class="auth-error" style="display:none;">Contraseña incorrecta, intenta de nuevo</p>
+    </div>
+  </div>
+  <header>
+    <img src="logo.png" alt="Seed Café">
+    <h1>Plan de producción</h1>
+    <p>Sugerencia para 10-06-2026 (Miércoles) · generado 10-06-2026 16:10</p>
+  </header>
+  <div class="nav-bar">
+    <a href="index.html">&#8592; Volver al dashboard</a>
+  </div>
+  <main>
+    <div class="info-box">
+      Cantidades sugeridas de producción/compra para <strong>10-06-2026 (Miércoles)</strong>,
+      calculadas con el promedio de piezas vendidas en los
+      
+        <strong>3</strong> días de historial disponibles (aún no hay suficientes Miércoleses para un promedio por día de la semana).
+      
+      Esta es una primera versión: entre más días de venta se suban, más preciso será el pronóstico.
+    </div>
+
+    
+      
+      <div class="cat-card">
+        <h3>Calientes Con Cafe</h3>
+        <table>
+          
+          <tr>
+            <td>CAPUCCINO CALIENTE/16 OZ</td>
+            <td class="cant">11</td>
+          </tr>
+          
+          <tr>
+            <td>AMERICANO CALIENTE/16 OZ</td>
+            <td class="cant">10</td>
+          </tr>
+          
+          <tr>
+            <td>LATTE CALIENTE/16 OZ</td>
+            <td class="cant">5</td>
+          </tr>
+          
+          <tr>
+            <td>FLAT WHITE CALIENTE/16 OZ</td>
+            <td class="cant">3</td>
+          </tr>
+          
+          <tr>
+            <td>LATTE AVELLANA CALIENTE/16 OZ</td>
+            <td class="cant">2</td>
+          </tr>
+          
+          <tr>
+            <td>MOKA CAPUCCINO CALIENTE/16 OZ</td>
+            <td class="cant">2</td>
+          </tr>
+          
+          <tr>
+            <td>ESPRESSO DOBLE/2 OZ</td>
+            <td class="cant">2</td>
+          </tr>
+          
+          <tr>
+            <td>CAPUCCINO VAINILLA S/A/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>CAPUCCINO CALIENTE VAINILLA/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>CAPUCCINO CALIENTE AVELLANA/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>CAPUCCINO CALIENTE CARAMEL/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>EUROPEO CALIENTE/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>LATTE CARAMEL CALIENTE/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>LATTE VAINILLA S/A/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>MOKA BLANCO CAPUCCINO CALIENTE/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+        </table>
+      </div>
+      
+      <div class="cat-card">
+        <h3>Postres</h3>
+        <table>
+          
+          <tr>
+            <td>ROL DE CANELA/1 PZA</td>
+            <td class="cant">5</td>
+          </tr>
+          
+          <tr>
+            <td>TRENZAS DE MAPLE Y NUEZ/PTE 2 PIEZAS</td>
+            <td class="cant">4</td>
+          </tr>
+          
+          <tr>
+            <td>ROL DE CANELA MANZANA/1 PZA</td>
+            <td class="cant">4</td>
+          </tr>
+          
+          <tr>
+            <td>YOGURT GRIEGO CON FRESAS/1 PZA</td>
+            <td class="cant">4</td>
+          </tr>
+          
+          <tr>
+            <td>ROL DE CANELA CAJETA Y NUEZ/1 PZA</td>
+            <td class="cant">3</td>
+          </tr>
+          
+          <tr>
+            <td>JAMAICA ENCHILADA/1 PZA</td>
+            <td class="cant">2</td>
+          </tr>
+          
+          <tr>
+            <td>POLVORONES/PTE. 4 PZ</td>
+            <td class="cant">2</td>
+          </tr>
+          
+          <tr>
+            <td>NUTRI BARRA/1 PZA</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>ROL DE CANELA NUTELLA/1 PZA</td>
+            <td class="cant">1</td>
+          </tr>
+          
+        </table>
+      </div>
+      
+      <div class="cat-card">
+        <h3>Alimentos</h3>
+        <table>
+          
+          <tr>
+            <td>SANDWICH P/P/PANELA/1 PZA</td>
+            <td class="cant">6</td>
+          </tr>
+          
+          <tr>
+            <td>CHAPATA CHILORIO/1 PZA</td>
+            <td class="cant">3</td>
+          </tr>
+          
+          <tr>
+            <td>CHAPATA P/P/PANELA/1 PZA</td>
+            <td class="cant">3</td>
+          </tr>
+          
+          <tr>
+            <td>WRAP DE OMELETTE JAMON Y QUESO/1 PZA</td>
+            <td class="cant">3</td>
+          </tr>
+          
+          <tr>
+            <td>MOLLETES/2 PZAS</td>
+            <td class="cant">3</td>
+          </tr>
+          
+          <tr>
+            <td>SINCRONIZADAS DE JAMON/2 PZAS</td>
+            <td class="cant">2</td>
+          </tr>
+          
+          <tr>
+            <td>ENSALADA/325 GR</td>
+            <td class="cant">2</td>
+          </tr>
+          
+          <tr>
+            <td>WRAP DE OMELETTE Y CHILORIO/1 PZA</td>
+            <td class="cant">2</td>
+          </tr>
+          
+          <tr>
+            <td>MOLLETES A LA MEXICANA/2 PZAS</td>
+            <td class="cant">1</td>
+          </tr>
+          
+        </table>
+      </div>
+      
+      <div class="cat-card">
+        <h3>Calientes Sin Cafe</h3>
+        <table>
+          
+          <tr>
+            <td>CHOCOLATE TRADICIONAL CALIENTE/16 OZ</td>
+            <td class="cant">3</td>
+          </tr>
+          
+          <tr>
+            <td>CHAI VAINILLA S/A CALIENTE/16 OZ</td>
+            <td class="cant">2</td>
+          </tr>
+          
+          <tr>
+            <td>CHAI VAINILLA CALIENTE/16 OZ</td>
+            <td class="cant">2</td>
+          </tr>
+          
+          <tr>
+            <td>CHOCOLATE CALIENTE/16 OZ</td>
+            <td class="cant">2</td>
+          </tr>
+          
+          <tr>
+            <td>CHOCOLATE BLANCO CALIENTE/16 OZ</td>
+            <td class="cant">2</td>
+          </tr>
+          
+          <tr>
+            <td>MAZAPAN CALIENTE/16 OZ</td>
+            <td class="cant">2</td>
+          </tr>
+          
+          <tr>
+            <td>MATCHA CALIENTE/16 OZ</td>
+            <td class="cant">2</td>
+          </tr>
+          
+          <tr>
+            <td>HORCHATA CALIENTE/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>CHAI ORIGINAL CALIENTE/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>TARO CALIENTE/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>TISANA/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>TÉ MANZANA/CANELA CALIENTE/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>TÉ MANZANILLA CALIENTE/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>TÉ MANZANILLA-JENGIBRE CALIENTE/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>TÉ VERDE CALIENTE/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+        </table>
+      </div>
+      
+      <div class="cat-card">
+        <h3>Frias Sin Cafe</h3>
+        <table>
+          
+          <tr>
+            <td>AGUA FRIA1/16 OZ</td>
+            <td class="cant">4</td>
+          </tr>
+          
+          <tr>
+            <td>TE DURAZNO JAMAICA FRIO/16 OZ</td>
+            <td class="cant">2</td>
+          </tr>
+          
+          <tr>
+            <td>TISANA FRIA/16 OZ</td>
+            <td class="cant">2</td>
+          </tr>
+          
+          <tr>
+            <td>CHAI ORIGINAL FRIO/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>AGUA FRIA2/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>CHAI VAINILLA FRIO/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>MATCHA FRIO/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>TARO S/A FRIO/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>MATCHA-MENTA FRIO/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>TE FRUTOS ROJOS FRIO/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>TE MANZANILLA JENGIBRE FRIO/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+        </table>
+      </div>
+      
+      <div class="cat-card">
+        <h3>Frias Con Cafe</h3>
+        <table>
+          
+          <tr>
+            <td>CAPUCCINO FRIO/16 OZ</td>
+            <td class="cant">3</td>
+          </tr>
+          
+          <tr>
+            <td>CAPUCCINO FRIO CARAMEL/16 OZ</td>
+            <td class="cant">2</td>
+          </tr>
+          
+          <tr>
+            <td>CAPUCCINO FRIO VAINILLA/16 OZ</td>
+            <td class="cant">2</td>
+          </tr>
+          
+          <tr>
+            <td>COFFE TONIC/16 OZ</td>
+            <td class="cant">2</td>
+          </tr>
+          
+          <tr>
+            <td>AMERICANO FRIO/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>LATTE FRIO VAINILLA/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>LATTE VAINILLA S/A FRIO/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>MOKA BLANCO CAPUCCINO FRIO/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+        </table>
+      </div>
+      
+      <div class="cat-card">
+        <h3>Refrescos</h3>
+        <table>
+          
+          <tr>
+            <td>AGUA/355 ML</td>
+            <td class="cant">5</td>
+          </tr>
+          
+          <tr>
+            <td>COCA ZERO/355 ML LATA</td>
+            <td class="cant">3</td>
+          </tr>
+          
+          <tr>
+            <td>COCA COLA LIGHT/355 ML LATA</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>COCA COLA/ 355 ML LATA</td>
+            <td class="cant">1</td>
+          </tr>
+          
+        </table>
+      </div>
+      
+      <div class="cat-card">
+        <h3>Frappes Sin Cafe</h3>
+        <table>
+          
+          <tr>
+            <td>CHAI VAINILLA FRAPPE/16 OZ</td>
+            <td class="cant">2</td>
+          </tr>
+          
+          <tr>
+            <td>CHAI ORIGINAL FRAPPE/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>CHAI VAINILLA S/A FRAPPE/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>FRAPPE MAZAPAN/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>FRAPPE NUTELLA/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>FRAPPE YOGURT FRESA/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>FRAPPE YOGURT MANGO/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>MATCHA FRAPPE/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+        </table>
+      </div>
+      
+      <div class="cat-card">
+        <h3>Otros</h3>
+        <table>
+          
+          <tr>
+            <td>Americano - Caliente</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>Chapata</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>Matcha Menta - Caliente</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>Nutella - Frappé</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>Sandwich</td>
+            <td class="cant">1</td>
+          </tr>
+          
+        </table>
+      </div>
+      
+      <div class="cat-card">
+        <h3>Smoothies</h3>
+        <table>
+          
+          <tr>
+            <td>COCO SMOOTHIE/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>GUAYABA SMOOTHIE/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>MANGO SMOOTHIE/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>MIX BERRIES SMOOTHIE/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+        </table>
+      </div>
+      
+      <div class="cat-card">
+        <h3>Frappes Con Cafe</h3>
+        <table>
+          
+          <tr>
+            <td>CAPUCCINO FRAPPE/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+          <tr>
+            <td>MOKA CAPUCCINO FRAPPE/16 OZ</td>
+            <td class="cant">1</td>
+          </tr>
+          
+        </table>
+      </div>
+      
+    
+  </main>
+  <footer>Generado automáticamente desde RecoPOS · Seed Café</footer>
+  <script>
+    var AUTH_HASH = 'a554bba8759bde36eac13fe2aaa3701d158c41be25b46f0dd0c1850faa874c27';
+    var AUTH_KEY = 'seedcafe_auth';
+
+    function sha256Hex(text) {
+      var data = new TextEncoder().encode(text);
+      return crypto.subtle.digest('SHA-256', data).then(function(buf) {
+        return Array.prototype.map.call(new Uint8Array(buf), function(b) {
+          return ('0' + b.toString(16)).slice(-2);
+        }).join('');
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var gate = document.getElementById('auth-gate');
+      var input = document.getElementById('auth-pass');
+      var btn = document.getElementById('auth-submit');
+      var err = document.getElementById('auth-error');
+
+      function unlock() {
+        gate.classList.add('hidden');
+        document.documentElement.style.visibility = 'visible';
+      }
+
+      if (localStorage.getItem(AUTH_KEY) === 'ok') {
+        unlock();
+        return;
+      }
+
+      document.documentElement.style.visibility = 'visible';
+      gate.classList.remove('hidden');
+      input.focus();
+
+      function tryLogin() {
+        sha256Hex(input.value).then(function(hash) {
+          if (hash === AUTH_HASH) {
+            localStorage.setItem(AUTH_KEY, 'ok');
+            unlock();
+          } else {
+            err.style.display = 'block';
+            input.value = '';
+            input.focus();
+          }
+        });
+      }
+      btn.addEventListener('click', tryLogin);
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') tryLogin();
+      });
+    });
+  </script>
+</body>
+</html>
