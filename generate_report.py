@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+import re
 import sys
 
 import pandas as pd
@@ -89,12 +90,20 @@ def build_hourly_chart(orders_df: pd.DataFrame, target_date):
     return _fig_to_html(fig, include_js=True)
 
 
+def _nombre_base(nombre: str) -> str:
+    """Quita la variante entre paréntesis (ej. tipo de leche) del nombre del
+    producto, para agrupar 'CAPUCCINO/16 OZ (LECHE LIGHT)' y
+    'CAPUCCINO/16 OZ（02 LECHE DESLACTOSADA）' bajo 'CAPUCCINO/16 OZ'."""
+    return re.sub(r"\s*[（(].*?[）)]\s*$", "", str(nombre)).strip()
+
+
 def build_top_products_chart(items_df: pd.DataFrame, target_date, top_n=10):
     if items_df.empty:
         return None
-    day = items_df[(items_df["fecha"] == target_date) & (~items_df["es_reembolso"])]
+    day = items_df[(items_df["fecha"] == target_date) & (~items_df["es_reembolso"])].copy()
     if day.empty:
         return None
+    day["Nombre de producto"] = day["Nombre de producto"].apply(_nombre_base)
     by_product = (
         day.groupby("Nombre de producto")
         .agg(cantidad=("Cantidad", "sum"), monto=("Precio total después del descuento (modificado)", "sum"))
