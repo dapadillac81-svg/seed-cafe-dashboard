@@ -139,6 +139,41 @@ def build_category_chart(categoria_df: pd.DataFrame, target_date):
     return _fig_to_html(fig)
 
 
+def build_top_categoria_chart(categoria_df: pd.DataFrame, target_date, top_n=10):
+    if categoria_df.empty:
+        return None
+    day = categoria_df[categoria_df["fecha"] == target_date]
+    if day.empty:
+        return None
+    by_product = (
+        day.groupby(["Nombre de producto", "Clasificación"])
+        .agg(cantidad=("Cantidad", "sum"))
+        .reset_index()
+        .sort_values("cantidad", ascending=False)
+        .head(top_n)
+        .sort_values("cantidad")
+    )
+    fig = px.bar(
+        by_product,
+        x="cantidad",
+        y="Nombre de producto",
+        color="Clasificación",
+        orientation="h",
+        text=by_product["cantidad"].apply(lambda v: f"{v:,.0f}"),
+        labels={"cantidad": "Piezas vendidas", "Nombre de producto": "", "Clasificación": "Categoría"},
+        title=f"Top {top_n} productos por categoría",
+    )
+    fig.update_traces(textposition="outside")
+    fig.update_layout(
+        font=dict(size=11),
+        yaxis=dict(tickfont=dict(size=9)),
+        xaxis=dict(visible=False),
+        height=320,
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0, font=dict(size=9)),
+    )
+    return _fig_to_html(fig)
+
+
 def build_comparativa_chart(orders_df: pd.DataFrame, target_date, days=14):
     history = orders_df[~orders_df["es_reembolso"]]
     daily = (
@@ -178,6 +213,7 @@ def _render_one(template, data, target_date, all_dates, generated_at):
         "hourly": build_hourly_chart(orders_df, target_date),
         "top_products": build_top_products_chart(items_df, target_date),
         "category": build_category_chart(categoria_df, target_date),
+        "top_categoria": build_top_categoria_chart(categoria_df, target_date),
         "comparativa": build_comparativa_chart(orders_df, target_date),
     }
 

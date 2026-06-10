@@ -181,6 +181,9 @@
       {% if charts.category %}{{ charts.category|safe }}{% else %}<div class="empty">Sin desglose por categoría para este día</div>{% endif %}
     </div>
     <div class="chart-card">
+      {% if charts.top_categoria %}{{ charts.top_categoria|safe }}{% else %}<div class="empty">Sin detalle de categorías para este día</div>{% endif %}
+    </div>
+    <div class="chart-card">
       {% if charts.comparativa %}{{ charts.comparativa|safe }}{% else %}<div class="empty">Aún no hay suficiente histórico para comparar</div>{% endif %}
     </div>
   </main>
