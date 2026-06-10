@@ -221,16 +221,29 @@
       var navBar = document.querySelector('.nav-bar');
       var navHeight = navBar ? navBar.offsetHeight : 0;
 
-      // Al cargar la página, si hay un gráfico recordado, baja hasta él
+      // Al cargar la página, si hay un gráfico recordado, baja hasta él.
+      // Se reintenta varias veces porque los gráficos de Plotly tardan en
+      // renderizarse y van cambiando la altura de la página.
       var savedId = sessionStorage.getItem(STORAGE_KEY);
       if (savedId) {
-        var target = document.querySelector('.chart-card[data-chart-id="' + savedId + '"]');
-        if (target) {
-          setTimeout(function() {
+        // Evita que el navegador "ayude" restaurando su propio scroll
+        if ('scrollRestoration' in history) {
+          history.scrollRestoration = 'manual';
+        }
+        var attempts = 0;
+        var maxAttempts = 8;
+        var tryScroll = function() {
+          var target = document.querySelector('.chart-card[data-chart-id="' + savedId + '"]');
+          if (target) {
             var top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 8;
             window.scrollTo(0, Math.max(top, 0));
-          }, 900);
-        }
+          }
+          attempts++;
+          if (attempts < maxAttempts) {
+            setTimeout(tryScroll, 350);
+          }
+        };
+        setTimeout(tryScroll, 100);
       }
 
       // Al darle a "anterior"/"siguiente", guarda qué gráfico se estaba viendo
