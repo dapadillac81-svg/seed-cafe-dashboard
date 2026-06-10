@@ -164,10 +164,18 @@ def build_hourly_category_chart(orders_df: pd.DataFrame, items_df: pd.DataFrame,
 
 
 def _nombre_base(nombre: str) -> str:
-    """Quita la variante entre paréntesis (ej. tipo de leche) del nombre del
-    producto, para agrupar 'CAPUCCINO/16 OZ (LECHE LIGHT)' y
-    'CAPUCCINO/16 OZ（02 LECHE DESLACTOSADA）' bajo 'CAPUCCINO/16 OZ'."""
-    return re.sub(r"\s*[（(].*?[）)]\s*$", "", str(nombre)).strip()
+    """Quita las variantes entre paréntesis (ej. tipo de leche, shots extra)
+    del nombre del producto, para agrupar 'CAPUCCINO/16 OZ (LECHE LIGHT)' y
+    'CAPUCCINO/16 OZ（02 LECHE DESLACTOSADA）, （SHOT EXTRA CAFE+15）' bajo
+    'CAPUCCINO/16 OZ'. Quita los grupos entre paréntesis al final del nombre
+    de uno en uno (puede haber varios separados por comas)."""
+    s = str(nombre)
+    while True:
+        nuevo = re.sub(r"\s*[,，]?\s*[（(][^（()）]*[）)]\s*$", "", s)
+        if nuevo == s:
+            break
+        s = nuevo
+    return s.strip()
 
 
 def _slug(texto: str) -> str:
@@ -178,19 +186,20 @@ def _slug(texto: str) -> str:
 
 
 def _tipo_leche(nombre: str) -> str | None:
-    """Extrae el tipo de leche de la variante entre paréntesis, si existe.
-    Ej. '...（02 LECHE DESLACTOSADA）' -> 'LECHE DESLACTOSADA'.
+    """Extrae el tipo de leche del nombre del producto, revisando cada
+    variante entre paréntesis (puede haber varias, ej. tipo de leche y shots
+    extra por separado) y devolviendo la que mencione "LECHE".
+    Ej. '...（02 LECHE DESLACTOSADA）, （SHOT EXTRA CAFE+15）' -> 'Leche Deslactosada'.
     Devuelve None si el producto no trae variante de leche (ej. agua, panes)."""
-    m = re.search(r"[（(](.*?)[）)]\s*$", str(nombre))
-    if not m:
-        return None
-    variante = m.group(1).strip()
-    # Quita prefijos numéricos tipo "01 ", "02 ", "13 ", "14 +12"
-    variante = re.sub(r"^\d+\s*", "", variante)
-    variante = re.sub(r"\+\d+$", "", variante).strip()
-    if "LECHE" not in variante.upper():
-        return None
-    return variante.title()
+    grupos = re.findall(r"[（(]([^（()）]*)[）)]", str(nombre))
+    for variante in grupos:
+        variante = variante.strip()
+        # Quita prefijos numéricos tipo "01 ", "02 ", "13 ", "14 +12"
+        variante = re.sub(r"^\d+\s*", "", variante)
+        variante = re.sub(r"\+\d+$", "", variante).strip()
+        if "LECHE" in variante.upper():
+            return variante.title()
+    return None
 
 
 def build_milk_chart(items_df: pd.DataFrame, target_date, color_map: dict):
