@@ -21,6 +21,18 @@ TEMPLATES_DIR = os.path.join(HERE, "templates")
 PLOTLY_CONFIG = {"displayModeBar": False, "responsive": True}
 CHART_TEMPLATE = "plotly_white"
 
+# Paleta fija para que cada categoría/tipo de leche tenga siempre el mismo
+# color, sin importar el día (de lo contrario Plotly reasigna colores según
+# el orden en que aparecen las categorías en cada día).
+COLOR_PALETTE = px.colors.qualitative.Light24
+
+
+def _build_color_map(values) -> dict:
+    """Asigna un color fijo de COLOR_PALETTE a cada valor único, en orden
+    alfabético, para que el mismo nombre siempre tenga el mismo color."""
+    uniq = sorted({v for v in values if pd.notna(v)})
+    return {val: COLOR_PALETTE[i % len(COLOR_PALETTE)] for i, val in enumerate(uniq)}
+
 
 def _fig_to_html(fig, include_js=False):
     fig.update_layout(template=CHART_TEMPLATE, margin=dict(l=10, r=10, t=40, b=10))
@@ -90,7 +102,7 @@ def build_hourly_chart(orders_df: pd.DataFrame, target_date):
     return _fig_to_html(fig, include_js=True)
 
 
-def build_hourly_category_chart(orders_df: pd.DataFrame, items_df: pd.DataFrame, categoria_df: pd.DataFrame, target_date):
+def build_hourly_category_chart(orders_df: pd.DataFrame, items_df: pd.DataFrame, categoria_df: pd.DataFrame, target_date, color_map: dict):
     """Barras apiladas: piezas vendidas por hora (8 AM - 8 PM), desglosadas
     por categoría de producto."""
     if items_df.empty or categoria_df.empty:
@@ -128,7 +140,7 @@ def build_hourly_category_chart(orders_df: pd.DataFrame, items_df: pd.DataFrame,
         x="hora_label",
         y="Cantidad",
         color="categoria",
-        color_discrete_sequence=px.colors.qualitative.Light24,
+        color_discrete_map=color_map,
         labels={"hora_label": "Hora", "Cantidad": "Piezas vendidas", "categoria": "Categoría"},
         title="Pedidos por hora y categoría",
     )
@@ -181,7 +193,7 @@ def _tipo_leche(nombre: str) -> str | None:
     return variante.title()
 
 
-def build_milk_chart(items_df: pd.DataFrame, target_date):
+def build_milk_chart(items_df: pd.DataFrame, target_date, color_map: dict):
     if items_df.empty:
         return None
     day = items_df[(items_df["fecha"] == target_date) & (~items_df["es_reembolso"])].copy()
@@ -203,6 +215,8 @@ def build_milk_chart(items_df: pd.DataFrame, target_date):
         values="Cantidad",
         title="Tipos de leche pedidos",
         hole=0.4,
+        color="tipo_leche",
+        color_discrete_map=color_map,
     )
     fig.update_traces(textinfo="label+value")
     fig.update_layout(showlegend=False)
@@ -243,7 +257,7 @@ def build_top_products_chart(items_df: pd.DataFrame, target_date, top_n=10):
     return _fig_to_html(fig)
 
 
-def build_category_chart(categoria_df: pd.DataFrame, target_date):
+def build_category_chart(categoria_df: pd.DataFrame, target_date, color_map: dict):
     if categoria_df.empty:
         return None
     day = categoria_df[categoria_df["fecha"] == target_date]
@@ -256,6 +270,8 @@ def build_category_chart(categoria_df: pd.DataFrame, target_date):
         values="Monto",
         title="Ventas por categoría",
         hole=0.4,
+        color="Clasificación",
+        color_discrete_map=color_map,
     )
     return _fig_to_html(fig)
 
@@ -332,7 +348,7 @@ def build_comparativa_chart(orders_df: pd.DataFrame, target_date, days=14):
     return _fig_to_html(fig)
 
 
-def _render_one(template, data, target_date, all_dates, generated_at):
+def _render_one(template, data, target_date, all_dates, generated_at, category_color_map, milk_color_map):
     """Genera el HTML de un día y lo guarda en docs/YYYY-MM-DD.html."""
     orders_df, items_df, categoria_df = data["orders"], data["items"], data["categoria"]
     idx = list(all_dates).index(target_date)
@@ -346,10 +362,10 @@ def _render_one(template, data, target_date, all_dates, generated_at):
     kpis = compute_kpis(orders_df, target_date)
     charts = {
         "hourly": build_hourly_chart(orders_df, target_date),
-        "hourly_category": build_hourly_category_chart(orders_df, items_df, categoria_df, target_date),
+        "hourly_category": build_hourly_category_chart(orders_df, items_df, categoria_df, target_date, category_color_map),
         "top_products": build_top_products_chart(items_df, target_date),
-        "milk": build_milk_chart(items_df, target_date),
-        "category": build_category_chart(categoria_df, target_date),
+        "milk": build_milk_chart(items_df, target_date, milk_color_map),
+        "category": build_category_chart(categoria_df, target_date, category_color_map),
         "comparativa": build_comparativa_chart(orders_df, target_date),
     }
 
@@ -384,16 +400,23 @@ def render_report(target_date=None):
 
     os.makedirs(DOCS_DIR, exist_ok=True)
 
+    # Mapas de color fijos (mismo color para la misma categoría/tipo de leche
+    # en todos los días, calculados sobre todo el histórico disponible)
+    category_color_map = _build_color_map(categoria_df["Clasificación"]) if not categoria_df.empty else {}
+    milk_color_map = (
+        _build_color_map(items_df["Nombre de producto"].apply(_tipo_leche)) if not items_df.empty else {}
+    )
+
     # Genera una página por cada fecha disponible
     for d in all_dates:
-        html = _render_one(template, data, d, all_dates, generated_at)
+        html = _render_one(template, data, d, all_dates, generated_at, category_color_map, milk_color_map)
         out_path = os.path.join(DOCS_DIR, f"{d}.html")
         with open(out_path, "w", encoding="utf-8") as f:
             f.write(html)
         print(f"  Generado: {out_path}")
 
     # index.html = día más reciente (sin botón → para no ir al futuro)
-    html_latest = _render_one(template, data, latest, all_dates, generated_at)
+    html_latest = _render_one(template, data, latest, all_dates, generated_at, category_color_map, milk_color_map)
     # Quita el link "siguiente" en index.html (ya es el más reciente)
     idx_path = os.path.join(DOCS_DIR, "index.html")
     with open(idx_path, "w", encoding="utf-8") as f:
