@@ -208,18 +208,27 @@ def build_milk_chart(items_df: pd.DataFrame, target_date, color_map: dict):
         .sum()
         .reset_index()
         .sort_values("Cantidad", ascending=False)
+        .sort_values("Cantidad")
     )
-    fig = px.pie(
+    fig = px.bar(
         by_leche,
-        names="tipo_leche",
-        values="Cantidad",
-        title="Tipos de leche pedidos",
-        hole=0.4,
+        x="Cantidad",
+        y="tipo_leche",
+        orientation="h",
+        text=by_leche["Cantidad"].apply(lambda v: f"{v:,.0f}"),
         color="tipo_leche",
         color_discrete_map=color_map,
+        labels={"Cantidad": "Piezas pedidas", "tipo_leche": ""},
+        title="Tipos de leche pedidos",
     )
-    fig.update_traces(textinfo="label+value")
-    fig.update_layout(showlegend=False)
+    fig.update_traces(textposition="outside")
+    fig.update_layout(
+        font=dict(size=11),
+        yaxis=dict(tickfont=dict(size=9)),
+        xaxis=dict(visible=False),
+        showlegend=False,
+        height=max(160, 35 * len(by_leche) + 60),
+    )
     return _fig_to_html(fig)
 
 
