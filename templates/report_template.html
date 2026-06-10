@@ -175,6 +175,9 @@
       {% if charts.hourly %}{{ charts.hourly|safe }}{% else %}<div class="empty">Sin datos por hora para este día</div>{% endif %}
     </div>
     <div class="chart-card">
+      {% if charts.category %}{{ charts.category|safe }}{% else %}<div class="empty">Sin desglose por categoría para este día</div>{% endif %}
+    </div>
+    <div class="chart-card">
       {% if charts.top_products %}{{ charts.top_products|safe }}{% else %}<div class="empty">Sin detalle de productos para este día</div>{% endif %}
     </div>
     {% if charts.milk %}
@@ -182,9 +185,6 @@
       {{ charts.milk|safe }}
     </div>
     {% endif %}
-    <div class="chart-card">
-      {% if charts.category %}{{ charts.category|safe }}{% else %}<div class="empty">Sin desglose por categoría para este día</div>{% endif %}
-    </div>
     {% for nombre_cat, chart_html in top_categoria_charts %}
     <div class="chart-card">
       {{ chart_html|safe }}
