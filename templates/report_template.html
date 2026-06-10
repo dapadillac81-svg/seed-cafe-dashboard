@@ -240,18 +240,28 @@
         if ('scrollRestoration' in history) {
           history.scrollRestoration = 'manual';
         }
+
+        // Si el usuario toca/desplaza manualmente, no seguir forzando el scroll
+        var userInteracted = false;
+        var markInteracted = function() { userInteracted = true; };
+        ['touchstart', 'wheel', 'pointerdown'].forEach(function(evt) {
+          window.addEventListener(evt, markInteracted, { passive: true, once: true });
+        });
+
         var attempts = 0;
         var maxAttempts = 8;
         var tryScroll = function() {
-          var target = document.querySelector('.chart-card[data-chart-id="' + savedId + '"]');
-          if (target) {
-            var top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 8;
-            window.scrollTo(0, Math.max(top, 0));
+          if (!userInteracted) {
+            var target = document.querySelector('.chart-card[data-chart-id="' + savedId + '"]');
+            if (target) {
+              var top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 8;
+              window.scrollTo(0, Math.max(top, 0));
+            }
           }
           // Ya se posicionó (o no existe el gráfico): mostrar la página
           document.documentElement.style.visibility = 'visible';
           attempts++;
-          if (attempts < maxAttempts) {
+          if (attempts < maxAttempts && !userInteracted) {
             setTimeout(tryScroll, 350);
           }
         };
