@@ -1,6 +1,6 @@
 {
-  "name": "Seed Café — KPIs",
-  "short_name": "Seed Café",
+  "name": "Seed Café — Dashboard",
+  "short_name": "Dashboard",
   "description": "Dashboard diario de ventas Seed Café",
   "start_url": "/seed-cafe-dashboard/",
   "display": "standalone",
