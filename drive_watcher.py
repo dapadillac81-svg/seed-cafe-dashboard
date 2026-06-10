@@ -128,3 +128,10 @@ if __name__ == "__main__":
     descargados = sync_new_files()
     for path in descargados:
         print(f"  -> {path}")
+
+    # Expone si hubo archivos nuevos para que el workflow decida si vale la
+    # pena regenerar y publicar el dashboard.
+    github_output = os.environ.get("GITHUB_OUTPUT")
+    if github_output:
+        with open(github_output, "a", encoding="utf-8") as f:
+            f.write(f"hubo_nuevos={'true' if descargados else 'false'}\n")

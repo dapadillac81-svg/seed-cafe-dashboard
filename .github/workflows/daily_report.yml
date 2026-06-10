@@ -2,8 +2,11 @@ name: Reporte diario Seed Café
 
 on:
   schedule:
-    # 13:00 UTC ≈ 07:00 hora de Ciudad de México (UTC-6 / UTC-5 en horario de verano)
-    - cron: "0 13 * * *"
+    # Revisa la carpeta de Drive cada 15 minutos durante el horario de la
+    # cafetería (13:00-03:00 UTC ≈ 07:00 AM-09:00 PM hora de Ciudad de México).
+    # Así, en cuanto se sube un archivo nuevo, el dashboard se actualiza solo
+    # en un máximo de ~15 minutos.
+    - cron: "*/15 13-23,0-3 * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -44,9 +47,11 @@ jobs:
         run: python drive_watcher.py
 
       - name: Generar dashboard HTML
+        if: steps.sync.outputs.hubo_nuevos == 'true' || github.event_name == 'workflow_dispatch'
         run: python generate_report.py
 
       - name: Publicar dashboard (solo HTML con KPIs agregados)
+        if: steps.sync.outputs.hubo_nuevos == 'true' || github.event_name == 'workflow_dispatch'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Reporte automático: actualiza dashboard"
