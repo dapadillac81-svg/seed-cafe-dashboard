@@ -484,6 +484,10 @@ def _render_pronostico(env, data, latest_date, generated_at):
     producción sugerido para el día siguiente al más reciente."""
     items_df, categoria_df = data["items"], data["categoria"]
     forecast_date = pd.Timestamp(latest_date) + pd.Timedelta(days=1)
+    # La cafetería no abre domingo: si el día siguiente es domingo, el plan
+    # de producción es para el lunes.
+    if forecast_date.dayofweek == 6:
+        forecast_date += pd.Timedelta(days=1)
 
     forecast = compute_forecast(items_df, categoria_df, forecast_date)
 
