@@ -7,6 +7,10 @@ on:
     # Así, en cuanto se sube un archivo nuevo, el dashboard se actualiza solo
     # en un máximo de ~15 minutos.
     - cron: "*/15 13-23,0-3 * * *"
+    # Corrida extra a las 11:30 PM hora de Ciudad de México (05:30 UTC), para
+    # procesar el reporte que se descarga automáticamente a las 11 PM (vía
+    # cowork) la misma noche, sin esperar hasta la mañana.
+    - cron: "30 5 * * *"
   workflow_dispatch: {}
 
 permissions:
