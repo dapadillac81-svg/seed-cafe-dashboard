@@ -4,3 +4,5 @@ _debug_screens/
 .env
 .claude/
 data/*.xlsx
+*.json
+!docs/*.json
