@@ -6,3 +6,4 @@ _debug_screens/
 data/*.xlsx
 *.json
 !docs/*.json
+nightly_update.log
