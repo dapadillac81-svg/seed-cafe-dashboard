@@ -163,19 +163,51 @@ def build_hourly_category_chart(orders_df: pd.DataFrame, items_df: pd.DataFrame,
     return _fig_to_html(fig)
 
 
+# Productos que RecoPOS exportaba con un nombre "legado" (ej. en pedidos
+# antiguos) y que corresponden al mismo producto que ahora se exporta con
+# otro nombre. Se mapean a su nombre actual para que el histórico se agrupe
+# correctamente (cantidades y categoría) sin importar de qué fecha venga.
+_NOMBRE_ALIAS = {
+    "Americano - Caliente": "AMERICANO CALIENTE/16 OZ",
+    "Capuccino - Caliente": "CAPUCCINO CALIENTE/16 OZ",
+    "Capuccino con Sabor de Amaret - Caliente": "CAPUCCINO CALIENTE AMARETTO/16 OZ",
+    "Capuccino con Sabor de Avellana - Frappé": "AVELLANA CAPUCCINO FRAPPE/16 OZ",
+    "Chai Guayaba": "CHAI GUAYABA/16 oz",
+    "Chai Vainilla - Frio": "CHAI VAINILLA FRIO/16 OZ",
+    "Chocomenta - Frappé": "CHOCOMENTA FRAPPE/16 OZ",
+    "Coffee Tonic Mandarina": "COFFE TONIC/16 OZ",
+    "Horchata Nuez - Frio": "HORCHATA FRIA/16 OZ",
+    "Matcha - Frio": "MATCHA FRIO/16 OZ",
+    "Matcha Menta - Frio": "MATCHA-MENTA FRIO/16 OZ",
+    "Mazapán - Frio": "MAZAPAN FRIO/16 OZ",
+    "Moka - Frappé": "MOKA CAPUCCINO FRAPPE/16 OZ",
+    "Moka Blanco - Caliente": "MOKA BLANCO CAPUCCINO CALIENTE/16 OZ",
+    "Molletes Naturales": "MOLLETES/2 PZAS",
+    "Nutella - Frappé": "FRAPPE NUTELLA/16 OZ",
+    "Smoothie Guayaba": "GUAYABA SMOOTHIE/16 OZ",
+    "Taro sin Azúcar - Frio": "TARO S/A FRIO/16 OZ",
+    "Té de Frutos Rojos - Frio": "TE FRUTOS ROJOS FRIO/16 OZ",
+    "Wrap Omelette-Jamón y Queso": "WRAP DE OMELETTE JAMON Y QUESO/1 PZA",
+}
+
+
 def _nombre_base(nombre: str) -> str:
     """Quita las variantes entre paréntesis (ej. tipo de leche, shots extra)
     del nombre del producto, para agrupar 'CAPUCCINO/16 OZ (LECHE LIGHT)' y
     'CAPUCCINO/16 OZ（02 LECHE DESLACTOSADA）, （SHOT EXTRA CAFE+15）' bajo
     'CAPUCCINO/16 OZ'. Quita los grupos entre paréntesis al final del nombre
-    de uno en uno (puede haber varios separados por comas)."""
+    de uno en uno (puede haber varios separados por comas). También traduce
+    nombres "legados" a su nombre actual (ver _NOMBRE_ALIAS)."""
     s = str(nombre)
     while True:
-        nuevo = re.sub(r"\s*[,，]?\s*[（(][^（()）]*[）)]\s*$", "", s)
+        # Acepta un sufijo opcional "*N" después del paréntesis, ej.
+        # "...（Shot Extra Cafe+15）*2" (combo duplicado).
+        nuevo = re.sub(r"\s*[,，]?\s*[（(][^（()）]*[）)](?:\s*\*\d+)?\s*$", "", s)
         if nuevo == s:
             break
         s = nuevo
-    return s.strip()
+    s = s.strip()
+    return _NOMBRE_ALIAS.get(s, s)
 
 
 def _slug(texto: str) -> str:
