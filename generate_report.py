@@ -466,8 +466,10 @@ def compute_forecast(items_df: pd.DataFrame, categoria_df: pd.DataFrame, forecas
         for categoria, grupo in fc.groupby("categoria"):
             grupo = grupo.sort_values("cantidad_sugerida", ascending=False)
             categorias.append((categoria, grupo.to_dict("records")))
-        # Ordena las categorías por la cantidad total sugerida (mayor a menor)
+        # Ordena las categorías por la cantidad total sugerida (mayor a menor),
+        # pero ALIMENTOS siempre va primero (referencia rápida para producción).
         categorias.sort(key=lambda c: sum(p["cantidad_sugerida"] for p in c[1]), reverse=True)
+        categorias.sort(key=lambda c: c[0] != "ALIMENTOS")
 
     return {
         "categorias": categorias,
