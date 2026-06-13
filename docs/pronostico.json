@@ -1,10 +1,65 @@
 {
   "fecha_objetivo": "2026-06-12",
   "dia_semana": "Viernes",
-  "generado": "12-06-2026 19:07",
+  "generado": "12-06-2026 23:20",
   "dias_historial_mismo_dia": 6,
   "dias_historial_total": 40,
   "productos": [
+    {
+      "producto": "SANDWICH P/P/PANELA/1 PZA",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 6
+    },
+    {
+      "producto": "CHAPATA P/P/PANELA/1 PZA",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 4
+    },
+    {
+      "producto": "CHAPATA CHILORIO/1 PZA",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 3
+    },
+    {
+      "producto": "WRAP DE OMELETTE Y CHILORIO/1 PZA",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 3
+    },
+    {
+      "producto": "MOLLETES/2 PZAS",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 3
+    },
+    {
+      "producto": "ENSALADA/325 GR",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 2
+    },
+    {
+      "producto": "MOLLETES A LA MEXICANA/2 PZAS",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 2
+    },
+    {
+      "producto": "WRAP DE OMELETTE JAMON Y QUESO/1 PZA",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 2
+    },
+    {
+      "producto": "SINCRONIZADAS DE JAMON/2 PZAS",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 2
+    },
+    {
+      "producto": "MEDIA ENSALADA/1/2 Ensalada",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 1
+    },
+    {
+      "producto": "SINCRONIZADAS DE CHILORIO/2 PZAS",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 1
+    },
     {
       "producto": "CAPUCCINO CALIENTE/16 OZ",
       "categoria": "CALIENTES CON CAFE",
@@ -303,61 +358,6 @@
     {
       "producto": "YOGURT GRIEGO CON FRESAS/1 PZA",
       "categoria": "POSTRES",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "SANDWICH P/P/PANELA/1 PZA",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 6
-    },
-    {
-      "producto": "CHAPATA P/P/PANELA/1 PZA",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 4
-    },
-    {
-      "producto": "CHAPATA CHILORIO/1 PZA",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 3
-    },
-    {
-      "producto": "WRAP DE OMELETTE Y CHILORIO/1 PZA",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 3
-    },
-    {
-      "producto": "MOLLETES/2 PZAS",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 3
-    },
-    {
-      "producto": "ENSALADA/325 GR",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "MOLLETES A LA MEXICANA/2 PZAS",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "WRAP DE OMELETTE JAMON Y QUESO/1 PZA",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "SINCRONIZADAS DE JAMON/2 PZAS",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "MEDIA ENSALADA/1/2 Ensalada",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "SINCRONIZADAS DE CHILORIO/2 PZAS",
-      "categoria": "ALIMENTOS",
       "cantidad_sugerida": 1
     },
     {
