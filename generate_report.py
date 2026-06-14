@@ -110,6 +110,8 @@ def build_hourly_category_chart(orders_df: pd.DataFrame, items_df: pd.DataFrame,
     day_items = items_df[(items_df["fecha"] == target_date) & (~items_df["es_reembolso"])].copy()
     if day_items.empty:
         return None
+    if "No. de orden" not in day_items.columns or day_items["No. de orden"].isna().all():
+        return None
 
     # Mapa producto base -> categoría, usando todo el histórico de categoria_df
     cat_map_df = categoria_df.copy()

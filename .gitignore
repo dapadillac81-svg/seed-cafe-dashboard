@@ -6,4 +6,5 @@ _debug_screens/
 data/*.xlsx
 *.json
 !docs/*.json
+!product_category_map.json
 nightly_update.log
