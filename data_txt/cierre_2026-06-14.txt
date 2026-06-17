@@ -1,0 +1,53 @@
+# Cierre Diario — SEED CAFÉ
+## Domingo 14 de junio de 2026
+
+---
+
+## RESUMEN DEL DÍA
+
+Tienda: SEED CAFÉ (200012148)
+Horario operativo: — – —
+Total de órdenes: 0
+Total ventas: $0.00
+Ticket promedio: $0.00
+Ticket mínimo: $0.00
+Ticket máximo: $0.00
+
+---
+
+## POR MÉTODO DE PAGO
+
+(Sin órdenes registradas)
+TOTAL: 0 órdenes — $0.00
+
+---
+
+## TOP 5 PRODUCTOS
+
+(Sin productos registrados)
+
+---
+
+## DETALLE DE ÓRDENES
+
+| No. Orden | Monto | Folio/Mesa | Hora | Pago | Fuente | Tipo |
+|---|---|---|---|---|---|---|
+(Sin órdenes)
+
+---
+
+## DETALLE DE PRODUCTOS
+
+| No. Orden | Producto | Opciones | Cantidad | Monto | Reembolso |
+|---|---|---|---|---|---|
+(Sin productos)
+
+---
+
+## NOTAS
+
+- Datos: API de órdenes (`/admin/baigong/order/list`) + detalle de productos por orden (`/admin/baigong/order/info`)
+- El Cierre formal no fue ejecutado por el cajero
+- Sin órdenes para el día — posiblemente día sin operación (domingo)
+- Match órdenes vs productos: OK (0 vs 0)
+- Generado: 2026-06-15T21:59:00Z

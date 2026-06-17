@@ -1,0 +1,53 @@
+# Cierre Diario — SEED CAFÉ
+## Viernes 12 de junio de 2026
+
+---
+
+## 📊 Resumen del día
+
+| Métrica | Valor |
+|---|---|
+| Tienda | SEED CAFÉ (200012148) |
+| Horario operativo | 07:13 – 19:11 |
+| Total de órdenes | 48 |
+| Total ventas (cobrado) | $8,301.60 |
+| Ticket promedio | $172.95 |
+| Ticket mínimo | $40.00 |
+| Ticket máximo | $543.00 |
+| Operadora de cierre | Lulu Navarro |
+| Fuente de datos | Cierre Formal Recopos + API Órdenes |
+
+---
+
+## 💳 Por método de pago
+
+| Método | Monto | % |
+|---|---|---|
+| Efectivo | $3,326.00 | 40.1% |
+| Tarjeta de débito | $2,541.60 | 30.6% |
+| Tarjeta bancaria | $2,241.00 | 27.0% |
+| Uber Eats | $193.00 | 2.3% |
+| **TOTAL** | **$8,301.60** | **100%** |
+
+---
+
+## 📱 Por canal de ventas
+
+| Canal | Órdenes |
+|---|---|
+| POS (en tienda) | 47 |
+| Uber Eats | 1 |
+| **TOTAL** | **48** |
+
+---
+
+## 📋 Notas operativas
+
+- Sesión Recopos activa (sin necesidad de renovar CAPTCHA) ✅
+- Cierre formal ejecutado por Lulu Navarro el 12/06/2026 ✅
+- Datos de resumen obtenidos del módulo Cierre Diario (lista de cierres).
+- Datos de pago y canal obtenidos de API Órdenes (ejecución anterior).
+
+---
+*Generado automáticamente por Claude — Recopos SEED CAFÉ (200012148)*
+*Fecha de generación: 2026-06-13 (datos del 2026-06-12)*
