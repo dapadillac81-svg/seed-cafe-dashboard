@@ -1,7 +1,7 @@
 {
   "fecha_objetivo": "2026-06-17",
   "dia_semana": "Miércoles",
-  "generado": "17-06-2026 21:45",
+  "generado": "18-06-2026 00:15",
   "dias_historial_mismo_dia": 7,
   "dias_historial_total": 42,
   "productos": [
@@ -103,7 +103,7 @@
     {
       "producto": "CAPUCCINO CALIENTE",
       "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 11
+      "cantidad_sugerida": 9
     },
     {
       "producto": "CAPUCCINO CALIENTE/16 OZ",
@@ -121,12 +121,17 @@
       "cantidad_sugerida": 3
     },
     {
-      "producto": "BEBIDA GRATIS PROGRAMA LEALTAD/16 OZ",
+      "producto": "LATTE CALIENTE",
+      "categoria": "CALIENTES CON CAFE",
+      "cantidad_sugerida": 3
+    },
+    {
+      "producto": "CAPUCCINO CALIENTE CARAMEL",
       "categoria": "CALIENTES CON CAFE",
       "cantidad_sugerida": 2
     },
     {
-      "producto": "CAPUCCINO CALIENTE CARAMEL",
+      "producto": "LATTE CALIENTE/16 OZ",
       "categoria": "CALIENTES CON CAFE",
       "cantidad_sugerida": 2
     },
@@ -141,17 +146,12 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "LATTE CALIENTE",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "LATTE CALIENTE/16 OZ",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
       "producto": "FLAT WHITE CALIENTE/16 OZ",
+      "categoria": "CALIENTES CON CAFE",
+      "cantidad_sugerida": 2
+    },
+    {
+      "producto": "BEBIDA GRATIS PROGRAMA LEALTAD/16 OZ",
       "categoria": "CALIENTES CON CAFE",
       "cantidad_sugerida": 2
     },
@@ -159,6 +159,16 @@
       "producto": "ESPRESSO DOBLE/2 OZ",
       "categoria": "CALIENTES CON CAFE",
       "cantidad_sugerida": 2
+    },
+    {
+      "producto": "CAPUCCINO CALIENTE AMARETTO",
+      "categoria": "CALIENTES CON CAFE",
+      "cantidad_sugerida": 1
+    },
+    {
+      "producto": "CAPUCCINO MENTA CALIENTE/16 OZ",
+      "categoria": "CALIENTES CON CAFE",
+      "cantidad_sugerida": 1
     },
     {
       "producto": "CAPUCCINO CALIENTE VAINILLA/16 OZ",
@@ -176,27 +186,22 @@
       "cantidad_sugerida": 1
     },
     {
-      "producto": "CAPUCCINO CALIENTE AVELLANA/16 OZ",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CAPUCCINO CALIENTE AMARETTO",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
       "producto": "CAPUCCINO CALIENTE AMARETTO/16 OZ",
       "categoria": "CALIENTES CON CAFE",
       "cantidad_sugerida": 1
     },
     {
-      "producto": "CAPUCCINO VAINILLA S/A/16 OZ",
+      "producto": "CAPUCCINO CALIENTE AVELLANA/16 OZ",
       "categoria": "CALIENTES CON CAFE",
       "cantidad_sugerida": 1
     },
     {
-      "producto": "CAPUCCINO MENTA CALIENTE/16 OZ",
+      "producto": "ESPRESSO SENCILLO/1 OZ",
+      "categoria": "CALIENTES CON CAFE",
+      "cantidad_sugerida": 1
+    },
+    {
+      "producto": "CAPUCCINO VAINILLA S/A/16 OZ",
       "categoria": "CALIENTES CON CAFE",
       "cantidad_sugerida": 1
     },
@@ -211,12 +216,12 @@
       "cantidad_sugerida": 1
     },
     {
-      "producto": "EUROPEO CALIENTE/16 OZ",
+      "producto": "FLAT WHITE CALIENTE",
       "categoria": "CALIENTES CON CAFE",
       "cantidad_sugerida": 1
     },
     {
-      "producto": "ESPRESSO SENCILLO/1 OZ",
+      "producto": "EUROPEO CALIENTE/16 OZ",
       "categoria": "CALIENTES CON CAFE",
       "cantidad_sugerida": 1
     },
@@ -256,12 +261,12 @@
       "cantidad_sugerida": 4
     },
     {
-      "producto": "ROL DE CANELA/1 PZA",
+      "producto": "NUTRI BARRA/1 PZA",
       "categoria": "POSTRES",
       "cantidad_sugerida": 3
     },
     {
-      "producto": "NUTRI BARRA/1 PZA",
+      "producto": "ROL DE CANELA/1 PZA",
       "categoria": "POSTRES",
       "cantidad_sugerida": 3
     },
@@ -269,6 +274,11 @@
       "producto": "JAMAICA ENCHILADA/1 PZA",
       "categoria": "POSTRES",
       "cantidad_sugerida": 3
+    },
+    {
+      "producto": "CHILLI PARADISE/1 PZA",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 2
     },
     {
       "producto": "YOGURT GRIEGO CON FRESAS/1 PZA",
@@ -281,12 +291,12 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "GALLETAS NEW YORK/1PZA",
+      "producto": "GOMITAS",
       "categoria": "POSTRES",
       "cantidad_sugerida": 2
     },
     {
-      "producto": "CHILLI PARADISE/1 PZA",
+      "producto": "GALLETAS NEW YORK/1PZA",
       "categoria": "POSTRES",
       "cantidad_sugerida": 2
     },
@@ -888,7 +898,7 @@
     {
       "producto": "AGUA",
       "categoria": "REFRESCOS",
-      "cantidad_sugerida": 4
+      "cantidad_sugerida": 2
     },
     {
       "producto": "AGUA MINERAL/355 ML/LATA",

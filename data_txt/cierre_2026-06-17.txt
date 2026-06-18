@@ -1,0 +1,390 @@
+REPORTE CIERRE DEL DÍA — SEED CAFÉ
+Fecha: Miércoles 17 de junio de 2026
+───────────────────────────────────────────────────────
+
+RESUMEN GENERAL
+  Órdenes:        75
+  Venta total:    $12,652.00
+  Ticket promedio:$168.69
+  Primera orden:  07:10:17 (Orden 0001)
+  Última orden:   18:14:19 (Orden 0075)
+
+───────────────────────────────────────────────────────
+DESGLOSE DE PAGOS
+  Efectivo                      36 órd  $  5,769  (46%)
+  Tarjeta de débito             21 órd  $  4,201  (33%)
+  Tarjeta bancaria              17 órd  $  2,082  (16%)
+  Uber Eats                      2 órd  $    601  (5%)
+
+───────────────────────────────────────────────────────
+TOP 5 PRODUCTOS
+  1. AMERICANO CALIENTE                  14 uds
+  2. CAPUCCINO CALIENTE                  12 uds
+  3. SANDWICH P/P/PANELA                 11 uds
+  4. TRENZAS DE MAPLE Y NUEZ             11 uds
+  5. ROL DE CANELA                       5 uds
+
+───────────────────────────────────────────────────────
+DETALLE DE ÓRDENES (75)
+
+  [0001] 07:10:17  $   104  Efectivo
+  [0002] 07:19:42  $    59  Efectivo
+  [0003] 07:27:43  $   158  Efectivo
+  [0004] 07:30:28  $   249  Efectivo
+  [0005] 07:35:51  $    92  Efectivo
+  [0006] 07:44:30  $   118  Efectivo
+  [0007] 07:50:19  $   408  Efectivo
+  [0008] 07:52:39  $   235  Efectivo
+  [0009] 07:55:10  $   116  Efectivo
+  [0010] 07:58:15  $    68  Efectivo
+  [0011] 08:01:02  $   150  Efectivo
+  [0012] 08:05:47  $    94  Tarjeta de débito
+  [0013] 08:07:14  $   174  Tarjeta bancaria
+  [0014] 08:09:22  $    68  Tarjeta de débito
+  [0015] 08:11:40  $    76  Efectivo
+  [0016] 09:12:26  $    92  Tarjeta bancaria
+  [0017] 09:16:05  $   240  Tarjeta de débito
+  [0018] 09:18:52  $   393  Tarjeta de débito
+  [0019] 09:19:05  $   120  Efectivo
+  [0020] 09:22:23  $   189  Efectivo
+  [0021] 09:30:53  $    68  Efectivo
+  [0022] 09:35:42  $    59  Efectivo
+  [0023] 09:38:00  $    69  Tarjeta bancaria
+  [0024] 09:42:07  $    97  Tarjeta bancaria
+  [0025] 09:57:12  $    76  Tarjeta de débito
+  [0026] 10:01:36  $   175  Efectivo
+  [0027] 10:06:22  $   127  Efectivo
+  [0028] 10:08:04  $    59  Tarjeta bancaria
+  [0029] 10:23:46  $   175  Efectivo
+  [0030] 10:31:54  $    76  Efectivo
+  [0031] 10:47:04  $   431  Efectivo
+  [0032] 10:51:39  $   199  Efectivo
+  [0033] 10:53:39  $   105  Tarjeta de débito
+  [0034] 10:55:22  $    40  Efectivo
+  [0035] 11:10:04  $    95  Tarjeta de débito
+  [0036] 11:10:19  $   136  Efectivo
+  [0037] 11:22:20  $   164  Efectivo
+  [0038] 11:23:08  $    76  Efectivo
+  [0039] 12:24:29  $   451  Uber Eats
+  [0040] 11:30:15  $   534  Tarjeta de débito
+  [0041] 11:36:30  $   100  Efectivo
+  [0042] 11:38:59  $   180  Tarjeta de débito
+  [0043] 11:54:32  $   231  Efectivo,Tarjeta bancaria
+  [0044] 12:37:01  $   174  Tarjeta bancaria
+  [0045] 12:39:03  $   132  Tarjeta de débito
+  [0046] 12:45:59  $   115  Tarjeta bancaria
+  [0047] 12:56:18  $   150  Efectivo
+  [0048] 13:01:29  $   174  Efectivo
+  [0049] 13:18:31  $   318  Efectivo
+  [0050] 13:23:09  $   568  Tarjeta de débito
+  [0051] 13:28:44  $   135  Tarjeta bancaria
+  [0052] 13:35:22  $   285  Efectivo
+  [0053] 13:40:10  $    99  Tarjeta de débito
+  [0054] 13:42:05  $   130  Tarjeta de débito
+  [0055] 13:46:18  $   120  Tarjeta de débito
+  [0056] 13:50:39  $   120  Efectivo
+  [0057] 14:15:03  $   530  Efectivo
+  [0058] 14:22:47  $   230  Tarjeta bancaria
+  [0059] 14:35:00  $   152  Tarjeta de débito
+  [0060] 14:42:11  $   170  Tarjeta bancaria
+  [0061] 17:12:12  $   150  Uber Eats
+  [0062] 15:01:44  $   213  Efectivo
+  [0063] 16:18:30  $    92  Tarjeta bancaria
+  [0064] 16:50:15  $   180  Efectivo
+  [0065] 17:05:22  $   194  Efectivo
+  [0066] 17:07:19  $   174  Tarjeta de débito
+  [0067] 17:10:19  $   340  Efectivo
+  [0068] 17:33:54  $   100  Efectivo
+  [0069] 17:35:59  $   105  Efectivo
+  [0070] 17:37:01  $   100  Efectivo
+  [0071] 17:49:31  $    60  Efectivo
+  [0072] 17:54:00  $   100  Tarjeta bancaria
+  [0073] 17:58:19  $    76  Tarjeta bancaria
+  [0074] 18:00:53  $   204  Tarjeta bancaria
+  [0075] 18:14:19  $    59  Tarjeta de débito
+
+───────────────────────────────────────────────────────
+DETALLE DE PRODUCTOS POR ORDEN (131 líneas)
+
+  Orden 0001:
+    x1 AMERICANO CALIENTE  $59
+    x1 AGUA MINERAL  $45
+
+  Orden 0002:
+    x1 AMERICANO CALIENTE  $59
+
+  Orden 0003:
+    x1 AMERICANO CALIENTE  $59
+    x1 SANDWICH P/P/PANELA [MULTIGRANO]  $99
+
+  Orden 0004:
+    x1 ROL DE CANELA  $58
+    x1 TRENZAS DE MAPLE Y NUEZ  $40
+    x1 CAPUCCINO CALIENTE VAINILLA [02 LECHE DESLACTOSADA]  $92
+    x1 AMERICANO CALIENTE  $59
+
+  Orden 0005:
+    x1 CAPUCCINO CALIENTE AVELLANA [02 LECHE DESLACTOSADA]  $92
+
+  Orden 0006:
+    x2 AMERICANO CALIENTE  $118
+
+  Orden 0007:
+    x1 MOLLETES [CHILORIO]  $170
+    x1 ROL DE CANELA CAJETA Y NUEZ  $68
+    x2 CAPUCCINO CALIENTE [02 LECHE DESLACTOSADA]  $152
+    x1 SINCRONIZADAS DE JAMON  $130
+
+  Orden 0008:
+    x1 SINCRONIZADAS DE JAMON  $130
+    x1 TRENZAS DE MAPLE Y NUEZ  $40
+    x1 AMERICANO CALIENTE [10 CORTADO]  $65
+
+  Orden 0009:
+    x1 CAPUCCINO CALIENTE [01 LECHE ENTERA]  $76
+    x1 TRENZAS DE MAPLE Y NUEZ  $40
+
+  Orden 0010:
+    x1 ROL DE CANELA MANZANA  $68
+
+  Orden 0011:
+    x1 SINCRONIZADAS DE CHILORIO  $150
+
+  Orden 0012:
+    x1 EUROPEO FRIO [17 CORTADO LECHE SOYA]  $94
+
+  Orden 0013:
+    x1 LATTE CALIENTE [02 LECHE DESLACTOSADA]  $76
+    x1 TRENZAS DE MAPLE Y NUEZ  $40
+    x1 ROL DE CANELA  $58
+
+  Orden 0014:
+    x1 ROL DE CANELA CAJETA Y NUEZ  $68
+
+  Orden 0015:
+    x1 CAPUCCINO CALIENTE [02 LECHE DESLACTOSADA]  $76
+
+  Orden 0016:
+    x1 CAPUCCINO CALIENTE AVELLANA [02 LECHE DESLACTOSADA]  $92
+
+  Orden 0017:
+    x1 MOLLETES  $140
+    x1 CHAI GUAYABA  $100
+
+  Orden 0018:
+    x1 NUTRI BARRA  $50
+    x2 SANDWICH P/P/PANELA [MULTIGRANO/PAVO]  $198
+    x1 CHAI VAINILLA CALIENTE [01 LECHE ENTERA]  $100
+    x1 COCA ZERO  $45
+
+  Orden 0019:
+    x1 CHAPATA P/P/PANELA [PAVO]  $120
+
+  Orden 0020:
+    x1 CAPUCCINO FRIO VAINILLA [02 LECHE DESLACTOSADA]  $97
+    x1 CAPUCCINO CALIENTE VAINILLA [02 LECHE DESLACTOSADA]  $92
+
+  Orden 0021:
+    x1 ROL DE CANELA CAJETA Y NUEZ  $68
+
+  Orden 0022:
+    x1 AMERICANO CALIENTE  $59
+
+  Orden 0023:
+    x1 ALIVIA-TE  $69
+
+  Orden 0024:
+    x1 LATTE FRIO VAINILLA [02 LECHE DESLACTOSADA]  $97
+
+  Orden 0025:
+    x1 CAPUCCINO CALIENTE [02 LECHE DESLACTOSADA]  $76
+
+  Orden 0026:
+    x1 CAPUCCINO CALIENTE [LECHE LIGHT]  $76
+    x1 SANDWICH P/P/PANELA [MULTIGRANO]  $99
+
+  Orden 0027:
+    x1 ROL DE CANELA MANZANA  $68
+    x1 AMERICANO CALIENTE  $59
+
+  Orden 0028:
+    x1 AMERICANO CALIENTE  $59
+
+  Orden 0029:
+    x1 AMERICANO CALIENTE  $59
+    x1 CAPUCCINO CALIENTE [01 LECHE ENTERA]  $76
+    x1 TRENZAS DE MAPLE Y NUEZ  $40
+
+  Orden 0030:
+    x1 CAPUCCINO CALIENTE [02 LECHE DESLACTOSADA]  $76
+
+  Orden 0031:
+    x1 WRAP DE OMELETTE JAMON Y QUESO  $140
+    x1 SANDWICH P/P/PANELA [MULTIGRANO]  $99
+    x2 CAPUCCINO CALIENTE [LECHE LIGHT]  $152
+    x1 TRENZAS DE MAPLE Y NUEZ  $40
+
+  Orden 0032:
+    x1 MATCHA FRIO [13 LECHE DE SOYA]  $117
+    x1 LATTE FRIO [02 LECHE DESLACTOSADA]  $82
+
+  Orden 0033:
+    x1 MATCHA FRIO [02 LECHE DESLACTOSADA]  $105
+
+  Orden 0034:
+    x1 TRENZAS DE MAPLE Y NUEZ  $40
+
+  Orden 0035:
+    x1 CAPUCCINO FRAPPE [02 LECHE DESLACTOSADA]  $95
+
+  Orden 0036:
+    x1 ROL DE CANELA CAJETA Y NUEZ  $68
+    x1 ROL DE CANELA MANZANA  $68
+
+  Orden 0037:
+    x1 AMERICANO CALIENTE  $59
+    x1 CHAI VAINILLA FRIO [02 LECHE DESLACTOSADA]  $105
+
+  Orden 0038:
+    x1 CAPUCCINO CALIENTE [02 LECHE DESLACTOSADA]  $76
+
+  Orden 0039:
+    x1 Horchata Nuez - Frappé  $134
+    x1 Moka - Frappé  $134
+    x1 Capuccino con Sabor de Avellana - Frappé  $134
+    x1 AMERICANO CALIENTE  $59
+
+  Orden 0040:
+    x1 LATTE CALIENTE [02 LECHE DESLACTOSADA]  $76
+    x1 CHOCOLATE CALIENTE [02 LECHE DESLACTOSADA]  $90
+    x1 MOLLETES  $140
+    x1 MOLLETES [CHORIZO]  $170
+    x1 ROL DE CANELA  $58
+
+  Orden 0041:
+    x1 CHAI VAINILLA CALIENTE [01 LECHE ENTERA]  $100
+
+  Orden 0042:
+    x1 ENSALADA [POLLO]  $180
+
+  Orden 0043:
+    x1 SANDWICH P/P/PANELA [MULTIGRANO]  $99
+    x1 CHAI VAINILLA S/A FRIO [03 LECHE DE COCO/Shot Extra Cafe]  $132
+
+  Orden 0044:
+    x1 YOGURT GRIEGO CON FRESAS  $75
+    x1 COFFE TONIC  $99
+
+  Orden 0045:
+    x1 MOKA CAPUCCINO CALIENTE [02 LECHE DESLACTOSADA]  $92
+    x1 TRENZAS DE MAPLE Y NUEZ  $40
+
+  Orden 0046:
+    x1 CHAI VAINILLA CALIENTE [Shot Extra Cafe/02 LECHE DESLACTOSADA]  $115
+
+  Orden 0047:
+    x2 YOGURT GRIEGO CON FRESAS  $150
+
+  Orden 0048:
+    x1 COFFE TONIC  $99
+    x1 YOGURT GRIEGO CON FRESAS  $75
+
+  Orden 0049:
+    x2 SANDWICH P/P/PANELA [MULTIGRANO/PAVO]  $198
+    x1 CHAPATA P/P/PANELA [PAVO]  $120
+
+  Orden 0050:
+    x1 AMERICANO CALIENTE  $59
+    x2 TÉ MANZANILLA-JENGIBRE CALIENTE  $110
+    x1 SINCRONIZADAS DE CHILORIO  $150
+    x1 CHAPATA CHILORIO  $150
+    x1 SANDWICH P/P/PANELA [MULTIGRANO/PAVO]  $99
+
+  Orden 0051:
+    x1 ENSALADA  $135
+
+  Orden 0052:
+    x1 CHAPATA P/P/PANELA [PAVO]  $120
+    x1 MOKA CAPUCCINO FRIO [02 LECHE DESLACTOSADA]  $97
+    x1 ROL DE CANELA MANZANA  $68
+
+  Orden 0053:
+    x1 SANDWICH P/P/PANELA [MULTIGRANO/PAVO]  $99
+
+  Orden 0054:
+    x1 SINCRONIZADAS DE JAMON  $130
+
+  Orden 0055:
+    x1 CHAPATA P/P/PANELA [PAVO]  $120
+
+  Orden 0056:
+    x1 CHAPATA P/P/PANELA [PAVO]  $120
+
+  Orden 0057:
+    x2 WRAP DE OMELETTE JAMON Y QUESO  $280
+    x2 COCA COLA  $90
+    x1 MARACUYA SMOOTHIE [07 CHAMOY]  $120
+    x1 TRENZAS DE MAPLE Y NUEZ  $40
+
+  Orden 0058:
+    x1 ENSALADA  $135
+    x1 CAPUCCINO FRAPPE  $95
+
+  Orden 0059:
+    x1 MOKA CAPUCCINO FRAPPE [Shot Extra Cafe*2/13 LECHE DE SOYA]  $152
+
+  Orden 0060:
+    x1 CHAI VAINILLA S/A CALIENTE [04LECHE DE ALMENDRA]  $112
+    x1 ROL DE CANELA  $58
+
+  Orden 0061:
+    x1 Chapata  $150
+
+  Orden 0062:
+    x1 ENSALADA  $135
+    x1 AGUA FRIA1  $78
+
+  Orden 0063:
+    x1 CAPUCCINO CALIENTE AVELLANA  $92
+
+  Orden 0064:
+    x1 FRESA SMOOTHIE  $100
+    x2 TRENZAS DE MAPLE Y NUEZ  $80
+
+  Orden 0065:
+    x1 CAPUCCINO FRIO CARAMEL [02 LECHE DESLACTOSADA]  $97
+    x1 CAPUCCINO FRIO CARAMEL [01 LECHE ENTERA]  $97
+
+  Orden 0066:
+    x1 COFFE TONIC  $99
+    x1 YOGURT GRIEGO CON FRESAS  $75
+
+  Orden 0067:
+    x2 LATTE CALIENTE [01 LECHE ENTERA]  $152
+    x1 SINCRONIZADAS DE JAMON  $130
+    x1 ROL DE CANELA  $58
+
+  Orden 0068:
+    x1 MANGO SMOOTHIE  $100
+
+  Orden 0069:
+    x1 TARO FRIO  $105
+
+  Orden 0070:
+    x1 CHAI VAINILLA S/A CALIENTE  $100
+
+  Orden 0071:
+    x1 TE FRUTOS ROJOS FRIO  $60
+
+  Orden 0072:
+    x1 CHAI ORIGINAL CALIENTE [02 LECHE DESLACTOSADA]  $100
+
+  Orden 0073:
+    x1 CAPUCCINO CALIENTE  $76
+
+  Orden 0074:
+    x1 CHAI VAINILLA FRIO  $105
+    x1 SANDWICH P/P/PANELA  $99
+
+  Orden 0075:
+    x1 AMERICANO CALIENTE  $59
