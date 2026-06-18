@@ -8,28 +8,28 @@
 Tienda: SEED CAFÉ (200012148)
 Horario operativo: 07:25 – 18:49
 Total de órdenes: 59
-Total ventas: $9491.40
+Total ventas: $9,491.40
 Ticket promedio: $160.87
-Ticket mínimo: $-323.00
+Ticket mínimo: $-323.00 (reembolso Uber Eats)
 Ticket máximo: $585.20
 
 ---
 
 ## POR MÉTODO DE PAGO
 
-Efectivo: 22 órdenes — $3424.20 (36%)
-Tarjeta bancaria: 20 órdenes — $2999.20 (32%)
-Tarjeta de débito: 13 órdenes — $2426.00 (26%)
+Efectivo: 22 órdenes — $3,424.20 (36%)
+Tarjeta bancaria: 20 órdenes — $2,999.20 (32%)
+Tarjeta de débito: 13 órdenes — $2,426.00 (26%)
 Uber Eats: 4 órdenes — $642.00 (7%)
-TOTAL: 59 órdenes — $9491.40
+TOTAL: 59 órdenes — $9,491.40
 
 ---
 
 ## TOP 5 PRODUCTOS
 
+CHAPATA P/P/PANELA: 9 uds — $1,080.00
 CAPUCCINO CALIENTE: 9 uds — $684.00
 SANDWICH P/P/PANELA: 9 uds — $891.00
-CHAPATA P/P/PANELA: 9 uds — $1080.00
 CAPUCCINO FRIO: 7 uds — $586.00
 AGUA: 4 uds — $80.00
 
@@ -39,65 +39,65 @@ AGUA: 4 uds — $80.00
 
 | No. Orden | Monto | Folio/Mesa | Hora | Pago | Fuente | Tipo |
 |---|---|---|---|---|---|---|
-| 202606150059 | $-323.00 | FD5CB | 15-06-2026 18:49:01 | Uber Eats | Orden en TPV | orden |
-| 202606150058 | $82.00 | 0055 | 15-06-2026 18:31:30 | Efectivo | Orden en TPV | orden |
-| 202606150057 | $76.00 | 0054 | 15-06-2026 17:54:56 | Efectivo | Orden en TPV | orden |
-| 202606150054 | $337.00 | D6882 | 15-06-2026 17:48:10 | Uber Eats | Orden en TPV | orden |
-| 202606150053 | $323.00 | FD5CB | 15-06-2026 17:46:32 | Uber Eats | Orden en TPV | orden |
-| 202606150056 | $94.00 | 0053 | 15-06-2026 17:21:58 | Efectivo | Orden en TPV | orden |
-| 202606150055 | $214.00 | 0052 | 15-06-2026 17:02:42 | Tarjeta de débito | Orden en TPV | orden |
-| 202606150052 | $76.00 | 0051 | 15-06-2026 16:48:37 | Tarjeta de débito | Orden en TPV | orden |
-| 202606150051 | $288.00 | 0050 | 15-06-2026 16:06:06 | Efectivo | Orden en TPV | orden |
-| 202606150050 | $122.00 | 0049 | 15-06-2026 15:19:07 | Efectivo | Orden en TPV | orden |
-| 202606150049 | $205.00 | 0048 | 15-06-2026 15:10:04 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606150048 | $183.00 | 0047 | 15-06-2026 15:02:09 | Tarjeta de débito | Orden en TPV | orden |
-| 202606150047 | $127.00 | 0046 | 15-06-2026 14:47:00 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606150046 | $165.00 | 0044 | 15-06-2026 14:42:48 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606150045 | $287.00 | 0045 | 15-06-2026 14:16:43 | Tarjeta de débito | Orden en TPV | orden |
-| 202606150044 | $145.00 | 0043 | 15-06-2026 13:59:55 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606150043 | $195.00 | 0042 | 15-06-2026 13:59:04 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606150042 | $79.00 | 0041 | 15-06-2026 13:57:15 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606150041 | $58.00 | 0040 | 15-06-2026 13:45:54 | Efectivo | Orden en TPV | orden |
-| 202606150040 | $92.00 | 0039 | 15-06-2026 13:35:54 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606150039 | $175.00 | 0038 | 15-06-2026 13:32:37 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606150038 | $110.00 | 0037 | 15-06-2026 13:24:50 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606150037 | $76.00 | 0036 | 15-06-2026 13:00:44 | Tarjeta de débito | Orden en TPV | orden |
-| 202606150036 | $170.00 | 0035 | 15-06-2026 12:57:27 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606150035 | $45.00 | 0034 | 15-06-2026 12:50:45 | Tarjeta de débito | Orden en TPV | orden |
-| 202606150034 | $135.00 | 0033 | 15-06-2026 12:49:48 | Efectivo | Orden en TPV | orden |
-| 202606150033 | $135.00 | 0032 | 15-06-2026 12:49:30 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606150032 | $130.00 | 0031 | 15-06-2026 12:22:04 | Efectivo | Orden en TPV | orden |
-| 202606150031 | $585.20 | 0029 | 15-06-2026 12:14:23 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606150030 | $216.00 | 0030 | 15-06-2026 12:04:36 | Efectivo | Orden en TPV | orden |
-| 202606150029 | $105.00 | 0028 | 15-06-2026 12:01:11 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606150028 | $100.00 | 0027 | 15-06-2026 11:52:47 | Tarjeta de débito | Orden en TPV | orden |
-| 202606150027 | $115.00 | 0026 | 15-06-2026 11:17:51 | Efectivo | Orden en TPV | orden |
-| 202606150026 | $95.00 | 0025 | 15-06-2026 11:01:40 | Efectivo | Orden en TPV | orden |
-| 202606150025 | $570.00 | 0024 | 15-06-2026 10:55:25 | Efectivo | Orden en TPV | orden |
-| 202606150024 | $123.20 | 0023 | 15-06-2026 10:50:53 | Efectivo | Orden en TPV | orden |
-| 202606150023 | $244.00 | 0022 | 15-06-2026 10:43:58 | Efectivo | Orden en TPV | orden |
-| 202606150022 | $324.00 | 0021 | 15-06-2026 10:34:35 | Efectivo | Orden en TPV | orden |
-| 202606150021 | $196.00 | 0020 | 15-06-2026 10:31:38 | Tarjeta de débito | Orden en TPV | orden |
-| 202606150020 | $450.00 | 0019 | 15-06-2026 10:28:22 | Tarjeta de débito | Orden en TPV | orden |
-| 202606150019 | $122.00 | 0018 | 15-06-2026 10:25:46 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606150018 | $99.00 | 0017 | 15-06-2026 10:22:16 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606150017 | $163.00 | 0016 | 15-06-2026 10:21:11 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606150016 | $82.00 | 0015 | 15-06-2026 10:08:21 | Efectivo | Orden en TPV | orden |
-| 202606150015 | $59.00 | 0014 | 15-06-2026 09:50:21 | Tarjeta de débito | Orden en TPV | orden |
-| 202606150014 | $48.00 | 0013 | 15-06-2026 09:41:21 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606150008 | $305.00 | B8E02 | 15-06-2026 09:40:38 | Uber Eats | Orden en TPV | orden |
-| 202606150013 | $99.00 | 0012 | 15-06-2026 09:39:07 | Efectivo | Orden en TPV | orden |
-| 202606150012 | $76.00 | 0003 | 15-06-2026 09:03:10 | Efectivo | Orden en TPV | orden |
-| 202606150011 | $100.00 | 0011 | 15-06-2026 09:02:04 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606150010 | $120.00 | 0010 | 15-06-2026 08:47:32 | Tarjeta de débito | Orden en TPV | orden |
-| 202606150009 | $97.00 | 0009 | 15-06-2026 08:43:53 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606150007 | $0.00 | 0008 | 15-06-2026 08:33:14 | Efectivo | Orden en TPV | orden |
-| 202606150006 | $59.00 | 0007 | 15-06-2026 08:26:04 | Efectivo | Orden en TPV | orden |
-| 202606150005 | $360.00 | 0006 | 15-06-2026 08:22:34 | Efectivo | Orden en TPV | orden |
-| 202606150004 | $76.00 | 0005 | 15-06-2026 08:02:56 | Efectivo | Orden en TPV | orden |
-| 202606150003 | $204.00 | 0004 | 15-06-2026 08:02:43 | Tarjeta de débito | Orden en TPV | orden |
-| 202606150002 | $416.00 | 0002 | 15-06-2026 07:49:28 | Tarjeta de débito | Orden en TPV | orden |
-| 202606150001 | $82.00 | 0001 | 15-06-2026 07:25:11 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606150059 | $-323.00 | FD5CB | 18:49 | Uber Eats | Orden en TPV | orden |
+| 202606150058 | $82.00 | 0055 | 18:31 | Efectivo | Orden en TPV | orden |
+| 202606150057 | $76.00 | 0054 | 17:54 | Efectivo | Orden en TPV | orden |
+| 202606150054 | $337.00 | D6882 | 17:48 | Uber Eats | Orden en TPV | orden |
+| 202606150053 | $323.00 | FD5CB | 17:46 | Uber Eats | Orden en TPV | orden |
+| 202606150056 | $94.00 | 0053 | 17:21 | Efectivo | Orden en TPV | orden |
+| 202606150055 | $214.00 | 0052 | 17:02 | Tarjeta de débito | Orden en TPV | orden |
+| 202606150052 | $76.00 | 0051 | 16:48 | Tarjeta de débito | Orden en TPV | orden |
+| 202606150051 | $288.00 | 0050 | 16:06 | Efectivo | Orden en TPV | orden |
+| 202606150050 | $122.00 | 0049 | 15:19 | Efectivo | Orden en TPV | orden |
+| 202606150049 | $205.00 | 0048 | 15:10 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606150048 | $183.00 | 0047 | 15:02 | Tarjeta de débito | Orden en TPV | orden |
+| 202606150047 | $127.00 | 0046 | 14:47 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606150046 | $165.00 | 0044 | 14:42 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606150045 | $287.00 | 0045 | 14:16 | Tarjeta de débito | Orden en TPV | orden |
+| 202606150044 | $145.00 | 0043 | 13:59 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606150043 | $195.00 | 0042 | 13:59 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606150042 | $79.00 | 0041 | 13:57 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606150041 | $58.00 | 0040 | 13:45 | Efectivo | Orden en TPV | orden |
+| 202606150040 | $92.00 | 0039 | 13:35 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606150039 | $175.00 | 0038 | 13:32 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606150038 | $110.00 | 0037 | 13:24 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606150037 | $76.00 | 0036 | 13:00 | Tarjeta de débito | Orden en TPV | orden |
+| 202606150036 | $170.00 | 0035 | 12:57 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606150035 | $45.00 | 0034 | 12:50 | Tarjeta de débito | Orden en TPV | orden |
+| 202606150034 | $135.00 | 0033 | 12:49 | Efectivo | Orden en TPV | orden |
+| 202606150033 | $135.00 | 0032 | 12:49 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606150032 | $130.00 | 0031 | 12:22 | Efectivo | Orden en TPV | orden |
+| 202606150031 | $585.20 | 0029 | 12:14 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606150030 | $216.00 | 0030 | 12:04 | Efectivo | Orden en TPV | orden |
+| 202606150029 | $105.00 | 0028 | 12:01 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606150028 | $100.00 | 0027 | 11:52 | Tarjeta de débito | Orden en TPV | orden |
+| 202606150027 | $115.00 | 0026 | 11:17 | Efectivo | Orden en TPV | orden |
+| 202606150026 | $95.00 | 0025 | 11:01 | Efectivo | Orden en TPV | orden |
+| 202606150025 | $570.00 | 0024 | 10:55 | Efectivo | Orden en TPV | orden |
+| 202606150024 | $123.20 | 0023 | 10:50 | Efectivo | Orden en TPV | orden |
+| 202606150023 | $244.00 | 0022 | 10:43 | Efectivo | Orden en TPV | orden |
+| 202606150022 | $324.00 | 0021 | 10:34 | Efectivo | Orden en TPV | orden |
+| 202606150021 | $196.00 | 0020 | 10:31 | Tarjeta de débito | Orden en TPV | orden |
+| 202606150020 | $450.00 | 0019 | 10:28 | Tarjeta de débito | Orden en TPV | orden |
+| 202606150019 | $122.00 | 0018 | 10:25 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606150018 | $99.00 | 0017 | 10:22 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606150017 | $163.00 | 0016 | 10:21 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606150016 | $82.00 | 0015 | 10:08 | Efectivo | Orden en TPV | orden |
+| 202606150015 | $59.00 | 0014 | 09:50 | Tarjeta de débito | Orden en TPV | orden |
+| 202606150014 | $48.00 | 0013 | 09:41 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606150008 | $305.00 | B8E02 | 09:40 | Uber Eats | Orden en TPV | orden |
+| 202606150013 | $99.00 | 0012 | 09:39 | Efectivo | Orden en TPV | orden |
+| 202606150012 | $76.00 | 0003 | 09:03 | Efectivo | Orden en TPV | orden |
+| 202606150011 | $100.00 | 0011 | 09:02 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606150010 | $120.00 | 0010 | 08:47 | Tarjeta de débito | Orden en TPV | orden |
+| 202606150009 | $97.00 | 0009 | 08:43 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606150007 | $0.00 | 0008 | 08:33 | Efectivo | Orden en TPV | orden |
+| 202606150006 | $59.00 | 0007 | 08:26 | Efectivo | Orden en TPV | orden |
+| 202606150005 | $360.00 | 0006 | 08:22 | Efectivo | Orden en TPV | orden |
+| 202606150004 | $76.00 | 0005 | 08:02 | Efectivo | Orden en TPV | orden |
+| 202606150003 | $204.00 | 0004 | 08:02 | Tarjeta de débito | Orden en TPV | orden |
+| 202606150002 | $416.00 | 0002 | 07:49 | Tarjeta de débito | Orden en TPV | orden |
+| 202606150001 | $82.00 | 0001 | 07:25 | Tarjeta bancaria | Orden en TPV | orden |
 
 ---
 
@@ -212,8 +212,7 @@ AGUA: 4 uds — $80.00
 
 ## NOTAS
 
-- Datos: API de órdenes (/admin/baigong/order/list) + detalle de productos por orden (/admin/baigong/order/info)
+- Datos: API de órdenes (/admin/baigong/order/list) + detalle por orden (/admin/baigong/order/info)
 - El Cierre formal no fue ejecutado por el cajero
-- Match órdenes vs productos: DIFERENCIA: $661.40 (diff: $661.40)
-- Nota: diferencia incluye reembolso Uber Eats orden 202606150059 (-$323.00) y posibles cargos de entrega no reflejados en productos
-- Generado: 2026-06-16T04:02:24Z
+- Match órdenes vs productos: DIFERENCIA $661.40 — probablemente propinas, descuentos o modificadores de precio no reflejados en líneas de producto
+- Generado: 2026-06-17T05:45:26Z
