@@ -139,6 +139,8 @@ def parse_cierre_txt(path: str) -> dict[str, pd.DataFrame]:
     """
     basename = os.path.basename(path)
     match = re.search(r"(\d{4}-\d{2}-\d{2})", basename)
+    if match is None:
+        return {"orders": pd.DataFrame(), "items": pd.DataFrame(), "categoria": pd.DataFrame()}
     fecha = pd.to_datetime(match.group(1)).date()
 
     with open(path, encoding="utf-8") as f:

@@ -4,9 +4,9 @@ on:
   schedule:
     # Revisa la carpeta de Drive cada 15 minutos durante el horario de la
     # cafetería (13:00-03:00 UTC ≈ 07:00 AM-09:00 PM hora de Ciudad de México).
-    # Así, en cuanto se sube un archivo nuevo, el dashboard se actualiza solo
-    # en un máximo de ~15 minutos.
     - cron: "*/15 13-23,0-3 * * *"
+    # Cierre diario RecoPOS: 9:30 PM hora de México (UTC-6) = 03:30 UTC.
+    - cron: "30 3 * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -39,6 +39,17 @@ jobs:
       - name: Instalar dependencias
         run: pip install -r requirements.txt
 
+      - name: Extraer cierre diario RecoPOS (vía API, CAPTCHA por Telegram)
+        id: cierre
+        if: github.event.schedule == '30 3 * * *' || github.event_name == 'workflow_dispatch'
+        env:
+          RECOPOS_SHOP_ID: ${{ secrets.RECOPOS_SHOP_ID }}
+          RECOPOS_USER: ${{ secrets.RECOPOS_USER }}
+          RECOPOS_PASSWORD: ${{ secrets.RECOPOS_PASSWORD }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python recopos_extractor.py
+
       - name: Buscar y descargar archivos nuevos en Google Drive
         id: sync
         env:
@@ -47,12 +58,12 @@ jobs:
         run: python drive_watcher.py
 
       - name: Generar dashboard HTML
-        if: steps.sync.outputs.hubo_nuevos == 'true' || github.event_name == 'workflow_dispatch'
+        if: steps.sync.outputs.hubo_nuevos == 'true' || steps.cierre.outputs.exito == 'true' || github.event_name == 'workflow_dispatch'
         run: python generate_report.py
 
-      - name: Publicar dashboard (solo HTML con KPIs agregados)
-        if: steps.sync.outputs.hubo_nuevos == 'true' || github.event_name == 'workflow_dispatch'
+      - name: Publicar dashboard y cierre del día
+        if: steps.sync.outputs.hubo_nuevos == 'true' || steps.cierre.outputs.exito == 'true' || github.event_name == 'workflow_dispatch'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Reporte automático: actualiza dashboard"
-          file_pattern: "docs/*.html"
+          file_pattern: "docs/*.html docs/*.json data_txt/cierre_*.txt"
