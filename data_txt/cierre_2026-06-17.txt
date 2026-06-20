@@ -17,17 +17,18 @@ Ticket máximo: $568.00
 
 ## POR MÉTODO DE PAGO
 
-Efectivo: 36 órdenes — $5769.00 (46%)
+Efectivo: 35 órdenes — $5653.00 (45%)
 Tarjeta de débito: 21 órdenes — $4201.00 (33%)
-Tarjeta bancaria: 17 órdenes — $2082.00 (16%)
+Tarjeta bancaria: 16 órdenes — $1966.00 (16%)
 Uber Eats: 2 órdenes — $601.00 (5%)
+Efectivo,Tarjeta bancaria: 1 órdenes — $231.00 (2%)
 TOTAL: 75 órdenes — $12652.00
 
 ---
 
 ## TOP 5 PRODUCTOS
 
-AMERICANO CALIENTE: 15 uds — $891.00
+AMERICANO CALIENTE: 14 uds — $832.00
 CAPUCCINO CALIENTE: 12 uds — $912.00
 SANDWICH P/P/PANELA: 11 uds — $1089.00
 TRENZAS DE MAPLE Y NUEZ: 11 uds — $440.00
@@ -39,24 +40,24 @@ ROL DE CANELA: 5 uds — $290.00
 
 | No. Orden | Monto | Folio/Mesa | Hora | Pago | Fuente | Tipo |
 |---|---|---|---|---|---|---|
-| 202606170001 | 104.00 | 0001 | 17-06-2026 07:10:17 | Efectivo | Orden en TPV | orden |
-| 202606170002 | 59.00 | 0002 | 17-06-2026 07:19:42 | Efectivo | Orden en TPV | orden |
-| 202606170003 | 158.00 | 0003 | 17-06-2026 07:27:43 | Efectivo | Orden en TPV | orden |
-| 202606170004 | 249.00 | 0004 | 17-06-2026 07:30:28 | Efectivo | Orden en TPV | orden |
-| 202606170005 | 92.00 | 0005 | 17-06-2026 07:35:51 | Efectivo | Orden en TPV | orden |
-| 202606170006 | 118.00 | 0006 | 17-06-2026 07:44:30 | Efectivo | Orden en TPV | orden |
-| 202606170007 | 408.00 | 0007 | 17-06-2026 07:50:19 | Efectivo | Orden en TPV | orden |
-| 202606170008 | 235.00 | 0008 | 17-06-2026 07:52:39 | Efectivo | Orden en TPV | orden |
-| 202606170009 | 116.00 | 0009 | 17-06-2026 07:55:10 | Efectivo | Orden en TPV | orden |
-| 202606170010 | 68.00 | 0010 | 17-06-2026 07:58:15 | Efectivo | Orden en TPV | orden |
-| 202606170011 | 150.00 | 0011 | 17-06-2026 08:01:02 | Efectivo | Orden en TPV | orden |
-| 202606170012 | 94.00 | 0012 | 17-06-2026 08:05:47 | Tarjeta de débito | Orden en TPV | orden |
-| 202606170013 | 174.00 | 0013 | 17-06-2026 08:07:14 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606170014 | 68.00 | 0014 | 17-06-2026 08:09:22 | Tarjeta de débito | Orden en TPV | orden |
-| 202606170015 | 76.00 | 0015 | 17-06-2026 08:11:40 | Efectivo | Orden en TPV | orden |
+| 202606170001 | 104.00 | 0001 | 17-06-2026 07:10:17 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606170002 | 59.00 | 0002 | 17-06-2026 07:34:06 | Efectivo | Orden en TPV | orden |
+| 202606170003 | 158.00 | 0003 | 17-06-2026 07:35:31 | Tarjeta de débito | Orden en TPV | orden |
+| 202606170004 | 249.00 | 0004 | 17-06-2026 07:51:15 | Tarjeta de débito | Orden en TPV | orden |
+| 202606170005 | 87.00 | 0005 | 17-06-2026 07:58:43 | Tarjeta de débito | Orden en TPV | orden |
+| 202606170006 | 118.00 | 0006 | 17-06-2026 08:00:50 | Tarjeta de débito | Orden en TPV | orden |
+| 202606170007 | 390.00 | 0007 | 17-06-2026 08:09:46 | Tarjeta de débito | Orden en TPV | orden |
+| 202606170008 | 235.00 | 0008 | 17-06-2026 08:15:11 | Efectivo | Orden en TPV | orden |
+| 202606170009 | 116.00 | 0009 | 17-06-2026 08:17:27 | Efectivo | Orden en TPV | orden |
+| 202606170010 | 68.00 | 0010 | 17-06-2026 08:22:03 | Tarjeta de débito | Orden en TPV | orden |
+| 202606170011 | 150.00 | 0011 | 17-06-2026 08:31:00 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606170012 | 94.00 | 0012 | 17-06-2026 08:46:56 | Tarjeta de débito | Orden en TPV | orden |
+| 202606170013 | 174.00 | 0013 | 17-06-2026 08:57:16 | Efectivo | Orden en TPV | orden |
+| 202606170014 | 68.00 | 0014 | 17-06-2026 09:02:58 | Efectivo | Orden en TPV | orden |
+| 202606170015 | 76.00 | 0015 | 17-06-2026 09:05:00 | Tarjeta de débito | Orden en TPV | orden |
 | 202606170016 | 92.00 | 0016 | 17-06-2026 09:12:26 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606170017 | 240.00 | 0017 | 17-06-2026 09:16:05 | Tarjeta de débito | Orden en TPV | orden |
-| 202606170018 | 393.00 | 0018 | 17-06-2026 09:18:52 | Tarjeta de débito | Orden en TPV | orden |
+| 202606170017 | 240.00 | 0018 | 17-06-2026 09:16:05 | Tarjeta de débito | Orden en TPV | orden |
+| 202606170018 | 393.00 | 0017 | 17-06-2026 09:18:52 | Tarjeta de débito | Orden en TPV | orden |
 | 202606170019 | 120.00 | 0019 | 17-06-2026 09:19:05 | Efectivo | Orden en TPV | orden |
 | 202606170020 | 189.00 | 0020 | 17-06-2026 09:22:23 | Efectivo | Orden en TPV | orden |
 | 202606170021 | 68.00 | 0021 | 17-06-2026 09:30:53 | Efectivo | Orden en TPV | orden |
@@ -69,51 +70,51 @@ ROL DE CANELA: 5 uds — $290.00
 | 202606170028 | 59.00 | 0028 | 17-06-2026 10:08:04 | Tarjeta bancaria | Orden en TPV | orden |
 | 202606170029 | 175.00 | 0029 | 17-06-2026 10:23:46 | Efectivo | Orden en TPV | orden |
 | 202606170030 | 76.00 | 0030 | 17-06-2026 10:31:54 | Efectivo | Orden en TPV | orden |
-| 202606170031 | 431.00 | 0031 | 17-06-2026 10:47:04 | Efectivo | Orden en TPV | orden |
-| 202606170032 | 199.00 | 0032 | 17-06-2026 10:51:39 | Efectivo | Orden en TPV | orden |
-| 202606170033 | 105.00 | 0033 | 17-06-2026 10:53:39 | Tarjeta de débito | Orden en TPV | orden |
-| 202606170034 | 40.00 | 0034 | 17-06-2026 10:55:22 | Efectivo | Orden en TPV | orden |
-| 202606170035 | 95.00 | 0035 | 17-06-2026 11:10:04 | Tarjeta de débito | Orden en TPV | orden |
-| 202606170036 | 136.00 | 0036 | 17-06-2026 11:10:19 | Efectivo | Orden en TPV | orden |
-| 202606170037 | 164.00 | 0037 | 17-06-2026 11:22:20 | Efectivo | Orden en TPV | orden |
-| 202606170038 | 76.00 | 0038 | 17-06-2026 11:23:08 | Efectivo | Orden en TPV | orden |
-| 202606170039 | 451.00 | 0039 | 17-06-2026 12:24:29 | Uber Eats | Orden en TPV | orden |
-| 202606170040 | 534.00 | 0040 | 17-06-2026 11:30:15 | Tarjeta de débito | Orden en TPV | orden |
-| 202606170041 | 100.00 | 0041 | 17-06-2026 11:36:30 | Efectivo | Orden en TPV | orden |
-| 202606170042 | 180.00 | 0042 | 17-06-2026 11:38:59 | Tarjeta de débito | Orden en TPV | orden |
-| 202606170043 | 231.00 | 0043 | 17-06-2026 11:54:32 | Efectivo | Orden en TPV | orden |
-| 202606170044 | 174.00 | 0044 | 17-06-2026 12:37:01 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606170045 | 132.00 | 0045 | 17-06-2026 12:39:03 | Tarjeta de débito | Orden en TPV | orden |
-| 202606170046 | 115.00 | 0046 | 17-06-2026 12:45:59 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606170047 | 150.00 | 0047 | 17-06-2026 12:56:18 | Efectivo | Orden en TPV | orden |
-| 202606170048 | 174.00 | 0048 | 17-06-2026 13:01:29 | Efectivo | Orden en TPV | orden |
-| 202606170049 | 318.00 | 0049 | 17-06-2026 13:18:31 | Efectivo | Orden en TPV | orden |
-| 202606170050 | 568.00 | 0050 | 17-06-2026 13:23:09 | Tarjeta de débito | Orden en TPV | orden |
-| 202606170051 | 135.00 | 0051 | 17-06-2026 13:28:44 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606170052 | 285.00 | 0052 | 17-06-2026 13:35:22 | Efectivo | Orden en TPV | orden |
-| 202606170053 | 99.00 | 0053 | 17-06-2026 13:40:10 | Tarjeta de débito | Orden en TPV | orden |
-| 202606170054 | 130.00 | 0054 | 17-06-2026 13:42:05 | Tarjeta de débito | Orden en TPV | orden |
-| 202606170055 | 120.00 | 0055 | 17-06-2026 13:46:18 | Tarjeta de débito | Orden en TPV | orden |
-| 202606170056 | 120.00 | 0056 | 17-06-2026 13:50:39 | Efectivo | Orden en TPV | orden |
-| 202606170057 | 530.00 | 0057 | 17-06-2026 14:15:03 | Efectivo | Orden en TPV | orden |
-| 202606170058 | 230.00 | 0058 | 17-06-2026 14:22:47 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606170059 | 152.00 | 0059 | 17-06-2026 14:35:00 | Tarjeta de débito | Orden en TPV | orden |
-| 202606170060 | 170.00 | 0060 | 17-06-2026 14:42:11 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606170061 | 150.00 | 0061 | 17-06-2026 17:12:12 | Uber Eats | Orden en TPV | orden |
-| 202606170062 | 213.00 | 0062 | 17-06-2026 15:01:44 | Efectivo | Orden en TPV | orden |
-| 202606170063 | 92.00 | 0063 | 17-06-2026 16:18:30 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606170064 | 180.00 | 0064 | 17-06-2026 16:50:15 | Efectivo | Orden en TPV | orden |
-| 202606170065 | 194.00 | 0065 | 17-06-2026 17:05:22 | Efectivo | Orden en TPV | orden |
-| 202606170066 | 174.00 | 0066 | 17-06-2026 17:07:19 | Tarjeta de débito | Orden en TPV | orden |
-| 202606170067 | 340.00 | 0067 | 17-06-2026 17:10:19 | Efectivo | Orden en TPV | orden |
+| 202606170031 | 431.00 | 0032 | 17-06-2026 10:47:04 | Efectivo | Orden en TPV | orden |
+| 202606170032 | 199.00 | 0033 | 17-06-2026 10:51:39 | Efectivo | Orden en TPV | orden |
+| 202606170033 | 105.00 | 0034 | 17-06-2026 10:53:39 | Tarjeta de débito | Orden en TPV | orden |
+| 202606170034 | 40.00 | 0035 | 17-06-2026 10:55:22 | Efectivo | Orden en TPV | orden |
+| 202606170035 | 95.00 | 0036 | 17-06-2026 11:10:04 | Tarjeta de débito | Orden en TPV | orden |
+| 202606170036 | 136.00 | 0037 | 17-06-2026 11:10:19 | Efectivo | Orden en TPV | orden |
+| 202606170037 | 164.00 | 0038 | 17-06-2026 11:22:20 | Efectivo | Orden en TPV | orden |
+| 202606170038 | 76.00 | 0039 | 17-06-2026 11:23:08 | Efectivo | Orden en TPV | orden |
+| 202606170039 | 451.00 | 3A8FB | 17-06-2026 12:24:29 | Uber Eats | Orden en TPV | orden |
+| 202606170040 | 534.00 | 0031 | 17-06-2026 11:30:15 | Tarjeta de débito | Orden en TPV | orden |
+| 202606170041 | 100.00 | 0040 | 17-06-2026 11:36:30 | Efectivo | Orden en TPV | orden |
+| 202606170042 | 180.00 | 0041 | 17-06-2026 11:38:59 | Tarjeta de débito | Orden en TPV | orden |
+| 202606170043 | 231.00 | 0042 | 17-06-2026 11:54:32 | Efectivo,Tarjeta bancaria | Orden en TPV | orden |
+| 202606170044 | 174.00 | 0043 | 17-06-2026 12:37:01 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606170045 | 132.00 | 0044 | 17-06-2026 12:39:03 | Tarjeta de débito | Orden en TPV | orden |
+| 202606170046 | 115.00 | 0045 | 17-06-2026 12:45:59 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606170047 | 150.00 | 0046 | 17-06-2026 12:56:18 | Efectivo | Orden en TPV | orden |
+| 202606170048 | 174.00 | 0047 | 17-06-2026 13:01:29 | Efectivo | Orden en TPV | orden |
+| 202606170049 | 318.00 | 0048 | 17-06-2026 13:18:31 | Efectivo | Orden en TPV | orden |
+| 202606170050 | 568.00 | 0049 | 17-06-2026 13:23:09 | Tarjeta de débito | Orden en TPV | orden |
+| 202606170051 | 135.00 | 0050 | 17-06-2026 13:25:41 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606170052 | 285.00 | 0051 | 17-06-2026 13:37:28 | Tarjeta de débito | Orden en TPV | orden |
+| 202606170053 | 99.00 | 0052 | 17-06-2026 13:52:51 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606170054 | 130.00 | 0053 | 17-06-2026 14:07:54 | Efectivo | Orden en TPV | orden |
+| 202606170055 | 120.00 | 0054 | 17-06-2026 14:23:48 | Efectivo | Orden en TPV | orden |
+| 202606170056 | 120.00 | 0056 | 17-06-2026 14:49:24 | Tarjeta de débito | Orden en TPV | orden |
+| 202606170057 | 530.00 | 0055 | 17-06-2026 14:59:55 | Efectivo | Orden en TPV | orden |
+| 202606170058 | 230.00 | 0057 | 17-06-2026 15:14:52 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606170059 | 152.00 | 0059 | 17-06-2026 15:34:22 | Efectivo | Orden en TPV | orden |
+| 202606170060 | 170.00 | 0060 | 17-06-2026 15:45:32 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606170061 | 150.00 | 79D3C | 17-06-2026 17:12:12 | Uber Eats | Orden en TPV | orden |
+| 202606170062 | 213.00 | 0061 | 17-06-2026 16:16:15 | Efectivo | Orden en TPV | orden |
+| 202606170063 | 92.00 | 0062 | 17-06-2026 16:18:50 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606170064 | 180.00 | 0058 | 17-06-2026 16:50:53 | Efectivo | Orden en TPV | orden |
+| 202606170065 | 194.00 | 0064 | 17-06-2026 17:05:56 | Efectivo | Orden en TPV | orden |
+| 202606170066 | 174.00 | 0065 | 17-06-2026 17:07:44 | Tarjeta de débito | Orden en TPV | orden |
+| 202606170067 | 340.00 | 0063 | 17-06-2026 17:10:19 | Efectivo | Orden en TPV | orden |
 | 202606170068 | 100.00 | 0068 | 17-06-2026 17:33:54 | Efectivo | Orden en TPV | orden |
-| 202606170069 | 105.00 | 0069 | 17-06-2026 17:35:59 | Efectivo | Orden en TPV | orden |
-| 202606170070 | 100.00 | 0070 | 17-06-2026 17:37:01 | Efectivo | Orden en TPV | orden |
-| 202606170071 | 60.00 | 0071 | 17-06-2026 17:49:31 | Efectivo | Orden en TPV | orden |
-| 202606170072 | 100.00 | 0072 | 17-06-2026 17:54:00 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606170073 | 76.00 | 0073 | 17-06-2026 17:58:19 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606170074 | 204.00 | 0074 | 17-06-2026 18:00:53 | Tarjeta bancaria | Orden en TPV | orden |
-| 202606170075 | 59.00 | 0075 | 17-06-2026 18:14:19 | Tarjeta de débito | Orden en TPV | orden |
+| 202606170069 | 105.00 | 0067 | 17-06-2026 17:35:59 | Efectivo | Orden en TPV | orden |
+| 202606170070 | 100.00 | 0069 | 17-06-2026 17:37:01 | Efectivo | Orden en TPV | orden |
+| 202606170071 | 60.00 | 0070 | 17-06-2026 17:49:31 | Efectivo | Orden en TPV | orden |
+| 202606170072 | 100.00 | 0071 | 17-06-2026 17:54:00 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606170073 | 76.00 | 0072 | 17-06-2026 17:58:19 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606170074 | 204.00 | 0073 | 17-06-2026 18:00:53 | Tarjeta bancaria | Orden en TPV | orden |
+| 202606170075 | 59.00 | 0074 | 17-06-2026 18:14:19 | Tarjeta de débito | Orden en TPV | orden |
 
 ---
 
@@ -135,7 +136,6 @@ ROL DE CANELA: 5 uds — $290.00
 | 202606170007 | MOLLETES | CHILORIO | 1 | 170.00 | No |
 | 202606170007 | ROL DE CANELA CAJETA Y NUEZ |  | 1 | 68.00 | No |
 | 202606170007 | CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 2 | 152.00 | No |
-| 202606170007 | SINCRONIZADAS DE JAMON |  | 1 | 130.00 | No |
 | 202606170008 | SINCRONIZADAS DE JAMON |  | 1 | 130.00 | No |
 | 202606170008 | TRENZAS DE MAPLE Y NUEZ |  | 1 | 40.00 | No |
 | 202606170008 | AMERICANO CALIENTE | 10 CORTADO | 1 | 65.00 | No |
@@ -190,7 +190,6 @@ ROL DE CANELA: 5 uds — $290.00
 | 202606170039 | Horchata Nuez - Frappé |  | 1 | 134.00 | No |
 | 202606170039 | Moka - Frappé |  | 1 | 134.00 | No |
 | 202606170039 | Capuccino con Sabor de Avellana - Frappé |  | 1 | 134.00 | No |
-| 202606170039 | AMERICANO CALIENTE |  | 1 | 59.00 | No |
 | 202606170040 | LATTE CALIENTE | 02 LECHE DESLACTOSADA | 1 | 76.00 | No |
 | 202606170040 | CHOCOLATE CALIENTE | 02 LECHE DESLACTOSADA | 1 | 90.00 | No |
 | 202606170040 | MOLLETES |  | 1 | 140.00 | No |
@@ -259,7 +258,8 @@ ROL DE CANELA: 5 uds — $290.00
 
 ## NOTAS
 
-- Datos: API de ordenes + detalle de productos por orden
+- Datos: API de órdenes (/admin/baigong/order/list) + detalle de productos por orden (/admin/baigong/order/info)
 - El Cierre formal no fue ejecutado por el cajero
-- Match ordenes vs productos: DIFERENCIA $145.00
-- Generado: 2026-06-17T22:00:00 (conversion desde formato legacy)
+- Match órdenes vs productos: DIFERENCIA $44.00
+- Total items calculado: $12608.00 | Total API: $12652.00
+- Generado: 2026-06-18T00:00:00Z
