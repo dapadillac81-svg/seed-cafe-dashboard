@@ -59,8 +59,8 @@ def fail(mensaje: str) -> None:
     sys.exit(0)  # no se trata como fallo del workflow: simplemente no hubo cierre esta noche
 
 
-CAPTCHA_CICLO_MIN = 3  # minutos que espera por cada imagen antes de mandar una nueva
-CAPTCHA_MAX_MIN = 120  # tope total: ~2 horas reenviando captcha nuevo cada ciclo
+CAPTCHA_CICLO_MIN = 15  # minutos que espera por cada imagen antes de mandar una nueva
+CAPTCHA_MAX_MIN = 120  # tope total: ~2 horas (máx. 8 mensajes) reenviando captcha cada ciclo
 
 
 def _offset_inicial() -> int:
