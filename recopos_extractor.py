@@ -59,43 +59,58 @@ def fail(mensaje: str) -> None:
     sys.exit(0)  # no se trata como fallo del workflow: simplemente no hubo cierre esta noche
 
 
-def resolver_captcha_por_telegram() -> tuple[str, str]:
-    r = requests.get(f"{BASE_URL}/admin/captchaImage", timeout=15)
-    data = r.json()
-    img_b64, uuid = data["img"], data["uuid"]
+CAPTCHA_CICLO_MIN = 3  # minutos que espera por cada imagen antes de mandar una nueva
+CAPTCHA_MAX_MIN = 120  # tope total: ~2 horas reenviando captcha nuevo cada ciclo
 
-    tg_send_photo_b64(
-        img_b64,
-        "🔐 <b>SEED CAFÉ — Login Recopos</b>\n\n"
-        "El proceso automático necesita acceso.\n"
-        "<b>Responde con los caracteres que ves en esta imagen</b> para continuar.\n\n"
-        "⏰ Tienes 3 minutos.",
-    )
 
+def _offset_inicial() -> int:
     r = requests.get(
         f"https://api.telegram.org/bot{TG_TOKEN}/getUpdates",
         params={"limit": 1, "offset": -1},
         timeout=15,
     )
     result = r.json().get("result", [])
-    offset = result[-1]["update_id"] + 1 if result else 0
+    return result[-1]["update_id"] + 1 if result else 0
 
-    for _ in range(18):  # 18 x 10s = 3 min
-        time.sleep(10)
-        r = requests.get(
-            f"https://api.telegram.org/bot{TG_TOKEN}/getUpdates",
-            params={"offset": offset, "limit": 10},
-            timeout=15,
+
+def resolver_captcha_por_telegram() -> tuple[str, str]:
+    """Pide un CAPTCHA y espera respuesta por Telegram. Si no contestas a tiempo,
+    pide uno nuevo (el anterior ya venció en RecoPOS) y vuelve a esperar — así, sin
+    importar cuándo abras el chat, hay un CAPTCHA vigente listo para resolver.
+    """
+    offset = _offset_inicial()
+    ciclos = CAPTCHA_MAX_MIN // CAPTCHA_CICLO_MIN
+
+    for ciclo in range(ciclos):
+        r = requests.get(f"{BASE_URL}/admin/captchaImage", timeout=15)
+        data = r.json()
+        img_b64, uuid = data["img"], data["uuid"]
+
+        intro = "🔐 <b>SEED CAFÉ — Login Recopos</b>" if ciclo == 0 else "🔄 <b>SEED CAFÉ — Nuevo intento de login</b>\n(el código anterior ya venció)"
+        tg_send_photo_b64(
+            img_b64,
+            f"{intro}\n\nEl proceso automático necesita acceso.\n"
+            "<b>Responde con los caracteres que ves en esta imagen</b> para continuar.\n\n"
+            f"⏰ Tienes {CAPTCHA_CICLO_MIN} minutos — si no contestas, te mando uno nuevo "
+            "automáticamente y puedes resolverlo en cuanto lo veas.",
         )
-        for u in r.json().get("result", []):
-            offset = u["update_id"] + 1
-            msg = u.get("message", {})
-            if str(msg.get("chat", {}).get("id")) == str(TG_CHAT):
-                txt = (msg.get("text") or "").strip()
-                if 3 <= len(txt) <= 6:
-                    return txt.upper(), uuid
 
-    fail("timeout esperando el CAPTCHA por Telegram (3 min)")
+        for _ in range(CAPTCHA_CICLO_MIN * 6):  # intervalos de 10s
+            time.sleep(10)
+            r = requests.get(
+                f"https://api.telegram.org/bot{TG_TOKEN}/getUpdates",
+                params={"offset": offset, "limit": 10},
+                timeout=15,
+            )
+            for u in r.json().get("result", []):
+                offset = u["update_id"] + 1
+                msg = u.get("message", {})
+                if str(msg.get("chat", {}).get("id")) == str(TG_CHAT):
+                    txt = (msg.get("text") or "").strip()
+                    if 3 <= len(txt) <= 6:
+                        return txt.upper(), uuid
+
+    fail(f"sin respuesta al CAPTCHA tras {CAPTCHA_MAX_MIN} minutos reenviando intentos")
 
 
 def login() -> str:
