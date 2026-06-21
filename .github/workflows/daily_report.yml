@@ -66,4 +66,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Reporte automático: actualiza dashboard"
-          file_pattern: "docs/*.html docs/*.json data_txt/cierre_*.txt"
+          file_pattern: |
+            docs/*.html
+            docs/*.json
+            data_txt/cierre_*.txt
