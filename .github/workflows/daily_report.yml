@@ -10,7 +10,12 @@ on:
     # arriba para la hora 3 UTC, y GitHub fusiona ambos disparos en uno solo
     # — el de Drive siempre "gana" y este nunca se distinguía).
     - cron: "33 3 * * *"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      fecha:
+        description: "Fecha a extraer de RecoPOS (YYYY-MM-DD). Vacío = automático (hoy/ayer según la hora)."
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -51,6 +56,7 @@ jobs:
           RECOPOS_PASSWORD: ${{ secrets.RECOPOS_PASSWORD }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          FECHA_OBJETIVO: ${{ github.event.inputs.fecha }}
         run: python recopos_extractor.py
 
       - name: Buscar y descargar archivos nuevos en Google Drive

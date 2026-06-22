@@ -135,6 +135,10 @@ def login() -> str:
 
 
 def fecha_objetivo() -> dt.date:
+    override = os.environ.get("FECHA_OBJETIVO", "").strip()
+    if override:
+        return dt.date.fromisoformat(override)
+
     # GitHub Actions corre en UTC; el SKILL de cowork corre con la hora local
     # de la PC (MX). Usamos siempre la hora real de Ciudad de México para que
     # la lógica "hoy si son >=9pm, si no ayer" sea consistente sin importar
