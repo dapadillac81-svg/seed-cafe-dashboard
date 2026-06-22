@@ -135,7 +135,15 @@ def login() -> str:
 
 
 def fecha_objetivo() -> dt.date:
-    ahora = dt.datetime.now()
+    # GitHub Actions corre en UTC; el SKILL de cowork corre con la hora local
+    # de la PC (MX). Usamos siempre la hora real de Ciudad de México para que
+    # la lógica "hoy si son >=9pm, si no ayer" sea consistente sin importar
+    # dónde se ejecute el script.
+    try:
+        from zoneinfo import ZoneInfo
+        ahora = dt.datetime.now(ZoneInfo("America/Mexico_City"))
+    except Exception:
+        ahora = dt.datetime.now()
     if ahora.hour >= 21:
         return ahora.date()
     return ahora.date() - dt.timedelta(days=1)
