@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import datetime as dt
 import os
+import re
 import sys
 import time
 
@@ -336,14 +337,46 @@ def notificar_telegram(fecha: dt.date, r: dict, items: list[dict], archivo: str)
     tg_send_message(msg)
 
 
-def main() -> None:
-    os.makedirs(OUT_DIR, exist_ok=True)
-    fecha = fecha_objetivo()
+def fechas_existentes() -> set[dt.date]:
+    existentes = set()
+    if os.path.isdir(OUT_DIR):
+        for fn in os.listdir(OUT_DIR):
+            m = re.match(r"cierre_(\d{4}-\d{2}-\d{2})\.txt$", fn)
+            if m:
+                existentes.add(dt.date.fromisoformat(m.group(1)))
+    return existentes
 
-    token = login()
+
+def fechas_a_procesar(objetivo: dt.date) -> list[dt.date]:
+    """Día objetivo + cualquier día faltante anterior (sin cierre_*.txt todavía),
+    desde el último día existente hasta el objetivo. Si se pidió una fecha
+    explícita (FECHA_OBJETIVO), solo se procesa esa, sin backfill.
+    """
+    if os.environ.get("FECHA_OBJETIVO", "").strip():
+        return [objetivo]
+
+    existentes = fechas_existentes()
+    if not existentes:
+        return [objetivo]
+
+    ultimo = max(existentes)
+    faltantes = []
+    cursor = ultimo + dt.timedelta(days=1)
+    while cursor <= objetivo:
+        if cursor not in existentes:
+            faltantes.append(cursor)
+        cursor += dt.timedelta(days=1)
+    return faltantes or [objetivo]
+
+
+def procesar_fecha(token: str, fecha: dt.date) -> bool:
+    """Extrae y guarda el cierre de una fecha. Devuelve True si hubo órdenes
+    (día procesado) o False si el café no abrió ese día (se omite sin error).
+    """
     orders = extraer_ordenes(token, fecha)
     if not orders:
-        fail(f"sin órdenes para {fecha.isoformat()} (¿el café no abrió o la API no respondió?)")
+        tg_send_message(f"ℹ️ SEED CAFÉ — {fecha.isoformat()}: sin órdenes (café cerrado o sin ventas), se omite.")
+        return False
 
     items = extraer_items(token, orders)
     r = resumen_pagos(orders)
@@ -356,6 +389,28 @@ def main() -> None:
 
     notificar_telegram(fecha, r, items, nombre_archivo)
     print(f"OK: {ruta} ({r['totalOrdenes']} órdenes, ${r['totalVentas']:.2f})")
+    return True
+
+
+def main() -> None:
+    os.makedirs(OUT_DIR, exist_ok=True)
+    objetivo = fecha_objetivo()
+    pendientes = fechas_a_procesar(objetivo)
+
+    if len(pendientes) > 1:
+        tg_send_message(
+            f"🔄 SEED CAFÉ — Rescatando {len(pendientes)} días sin cierre: "
+            + ", ".join(f.isoformat() for f in pendientes)
+        )
+
+    token = login()
+    algun_exito = False
+    for fecha in pendientes:
+        if procesar_fecha(token, fecha):
+            algun_exito = True
+
+    if not algun_exito:
+        fail(f"sin órdenes en ninguna de las fechas pendientes: {', '.join(f.isoformat() for f in pendientes)}")
 
     github_output = os.environ.get("GITHUB_OUTPUT")
     if github_output:
