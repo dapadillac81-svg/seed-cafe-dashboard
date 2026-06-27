@@ -354,21 +354,25 @@ def fechas_existentes() -> set[dt.date]:
     return existentes
 
 
+BACKFILL_VENTANA_DIAS_SIN_HISTORIAL = 7  # si no hay ningún cierre_*.txt todavía
+
+
 def fechas_a_procesar(objetivo: dt.date) -> list[dt.date]:
-    """Día objetivo + cualquier día faltante anterior (sin cierre_*.txt todavía),
-    desde el último día existente hasta el objetivo. Si se pidió una fecha
+    """Día objetivo + cualquier día faltante (sin cierre_*.txt todavía), desde
+    el PRIMER día existente hasta el objetivo — revisa huecos en todo ese
+    rango, no solo después del último archivo, porque puede haber días
+    intermedios sin archivo aunque ya existan días más recientes (p.ej. si una
+    corrida falló a mitad de un backfill anterior). Si se pidió una fecha
     explícita (FECHA_OBJETIVO), solo se procesa esa, sin backfill.
     """
     if os.environ.get("FECHA_OBJETIVO", "").strip():
         return [objetivo]
 
     existentes = fechas_existentes()
-    if not existentes:
-        return [objetivo]
+    inicio = min(existentes) if existentes else objetivo - dt.timedelta(days=BACKFILL_VENTANA_DIAS_SIN_HISTORIAL)
 
-    ultimo = max(existentes)
     faltantes = []
-    cursor = ultimo + dt.timedelta(days=1)
+    cursor = inicio
     while cursor <= objetivo:
         if cursor not in existentes:
             faltantes.append(cursor)
