@@ -465,14 +465,24 @@ def compute_forecast(items_df: pd.DataFrame, categoria_df: pd.DataFrame, forecas
 
     # Solo estas categorías se desglosan producto por producto. El resto de
     # bebidas se agrupa en dos totales (calientes vs. frías/frappés/smoothies)
-    # para no saturar el plan diario.
-    CATEGORIAS_DESGLOSADAS = {"ALIMENTOS", "POSTRES", "REFRESCOS"}
+    # para no saturar el plan diario. Los nombres deben coincidir EXACTAMENTE
+    # con las clasificaciones de `product_category_map.json` (verificado:
+    # ALIMENTOS, CALIENTES CON CAFE, CALIENTES SIN CAFE, FRAPPES CON CAFE,
+    # FRAPPES SIN CAFE, FRIAS CON CAFE, FRIAS SIN CAFE, POSTRES, REFRESCOS,
+    # SMOOTHIES). La comparación se normaliza (mayúsculas + sin espacios extra)
+    # para no romperse si el mapa cambia ligeramente de formato.
+    def _norm(s: str) -> str:
+        return str(s).strip().upper()
+
+    CATEGORIAS_DESGLOSADAS = {_norm(c) for c in ("ALIMENTOS", "POSTRES", "REFRESCOS")}
     GRUPOS_BEBIDAS = {
-        "BEBIDAS CALIENTES": {"CALIENTES CON CAFE", "CALIENTES SIN CAFE"},
+        "BEBIDAS CALIENTES": {_norm(c) for c in ("CALIENTES CON CAFE", "CALIENTES SIN CAFE")},
         "FRÍAS / FRAPPÉS / SMOOTHIES": {
-            "FRIAS CON CAFE", "FRIAS SIN CAFE",
-            "FRAPPES CON CAFE", "FRAPPES SIN CAFE",
-            "SMOOTHIES",
+            _norm(c) for c in (
+                "FRIAS CON CAFE", "FRIAS SIN CAFE",
+                "FRAPPES CON CAFE", "FRAPPES SIN CAFE",
+                "SMOOTHIES",
+            )
         },
     }
 
@@ -481,11 +491,12 @@ def compute_forecast(items_df: pd.DataFrame, categoria_df: pd.DataFrame, forecas
         totales_grupo = {nombre: 0 for nombre in GRUPOS_BEBIDAS}
         for categoria, grupo in fc.groupby("categoria"):
             grupo = grupo.sort_values("cantidad_sugerida", ascending=False)
-            if categoria in CATEGORIAS_DESGLOSADAS:
+            categoria_norm = _norm(categoria)
+            if categoria_norm in CATEGORIAS_DESGLOSADAS:
                 categorias.append((categoria, grupo.to_dict("records")))
                 continue
             for nombre_grupo, miembros in GRUPOS_BEBIDAS.items():
-                if categoria in miembros:
+                if categoria_norm in miembros:
                     totales_grupo[nombre_grupo] += grupo["cantidad_sugerida"].sum()
                     break
             else:
