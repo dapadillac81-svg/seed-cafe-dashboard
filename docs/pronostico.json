@@ -1,10 +1,15 @@
 {
   "fecha_objetivo": "2026-06-27",
   "dia_semana": "Sábado",
-  "generado": "27-06-2026 10:08",
-  "dias_historial_mismo_dia": 2,
-  "dias_historial_total": 11,
+  "generado": "27-06-2026 10:50",
+  "dias_historial_mismo_dia": 7,
+  "dias_historial_total": 48,
   "productos": [
+    {
+      "producto": "SANDWICH P/P/PANELA/1 PZA",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 7
+    },
     {
       "producto": "SANDWICH P/P/PANELA",
       "categoria": "ALIMENTOS",
@@ -16,14 +21,9 @@
       "cantidad_sugerida": 4
     },
     {
-      "producto": "SANDWICH P/P/PANELA/1 PZA",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 4
-    },
-    {
       "producto": "CHAPATA P/P/PANELA",
       "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 3
+      "cantidad_sugerida": 4
     },
     {
       "producto": "WRAP DE OMELETTE JAMON Y QUESO/1 PZA",
@@ -36,12 +36,17 @@
       "cantidad_sugerida": 3
     },
     {
-      "producto": "SINCRONIZADAS DE JAMON/2 PZAS",
+      "producto": "ENSALADA",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 3
+    },
+    {
+      "producto": "CHAPATA CHILORIO/1 PZA",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 2
     },
     {
-      "producto": "CHAPATA CHILORIO/1 PZA",
+      "producto": "WRAP DE OMELETTE Y CHILORIO/1 PZA",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 2
     },
@@ -51,17 +56,17 @@
       "cantidad_sugerida": 2
     },
     {
+      "producto": "MOLLETES A LA MEXICANA/2 PZAS",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 2
+    },
+    {
       "producto": "ENSALADA/325 GR",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 2
     },
     {
-      "producto": "SINCRONIZADAS DE JAMON",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "WRAP DE OMELETTE Y CHILORIO",
+      "producto": "SINCRONIZADAS DE JAMON/2 PZAS",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 2
     },
@@ -71,17 +76,22 @@
       "cantidad_sugerida": 2
     },
     {
+      "producto": "SINCRONIZADAS DE JAMON",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 2
+    },
+    {
       "producto": "CHAPATA CHILORIO",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 1
     },
     {
-      "producto": "MOLLETES A LA MEXICANA/2 PZAS",
+      "producto": "MEDIA ENSALADA/1/2 Ensalada",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 1
     },
     {
-      "producto": "ENSALADA",
+      "producto": "SINCRONIZADAS DE CHILORIO/2 PZAS",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 1
     },
@@ -91,172 +101,27 @@
       "cantidad_sugerida": 1
     },
     {
-      "producto": "WRAP DE OMELETTE Y CHILORIO/1 PZA",
+      "producto": "WRAP DE OMELETTE Y CHILORIO",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 1
     },
     {
-      "producto": "AMERICANO CALIENTE/16 OZ",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 9
+      "producto": "Total piezas sugeridas",
+      "categoria": "BEBIDAS",
+      "cantidad_sugerida": 309
     },
     {
-      "producto": "CAPUCCINO CALIENTE/16 OZ",
-      "categoria": "CALIENTES CON CAFE",
+      "producto": "TRENZAS DE MAPLE Y NUEZ",
+      "categoria": "POSTRES",
       "cantidad_sugerida": 8
     },
     {
-      "producto": "AMERICANO CALIENTE",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 6
-    },
-    {
-      "producto": "CAPUCCINO CALIENTE",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 5
-    },
-    {
-      "producto": "LATTE CALIENTE/16 OZ",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 5
-    },
-    {
-      "producto": "LATTE CALIENTE",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 3
-    },
-    {
-      "producto": "CAPUCCINO CALIENTE CARAMEL",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "ESPRESSO DOBLE/2 OZ",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "EUROPEO CALIENTE",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "LATTE AVELLANA CALIENTE/16 OZ",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "CAPUCCINO CALIENTE VAINILLA",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "CAPUCCINO CALIENTE AVELLANA",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "CAPUCCINO CALIENTE AVELLANA/16 OZ",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CAPUCCINO CALIENTE AMARETTO",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "BEBIDA GRATIS PROGRAMA LEALTAD",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CAPUCCINO CALIENTE CARAMEL/16 OZ",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "ESPRESSO DOBLE",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CAPUCCINO VAINILLA S/A/16 OZ",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CAPUCCINO CALIENTE CREMA IRLANDESA",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CAPUCCINO CALIENTE VAINILLA/16 OZ",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "FLAT WHITE CALIENTE/16 OZ",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "FLAT WHITE CALIENTE",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "LATTE AVELLANA CALIENTE",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "EUROPEO CALIENTE/16 OZ",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "LATTE AMARETTO CALIENTE",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "LATTE CARAMEL CALIENTE",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "LATTE CARAMEL CALIENTE/16 OZ",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "LATTE VAINILLA S/A/16 OZ",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "MOKA BLANCO CAPUCCINO CALIENTE",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "MOKA BLANCO CAPUCCINO CALIENTE/16 OZ",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "MOKA CAPUCCINO CALIENTE",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "MOKA CAPUCCINO CALIENTE/16 OZ",
-      "categoria": "CALIENTES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
       "producto": "GALLETAS NEW YORK",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 4
+    },
+    {
+      "producto": "TRENZAS DE MAPLE Y NUEZ/PTE 2 PIEZAS",
       "categoria": "POSTRES",
       "cantidad_sugerida": 4
     },
@@ -266,34 +131,19 @@
       "cantidad_sugerida": 4
     },
     {
+      "producto": "OREJITAS/1 PTE/4PZAS",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 3
+    },
+    {
       "producto": "YOGURT GRIEGO CON FRESAS/1 PZA",
       "categoria": "POSTRES",
-      "cantidad_sugerida": 4
-    },
-    {
-      "producto": "ROL DE CANELA MANZANA/1 PZA",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 4
-    },
-    {
-      "producto": "TRENZAS DE MAPLE Y NUEZ/PTE 2 PIEZAS",
-      "categoria": "POSTRES",
       "cantidad_sugerida": 3
     },
     {
-      "producto": "ROL DE CANELA/1 PZA",
+      "producto": "ROL DE CANELA",
       "categoria": "POSTRES",
       "cantidad_sugerida": 3
-    },
-    {
-      "producto": "ROL DE CANELA CAJETA Y NUEZ/1 PZA",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 3
-    },
-    {
-      "producto": "JAMAICA ENCHILADA/1 PZA",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 2
     },
     {
       "producto": "GOMITAS",
@@ -301,12 +151,12 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "ROL DE CANELA CAJETA Y NUEZ",
+      "producto": "ROL DE CANELA NUTELLA/1 PZA",
       "categoria": "POSTRES",
       "cantidad_sugerida": 2
     },
     {
-      "producto": "POLVORONES",
+      "producto": "ROL DE CANELA/1 PZA",
       "categoria": "POSTRES",
       "cantidad_sugerida": 2
     },
@@ -316,22 +166,52 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "TRENZAS DE MAPLE Y NUEZ",
+      "producto": "ROL DE CANELA CAJETA Y NUEZ/1 PZA",
       "categoria": "POSTRES",
       "cantidad_sugerida": 2
     },
     {
-      "producto": "NUTRI BARRA/1 PZA",
+      "producto": "ROL DE CANELA CAJETA Y NUEZ",
       "categoria": "POSTRES",
-      "cantidad_sugerida": 1
+      "cantidad_sugerida": 2
+    },
+    {
+      "producto": "MANGO ENCHILADO/1 PTE",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 2
     },
     {
       "producto": "POLVORONES/PTE. 4 PZ",
       "categoria": "POSTRES",
+      "cantidad_sugerida": 2
+    },
+    {
+      "producto": "CHILLI PARADISE/1 PZA",
+      "categoria": "POSTRES",
       "cantidad_sugerida": 1
     },
     {
-      "producto": "ROL DE CANELA",
+      "producto": "JAMAICA ENCHILADA/1 PZA",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 1
+    },
+    {
+      "producto": "GOMITAS/1 PZA",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 1
+    },
+    {
+      "producto": "GOMITAS ARO MANZANA/1 PTE",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 1
+    },
+    {
+      "producto": "GALLETAS NEW YORK/1PZA",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 1
+    },
+    {
+      "producto": "NUTRI BARRA/1 PZA",
       "categoria": "POSTRES",
       "cantidad_sugerida": 1
     },
@@ -341,7 +221,7 @@
       "cantidad_sugerida": 1
     },
     {
-      "producto": "ROL DE CANELA NUTELLA/1 PZA",
+      "producto": "ROL DE CANELA MANZANA/1 PZA",
       "categoria": "POSTRES",
       "cantidad_sugerida": 1
     },
@@ -351,502 +231,12 @@
       "cantidad_sugerida": 1
     },
     {
-      "producto": "CHOCOLATE TRADICIONAL CALIENTE/16 OZ",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 3
-    },
-    {
-      "producto": "CHOCOLATE CALIENTE/16 OZ",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 3
-    },
-    {
-      "producto": "MATCHA CALIENTE",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 3
-    },
-    {
-      "producto": "CHOCOLATE BLANCO CALIENTE/16 OZ",
-      "categoria": "CALIENTES SIN CAFE",
+      "producto": "AGUA",
+      "categoria": "REFRESCOS",
       "cantidad_sugerida": 2
-    },
-    {
-      "producto": "CHAI VAINILLA S/A CALIENTE/16 OZ",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "CHAI VAINILLA CALIENTE/16 OZ",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "MAZAPAN CALIENTE/16 OZ",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "CHAI VAINILLA CALIENTE",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "ALIVIA-TE",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "CHAI GUAYABA",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CHOCOLATE BLANCO CALIENTE",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CHAI VAINILLA S/A CALIENTE",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CHAI ORIGINAL CALIENTE/16 OZ",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CHAI ORIGINAL CALIENTE",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "HORCHATA CALIENTE/16 OZ",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CHOCOLATE CALIENTE",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "MATCHA CALIENTE/16 OZ",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "MAZAPAN CALIENTE",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "TARO CALIENTE",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "TARO CALIENTE/16 OZ",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "TISANA/16 OZ",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "TÉ MANZANA/CANELA CALIENTE/16 OZ",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "TÉ MANZANILLA CALIENTE/16 OZ",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "TÉ MANZANILLA-JENGIBRE CALIENTE",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "TÉ MANZANILLA-JENGIBRE CALIENTE/16 OZ",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "TÉ VERDE CALIENTE/16 OZ",
-      "categoria": "CALIENTES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CAPUCCINO FRIO/16 OZ",
-      "categoria": "FRIAS CON CAFE",
-      "cantidad_sugerida": 5
-    },
-    {
-      "producto": "CAPUCCINO FRIO CARAMEL",
-      "categoria": "FRIAS CON CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "CAPUCCINO FRIO VAINILLA/16 OZ",
-      "categoria": "FRIAS CON CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "COFFE TONIC",
-      "categoria": "FRIAS CON CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "CAPUCCINO FRIO CARAMEL/16 OZ",
-      "categoria": "FRIAS CON CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "CAPUCCINO FRIO",
-      "categoria": "FRIAS CON CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "MOKA CAPUCCINO FRIO",
-      "categoria": "FRIAS CON CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "COLD BREW AGUA",
-      "categoria": "FRIAS CON CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "LATTE FRIO VAINILLA",
-      "categoria": "FRIAS CON CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "LATTE FRIO",
-      "categoria": "FRIAS CON CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "COFFE TONIC/16 OZ",
-      "categoria": "FRIAS CON CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "CAPUCCINO FRIO AMARETO",
-      "categoria": "FRIAS CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "AMERICANO FRIO",
-      "categoria": "FRIAS CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "AMERICANO FRIO/16 OZ",
-      "categoria": "FRIAS CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CAPUCCINO FRIO AVELLANA",
-      "categoria": "FRIAS CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CAPUCCINO FRIO VAINILLA",
-      "categoria": "FRIAS CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CAPUCCINO FRIO CREMA IRLANDESA",
-      "categoria": "FRIAS CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "EUROPEO FRIO",
-      "categoria": "FRIAS CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "LATTE FRIO VAINILLA/16 OZ",
-      "categoria": "FRIAS CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "LATTE VAINILLA S/A FRIO/16 OZ",
-      "categoria": "FRIAS CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "MOKA BLANCO CAPUCCINO FRIO",
-      "categoria": "FRIAS CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "MOKA BLANCO CAPUCCINO FRIO/16 OZ",
-      "categoria": "FRIAS CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "MATCHA FRIO",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 3
-    },
-    {
-      "producto": "AGUA FRIA1/16 OZ",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "TISANA FRIA/16 OZ",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "MAZAPAN FRIO",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "TE DURAZNO JAMAICA FRIO/16 OZ",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "TE FRUTOS ROJOS FRIO",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "CHAI VAINILLA FRIO",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CHAI ORIGINAL FRIO/16 OZ",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "AGUA FRIA2/16 OZ",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CHAI ORIGINAL FRIO",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "AGUA FRIA2",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "AGUA FRIA1",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CHOCOLATE TRADICIONAL FRIO",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CHOCOLATE FRIO",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CHAI VAINILLA S/A FRIO",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CHAI VAINILLA FRIO/16 OZ",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "TARO FRIO",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "MATCHA FRIO/16 OZ",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "MATCHA-MENTA FRIO",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "MATCHA-MENTA FRIO/16 OZ",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "TE DURAZNO JAMAICA FRIO",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "TARO S/A FRIO/16 OZ",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "TARO S/A FRIO",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "TE FRUTOS ROJOS FRIO/16 OZ",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "TE MANZANILLA JENGIBRE FRIO/16 OZ",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "TÉ CANELA A LA MANZANA FRIO",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "TÉ HIERBABUENA FRIO",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "TÉ MANZANILLA FRIO",
-      "categoria": "FRIAS SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CHAI VAINILLA FRAPPE/16 OZ",
-      "categoria": "FRAPPES SIN CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "FRAPPE YOGURT MIX BERRIES",
-      "categoria": "FRAPPES SIN CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "FRAPPE MAZAPAN",
-      "categoria": "FRAPPES SIN CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "FRAPPE NUTELLA/16 OZ",
-      "categoria": "FRAPPES SIN CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "MATCHA FRAPPE",
-      "categoria": "FRAPPES SIN CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "FRAPPE YOGURT FRESA",
-      "categoria": "FRAPPES SIN CAFE",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "CHAI ORIGINAL FRAPPE",
-      "categoria": "FRAPPES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CHAI ORIGINAL FRAPPE/16 OZ",
-      "categoria": "FRAPPES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CHAI VAINILLA FRAPPE",
-      "categoria": "FRAPPES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CHOCOLATE ITALIANO FRAPPE",
-      "categoria": "FRAPPES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CHAI VAINILLA S/A FRAPPE",
-      "categoria": "FRAPPES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CHAI VAINILLA S/A FRAPPE/16 OZ",
-      "categoria": "FRAPPES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "FRAPPE NUTELLA",
-      "categoria": "FRAPPES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "FRAPPE MAZAPAN/16 OZ",
-      "categoria": "FRAPPES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CHOCOLATE BLANCO FRAPPE",
-      "categoria": "FRAPPES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "FRAPPE YOGURT FRESA/16 OZ",
-      "categoria": "FRAPPES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "FRAPPE YOGURT MANGO/16 OZ",
-      "categoria": "FRAPPES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "MATCHA FRAPPE/16 OZ",
-      "categoria": "FRAPPES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "TARO FRAPPE",
-      "categoria": "FRAPPES SIN CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "TARO S/A FRAPPE",
-      "categoria": "FRAPPES SIN CAFE",
-      "cantidad_sugerida": 1
     },
     {
       "producto": "AGUA/355 ML",
-      "categoria": "REFRESCOS",
-      "cantidad_sugerida": 5
-    },
-    {
-      "producto": "AGUA",
-      "categoria": "REFRESCOS",
-      "cantidad_sugerida": 4
-    },
-    {
-      "producto": "COCA ZERO/355 ML LATA",
-      "categoria": "REFRESCOS",
-      "cantidad_sugerida": 3
-    },
-    {
-      "producto": "COCA COLA",
       "categoria": "REFRESCOS",
       "cantidad_sugerida": 2
     },
@@ -856,12 +246,17 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "COCA COLA LIGHT",
+      "producto": "COCA COLA",
+      "categoria": "REFRESCOS",
+      "cantidad_sugerida": 2
+    },
+    {
+      "producto": "AGUA MINERAL/355 ML/LATA",
       "categoria": "REFRESCOS",
       "cantidad_sugerida": 1
     },
     {
-      "producto": "COCA COLA/ 355 ML LATA",
+      "producto": "COCA COLA LIGHT",
       "categoria": "REFRESCOS",
       "cantidad_sugerida": 1
     },
@@ -871,148 +266,18 @@
       "cantidad_sugerida": 1
     },
     {
-      "producto": "COCO SMOOTHIE/16 OZ",
-      "categoria": "SMOOTHIES",
+      "producto": "COCA COLA/ 355 ML LATA",
+      "categoria": "REFRESCOS",
       "cantidad_sugerida": 1
     },
     {
-      "producto": "FRESA SMOOTHIE",
-      "categoria": "SMOOTHIES",
+      "producto": "COCA ZERO/355 ML LATA",
+      "categoria": "REFRESCOS",
       "cantidad_sugerida": 1
     },
     {
-      "producto": "GUANABANA SMOOTHIE",
-      "categoria": "SMOOTHIES",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "GUAYABA SMOOTHIE/16 OZ",
-      "categoria": "SMOOTHIES",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "LIMON SMOOTHIE",
-      "categoria": "SMOOTHIES",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "MANGO SMOOTHIE",
-      "categoria": "SMOOTHIES",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "MANGO SMOOTHIE/16 OZ",
-      "categoria": "SMOOTHIES",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "MARACUYA SMOOTHIE",
-      "categoria": "SMOOTHIES",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "MIX BERRIES SMOOTHIE",
-      "categoria": "SMOOTHIES",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "MIX BERRIES SMOOTHIE/16 OZ",
-      "categoria": "SMOOTHIES",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "AVELLANA CAPUCCINO FRAPPE",
-      "categoria": "FRAPPES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CAPUCCINO FRAPPE",
-      "categoria": "FRAPPES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CAPUCCINO FRAPPE/16 OZ",
-      "categoria": "FRAPPES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CARAMEL CAPUCCINO FRAPPE",
-      "categoria": "FRAPPES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "CREMA IRLANDESA CAPUCCINO FRAPPE",
-      "categoria": "FRAPPES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "MOKA BLANCO CAPUCCINO FRAPPE",
-      "categoria": "FRAPPES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "MOKA CAPUCCINO FRAPPE",
-      "categoria": "FRAPPES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "MOKA CAPUCCINO FRAPPE/16 OZ",
-      "categoria": "FRAPPES CON CAFE",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "AGUA MINERAL",
-      "categoria": "SIN CLASIFICAR",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "Ensalada",
-      "categoria": "SIN CLASIFICAR",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "Horchata Nuez - Frappé",
-      "categoria": "SIN CLASIFICAR",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "LATTE CREMA IRLANDESA CALIENTE",
-      "categoria": "SIN CLASIFICAR",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "OREJITAS",
-      "categoria": "SIN CLASIFICAR",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "TÉ HIERBABUENA CALIENTE",
-      "categoria": "SIN CLASIFICAR",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "VAINILLA CAPUCCINO FRAPPE",
-      "categoria": "SIN CLASIFICAR",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "Matcha Menta - Caliente",
-      "categoria": "OTROS",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "Sandwich",
-      "categoria": "OTROS",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "AVELLANA CAPUCCINO FRAPPE/16 OZ",
-      "categoria": "nan",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "Chapata",
-      "categoria": "nan",
+      "producto": "GINGER ALE/16 OZ",
+      "categoria": "REFRESCOS",
       "cantidad_sugerida": 1
     }
   ]
