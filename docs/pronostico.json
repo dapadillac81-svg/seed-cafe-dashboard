@@ -1,10 +1,25 @@
 {
   "fecha_objetivo": "2026-06-27",
   "dia_semana": "Sábado",
-  "generado": "27-06-2026 11:50",
+  "generado": "27-06-2026 11:56",
   "dias_historial_mismo_dia": 8,
   "dias_historial_total": 51,
   "productos": [
+    {
+      "producto": "Total piezas sugeridas",
+      "categoria": "FRÍAS / FRAPPÉS / SMOOTHIES",
+      "cantidad_sugerida": 173
+    },
+    {
+      "producto": "Total piezas sugeridas",
+      "categoria": "BEBIDAS CALIENTES",
+      "cantidad_sugerida": 115
+    },
+    {
+      "producto": "Total piezas sugeridas",
+      "categoria": "OTRAS BEBIDAS",
+      "cantidad_sugerida": 14
+    },
     {
       "producto": "SANDWICH P/P/PANELA/1 PZA",
       "categoria": "ALIMENTOS",
@@ -104,16 +119,6 @@
       "producto": "WRAP DE OMELETTE Y CHILORIO",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 1
-    },
-    {
-      "producto": "Total piezas sugeridas",
-      "categoria": "FRÍAS / FRAPPÉS / SMOOTHIES",
-      "cantidad_sugerida": 173
-    },
-    {
-      "producto": "Total piezas sugeridas",
-      "categoria": "BEBIDAS CALIENTES",
-      "cantidad_sugerida": 115
     },
     {
       "producto": "GALLETAS NEW YORK",
@@ -234,11 +239,6 @@
       "producto": "ROL DE CANELA MANZANA/1 PZA",
       "categoria": "POSTRES",
       "cantidad_sugerida": 1
-    },
-    {
-      "producto": "Total piezas sugeridas",
-      "categoria": "OTRAS BEBIDAS",
-      "cantidad_sugerida": 14
     },
     {
       "producto": "COCA COLA",

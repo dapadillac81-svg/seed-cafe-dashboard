@@ -508,10 +508,11 @@ def compute_forecast(items_df: pd.DataFrame, categoria_df: pd.DataFrame, forecas
                     nombre_grupo,
                     [{"producto": "Total piezas sugeridas", "cantidad_sugerida": int(round(total))}],
                 ))
-        # Ordena las categorías por la cantidad total sugerida (mayor a menor),
-        # pero ALIMENTOS siempre va primero (referencia rápida para producción).
+        # Orden: primero los totales agrupados de bebidas (lo que se prepara
+        # primero en el día), luego las categorías desglosadas por producto.
+        # Dentro de cada bloque, mayor cantidad sugerida primero.
         categorias.sort(key=lambda c: sum(p["cantidad_sugerida"] for p in c[1]), reverse=True)
-        categorias.sort(key=lambda c: c[0] != "ALIMENTOS")
+        categorias.sort(key=lambda c: _norm(c[0]) in CATEGORIAS_DESGLOSADAS)
 
     return {
         "categorias": categorias,
