@@ -174,13 +174,20 @@ def extraer_ordenes(token: str, fecha: dt.date) -> list[dict]:
 def extraer_items(token: str, orders: list[dict]) -> list[dict]:
     items = []
     for o in orders:
+        # El monto de la orden (lista de pagos) es la fuente de verdad para saber
+        # si es un reembolso: RecoPOS marca `refundOrderInfoList` en el detalle de
+        # la orden ORIGINAL cuando luego se generó un reembolso asociado (común en
+        # Uber Eats) — eso NO significa que esta orden sea el reembolso. La entrada
+        # que realmente es el reembolso aparece aparte en la lista, con monto < 0.
+        monto_orden = float(o.get("actualSum") or o.get("orderMoney") or o.get("totalSum") or 0)
+        is_refund = monto_orden < 0
+
         r = requests.get(
             f"{BASE_URL}/admin/baigong/order/info/{o['orderId']}",
             headers={"Authorization": f"Bearer {token}"},
             timeout=15,
         )
         d = r.json()
-        is_refund = bool(d.get("data", {}).get("refundOrderInfoList"))
         for oi in d.get("data", {}).get("orderInfoList", []):
             for p in oi.get("products", []):
                 items.append({
