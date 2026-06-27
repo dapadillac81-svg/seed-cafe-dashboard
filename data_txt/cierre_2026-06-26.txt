@@ -179,4 +179,4 @@ LATTE CALIENTE: 4.0 uds — $304.00
 - Datos: API de órdenes (`/admin/baigong/order/list`) + detalle de productos por orden (`/admin/baigong/order/info`)
 - El Cierre formal no fue ejecutado por el cajero
 - Match órdenes vs productos: OK
-- Generado: 2026-06-27T16:08:11.214327 (recopos_extractor.py / GitHub Actions)
+- Generado: 2026-06-27T17:27:15.743049 (recopos_extractor.py / GitHub Actions)

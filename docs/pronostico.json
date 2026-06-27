@@ -1,15 +1,10 @@
 {
   "fecha_objetivo": "2026-06-27",
   "dia_semana": "Sábado",
-  "generado": "27-06-2026 11:21",
-  "dias_historial_mismo_dia": 7,
-  "dias_historial_total": 48,
+  "generado": "27-06-2026 11:27",
+  "dias_historial_mismo_dia": 2,
+  "dias_historial_total": 11,
   "productos": [
-    {
-      "producto": "SANDWICH P/P/PANELA/1 PZA",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 7
-    },
     {
       "producto": "SANDWICH P/P/PANELA",
       "categoria": "ALIMENTOS",
@@ -21,9 +16,14 @@
       "cantidad_sugerida": 4
     },
     {
-      "producto": "CHAPATA P/P/PANELA",
+      "producto": "SANDWICH P/P/PANELA/1 PZA",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 4
+    },
+    {
+      "producto": "CHAPATA P/P/PANELA",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 3
     },
     {
       "producto": "WRAP DE OMELETTE JAMON Y QUESO/1 PZA",
@@ -36,17 +36,12 @@
       "cantidad_sugerida": 3
     },
     {
-      "producto": "ENSALADA",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 3
-    },
-    {
-      "producto": "CHAPATA CHILORIO/1 PZA",
+      "producto": "SINCRONIZADAS DE JAMON/2 PZAS",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 2
     },
     {
-      "producto": "WRAP DE OMELETTE Y CHILORIO/1 PZA",
+      "producto": "CHAPATA CHILORIO/1 PZA",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 2
     },
@@ -56,22 +51,7 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "MOLLETES A LA MEXICANA/2 PZAS",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 2
-    },
-    {
       "producto": "ENSALADA/325 GR",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "SINCRONIZADAS DE JAMON/2 PZAS",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "SINCRONIZADAS DE CHILORIO",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 2
     },
@@ -81,17 +61,27 @@
       "cantidad_sugerida": 2
     },
     {
+      "producto": "WRAP DE OMELETTE Y CHILORIO",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 2
+    },
+    {
+      "producto": "SINCRONIZADAS DE CHILORIO",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 2
+    },
+    {
       "producto": "CHAPATA CHILORIO",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 1
     },
     {
-      "producto": "MEDIA ENSALADA/1/2 Ensalada",
+      "producto": "MOLLETES A LA MEXICANA/2 PZAS",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 1
     },
     {
-      "producto": "SINCRONIZADAS DE CHILORIO/2 PZAS",
+      "producto": "ENSALADA",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 1
     },
@@ -101,32 +91,22 @@
       "cantidad_sugerida": 1
     },
     {
-      "producto": "WRAP DE OMELETTE Y CHILORIO",
+      "producto": "WRAP DE OMELETTE Y CHILORIO/1 PZA",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 1
     },
     {
       "producto": "Total piezas sugeridas",
       "categoria": "FRÍAS / FRAPPÉS / SMOOTHIES",
-      "cantidad_sugerida": 170
+      "cantidad_sugerida": 115
     },
     {
       "producto": "Total piezas sugeridas",
       "categoria": "BEBIDAS CALIENTES",
-      "cantidad_sugerida": 128
-    },
-    {
-      "producto": "TRENZAS DE MAPLE Y NUEZ",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 8
+      "cantidad_sugerida": 106
     },
     {
       "producto": "GALLETAS NEW YORK",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 4
-    },
-    {
-      "producto": "TRENZAS DE MAPLE Y NUEZ/PTE 2 PIEZAS",
       "categoria": "POSTRES",
       "cantidad_sugerida": 4
     },
@@ -136,42 +116,37 @@
       "cantidad_sugerida": 4
     },
     {
-      "producto": "OREJITAS/1 PTE/4PZAS",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 3
-    },
-    {
       "producto": "YOGURT GRIEGO CON FRESAS/1 PZA",
       "categoria": "POSTRES",
-      "cantidad_sugerida": 3
+      "cantidad_sugerida": 4
     },
     {
-      "producto": "ROL DE CANELA",
+      "producto": "ROL DE CANELA MANZANA/1 PZA",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 4
+    },
+    {
+      "producto": "TRENZAS DE MAPLE Y NUEZ/PTE 2 PIEZAS",
       "categoria": "POSTRES",
       "cantidad_sugerida": 3
-    },
-    {
-      "producto": "GOMITAS",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "ROL DE CANELA NUTELLA/1 PZA",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 2
     },
     {
       "producto": "ROL DE CANELA/1 PZA",
       "categoria": "POSTRES",
-      "cantidad_sugerida": 2
+      "cantidad_sugerida": 3
     },
     {
-      "producto": "ROL DE CANELA MANZANA",
+      "producto": "ROL DE CANELA CAJETA Y NUEZ/1 PZA",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 3
+    },
+    {
+      "producto": "JAMAICA ENCHILADA/1 PZA",
       "categoria": "POSTRES",
       "cantidad_sugerida": 2
     },
     {
-      "producto": "ROL DE CANELA CAJETA Y NUEZ/1 PZA",
+      "producto": "GOMITAS",
       "categoria": "POSTRES",
       "cantidad_sugerida": 2
     },
@@ -181,42 +156,32 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "MANGO ENCHILADO/1 PTE",
+      "producto": "POLVORONES",
       "categoria": "POSTRES",
       "cantidad_sugerida": 2
+    },
+    {
+      "producto": "ROL DE CANELA MANZANA",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 2
+    },
+    {
+      "producto": "TRENZAS DE MAPLE Y NUEZ",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 2
+    },
+    {
+      "producto": "NUTRI BARRA/1 PZA",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 1
     },
     {
       "producto": "POLVORONES/PTE. 4 PZ",
       "categoria": "POSTRES",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "CHILLI PARADISE/1 PZA",
-      "categoria": "POSTRES",
       "cantidad_sugerida": 1
     },
     {
-      "producto": "JAMAICA ENCHILADA/1 PZA",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "GOMITAS/1 PZA",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "GOMITAS ARO MANZANA/1 PTE",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "GALLETAS NEW YORK/1PZA",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "NUTRI BARRA/1 PZA",
+      "producto": "ROL DE CANELA",
       "categoria": "POSTRES",
       "cantidad_sugerida": 1
     },
@@ -226,7 +191,7 @@
       "cantidad_sugerida": 1
     },
     {
-      "producto": "ROL DE CANELA MANZANA/1 PZA",
+      "producto": "ROL DE CANELA NUTELLA/1 PZA",
       "categoria": "POSTRES",
       "cantidad_sugerida": 1
     },
@@ -236,12 +201,22 @@
       "cantidad_sugerida": 1
     },
     {
-      "producto": "AGUA",
+      "producto": "AGUA/355 ML",
       "categoria": "REFRESCOS",
-      "cantidad_sugerida": 2
+      "cantidad_sugerida": 5
     },
     {
-      "producto": "AGUA/355 ML",
+      "producto": "AGUA",
+      "categoria": "REFRESCOS",
+      "cantidad_sugerida": 4
+    },
+    {
+      "producto": "COCA ZERO/355 ML LATA",
+      "categoria": "REFRESCOS",
+      "cantidad_sugerida": 3
+    },
+    {
+      "producto": "COCA COLA",
       "categoria": "REFRESCOS",
       "cantidad_sugerida": 2
     },
@@ -251,22 +226,7 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "COCA COLA",
-      "categoria": "REFRESCOS",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "AGUA MINERAL/355 ML/LATA",
-      "categoria": "REFRESCOS",
-      "cantidad_sugerida": 1
-    },
-    {
       "producto": "COCA COLA LIGHT",
-      "categoria": "REFRESCOS",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "COCA COLA LIGHT/355 ML LATA",
       "categoria": "REFRESCOS",
       "cantidad_sugerida": 1
     },
@@ -276,12 +236,7 @@
       "cantidad_sugerida": 1
     },
     {
-      "producto": "COCA ZERO/355 ML LATA",
-      "categoria": "REFRESCOS",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "GINGER ALE/16 OZ",
+      "producto": "COCA COLA LIGHT/355 ML LATA",
       "categoria": "REFRESCOS",
       "cantidad_sugerida": 1
     },
