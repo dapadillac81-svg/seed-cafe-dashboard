@@ -463,25 +463,40 @@ def compute_forecast(items_df: pd.DataFrame, categoria_df: pd.DataFrame, forecas
     elif not fc.empty:
         fc["categoria"] = "OTROS"
 
-    # Solo estas categorías se desglosan producto por producto; el resto
-    # (las distintas bebidas: calientes, frías, frappés, smoothies, etc.) se
-    # agrupan en un único total de "Bebidas" para no saturar el plan diario.
+    # Solo estas categorías se desglosan producto por producto. El resto de
+    # bebidas se agrupa en dos totales (calientes vs. frías/frappés/smoothies)
+    # para no saturar el plan diario.
     CATEGORIAS_DESGLOSADAS = {"ALIMENTOS", "POSTRES", "REFRESCOS"}
+    GRUPOS_BEBIDAS = {
+        "BEBIDAS CALIENTES": {"CALIENTES CON CAFE", "CALIENTES SIN CAFE"},
+        "FRÍAS / FRAPPÉS / SMOOTHIES": {
+            "FRIAS CON CAFE", "FRIAS SIN CAFE",
+            "FRAPPES CON CAFE", "FRAPPES SIN CAFE",
+            "SMOOTHIES",
+        },
+    }
 
     categorias = []
     if not fc.empty:
-        total_bebidas = 0
+        totales_grupo = {nombre: 0 for nombre in GRUPOS_BEBIDAS}
         for categoria, grupo in fc.groupby("categoria"):
             grupo = grupo.sort_values("cantidad_sugerida", ascending=False)
             if categoria in CATEGORIAS_DESGLOSADAS:
                 categorias.append((categoria, grupo.to_dict("records")))
+                continue
+            for nombre_grupo, miembros in GRUPOS_BEBIDAS.items():
+                if categoria in miembros:
+                    totales_grupo[nombre_grupo] += grupo["cantidad_sugerida"].sum()
+                    break
             else:
-                total_bebidas += grupo["cantidad_sugerida"].sum()
-        if total_bebidas > 0:
-            categorias.append((
-                "BEBIDAS",
-                [{"producto": "Total piezas sugeridas", "cantidad_sugerida": int(round(total_bebidas))}],
-            ))
+                totales_grupo.setdefault("OTRAS BEBIDAS", 0)
+                totales_grupo["OTRAS BEBIDAS"] += grupo["cantidad_sugerida"].sum()
+        for nombre_grupo, total in totales_grupo.items():
+            if total > 0:
+                categorias.append((
+                    nombre_grupo,
+                    [{"producto": "Total piezas sugeridas", "cantidad_sugerida": int(round(total))}],
+                ))
         # Ordena las categorías por la cantidad total sugerida (mayor a menor),
         # pero ALIMENTOS siempre va primero (referencia rápida para producción).
         categorias.sort(key=lambda c: sum(p["cantidad_sugerida"] for p in c[1]), reverse=True)

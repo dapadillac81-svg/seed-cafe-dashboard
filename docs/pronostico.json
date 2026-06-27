@@ -1,7 +1,7 @@
 {
   "fecha_objetivo": "2026-06-27",
   "dia_semana": "Sábado",
-  "generado": "27-06-2026 10:50",
+  "generado": "27-06-2026 11:09",
   "dias_historial_mismo_dia": 7,
   "dias_historial_total": 48,
   "productos": [
@@ -107,8 +107,13 @@
     },
     {
       "producto": "Total piezas sugeridas",
-      "categoria": "BEBIDAS",
-      "cantidad_sugerida": 309
+      "categoria": "FRÍAS / FRAPPÉS / SMOOTHIES",
+      "cantidad_sugerida": 170
+    },
+    {
+      "producto": "Total piezas sugeridas",
+      "categoria": "BEBIDAS CALIENTES",
+      "cantidad_sugerida": 128
     },
     {
       "producto": "TRENZAS DE MAPLE Y NUEZ",
@@ -279,6 +284,11 @@
       "producto": "GINGER ALE/16 OZ",
       "categoria": "REFRESCOS",
       "cantidad_sugerida": 1
+    },
+    {
+      "producto": "Total piezas sugeridas",
+      "categoria": "OTRAS BEBIDAS",
+      "cantidad_sugerida": 11
     }
   ]
 }
