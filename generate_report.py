@@ -423,8 +423,17 @@ def compute_forecast(items_df: pd.DataFrame, categoria_df: pd.DataFrame, forecas
             "dias_totales": 0,
         }
 
+    # Para el plan de producción agrupamos cortando en el primer "/" (que en
+    # RecoPOS suele separar nombre de presentación/cantidad, ej.
+    # "SANDWICH P/P/PANELA/1 PZA" y "SANDWICH P/P/PANELA" -> "SANDWICH P"),
+    # así variantes de presentación del mismo producto suman juntas. Se aplica
+    # igual al mapeo de categorías para que las claves sigan coincidiendo.
+    def _nombre_plan(nombre: str) -> str:
+        s = _nombre_base(nombre)
+        return s.split("/", 1)[0].strip() if "/" in s else s
+
     df = items_df[~items_df["es_reembolso"]].copy()
-    df["nombre_base"] = df["Nombre de producto"].apply(_nombre_base)
+    df["nombre_base"] = df["Nombre de producto"].apply(_nombre_plan)
     df["fecha_dt"] = pd.to_datetime(df["fecha"])
     df["dia_semana"] = df["fecha_dt"].dt.dayofweek
 
@@ -453,7 +462,7 @@ def compute_forecast(items_df: pd.DataFrame, categoria_df: pd.DataFrame, forecas
     # Mapa producto base -> categoría (usando todo el histórico)
     if not categoria_df.empty and not fc.empty:
         cat_map_df = categoria_df.copy()
-        cat_map_df["nombre_base"] = cat_map_df["Nombre de producto"].apply(_nombre_base)
+        cat_map_df["nombre_base"] = cat_map_df["Nombre de producto"].apply(_nombre_plan)
         cat_map = (
             cat_map_df.groupby("nombre_base")["Clasificación"]
             .agg(lambda s: s.mode().iloc[0] if not s.mode().empty else "OTROS")

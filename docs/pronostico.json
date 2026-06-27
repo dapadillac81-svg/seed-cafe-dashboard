@@ -1,57 +1,42 @@
 {
   "fecha_objetivo": "2026-06-27",
   "dia_semana": "Sábado",
-  "generado": "27-06-2026 12:01",
-  "dias_historial_mismo_dia": 3,
-  "dias_historial_total": 14,
+  "generado": "27-06-2026 12:15",
+  "dias_historial_mismo_dia": 8,
+  "dias_historial_total": 51,
   "productos": [
     {
       "producto": "Total piezas sugeridas",
       "categoria": "FRÍAS / FRAPPÉS / SMOOTHIES",
-      "cantidad_sugerida": 118
+      "cantidad_sugerida": 99
     },
     {
       "producto": "Total piezas sugeridas",
       "categoria": "BEBIDAS CALIENTES",
-      "cantidad_sugerida": 103
+      "cantidad_sugerida": 71
     },
     {
       "producto": "Total piezas sugeridas",
       "categoria": "OTRAS BEBIDAS",
-      "cantidad_sugerida": 15
+      "cantidad_sugerida": 12
     },
     {
-      "producto": "SANDWICH P/P/PANELA",
+      "producto": "SANDWICH P",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 6
     },
     {
-      "producto": "CHAPATA P/P/PANELA",
+      "producto": "CHAPATA P",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 4
     },
     {
-      "producto": "CHAPATA P/P/PANELA/1 PZA",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 4
-    },
-    {
-      "producto": "SANDWICH P/P/PANELA/1 PZA",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 4
-    },
-    {
-      "producto": "WRAP DE OMELETTE JAMON Y QUESO/1 PZA",
+      "producto": "WRAP DE OMELETTE JAMON Y QUESO",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 3
     },
     {
-      "producto": "MOLLETES",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 3
-    },
-    {
-      "producto": "CHAPATA CHILORIO/1 PZA",
+      "producto": "ENSALADA",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 2
     },
@@ -61,12 +46,12 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "MOLLETES/2 PZAS",
+      "producto": "MOLLETES A LA MEXICANA",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 2
     },
     {
-      "producto": "ENSALADA/325 GR",
+      "producto": "MOLLETES",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 2
     },
@@ -76,67 +61,27 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "SINCRONIZADAS DE CHILORIO",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "SINCRONIZADAS DE JAMON/2 PZAS",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "ENSALADA",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "MOLLETES A LA MEXICANA/2 PZAS",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 1
-    },
-    {
       "producto": "SINCRONIZADAS DE JAMON",
       "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 1
+      "cantidad_sugerida": 2
     },
     {
-      "producto": "WRAP DE OMELETTE JAMON Y QUESO",
+      "producto": "MEDIA ENSALADA",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 1
     },
     {
-      "producto": "WRAP DE OMELETTE Y CHILORIO/1 PZA",
+      "producto": "SINCRONIZADAS DE CHILORIO",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 1
     },
     {
-      "producto": "GALLETAS NEW YORK",
+      "producto": "TRENZAS DE MAPLE Y NUEZ",
       "categoria": "POSTRES",
       "cantidad_sugerida": 4
     },
     {
-      "producto": "ROL DE CANELA MANZANA/1 PZA",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 4
-    },
-    {
-      "producto": "YOGURT GRIEGO CON FRESAS/1 PZA",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 4
-    },
-    {
-      "producto": "ROL DE CANELA/1 PZA",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 3
-    },
-    {
-      "producto": "TRENZAS DE MAPLE Y NUEZ/PTE 2 PIEZAS",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 3
-    },
-    {
-      "producto": "ROL DE CANELA CAJETA Y NUEZ/1 PZA",
+      "producto": "YOGURT GRIEGO CON FRESAS",
       "categoria": "POSTRES",
       "cantidad_sugerida": 3
     },
@@ -146,12 +91,17 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "JAMAICA ENCHILADA/1 PZA",
+      "producto": "POLVORONES",
       "categoria": "POSTRES",
       "cantidad_sugerida": 2
     },
     {
-      "producto": "POLVORONES",
+      "producto": "OREJITAS",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 2
+    },
+    {
+      "producto": "MANGO ENCHILADO",
       "categoria": "POSTRES",
       "cantidad_sugerida": 2
     },
@@ -161,34 +111,14 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "ROL DE CANELA MANZANA",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "TRENZAS DE MAPLE Y NUEZ",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 2
-    },
-    {
       "producto": "ROL DE CANELA NUTELLA",
       "categoria": "POSTRES",
       "cantidad_sugerida": 2
     },
     {
-      "producto": "YOGURT GRIEGO CON FRESAS",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "POLVORONES/PTE. 4 PZ",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 1
-    },
-    {
       "producto": "ROL DE CANELA",
       "categoria": "POSTRES",
-      "cantidad_sugerida": 1
+      "cantidad_sugerida": 2
     },
     {
       "producto": "NUTRI BARRA",
@@ -196,29 +126,29 @@
       "cantidad_sugerida": 1
     },
     {
-      "producto": "NUTRI BARRA/1 PZA",
+      "producto": "GALLETAS NEW YORK",
       "categoria": "POSTRES",
       "cantidad_sugerida": 1
     },
     {
-      "producto": "ROL DE CANELA NUTELLA/1 PZA",
+      "producto": "CHILLI PARADISE",
       "categoria": "POSTRES",
       "cantidad_sugerida": 1
     },
     {
-      "producto": "AGUA/355 ML",
-      "categoria": "REFRESCOS",
-      "cantidad_sugerida": 5
+      "producto": "JAMAICA ENCHILADA",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 1
     },
     {
-      "producto": "COCA ZERO/355 ML LATA",
-      "categoria": "REFRESCOS",
-      "cantidad_sugerida": 3
+      "producto": "GOMITAS ARO MANZANA",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 1
     },
     {
-      "producto": "COCA COLA",
-      "categoria": "REFRESCOS",
-      "cantidad_sugerida": 2
+      "producto": "ROL DE CANELA MANZANA",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 1
     },
     {
       "producto": "AGUA",
@@ -226,22 +156,27 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "COCA COLA LIGHT",
-      "categoria": "REFRESCOS",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "COCA COLA LIGHT/355 ML LATA",
+      "producto": "AGUA MINERAL",
       "categoria": "REFRESCOS",
       "cantidad_sugerida": 1
     },
     {
-      "producto": "COCA COLA/ 355 ML LATA",
+      "producto": "COCA COLA",
+      "categoria": "REFRESCOS",
+      "cantidad_sugerida": 1
+    },
+    {
+      "producto": "COCA COLA LIGHT",
       "categoria": "REFRESCOS",
       "cantidad_sugerida": 1
     },
     {
       "producto": "COCA ZERO",
+      "categoria": "REFRESCOS",
+      "cantidad_sugerida": 1
+    },
+    {
+      "producto": "GINGER ALE",
       "categoria": "REFRESCOS",
       "cantidad_sugerida": 1
     }
