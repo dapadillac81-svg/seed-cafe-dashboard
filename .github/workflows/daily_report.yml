@@ -80,5 +80,11 @@ jobs:
             echo "Sin cambios para publicar."
           else
             git commit -m "Reporte automático: actualiza dashboard"
-            git push
+            for intento in 1 2 3; do
+              if git push; then
+                break
+              fi
+              echo "Push rechazado (probablemente otra corrida en paralelo), reintentando con rebase..."
+              git pull --rebase origin main
+            done
           fi
