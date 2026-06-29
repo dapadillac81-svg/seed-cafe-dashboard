@@ -87,34 +87,75 @@
       font-size: 0.85rem;
       color: var(--muted);
     }
-    .cat-card {
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
       background: var(--card);
       border-radius: 12px;
-      padding: 8px 14px;
-      margin-bottom: 14px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      margin-bottom: 16px;
     }
-    .cat-card h3 {
-      margin: 8px 0;
-      font-size: 1rem;
-      color: var(--accent);
-      border-bottom: 1px solid #e8e0d8;
-      padding-bottom: 6px;
+    .forecast-table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 0.82rem;
     }
-    table { width: 100%; border-collapse: collapse; }
-    table td {
-      padding: 7px 4px;
-      font-size: 0.9rem;
+    .forecast-table th,
+    .forecast-table td {
+      padding: 7px 8px;
       border-bottom: 1px solid #f1ece5;
+      white-space: nowrap;
     }
-    table tr:last-child td { border-bottom: none; }
-    table td.cant {
-      text-align: right;
+    .forecast-table thead th {
+      background: var(--card);
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 3;
+      border-bottom: 2px solid #e8e0d8;
+    }
+    .col-prod {
+      text-align: left !important;
+      position: sticky;
+      left: 0;
+      background: var(--card);
+      z-index: 4;
+      min-width: 130px;
+      max-width: 180px;
+      font-weight: 500;
+    }
+    thead .col-prod { z-index: 5; }
+    .col-fecha {
+      text-align: center;
+      min-width: 46px;
+      color: var(--muted);
+    }
+    .col-pronostico {
+      text-align: center;
+      min-width: 72px;
       font-weight: 700;
       color: var(--accent);
-      white-space: nowrap;
-      padding-left: 10px;
+      background: #fef6ef;
+      position: sticky;
+      right: 0;
+      z-index: 2;
+      border-left: 2px solid #e8d8c8;
     }
+    thead .col-pronostico { z-index: 5; }
+    .cat-row td {
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      padding: 5px 10px;
+    }
+    .forecast-table tbody tr:hover td { background: #faf7f3; }
+    .forecast-table tbody tr:hover .col-pronostico { background: #fdeede; }
+    .forecast-table tbody tr:last-child td { border-bottom: none; }
     .empty {
       text-align: center;
       color: var(--muted);
@@ -212,20 +253,36 @@
       Esta es una primera versión: entre más días de venta se suban, más preciso será el pronóstico.
     </div>
 
-    {% if categorias %}
-      {% for categoria, productos in categorias %}
-      <div class="cat-card">
-        <h3>{{ categoria.title() }}</h3>
-        <table>
+    {% if tabla_categorias %}
+    <div class="table-wrap">
+      <table class="forecast-table">
+        <thead>
+          <tr>
+            <th class="col-prod">Producto</th>
+            {% for fh in fechas_headers %}
+            <th class="col-fecha">{{ fh.label }}</th>
+            {% endfor %}
+            <th class="col-pronostico">Pronóstico<br>{{ fecha_objetivo }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for categoria, productos in tabla_categorias %}
+          <tr class="cat-row">
+            <td colspan="{{ fechas_headers|length + 2 }}">{{ categoria }}</td>
+          </tr>
           {% for p in productos %}
           <tr>
-            <td>{{ p.producto }}</td>
-            <td class="cant">{{ p.cantidad_sugerida }}</td>
+            <td class="col-prod">{{ p.producto }}</td>
+            {% for fh in fechas_headers %}
+            <td class="col-fecha">{{ p.por_fecha.get(fh.iso) or '' }}</td>
+            {% endfor %}
+            <td class="col-pronostico">{{ p.cantidad_sugerida }}</td>
           </tr>
           {% endfor %}
-        </table>
-      </div>
-      {% endfor %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
     {% else %}
       <div class="empty">Aún no hay suficiente historial para generar un pronóstico.</div>
     {% endif %}

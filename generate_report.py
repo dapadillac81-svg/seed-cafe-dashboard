@@ -495,6 +495,79 @@ def compute_forecast(items_df: pd.DataFrame, categoria_df: pd.DataFrame, forecas
         },
     }
 
+    # Pivot: cantidad por (producto, fecha) para mostrar columnas históricas
+    todas_fechas = sorted(daily["fecha_dt"].unique())
+    DIA_ABREV = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"]
+    fechas_headers = [
+        {"iso": f.strftime("%Y-%m-%d"), "label": f"{DIA_ABREV[f.dayofweek]} {f.day}/{f.month}"}
+        for f in todas_fechas
+    ]
+    if not daily.empty:
+        pivot = daily.pivot_table(
+            index="nombre_base", columns="fecha_dt", values="Cantidad",
+            aggfunc="sum", fill_value=0,
+        )
+    else:
+        pivot = pd.DataFrame()
+
+    def _por_fecha(producto: str) -> dict:
+        result = {}
+        for f in todas_fechas:
+            try:
+                result[f.strftime("%Y-%m-%d")] = int(pivot.at[producto, f])
+            except KeyError:
+                result[f.strftime("%Y-%m-%d")] = 0
+        return result
+
+    if not fc.empty:
+        fc["por_fecha"] = fc["producto"].apply(_por_fecha)
+
+    def _norm(s: str) -> str:
+        return str(s).strip().upper()
+
+    CATEGORIAS_DESGLOSADAS = {_norm(c) for c in ("ALIMENTOS", "POSTRES", "REFRESCOS")}
+    GRUPOS_BEBIDAS = {
+        "BEBIDAS CALIENTES": {_norm(c) for c in ("CALIENTES CON CAFE", "CALIENTES SIN CAFE")},
+        "FRÍAS / FRAPPÉS / SMOOTHIES": {
+            _norm(c) for c in (
+                "FRIAS CON CAFE", "FRIAS SIN CAFE",
+                "FRAPPES CON CAFE", "FRAPPES SIN CAFE",
+                "SMOOTHIES",
+            )
+        },
+    }
+
+    def _display_cat(cat_raw: str) -> str:
+        c = _norm(cat_raw)
+        for nombre_grupo, miembros in GRUPOS_BEBIDAS.items():
+            if c in miembros:
+                return nombre_grupo
+        if c in CATEGORIAS_DESGLOSADAS:
+            return cat_raw
+        return "OTRAS BEBIDAS"
+
+    # tabla_categorias: productos individuales con cantidades por fecha
+    tabla_categorias = []
+    if not fc.empty:
+        fc["display_cat"] = fc["categoria"].apply(_display_cat)
+        tabla_cats_dict: dict[str, list] = {}
+        for _, row in fc.iterrows():
+            tabla_cats_dict.setdefault(row["display_cat"], []).append(row.to_dict())
+        for cat in tabla_cats_dict:
+            tabla_cats_dict[cat].sort(key=lambda r: r["cantidad_sugerida"], reverse=True)
+
+        GRUPO_ORDER = list(GRUPOS_BEBIDAS.keys()) + ["OTRAS BEBIDAS"]
+
+        def _tbl_order(name: str) -> int:
+            n = _norm(name)
+            for i, g in enumerate(GRUPO_ORDER):
+                if _norm(g) == n:
+                    return i
+            return 100  # desglosadas al final
+
+        tabla_categorias = sorted(tabla_cats_dict.items(), key=lambda x: _tbl_order(x[0]))
+
+    # categorias: estructura legada usada por el JSON de exportación
     categorias = []
     if not fc.empty:
         totales_grupo = {nombre: 0 for nombre in GRUPOS_BEBIDAS}
@@ -517,14 +590,13 @@ def compute_forecast(items_df: pd.DataFrame, categoria_df: pd.DataFrame, forecas
                     nombre_grupo,
                     [{"producto": "Total piezas sugeridas", "cantidad_sugerida": int(round(total))}],
                 ))
-        # Orden: primero los totales agrupados de bebidas (lo que se prepara
-        # primero en el día), luego las categorías desglosadas por producto.
-        # Dentro de cada bloque, mayor cantidad sugerida primero.
         categorias.sort(key=lambda c: sum(p["cantidad_sugerida"] for p in c[1]), reverse=True)
         categorias.sort(key=lambda c: _norm(c[0]) in CATEGORIAS_DESGLOSADAS)
 
     return {
         "categorias": categorias,
+        "tabla_categorias": tabla_categorias,
+        "fechas_headers": fechas_headers,
         "dia_semana": dia_semana,
         "dias_mismo_dia": dias_mismo_dia,
         "dias_totales": dias_totales,
@@ -549,6 +621,8 @@ def _render_pronostico(env, data, latest_date, generated_at):
         fecha_objetivo=forecast_date.strftime("%d-%m-%Y"),
         generated_at=generated_at,
         categorias=forecast["categorias"],
+        tabla_categorias=forecast["tabla_categorias"],
+        fechas_headers=forecast["fechas_headers"],
         dia_semana=forecast["dia_semana"],
         dias_mismo_dia=forecast["dias_mismo_dia"],
         dias_totales=forecast["dias_totales"],
