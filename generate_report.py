@@ -455,7 +455,7 @@ def compute_forecast(items_df: pd.DataFrame, categoria_df: pd.DataFrame, forecas
             valor = avg_overall.get(p, 0)
         cantidad = max(0, round(valor))
         if cantidad > 0:
-            rows.append({"producto": p, "cantidad_sugerida": cantidad})
+            rows.append({"producto": p, "cantidad_sugerida": cantidad, "promedio": round(float(valor), 1)})
 
     fc = pd.DataFrame(rows)
 

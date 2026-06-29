@@ -133,6 +133,13 @@
       min-width: 46px;
       color: var(--muted);
     }
+    .col-promedio {
+      text-align: center;
+      min-width: 60px;
+      color: var(--accent-light);
+      font-style: italic;
+      border-left: 1px solid #e8e0d8;
+    }
     .col-pronostico {
       text-align: center;
       min-width: 72px;
@@ -262,6 +269,7 @@
             {% for fh in fechas_headers %}
             <th class="col-fecha">{{ fh.label }}</th>
             {% endfor %}
+            <th class="col-promedio">Promedio</th>
             <th class="col-pronostico">Pronóstico<br>{{ fecha_objetivo }}</th>
           </tr>
         </thead>
@@ -276,6 +284,7 @@
             {% for fh in fechas_headers %}
             <td class="col-fecha">{{ p.por_fecha.get(fh.iso) or '' }}</td>
             {% endfor %}
+            <td class="col-promedio">{{ p.promedio }}</td>
             <td class="col-pronostico">{{ p.cantidad_sugerida }}</td>
           </tr>
           {% endfor %}
