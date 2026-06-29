@@ -441,16 +441,29 @@ def compute_forecast(items_df: pd.DataFrame, categoria_df: pd.DataFrame, forecas
 
     dias_totales = daily["fecha_dt"].nunique()
     same_dow = daily[daily["dia_semana"] == forecast_ts.dayofweek]
-    dias_mismo_dia = same_dow["fecha_dt"].nunique()
+    fechas_mismo_dia = sorted(same_dow["fecha_dt"].unique())
+    dias_mismo_dia = len(fechas_mismo_dia)
 
+    # Promedio incluyendo ceros: divide entre todos los días del mismo día de
+    # la semana, no solo los días donde se vendió algo. Así el promedio cuadra
+    # exactamente con la suma de los valores visibles en las columnas / N.
     avg_overall = daily.groupby("nombre_base")["Cantidad"].mean()
-    avg_same_dow = same_dow.groupby("nombre_base")["Cantidad"].mean()
+    if dias_mismo_dia >= 2 and not daily.empty:
+        pivot_dow = same_dow.pivot_table(
+            index="nombre_base", columns="fecha_dt", values="Cantidad",
+            aggfunc="sum", fill_value=0,
+        )
+        avg_same_dow_con_ceros = pivot_dow.sum(axis=1) / dias_mismo_dia
+    else:
+        avg_same_dow_con_ceros = pd.Series(dtype=float)
 
     productos = sorted(daily["nombre_base"].unique())
     rows = []
     for p in productos:
-        if dias_mismo_dia >= 2 and p in avg_same_dow.index:
-            valor = avg_same_dow[p]
+        if dias_mismo_dia >= 2:
+            if p not in avg_same_dow_con_ceros.index:
+                continue  # nunca vendido en este día de la semana, omitir
+            valor = avg_same_dow_con_ceros[p]
         else:
             valor = avg_overall.get(p, 0)
         cantidad = max(0, round(valor))
@@ -495,12 +508,14 @@ def compute_forecast(items_df: pd.DataFrame, categoria_df: pd.DataFrame, forecas
         },
     }
 
-    # Pivot: cantidad por (producto, fecha) para mostrar columnas históricas
-    todas_fechas = sorted(daily["fecha_dt"].unique())
+    # Columnas de la tabla: solo días del mismo día de la semana (para que la
+    # suma visible / N coincida exactamente con el Promedio mostrado).
+    # Si hay menos de 2 días del mismo DOW, se muestran todos los días.
     DIA_ABREV = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"]
+    fechas_tabla = fechas_mismo_dia if dias_mismo_dia >= 2 else sorted(daily["fecha_dt"].unique())
     fechas_headers = [
         {"iso": f.strftime("%Y-%m-%d"), "label": f"{DIA_ABREV[f.dayofweek]} {f.day}/{f.month}"}
-        for f in todas_fechas
+        for f in fechas_tabla
     ]
     if not daily.empty:
         pivot = daily.pivot_table(
@@ -512,7 +527,7 @@ def compute_forecast(items_df: pd.DataFrame, categoria_df: pd.DataFrame, forecas
 
     def _por_fecha(producto: str) -> dict:
         result = {}
-        for f in todas_fechas:
+        for f in fechas_tabla:
             try:
                 result[f.strftime("%Y-%m-%d")] = int(pivot.at[producto, f])
             except KeyError:
