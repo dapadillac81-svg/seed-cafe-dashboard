@@ -87,82 +87,34 @@
       font-size: 0.85rem;
       color: var(--muted);
     }
-    .table-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
+    .cat-card {
       background: var(--card);
       border-radius: 12px;
+      padding: 8px 14px;
+      margin-bottom: 14px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-      margin-bottom: 16px;
     }
-    .forecast-table {
-      border-collapse: collapse;
-      width: 100%;
-      font-size: 0.82rem;
+    .cat-card h3 {
+      margin: 8px 0;
+      font-size: 1rem;
+      color: var(--accent);
+      border-bottom: 1px solid #e8e0d8;
+      padding-bottom: 6px;
     }
-    .forecast-table th,
-    .forecast-table td {
-      padding: 7px 8px;
+    table { width: 100%; border-collapse: collapse; }
+    table td {
+      padding: 7px 4px;
+      font-size: 0.9rem;
       border-bottom: 1px solid #f1ece5;
-      white-space: nowrap;
     }
-    .forecast-table thead th {
-      background: var(--card);
-      color: var(--muted);
-      font-weight: 600;
-      font-size: 0.75rem;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 3;
-      border-bottom: 2px solid #e8e0d8;
-    }
-    .col-prod {
-      text-align: left !important;
-      position: sticky;
-      left: 0;
-      background: var(--card);
-      z-index: 4;
-      min-width: 130px;
-      max-width: 180px;
-      font-weight: 500;
-    }
-    thead .col-prod { z-index: 5; }
-    .col-fecha {
-      text-align: center;
-      min-width: 46px;
-      color: var(--muted);
-    }
-    .col-promedio {
-      text-align: center;
-      min-width: 60px;
-      color: var(--accent-light);
-      font-style: italic;
-      border-left: 1px solid #e8e0d8;
-    }
-    .col-pronostico {
-      text-align: center;
-      min-width: 72px;
+    table tr:last-child td { border-bottom: none; }
+    table td.cant {
+      text-align: right;
       font-weight: 700;
       color: var(--accent);
-      background: #fef6ef;
-      position: sticky;
-      right: 0;
-      z-index: 2;
-      border-left: 2px solid #e8d8c8;
+      white-space: nowrap;
+      padding-left: 10px;
     }
-    thead .col-pronostico { z-index: 5; }
-    .cat-row td {
-      background: var(--accent);
-      color: #fff;
-      font-weight: 700;
-      font-size: 0.78rem;
-      letter-spacing: 0.06em;
-      padding: 5px 10px;
-    }
-    .forecast-table tbody tr:hover td { background: #faf7f3; }
-    .forecast-table tbody tr:hover .col-pronostico { background: #fdeede; }
-    .forecast-table tbody tr:last-child td { border-bottom: none; }
     .empty {
       text-align: center;
       color: var(--muted);
@@ -243,7 +195,7 @@
   <header>
     <img src="logo.png" alt="Seed Café">
     <h1>Plan de producción</h1>
-    <p>Sugerencia para 27-06-2026 (Sábado) · generado 29-06-2026 17:57</p>
+    <p>Sugerencia para 27-06-2026 (Sábado) · generado 29-06-2026 18:06</p>
   </header>
   <div class="nav-bar">
     <a href="index.html">&#8592; Volver al dashboard</a>
@@ -259,1028 +211,127 @@
     </div>
 
     
-    <div class="table-wrap">
-      <table class="forecast-table">
-        <thead>
-          <tr>
-            <th class="col-prod">Producto</th>
-            
-            <th class="col-fecha">Sáb 2/5</th>
-            
-            <th class="col-fecha">Sáb 9/5</th>
-            
-            <th class="col-fecha">Sáb 16/5</th>
-            
-            <th class="col-fecha">Sáb 23/5</th>
-            
-            <th class="col-fecha">Sáb 30/5</th>
-            
-            <th class="col-fecha">Sáb 6/6</th>
-            
-            <th class="col-fecha">Sáb 13/6</th>
-            
-            <th class="col-fecha">Sáb 20/6</th>
-            
-            <th class="col-promedio">Promedio</th>
-            <th class="col-pronostico">Pronóstico<br>27-06-2026</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-          <tr class="cat-row">
-            <td colspan="10">BEBIDAS CALIENTES</td>
-          </tr>
+      
+      <div class="cat-card">
+        <h3>Bebidas Calientes</h3>
+        <table>
           
           <tr>
-            <td class="col-prod">AMERICANO CALIENTE</td>
-            
-            <td class="col-fecha">4</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">4</td>
-            
-            <td class="col-fecha">4</td>
-            
-            <td class="col-fecha">6</td>
-            
-            <td class="col-fecha">18</td>
-            
-            <td class="col-fecha">6</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-promedio">5.6</td>
-            <td class="col-pronostico">6</td>
+            <td>Total piezas sugeridas</td>
+            <td class="cant">24</td>
+          </tr>
+          
+        </table>
+      </div>
+      
+      <div class="cat-card">
+        <h3>Frías / Frappés / Smoothies</h3>
+        <table>
+          
+          <tr>
+            <td>Total piezas sugeridas</td>
+            <td class="cant">19</td>
+          </tr>
+          
+        </table>
+      </div>
+      
+      <div class="cat-card">
+        <h3>Alimentos</h3>
+        <table>
+          
+          <tr>
+            <td>SANDWICH P</td>
+            <td class="cant">6</td>
           </tr>
           
           <tr>
-            <td class="col-prod">CAPUCCINO CALIENTE</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-fecha">9</td>
-            
-            <td class="col-fecha">7</td>
-            
-            <td class="col-fecha">4</td>
-            
-            <td class="col-fecha">16</td>
-            
-            <td class="col-fecha">5</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-promedio">5.9</td>
-            <td class="col-pronostico">6</td>
+            <td>CHAPATA P</td>
+            <td class="cant">4</td>
           </tr>
           
           <tr>
-            <td class="col-prod">LATTE CALIENTE</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-fecha">10</td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-promedio">3.1</td>
-            <td class="col-pronostico">3</td>
+            <td>WRAP DE OMELETTE JAMON Y QUESO</td>
+            <td class="cant">2</td>
           </tr>
           
           <tr>
-            <td class="col-prod">CHAI ORIGINAL CALIENTE</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-promedio">0.6</td>
-            <td class="col-pronostico">1</td>
+            <td>MOLLETES</td>
+            <td class="cant">2</td>
           </tr>
           
           <tr>
-            <td class="col-prod">CHAI VAINILLA CALIENTE</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-promedio">0.6</td>
-            <td class="col-pronostico">1</td>
+            <td>ENSALADA</td>
+            <td class="cant">1</td>
           </tr>
           
           <tr>
-            <td class="col-prod">CHOCOLATE CALIENTE</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">6</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-promedio">1.1</td>
-            <td class="col-pronostico">1</td>
+            <td>CHAPATA CHILORIO</td>
+            <td class="cant">1</td>
           </tr>
           
           <tr>
-            <td class="col-prod">ESPRESSO DOBLE</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-promedio">0.6</td>
-            <td class="col-pronostico">1</td>
+            <td>SINCRONIZADAS DE JAMON</td>
+            <td class="cant">1</td>
           </tr>
           
           <tr>
-            <td class="col-prod">FLAT WHITE CALIENTE</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-promedio">1.0</td>
-            <td class="col-pronostico">1</td>
+            <td>WRAP DE OMELETTE Y CHILORIO</td>
+            <td class="cant">1</td>
+          </tr>
+          
+        </table>
+      </div>
+      
+      <div class="cat-card">
+        <h3>Postres</h3>
+        <table>
+          
+          <tr>
+            <td>YOGURT GRIEGO CON FRESAS</td>
+            <td class="cant">2</td>
           </tr>
           
           <tr>
-            <td class="col-prod">MATCHA CALIENTE</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-promedio">0.6</td>
-            <td class="col-pronostico">1</td>
+            <td>ROL DE CANELA</td>
+            <td class="cant">2</td>
           </tr>
           
           <tr>
-            <td class="col-prod">MOKA BLANCO CAPUCCINO CALIENTE</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-promedio">0.6</td>
-            <td class="col-pronostico">1</td>
+            <td>POLVORONES</td>
+            <td class="cant">1</td>
           </tr>
           
           <tr>
-            <td class="col-prod">MOKA CAPUCCINO CALIENTE</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-promedio">0.6</td>
-            <td class="col-pronostico">1</td>
+            <td>NUTRI BARRA</td>
+            <td class="cant">1</td>
           </tr>
           
           <tr>
-            <td class="col-prod">TÉ MANZANILLA-JENGIBRE CALIENTE</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-promedio">0.6</td>
-            <td class="col-pronostico">1</td>
-          </tr>
-          
-          
-          <tr class="cat-row">
-            <td colspan="10">FRÍAS / FRAPPÉS / SMOOTHIES</td>
+            <td>ROL DE CANELA NUTELLA</td>
+            <td class="cant">1</td>
           </tr>
           
           <tr>
-            <td class="col-prod">CAPUCCINO FRIO</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">6</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">10</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-promedio">2.8</td>
-            <td class="col-pronostico">3</td>
+            <td>TRENZAS DE MAPLE Y NUEZ</td>
+            <td class="cant">1</td>
           </tr>
+          
+        </table>
+      </div>
+      
+      <div class="cat-card">
+        <h3>Refrescos</h3>
+        <table>
           
           <tr>
-            <td class="col-prod">COFFE TONIC</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-fecha">4</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-promedio">1.8</td>
-            <td class="col-pronostico">2</td>
+            <td>AGUA</td>
+            <td class="cant">1</td>
           </tr>
           
-          <tr>
-            <td class="col-prod">MATCHA FRIO</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">9</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-promedio">1.9</td>
-            <td class="col-pronostico">2</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">AGUA FRIA1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">4</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">4</td>
-            
-            <td class="col-promedio">1.4</td>
-            <td class="col-pronostico">1</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">CAPUCCINO FRAPPE</td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-promedio">1.4</td>
-            <td class="col-pronostico">1</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">CHAI VAINILLA FRIO</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-promedio">1.4</td>
-            <td class="col-pronostico">1</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">CHAI VAINILLA S</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">4</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">4</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-promedio">1.2</td>
-            <td class="col-pronostico">1</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">LATTE FRIO</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-promedio">1.4</td>
-            <td class="col-pronostico">1</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">LATTE FRIO VAINILLA</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-promedio">0.6</td>
-            <td class="col-pronostico">1</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">MANGO SMOOTHIE</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-promedio">0.9</td>
-            <td class="col-pronostico">1</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">MATCHA FRAPPE</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-promedio">0.6</td>
-            <td class="col-pronostico">1</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">MIX BERRIES SMOOTHIE</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-promedio">0.6</td>
-            <td class="col-pronostico">1</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">MOKA CAPUCCINO FRIO</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-promedio">0.8</td>
-            <td class="col-pronostico">1</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">TE DURAZNO JAMAICA FRIO</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">4</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-promedio">0.8</td>
-            <td class="col-pronostico">1</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">TE FRUTOS ROJOS FRIO</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-promedio">1.2</td>
-            <td class="col-pronostico">1</td>
-          </tr>
-          
-          
-          <tr class="cat-row">
-            <td colspan="10">REFRESCOS</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">AGUA</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">4</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-promedio">1.4</td>
-            <td class="col-pronostico">1</td>
-          </tr>
-          
-          
-          <tr class="cat-row">
-            <td colspan="10">ALIMENTOS</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">SANDWICH P</td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-fecha">5</td>
-            
-            <td class="col-fecha">9</td>
-            
-            <td class="col-fecha">10</td>
-            
-            <td class="col-fecha">6</td>
-            
-            <td class="col-fecha">8</td>
-            
-            <td class="col-fecha">7</td>
-            
-            <td class="col-fecha">4</td>
-            
-            <td class="col-promedio">6.5</td>
-            <td class="col-pronostico">6</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">CHAPATA P</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">6</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">8</td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-fecha">5</td>
-            
-            <td class="col-promedio">3.8</td>
-            <td class="col-pronostico">4</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">MOLLETES</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">4</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-promedio">1.5</td>
-            <td class="col-pronostico">2</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">WRAP DE OMELETTE JAMON Y QUESO</td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">4</td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">6</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-promedio">2.5</td>
-            <td class="col-pronostico">2</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">CHAPATA CHILORIO</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">4</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-promedio">1.2</td>
-            <td class="col-pronostico">1</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">ENSALADA</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">4</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-promedio">0.9</td>
-            <td class="col-pronostico">1</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">SINCRONIZADAS DE JAMON</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-promedio">1.1</td>
-            <td class="col-pronostico">1</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">WRAP DE OMELETTE Y CHILORIO</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-promedio">1.0</td>
-            <td class="col-pronostico">1</td>
-          </tr>
-          
-          
-          <tr class="cat-row">
-            <td colspan="10">POSTRES</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">ROL DE CANELA</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">6</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-promedio">1.6</td>
-            <td class="col-pronostico">2</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">YOGURT GRIEGO CON FRESAS</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-fecha">8</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-promedio">2.1</td>
-            <td class="col-pronostico">2</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">NUTRI BARRA</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-promedio">0.8</td>
-            <td class="col-pronostico">1</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">POLVORONES</td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">1</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-promedio">0.8</td>
-            <td class="col-pronostico">1</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">ROL DE CANELA NUTELLA</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-promedio">0.6</td>
-            <td class="col-pronostico">1</td>
-          </tr>
-          
-          <tr>
-            <td class="col-prod">TRENZAS DE MAPLE Y NUEZ</td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha"></td>
-            
-            <td class="col-fecha">6</td>
-            
-            <td class="col-fecha">2</td>
-            
-            <td class="col-fecha">3</td>
-            
-            <td class="col-promedio">1.4</td>
-            <td class="col-pronostico">1</td>
-          </tr>
-          
-          
-        </tbody>
-      </table>
-    </div>
+        </table>
+      </div>
+      
     
   </main>
   <footer>Generado automáticamente desde RecoPOS · Seed Café</footer>
