@@ -66,6 +66,33 @@ jobs:
           GDRIVE_FOLDER_ID: ${{ secrets.GDRIVE_FOLDER_ID }}
         run: python drive_watcher.py
 
+      - name: Verificar historial completo (sin huecos antes de generar)
+        if: steps.sync.outputs.hubo_nuevos == 'true' || steps.cierre.outputs.exito == 'true' || github.event_name == 'workflow_dispatch'
+        run: |
+          python - <<'EOF'
+          import os, re, datetime, sys
+          txt_dir = "data_txt"
+          fechas = set()
+          for fn in os.listdir(txt_dir):
+              m = re.match(r"cierre_(\d{4}-\d{2}-\d{2})\.txt$", fn)
+              if m:
+                  fechas.add(datetime.date.fromisoformat(m.group(1)))
+          if not fechas:
+              print("Sin archivos cierre_*.txt, continuando.")
+              sys.exit(0)
+          inicio, fin = min(fechas), max(fechas)
+          faltantes = [
+              str(inicio + datetime.timedelta(days=i))
+              for i in range((fin - inicio).days + 1)
+              if (d := inicio + datetime.timedelta(days=i)).weekday() != 6
+              and d not in fechas
+          ]
+          if faltantes:
+              print(f"::error::Faltan {len(faltantes)} día(s) antes de generar: {', '.join(faltantes)}")
+              sys.exit(1)
+          print(f"OK — historial completo: {inicio} → {fin} ({len(fechas)} días registrados)")
+          EOF
+
       - name: Generar dashboard HTML
         if: steps.sync.outputs.hubo_nuevos == 'true' || steps.cierre.outputs.exito == 'true' || github.event_name == 'workflow_dispatch'
         run: python generate_report.py
