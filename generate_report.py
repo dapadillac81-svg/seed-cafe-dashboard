@@ -377,7 +377,7 @@ def build_top_categoria_charts(categoria_df: pd.DataFrame, target_date, top_n=10
     return resultados
 
 
-def build_comparativa_chart(orders_df: pd.DataFrame, target_date, days=14):
+def build_comparativa_chart(orders_df: pd.DataFrame, target_date, days=30):
     import numpy as np
     history = orders_df[~orders_df["es_reembolso"]]
     daily = (
