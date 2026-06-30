@@ -378,6 +378,7 @@ def build_top_categoria_charts(categoria_df: pd.DataFrame, target_date, top_n=10
 
 
 def build_comparativa_chart(orders_df: pd.DataFrame, target_date, days=14):
+    import numpy as np
     history = orders_df[~orders_df["es_reembolso"]]
     daily = (
         history.groupby("fecha")["Monto total de orden"]
@@ -397,6 +398,19 @@ def build_comparativa_chart(orders_df: pd.DataFrame, target_date, days=14):
         labels={"fecha": "", "ticket_promedio": "Ticket promedio ($)"},
         title=f"Ticket promedio — últimos {len(daily)} días",
     )
+    # Línea de tendencia (regresión lineal sobre índice numérico)
+    x = np.arange(len(daily))
+    coef = np.polyfit(x, daily["ticket_promedio"].values, 1)
+    tendencia = np.polyval(coef, x)
+    import plotly.graph_objects as go
+    fig.add_trace(go.Scatter(
+        x=daily["fecha"],
+        y=tendencia,
+        mode="lines",
+        name="Tendencia",
+        line=dict(dash="dash", color="#b08968", width=2),
+        hovertemplate="Tendencia: $%{y:,.0f}<extra></extra>",
+    ))
     return _fig_to_html(fig)
 
 
