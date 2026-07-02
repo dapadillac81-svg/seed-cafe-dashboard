@@ -377,7 +377,7 @@ def fechas_a_procesar(objetivo: dt.date) -> list[dt.date]:
         if cursor not in existentes:
             faltantes.append(cursor)
         cursor += dt.timedelta(days=1)
-    return faltantes or [objetivo]
+    return faltantes  # vacío = nada pendiente, no re-extraer
 
 
 def procesar_fecha(token: str, fecha: dt.date) -> bool:
@@ -407,6 +407,10 @@ def main() -> None:
     os.makedirs(OUT_DIR, exist_ok=True)
     objetivo = fecha_objetivo()
     pendientes = fechas_a_procesar(objetivo)
+
+    if not pendientes:
+        print(f"OK — cierre de {objetivo.isoformat()} ya existe, nada que hacer.")
+        sys.exit(0)
 
     if len(pendientes) > 1:
         tg_send_message(
