@@ -1,19 +1,19 @@
 {
-  "fecha_objetivo": "2026-06-30",
-  "dia_semana": "Martes",
-  "generado": "30-06-2026 15:21",
-  "dias_historial_mismo_dia": 3,
-  "dias_historial_total": 16,
+  "fecha_objetivo": "2026-07-01",
+  "dia_semana": "Miércoles",
+  "generado": "01-07-2026 18:00",
+  "dias_historial_mismo_dia": 2,
+  "dias_historial_total": 17,
   "productos": [
     {
       "producto": "Total piezas sugeridas",
       "categoria": "BEBIDAS CALIENTES",
-      "cantidad_sugerida": 40
+      "cantidad_sugerida": 36
     },
     {
       "producto": "Total piezas sugeridas",
       "categoria": "FRÍAS / FRAPPÉS / SMOOTHIES",
-      "cantidad_sugerida": 21
+      "cantidad_sugerida": 20
     },
     {
       "producto": "Total piezas sugeridas",
@@ -23,7 +23,7 @@
     {
       "producto": "SANDWICH P",
       "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 7
+      "cantidad_sugerida": 8
     },
     {
       "producto": "CHAPATA P",
@@ -31,12 +31,17 @@
       "cantidad_sugerida": 4
     },
     {
-      "producto": "MOLLETES",
+      "producto": "WRAP DE OMELETTE JAMON Y QUESO",
       "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 3
+      "cantidad_sugerida": 4
     },
     {
       "producto": "ENSALADA",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 4
+    },
+    {
+      "producto": "MOLLETES",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 2
     },
@@ -51,58 +56,48 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "WRAP DE OMELETTE JAMON Y QUESO",
+      "producto": "SINCRONIZADAS DE CHILORIO",
       "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 2
+      "cantidad_sugerida": 1
     },
     {
       "producto": "TRENZAS DE MAPLE Y NUEZ",
       "categoria": "POSTRES",
-      "cantidad_sugerida": 7
+      "cantidad_sugerida": 6
     },
     {
-      "producto": "ROL DE CANELA",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 4
-    },
-    {
-      "producto": "GALLETAS NEW YORK",
+      "producto": "YOGURT GRIEGO CON FRESAS",
       "categoria": "POSTRES",
       "cantidad_sugerida": 3
     },
     {
-      "producto": "ROL DE CANELA MANZANA",
+      "producto": "GALLETAS NEW YORK",
       "categoria": "POSTRES",
       "cantidad_sugerida": 2
     },
     {
       "producto": "NUTRI BARRA",
       "categoria": "POSTRES",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "GOMITAS",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 1
+      "cantidad_sugerida": 2
     },
     {
       "producto": "ROL DE CANELA CAJETA Y NUEZ",
       "categoria": "POSTRES",
-      "cantidad_sugerida": 1
+      "cantidad_sugerida": 2
+    },
+    {
+      "producto": "ROL DE CANELA",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 2
     },
     {
       "producto": "ROL DE CANELA NUTELLA",
       "categoria": "POSTRES",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "AGUA",
-      "categoria": "REFRESCOS",
       "cantidad_sugerida": 2
     },
     {
-      "producto": "COCA ZERO",
-      "categoria": "REFRESCOS",
+      "producto": "ROL DE CANELA MANZANA",
+      "categoria": "POSTRES",
       "cantidad_sugerida": 2
     },
     {
