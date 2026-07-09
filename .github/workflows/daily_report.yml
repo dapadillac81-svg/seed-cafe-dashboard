@@ -99,12 +99,16 @@ jobs:
         if: steps.sync.outputs.hubo_nuevos == 'true' || steps.cierre.outputs.exito == 'true' || github.event_name == 'workflow_dispatch'
         run: python generate_report.py
 
+      - name: Generar resumen analítico JSON
+        if: steps.sync.outputs.hubo_nuevos == 'true' || steps.cierre.outputs.exito == 'true' || github.event_name == 'workflow_dispatch'
+        run: python generate_summary.py
+
       - name: Publicar dashboard y cierre del día
         if: steps.sync.outputs.hubo_nuevos == 'true' || steps.cierre.outputs.exito == 'true' || github.event_name == 'workflow_dispatch'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/*.html docs/*.json data_txt/cierre_*.txt
+          git add docs/*.html docs/*.json docs/resumen_analitico.json data_txt/cierre_*.txt
           if git diff --cached --quiet; then
             echo "Sin cambios para publicar."
           else
