@@ -5,11 +5,13 @@ on:
     # Revisa la carpeta de Drive cada 15 minutos durante el horario de la
     # cafetería (13:00-03:00 UTC ≈ 07:00 AM-09:00 PM hora de Ciudad de México).
     - cron: "*/15 13-23,0-3 * * *"
-    # Cierre diario RecoPOS: 6:30 AM hora de México (UTC-6) = 12:30 UTC.
-    # Cron de respaldo a las 6:50 AM MX (12:50 UTC) por si GitHub retrasa el primero.
-    # recopos_extractor.py sale sin hacer nada si el cierre del día ya existe.
-    - cron: "30 12 * * *"
-    - cron: "50 12 * * *"
+    # Cierre diario RecoPOS: programado a las 4:30 AM MX (10:30 UTC).
+    # GitHub Actions retrasa los crons 1-2 horas en horario pico, por lo que
+    # en la práctica dispara alrededor de las 6:00-6:30 AM hora de México.
+    # Cron de respaldo 20 min después por si el primero se retrasa más.
+    # recopos_extractor.py sale sin CAPTCHA si el cierre del día ya existe.
+    - cron: "30 10 * * *"
+    - cron: "50 10 * * *"
   workflow_dispatch:
     inputs:
       fecha:
@@ -49,7 +51,7 @@ jobs:
 
       - name: Extraer cierre diario RecoPOS (vía API, CAPTCHA por Telegram)
         id: cierre
-        if: github.event.schedule == '30 12 * * *' || github.event.schedule == '50 12 * * *' || github.event_name == 'workflow_dispatch'
+        if: github.event.schedule == '30 10 * * *' || github.event.schedule == '50 10 * * *' || github.event_name == 'workflow_dispatch'
         env:
           RECOPOS_SHOP_ID: ${{ secrets.RECOPOS_SHOP_ID }}
           RECOPOS_USER: ${{ secrets.RECOPOS_USER }}
