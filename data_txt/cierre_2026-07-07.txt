@@ -1,0 +1,231 @@
+# Cierre Diario — SEED CAFÉ
+## Martes 7 de julio de 2026
+
+---
+
+## RESUMEN DEL DÍA
+
+Tienda: SEED CAFÉ (200012148)
+Horario operativo: 07:25 – 17:40
+Total de órdenes: 61
+Total ventas: $11105.00
+Ticket promedio: $182.05
+Ticket mínimo: $40.00
+Ticket máximo: $516.00
+
+---
+
+## POR MÉTODO DE PAGO
+
+Tarjeta bancaria: 32 órdenes — $6313.00 (57%)
+Efectivo: 19 órdenes — $2996.00 (27%)
+Tarjeta de débito: 9 órdenes — $1528.00 (14%)
+Uber Eats: 1 órdenes — $268.00 (2%)
+TOTAL: 61 órdenes — $11105.00
+
+---
+
+## TOP 5 PRODUCTOS
+
+CAPUCCINO CALIENTE: 15.0 uds — $1140.00
+SANDWICH P/P/PANELA: 10.0 uds — $990.00
+CHAPATA P/P/PANELA: 9.0 uds — $1080.00
+AMERICANO CALIENTE: 7.0 uds — $419.00
+LATTE CALIENTE: 6.0 uds — $480.00
+
+---
+
+## DETALLE DE ÓRDENES
+
+| No. Orden | Monto | Folio/Mesa | Hora | Pago | Fuente | Tipo |
+|---|---|---|---|---|---|---|
+| 202607070061 | 340.00 | 0061 | 07-07-2026 17:40:13 | Tarjeta de débito | Orden en TPV | orden |
+| 202607070060 | 332.00 | 0060 | 07-07-2026 17:12:44 | Tarjeta de débito | Orden en TPV | orden |
+| 202607070059 | 131.00 | 0008 | 07-07-2026 17:02:45 | Efectivo | Orden en TPV | orden |
+| 202607070058 | 186.00 | 0059 | 07-07-2026 16:48:26 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070057 | 65.00 | 0058 | 07-07-2026 16:26:16 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070056 | 264.00 | 0057 | 07-07-2026 16:23:46 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070055 | 105.00 | 0056 | 07-07-2026 16:07:30 | Efectivo | Orden en TPV | orden |
+| 202607070054 | 301.00 | 0055 | 07-07-2026 15:46:21 | Efectivo | Orden en TPV | orden |
+| 202607070053 | 120.00 | 0054 | 07-07-2026 15:34:29 | Efectivo | Orden en TPV | orden |
+| 202607070052 | 99.00 | 0053 | 07-07-2026 15:28:29 | Efectivo | Orden en TPV | orden |
+| 202607070051 | 40.00 | 0052 | 07-07-2026 14:57:05 | Efectivo | Orden en TPV | orden |
+| 202607070050 | 200.00 | 0051 | 07-07-2026 14:34:15 | Efectivo | Orden en TPV | orden |
+| 202607070049 | 150.00 | 0050 | 07-07-2026 14:26:26 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070048 | 210.00 | 0049 | 07-07-2026 14:25:00 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070047 | 152.00 | 0047 | 07-07-2026 14:12:51 | Tarjeta de débito | Orden en TPV | orden |
+| 202607070043 | 268.00 | 04C8E | 07-07-2026 14:10:41 | Uber Eats | Orden en TPV | orden |
+| 202607070046 | 126.00 | 0046 | 07-07-2026 13:47:15 | Efectivo | Orden en TPV | orden |
+| 202607070045 | 76.00 | 0045 | 07-07-2026 13:24:22 | Efectivo | Orden en TPV | orden |
+| 202607070044 | 116.00 | 0044 | 07-07-2026 13:17:27 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070042 | 160.00 | 0043 | 07-07-2026 13:11:01 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070041 | 99.00 | 0042 | 07-07-2026 13:05:39 | Tarjeta de débito | Orden en TPV | orden |
+| 202607070040 | 198.00 | 0041 | 07-07-2026 12:58:10 | Efectivo | Orden en TPV | orden |
+| 202607070039 | 189.00 | 0040 | 07-07-2026 12:43:19 | Efectivo | Orden en TPV | orden |
+| 202607070038 | 290.00 | 0039 | 07-07-2026 12:37:52 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070037 | 314.00 | 0038 | 07-07-2026 12:36:29 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070036 | 76.00 | 0037 | 07-07-2026 12:30:03 | Tarjeta de débito | Orden en TPV | orden |
+| 202607070035 | 59.00 | 0036 | 07-07-2026 11:46:28 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070034 | 110.00 | 0035 | 07-07-2026 11:35:54 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070033 | 168.00 | 0034 | 07-07-2026 11:27:31 | Efectivo | Orden en TPV | orden |
+| 202607070032 | 490.00 | 0033 | 07-07-2026 11:17:42 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070031 | 140.00 | 0032 | 07-07-2026 11:11:31 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070030 | 105.00 | 0031 | 07-07-2026 11:09:55 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070029 | 240.00 | 0030 | 07-07-2026 11:07:03 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070028 | 99.00 | 0029 | 07-07-2026 11:05:30 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070027 | 168.00 | 0028 | 07-07-2026 10:57:16 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070026 | 92.00 | 0027 | 07-07-2026 10:45:29 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070025 | 140.00 | 0026 | 07-07-2026 10:40:41 | Efectivo | Orden en TPV | orden |
+| 202607070024 | 305.00 | 0025 | 07-07-2026 10:39:01 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070023 | 419.00 | 0024 | 07-07-2026 10:35:53 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070022 | 446.00 | 0023 | 07-07-2026 10:16:40 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070021 | 194.00 | 0022 | 07-07-2026 09:47:49 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070020 | 202.00 | 0021 | 07-07-2026 09:45:30 | Tarjeta de débito | Orden en TPV | orden |
+| 202607070019 | 149.00 | 0020 | 07-07-2026 09:30:51 | Efectivo | Orden en TPV | orden |
+| 202607070018 | 262.00 | 0019 | 07-07-2026 09:29:01 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070017 | 198.00 | 0015 | 07-07-2026 09:15:49 | Efectivo | Orden en TPV | orden |
+| 202607070016 | 175.00 | 0018 | 07-07-2026 09:14:49 | Efectivo | Orden en TPV | orden |
+| 202607070015 | 76.00 | 0017 | 07-07-2026 09:13:25 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070014 | 198.00 | 0016 | 07-07-2026 09:12:51 | Efectivo | Orden en TPV | orden |
+| 202607070013 | 173.00 | 0014 | 07-07-2026 08:54:17 | Efectivo | Orden en TPV | orden |
+| 202607070012 | 59.00 | 0013 | 07-07-2026 08:50:23 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070011 | 99.00 | 0012 | 07-07-2026 08:46:25 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070010 | 144.00 | 0006 | 07-07-2026 08:43:34 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070009 | 88.00 | 0011 | 07-07-2026 08:33:59 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070008 | 516.00 | 0010 | 07-07-2026 08:27:40 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070007 | 164.00 | 0009 | 07-07-2026 08:08:04 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070006 | 210.00 | 0007 | 07-07-2026 07:57:23 | Efectivo | Orden en TPV | orden |
+| 202607070005 | 76.00 | 0005 | 07-07-2026 07:38:42 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070004 | 207.00 | 0004 | 07-07-2026 07:38:07 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607070003 | 99.00 | 0003 | 07-07-2026 07:30:02 | Tarjeta de débito | Orden en TPV | orden |
+| 202607070002 | 160.00 | 0002 | 07-07-2026 07:26:15 | Tarjeta de débito | Orden en TPV | orden |
+| 202607070001 | 68.00 | 0001 | 07-07-2026 07:25:25 | Tarjeta de débito | Orden en TPV | orden |
+
+---
+
+## DETALLE DE PRODUCTOS
+
+| No. Orden | Producto | Opciones | Cantidad | Monto | Reembolso |
+|---|---|---|---|---|---|
+| 202607070061 | CHAI GUAYABA |  | 1.0 | 100.00 | No |
+| 202607070061 | MATCHA FRAPPE | Shot Extra Cafe/02 LECHE DESLACTOSADA | 1.0 | 130.00 | No |
+| 202607070061 | FRAPPE MAZAPAN | 01 LECHE ENTERA | 1.0 | 110.00 | No |
+| 202607070060 | CHAPATA CHILORIO |  | 1.0 | 150.00 | No |
+| 202607070060 | CHAI VAINILLA S/A CALIENTE | 02LECHE DESLACTOSADA | 1.0 | 100.00 | No |
+| 202607070060 | LATTE FRIO | LECHE LIGHT | 1.0 | 82.00 | No |
+| 202607070059 | FLAT WHITE CALIENTE | LECHE LIGHT | 1.0 | 76.00 | No |
+| 202607070059 | TÉ MANZANILLA CALIENTE |  | 1.0 | 55.00 | No |
+| 202607070058 | WRAP DE OMELETTE Y CHILORIO |  | 1.0 | 150.00 | No |
+| 202607070058 | ESPRESSO SENCILLO |  | 1.0 | 36.00 | No |
+| 202607070057 | AMERICANO CALIENTE | 11 DESCAFEINADO/10 CORTADO | 1.0 | 65.00 | No |
+| 202607070056 | CHAI VAINILLA S/A FRIO | 03 LECHE DE COCO/Shot Extra Cafe | 2.0 | 264.00 | No |
+| 202607070055 | CHAI ORIGINAL FRIO | 09 LECHE DESLC LIGHT | 1.0 | 105.00 | No |
+| 202607070054 | CAPUCCINO FRAPPE | 02 LECHE DESLACTOSADA | 1.0 | 95.00 | No |
+| 202607070054 | CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 76.00 | No |
+| 202607070054 | SINCRONIZADAS DE JAMON |  | 1.0 | 130.00 | No |
+| 202607070053 | CHAPATA P/P/PANELA | PAVO | 1.0 | 120.00 | No |
+| 202607070052 | SANDWICH P/P/PANELA | MULTIGRANO/PAVO | 1.0 | 99.00 | No |
+| 202607070051 | TRENZAS DE MAPLE Y NUEZ |  | 1.0 | 40.00 | No |
+| 202607070050 | LATTE CALIENTE | 04 LECHE DE ALMENDRA | 1.0 | 88.00 | No |
+| 202607070050 | CHAI VAINILLA S/A CALIENTE | 04LECHE DE ALMENDRA | 1.0 | 112.00 | No |
+| 202607070049 | SINCRONIZADAS DE CHILORIO |  | 1.0 | 150.00 | No |
+| 202607070048 | FRAPPE NUTELLA |  | 1.0 | 115.00 | No |
+| 202607070048 | CAPUCCINO FRAPPE |  | 1.0 | 95.00 | No |
+| 202607070047 | AVELLANA CAPUCCINO FRAPPE | Shot Extra Cafe*2/04 LECHE DE ALMENDRA | 1.0 | 152.00 | No |
+| 202607070043 | Sandwich |  | 1.0 | 124.00 | No |
+| 202607070043 | Nutella - Frappé |  | 1.0 | 144.00 | No |
+| 202607070046 | CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 76.00 | No |
+| 202607070046 | NUTRI BARRA |  | 1.0 | 50.00 | No |
+| 202607070045 | CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 76.00 | No |
+| 202607070044 | CAPUCCINO CALIENTE |  | 1.0 | 76.00 | No |
+| 202607070044 | TRENZAS DE MAPLE Y NUEZ |  | 1.0 | 40.00 | No |
+| 202607070042 | MOLLETES A LA MEXICANA |  | 1.0 | 160.00 | No |
+| 202607070041 | SANDWICH P/P/PANELA | MULTIGRANO | 1.0 | 99.00 | No |
+| 202607070040 | COFFE TONIC |  | 2.0 | 198.00 | No |
+| 202607070039 | CAPUCCINO CALIENTE | 01 LECHE ENTERA | 1.0 | 76.00 | No |
+| 202607070039 | ROL DE CANELA MANZANA |  | 1.0 | 68.00 | No |
+| 202607070039 | AGUA MINERAL |  | 1.0 | 45.00 | No |
+| 202607070038 | CAPUCCINO CALIENTE | 01 LECHE ENTERA | 2.0 | 152.00 | No |
+| 202607070038 | AMERICANO CALIENTE |  | 2.0 | 118.00 | No |
+| 202607070038 | AGUA |  | 1.0 | 20.00 | No |
+| 202607070037 | AGUA MINERAL |  | 1.0 | 45.00 | No |
+| 202607070037 | SANDWICH P/P/PANELA | MULTIGRANO | 1.0 | 99.00 | No |
+| 202607070037 | ENSALADA | ATÚN | 1.0 | 170.00 | No |
+| 202607070036 | CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 76.00 | No |
+| 202607070035 | AMERICANO CALIENTE |  | 1.0 | 59.00 | No |
+| 202607070034 | MOKA BLANCO CAPUCCINO FRAPPE |  | 1.0 | 110.00 | No |
+| 202607070033 | LATTE CALIENTE |  | 1.0 | 76.00 | No |
+| 202607070033 | CAPUCCINO VAINILLA S/A |  | 1.0 | 92.00 | No |
+| 202607070032 | CHAPATA P/P/PANELA |  | 1.0 | 120.00 | No |
+| 202607070032 | SINCRONIZADAS DE CHILORIO |  | 1.0 | 150.00 | No |
+| 202607070032 | HORCHATA CALIENTE |  | 1.0 | 90.00 | No |
+| 202607070032 | CHOCOLATE BLANCO CALIENTE |  | 1.0 | 90.00 | No |
+| 202607070032 | TRENZAS DE MAPLE Y NUEZ |  | 1.0 | 40.00 | No |
+| 202607070031 | WRAP DE OMELETTE JAMON Y QUESO |  | 1.0 | 140.00 | No |
+| 202607070030 | CHAI VAINILLA S/A FRIO |  | 1.0 | 105.00 | No |
+| 202607070029 | CHAPATA P/P/PANELA |  | 2.0 | 240.00 | No |
+| 202607070028 | SANDWICH P/P/PANELA |  | 1.0 | 99.00 | No |
+| 202607070027 | LATTE CALIENTE | 01 LECHE ENTERA | 1.0 | 76.00 | No |
+| 202607070027 | MOKA BLANCO CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 92.00 | No |
+| 202607070026 | MOKA CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 92.00 | No |
+| 202607070025 | AGUA |  | 1.0 | 20.00 | No |
+| 202607070025 | CHAPATA P/P/PANELA | PAVO | 1.0 | 120.00 | No |
+| 202607070024 | CHAI VAINILLA CALIENTE |  | 1.0 | 100.00 | No |
+| 202607070024 | MOLLETES | JAMON DE PAVO | 1.0 | 160.00 | No |
+| 202607070024 | COCA ZERO |  | 1.0 | 45.00 | No |
+| 202607070023 | CHAPATA P/P/PANELA |  | 1.0 | 120.00 | No |
+| 202607070023 | SANDWICH P/P/PANELA |  | 1.0 | 99.00 | No |
+| 202607070023 | FRAPPE MAZAPAN |  | 1.0 | 110.00 | No |
+| 202607070023 | MAZAPAN CALIENTE |  | 1.0 | 90.00 | No |
+| 202607070022 | CHAPATA CHILORIO |  | 1.0 | 150.00 | No |
+| 202607070022 | MOLLETES |  | 1.0 | 140.00 | No |
+| 202607070022 | MOKA CAPUCCINO FRIO |  | 1.0 | 97.00 | No |
+| 202607070022 | AMERICANO CALIENTE |  | 1.0 | 59.00 | No |
+| 202607070021 | SANDWICH P/P/PANELA |  | 1.0 | 99.00 | No |
+| 202607070021 | MAZAPAN FRIO |  | 1.0 | 95.00 | No |
+| 202607070020 | CAPUCCINO FRIO | 02 LECHE DESLACTOSADA | 1.0 | 82.00 | No |
+| 202607070020 | CHAPATA P/P/PANELA | PAVO | 1.0 | 120.00 | No |
+| 202607070019 | CHOCOLATE TRADICIONAL CALIENTE |  | 1.0 | 90.00 | No |
+| 202607070019 | AMERICANO CALIENTE |  | 1.0 | 59.00 | No |
+| 202607070018 | LATTE CALIENTE |  | 1.0 | 76.00 | No |
+| 202607070018 | ROL DE CANELA MANZANA |  | 1.0 | 68.00 | No |
+| 202607070018 | ROL DE CANELA |  | 1.0 | 58.00 | No |
+| 202607070018 | TÉ HIERBABUENA FRIO |  | 1.0 | 60.00 | No |
+| 202607070017 | CHAPATA P/P/PANELA |  | 1.0 | 120.00 | No |
+| 202607070017 | AGUA FRIA1 | LIMON | 1.0 | 78.00 | No |
+| 202607070016 | CAPUCCINO CALIENTE |  | 1.0 | 76.00 | No |
+| 202607070016 | SANDWICH P/P/PANELA |  | 1.0 | 99.00 | No |
+| 202607070015 | CAPUCCINO CALIENTE |  | 1.0 | 76.00 | No |
+| 202607070014 | SANDWICH P/P/PANELA |  | 2.0 | 198.00 | No |
+| 202607070013 | LATTE FRIO VAINILLA |  | 1.0 | 97.00 | No |
+| 202607070013 | CAPUCCINO CALIENTE |  | 1.0 | 76.00 | No |
+| 202607070012 | AMERICANO CALIENTE |  | 1.0 | 59.00 | No |
+| 202607070011 | COFFE TONIC |  | 1.0 | 99.00 | No |
+| 202607070010 | CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 76.00 | No |
+| 202607070010 | ROL DE CANELA NUTELLA |  | 1.0 | 68.00 | No |
+| 202607070009 | LATTE CALIENTE | 13 LECHE DE SOYA | 1.0 | 88.00 | No |
+| 202607070008 | LATTE CALIENTE |  | 1.0 | 76.00 | No |
+| 202607070008 | MOKA BLANCO CAPUCCINO CALIENTE |  | 1.0 | 92.00 | No |
+| 202607070008 | MOKA CAPUCCINO CALIENTE |  | 1.0 | 92.00 | No |
+| 202607070008 | AGUA FRIA1 |  | 1.0 | 78.00 | No |
+| 202607070008 | CHAPATA P/P/PANELA |  | 1.0 | 120.00 | No |
+| 202607070008 | ROL DE CANELA |  | 1.0 | 58.00 | No |
+| 202607070007 | CAPUCCINO FRIO |  | 2.0 | 164.00 | No |
+| 202607070006 | CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 2.0 | 152.00 | No |
+| 202607070006 | ROL DE CANELA |  | 1.0 | 58.00 | No |
+| 202607070005 | CAPUCCINO CALIENTE |  | 1.0 | 76.00 | No |
+| 202607070004 | CHAI VAINILLA S/A FRAPPE |  | 1.0 | 115.00 | No |
+| 202607070004 | MOKA CAPUCCINO CALIENTE |  | 1.0 | 92.00 | No |
+| 202607070003 | SANDWICH P/P/PANELA | MULTIGRANO | 1.0 | 99.00 | No |
+| 202607070002 | CAPUCCINO CALIENTE CARAMEL | 02 LECHE DESLACTOSADA | 1.0 | 92.00 | No |
+| 202607070002 | ROL DE CANELA MANZANA |  | 1.0 | 68.00 | No |
+| 202607070001 | ROL DE CANELA NUTELLA |  | 1.0 | 68.00 | No |
+
+---
+
+## NOTAS
+
+- Datos: API de órdenes (`/admin/baigong/order/list`) + detalle de productos por orden (`/admin/baigong/order/info`)
+- El Cierre formal no fue ejecutado por el cajero
+- Match órdenes vs productos: OK
+- Generado: 2026-07-09T03:40:32.203165 (recopos_extractor.py / GitHub Actions)

@@ -1,0 +1,133 @@
+# Cierre Diario — SEED CAFÉ
+## Sábado 4 de julio de 2026
+
+---
+
+## RESUMEN DEL DÍA
+
+Tienda: SEED CAFÉ (200012148)
+Horario operativo: 08:02 – 14:05
+Total de órdenes: 27
+Total ventas: $5784.00
+Ticket promedio: $214.22
+Ticket mínimo: $75.00
+Ticket máximo: $900.00
+
+---
+
+## POR MÉTODO DE PAGO
+
+Efectivo: 12 órdenes — $2889.00 (50%)
+Tarjeta bancaria: 7 órdenes — $1589.00 (27%)
+Tarjeta de débito: 7 órdenes — $1064.00 (18%)
+Uber Eats: 1 órdenes — $242.00 (4%)
+TOTAL: 27 órdenes — $5784.00
+
+---
+
+## TOP 5 PRODUCTOS
+
+CAPUCCINO CALIENTE: 6.0 uds — $456.00
+TRENZAS DE MAPLE Y NUEZ: 4.0 uds — $160.00
+CHAPATA P/P/PANELA: 3.0 uds — $360.00
+COFFE TONIC: 2.0 uds — $198.00
+CARAMEL CAPUCCINO FRAPPE: 2.0 uds — $220.00
+
+---
+
+## DETALLE DE ÓRDENES
+
+| No. Orden | Monto | Folio/Mesa | Hora | Pago | Fuente | Tipo |
+|---|---|---|---|---|---|---|
+| 202607040028 | 429.00 | 0026 | 04-07-2026 14:05:55 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607040027 | 76.00 | 0025 | 04-07-2026 13:19:05 | Efectivo | Orden en TPV | orden |
+| 202607040026 | 372.00 | 0024 | 04-07-2026 13:03:55 | Efectivo | Orden en TPV | orden |
+| 202607040025 | 160.00 | 0023 | 04-07-2026 12:59:50 | Tarjeta de débito | Orden en TPV | orden |
+| 202607040024 | 532.00 | 0022 | 04-07-2026 11:58:53 | Efectivo | Orden en TPV | orden |
+| 202607040023 | 76.00 | 0021 | 04-07-2026 11:57:46 | Efectivo | Orden en TPV | orden |
+| 202607040022 | 200.00 | 0020 | 04-07-2026 11:46:18 | Efectivo | Orden en TPV | orden |
+| 202607040021 | 186.00 | 0019 | 04-07-2026 11:45:27 | Efectivo | Orden en TPV | orden |
+| 202607040020 | 230.00 | 0018 | 04-07-2026 11:19:35 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607040019 | 97.00 | 0017 | 04-07-2026 11:16:23 | Tarjeta de débito | Orden en TPV | orden |
+| 202607040018 | 105.00 | 0016 | 04-07-2026 10:52:26 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607040017 | 175.00 | 0015 | 04-07-2026 10:36:38 | Tarjeta de débito | Orden en TPV | orden |
+| 202607040016 | 75.00 | 0014 | 04-07-2026 10:34:16 | Efectivo | Orden en TPV | orden |
+| 202607040015 | 102.00 | 0013 | 04-07-2026 10:34:00 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607040014 | 501.00 | 0010 | 04-07-2026 10:21:56 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607040013 | 139.00 | 0012 | 04-07-2026 10:08:43 | Tarjeta de débito | Orden en TPV | orden |
+| 202607040008 | 242.00 | D700E | 04-07-2026 10:08:27 | Uber Eats | Orden en TPV | orden |
+| 202607040012 | 76.00 | 0011 | 04-07-2026 10:07:12 | Tarjeta de débito | Orden en TPV | orden |
+| 202607040011 | 105.00 | 0009 | 04-07-2026 09:41:01 | Efectivo | Orden en TPV | orden |
+| 202607040010 | 160.00 | 0008 | 04-07-2026 09:22:28 | Tarjeta de débito | Orden en TPV | orden |
+| 202607040009 | 132.00 | 0007 | 04-07-2026 09:13:18 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607040007 | 257.00 | 0006 | 04-07-2026 09:10:50 | Tarjeta de débito | Orden en TPV | orden |
+| 202607040006 | 90.00 | 0005 | 04-07-2026 08:58:32 | Tarjeta bancaria | Orden en TPV | orden |
+| 202607040005 | 900.00 | 0004 | 04-07-2026 08:26:57 | Efectivo | Orden en TPV | orden |
+| 202607040004 | 92.00 | 0003 | 04-07-2026 08:24:23 | Efectivo | Orden en TPV | orden |
+| 202607040003 | 199.00 | 0001 | 04-07-2026 08:08:25 | Efectivo | Orden en TPV | orden |
+| 202607040002 | 76.00 | 0002 | 04-07-2026 08:02:00 | Efectivo | Orden en TPV | orden |
+
+---
+
+## DETALLE DE PRODUCTOS
+
+| No. Orden | Producto | Opciones | Cantidad | Monto | Reembolso |
+|---|---|---|---|---|---|
+| 202607040028 | COFFE TONIC |  | 1.0 | 99.00 | No |
+| 202607040028 | MOKA CAPUCCINO FRAPPE | 02LECHE DESLACTOSADA | 1.0 | 110.00 | No |
+| 202607040028 | CARAMEL CAPUCCINO FRAPPE | 02 LECHE DESLACTOSADA | 2.0 | 220.00 | No |
+| 202607040027 | CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 76.00 | No |
+| 202607040026 | SINCRONIZADAS DE CHILORIO |  | 1.0 | 150.00 | No |
+| 202607040026 | CAPUCCINO FRAPPE | 03 LECHE DE COCO | 1.0 | 107.00 | No |
+| 202607040026 | MATCHA FRAPPE | 02 LECHE DESLACTOSADA | 1.0 | 115.00 | No |
+| 202607040025 | CAPUCCINO VAINILLA S/A | 09 LECHE DESLC LIGHT | 1.0 | 92.00 | No |
+| 202607040025 | ROL DE CANELA CAJETA Y NUEZ |  | 1.0 | 68.00 | No |
+| 202607040024 | LATTE CALIENTE | 01 LECHE ENTERA | 1.0 | 76.00 | No |
+| 202607040024 | CAPUCCINO CALIENTE | 01 LECHE ENTERA | 1.0 | 76.00 | No |
+| 202607040024 | FRESA SMOOTHIE |  | 1.0 | 100.00 | No |
+| 202607040024 | TRENZAS DE MAPLE Y NUEZ |  | 1.0 | 40.00 | No |
+| 202607040024 | CHAPATA P/P/PANELA |  | 2.0 | 240.00 | No |
+| 202607040023 | CAPUCCINO CALIENTE |  | 1.0 | 76.00 | No |
+| 202607040022 | WRAP DE OMELETTE JAMON Y QUESO |  | 1.0 | 140.00 | No |
+| 202607040022 | TE DURAZNO JAMAICA FRIO |  | 1.0 | 60.00 | No |
+| 202607040021 | AMERICANO CALIENTE |  | 1.0 | 59.00 | No |
+| 202607040021 | CHAI ORIGINAL FRAPPE | 13 LECHE DE SOYA | 1.0 | 127.00 | No |
+| 202607040020 | CHAI VAINILLA S/A FRAPPE | 09 LECHE DESLC LIGHT | 1.0 | 115.00 | No |
+| 202607040020 | TARO S/A FRAPPE | 09 LECHE DESLC LIGHT | 1.0 | 115.00 | No |
+| 202607040019 | LATTE FRIO VAINILLA | 02 LECHE DESLACTOSADA | 1.0 | 97.00 | No |
+| 202607040018 | MATCHA FRIO | 02 LECHE DESLACTOSADA | 1.0 | 105.00 | No |
+| 202607040017 | SANDWICH P/P/PANELA | MANTEQUILLA | 1.0 | 99.00 | No |
+| 202607040017 | CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 76.00 | No |
+| 202607040016 | YOGURT GRIEGO CON FRESAS |  | 1.0 | 75.00 | No |
+| 202607040015 | HORCHATA CALIENTE | 04 LECHE DE ALMENDRA | 1.0 | 102.00 | No |
+| 202607040014 | LATTE CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 76.00 | No |
+| 202607040014 | TARO FRAPPE | 02 LECHE DESLACTOSADA | 1.0 | 115.00 | No |
+| 202607040014 | MOLLETES |  | 1.0 | 140.00 | No |
+| 202607040014 | MOLLETES | CHILORIO | 1.0 | 170.00 | No |
+| 202607040013 | COFFE TONIC |  | 1.0 | 99.00 | No |
+| 202607040013 | TRENZAS DE MAPLE Y NUEZ |  | 1.0 | 40.00 | No |
+| 202607040008 | Sandwich |  | 1.0 | 124.00 | No |
+| 202607040008 | Horchata Nuez - Frio |  | 1.0 | 118.00 | No |
+| 202607040012 | CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 76.00 | No |
+| 202607040011 | TARO S/A FRIO | 09 LECHE DESLC LIGHT | 1.0 | 105.00 | No |
+| 202607040010 | CHAPATA P/P/PANELA | PAVO | 1.0 | 120.00 | No |
+| 202607040010 | TRENZAS DE MAPLE Y NUEZ |  | 1.0 | 40.00 | No |
+| 202607040009 | MOKA BLANCO CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 92.00 | No |
+| 202607040009 | TRENZAS DE MAPLE Y NUEZ |  | 1.0 | 40.00 | No |
+| 202607040007 | MOKA CAPUCCINO CALIENTE | Shot Extra Cafe/01 LECHE ENTERA | 1.0 | 107.00 | No |
+| 202607040007 | SINCRONIZADAS DE CHILORIO |  | 1.0 | 150.00 | No |
+| 202607040006 | CHOCOLATE CALIENTE | 01 LECHE ENTERA | 1.0 | 90.00 | No |
+| 202607040005 | CONSUMO SEMANAL FARMACADEL |  | 1.0 | 900.00 | No |
+| 202607040004 | MOKA BLANCO CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 92.00 | No |
+| 202607040003 | CHAI VAINILLA CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 100.00 | No |
+| 202607040003 | SANDWICH P/P/PANELA | MULTIGRANO | 1.0 | 99.00 | No |
+| 202607040002 | CAPUCCINO CALIENTE | 09 LECHE DESLC LIGHT | 1.0 | 76.00 | No |
+
+---
+
+## NOTAS
+
+- Datos: API de órdenes (`/admin/baigong/order/list`) + detalle de productos por orden (`/admin/baigong/order/info`)
+- El Cierre formal no fue ejecutado por el cajero
+- Match órdenes vs productos: OK
+- Generado: 2026-07-09T03:40:20.306114 (recopos_extractor.py / GitHub Actions)
