@@ -5,9 +5,9 @@ on:
     # Revisa la carpeta de Drive cada 15 minutos durante el horario de la
     # cafetería (13:00-03:00 UTC ≈ 07:00 AM-09:00 PM hora de Ciudad de México).
     - cron: "*/15 13-23,0-3 * * *"
-    # Cierre diario RecoPOS: revisa cada 5 min de 4:00 AM a 10:00 AM MX (10:00-16:00 UTC).
-    # Solo actúa si el usuario mandó "cierre" al bot de alertas en los últimos 10 min.
-    - cron: "*/5 10-16 * * *"
+    # Cierre diario RecoPOS: revisa cada minuto de 4:00 AM a 10:00 AM MX (10:00-16:00 UTC).
+    # Solo actúa si el usuario mandó "cierre" al bot de alertas en los últimos 5 min.
+    - cron: "*/1 10-16 * * *"
   workflow_dispatch:
     inputs:
       fecha:
