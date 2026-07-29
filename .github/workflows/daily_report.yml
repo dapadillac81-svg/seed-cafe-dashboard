@@ -47,7 +47,7 @@ jobs:
 
       - name: Extraer cierre diario RecoPOS (vía API, CAPTCHA por Telegram)
         id: cierre
-        if: github.event.schedule == '*/5 10-16 * * *' || github.event_name == 'workflow_dispatch'
+        if: github.event.schedule == '*/1 10-16 * * *' || github.event_name == 'workflow_dispatch'
         env:
           RECOPOS_SHOP_ID: ${{ secrets.RECOPOS_SHOP_ID }}
           RECOPOS_USER: ${{ secrets.RECOPOS_USER }}
