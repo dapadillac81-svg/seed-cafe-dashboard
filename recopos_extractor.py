@@ -63,6 +63,40 @@ def fail(mensaje: str) -> None:
 CAPTCHA_CICLO_MIN = 15  # minutos que espera por cada imagen antes de mandar una nueva
 CAPTCHA_MAX_MIN = 120  # tope total: ~2 horas (máx. 8 mensajes) reenviando captcha cada ciclo
 
+TRIGGER_PALABRAS = {"cierre", "reporte", "start", "inicio", "hoy"}
+TRIGGER_VENTANA_MIN = 10  # minutos hacia atrás para buscar el mensaje trigger
+
+
+def hay_trigger_en_telegram() -> bool:
+    """Revisa si el usuario mandó una palabra clave en los últimos TRIGGER_VENTANA_MIN minutos.
+    Si workflow_dispatch o FECHA_OBJETIVO están activos, se considera trigger automático.
+    """
+    if os.environ.get("FECHA_OBJETIVO", "").strip():
+        return True
+    if os.environ.get("GITHUB_EVENT_NAME", "") == "workflow_dispatch":
+        return True
+
+    import time as _time
+    ahora = _time.time()
+    ventana = TRIGGER_VENTANA_MIN * 60
+
+    r = requests.get(
+        f"https://api.telegram.org/bot{TG_TOKEN}/getUpdates",
+        params={"limit": 20, "offset": -20},
+        timeout=15,
+    )
+    for u in r.json().get("result", []):
+        msg = u.get("message", {})
+        if str(msg.get("chat", {}).get("id")) != str(TG_CHAT):
+            continue
+        fecha_msg = msg.get("date", 0)
+        if ahora - fecha_msg > ventana:
+            continue
+        texto = (msg.get("text") or "").strip().lower()
+        if any(p in texto for p in TRIGGER_PALABRAS):
+            return True
+    return False
+
 
 def _offset_inicial() -> int:
     r = requests.get(
@@ -410,6 +444,10 @@ def main() -> None:
 
     if not pendientes:
         print(f"OK — cierre de {objetivo.isoformat()} ya existe, nada que hacer.")
+        sys.exit(0)
+
+    if not hay_trigger_en_telegram():
+        print(f"Sin trigger en Telegram (últimos {TRIGGER_VENTANA_MIN} min). Esperando mensaje del usuario.")
         sys.exit(0)
 
     if len(pendientes) > 1:
