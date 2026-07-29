@@ -5,10 +5,9 @@ on:
     # Revisa la carpeta de Drive cada 15 minutos durante el horario de la
     # cafetería (13:00-03:00 UTC ≈ 07:00 AM-09:00 PM hora de Ciudad de México).
     - cron: "*/15 13-23,0-3 * * *"
-    # Cierre diario RecoPOS: revisa cada 5 min de 4:00 AM a 9:00 AM hora México
-    # (10:00–15:00 UTC). Solo actúa si el usuario mandó "cierre" al bot de
-    # Telegram en los últimos 10 minutos — de lo contrario sale en 2 segundos.
-    - cron: "*/5 10-15 * * *"
+    # Cierre diario RecoPOS: cron de respaldo a las 8:00 AM MX (14:00 UTC)
+    # por si el usuario no mandó el trigger por Telegram ese día.
+    - cron: "0 14 * * *"
   workflow_dispatch:
     inputs:
       fecha:
@@ -48,7 +47,7 @@ jobs:
 
       - name: Extraer cierre diario RecoPOS (vía API, CAPTCHA por Telegram)
         id: cierre
-        if: github.event.schedule == '*/5 10-15 * * *' || github.event_name == 'workflow_dispatch'
+        if: github.event.schedule == '0 14 * * *' || github.event_name == 'workflow_dispatch'
         env:
           RECOPOS_SHOP_ID: ${{ secrets.RECOPOS_SHOP_ID }}
           RECOPOS_USER: ${{ secrets.RECOPOS_USER }}
