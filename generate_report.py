@@ -703,7 +703,7 @@ def _render_one(template, data, target_date, all_dates, generated_at, category_c
         "top_products": build_top_products_chart(items_df, target_date),
         "milk": build_milk_chart(items_df, target_date, milk_color_map),
         "category": build_category_chart(categoria_df, target_date, category_color_map),
-        "comparativa": build_comparativa_chart(orders_df, target_date),
+        "comparativa": build_comparativa_chart(orders_df, target_date, days=60),
     }
 
     top_categoria_charts = build_top_categoria_charts(categoria_df, target_date)
