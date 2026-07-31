@@ -1,52 +1,42 @@
 {
-  "fecha_objetivo": "2026-07-29",
-  "dia_semana": "Miércoles",
-  "generado": "29-07-2026 18:56",
+  "fecha_objetivo": "2026-07-30",
+  "dia_semana": "Jueves",
+  "generado": "30-07-2026 18:09",
   "dias_historial_mismo_dia": 6,
-  "dias_historial_total": 41,
+  "dias_historial_total": 42,
   "productos": [
     {
       "producto": "Total piezas sugeridas",
       "categoria": "BEBIDAS CALIENTES",
-      "cantidad_sugerida": 41
+      "cantidad_sugerida": 33
     },
     {
       "producto": "Total piezas sugeridas",
       "categoria": "FRÍAS / FRAPPÉS / SMOOTHIES",
-      "cantidad_sugerida": 25
+      "cantidad_sugerida": 21
     },
     {
       "producto": "Total piezas sugeridas",
       "categoria": "OTRAS BEBIDAS",
-      "cantidad_sugerida": 4
+      "cantidad_sugerida": 2
     },
     {
       "producto": "SANDWICH P",
       "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 8
+      "cantidad_sugerida": 7
     },
     {
       "producto": "CHAPATA P",
       "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 5
+      "cantidad_sugerida": 4
     },
     {
-      "producto": "WRAP DE OMELETTE JAMON Y QUESO",
+      "producto": "MOLLETES",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 3
     },
     {
       "producto": "CHAPATA CHILORIO",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 3
-    },
-    {
-      "producto": "MOLLETES",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "ENSALADA",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 2
     },
@@ -56,14 +46,24 @@
       "cantidad_sugerida": 2
     },
     {
+      "producto": "ENSALADA",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 1
+    },
+    {
       "producto": "SINCRONIZADAS DE CHILORIO",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 1
     },
     {
-      "producto": "ROL DE CANELA",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 5
+      "producto": "WRAP DE OMELETTE JAMON Y QUESO",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 1
+    },
+    {
+      "producto": "WRAP DE OMELETTE Y CHILORIO",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 1
     },
     {
       "producto": "TRENZAS DE MAPLE Y NUEZ",
@@ -71,7 +71,7 @@
       "cantidad_sugerida": 3
     },
     {
-      "producto": "NUTRI BARRA",
+      "producto": "POLVORONES",
       "categoria": "POSTRES",
       "cantidad_sugerida": 2
     },
@@ -81,27 +81,37 @@
       "cantidad_sugerida": 2
     },
     {
+      "producto": "ROL DE CANELA",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 2
+    },
+    {
       "producto": "ROL DE CANELA MANZANA",
       "categoria": "POSTRES",
       "cantidad_sugerida": 2
     },
     {
-      "producto": "YOGURT GRIEGO CON FRESAS",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "ROL DE CANELA NUTELLA",
+      "producto": "NUTRI BARRA",
       "categoria": "POSTRES",
       "cantidad_sugerida": 1
     },
     {
       "producto": "AGUA",
       "categoria": "REFRESCOS",
-      "cantidad_sugerida": 2
+      "cantidad_sugerida": 1
     },
     {
       "producto": "COCA COLA",
+      "categoria": "REFRESCOS",
+      "cantidad_sugerida": 1
+    },
+    {
+      "producto": "COCA COLA LIGHT",
+      "categoria": "REFRESCOS",
+      "cantidad_sugerida": 1
+    },
+    {
+      "producto": "COCA ZERO",
       "categoria": "REFRESCOS",
       "cantidad_sugerida": 1
     }
