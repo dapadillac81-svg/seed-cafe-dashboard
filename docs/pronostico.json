@@ -1,39 +1,44 @@
 {
-  "fecha_objetivo": "2026-08-04",
-  "dia_semana": "Martes",
-  "generado": "04-08-2026 18:30",
-  "dias_historial_mismo_dia": 8,
-  "dias_historial_total": 46,
+  "fecha_objetivo": "2026-08-05",
+  "dia_semana": "Miércoles",
+  "generado": "05-08-2026 11:47",
+  "dias_historial_mismo_dia": 7,
+  "dias_historial_total": 47,
   "productos": [
     {
       "producto": "Total piezas sugeridas",
       "categoria": "BEBIDAS CALIENTES",
-      "cantidad_sugerida": 34
+      "cantidad_sugerida": 38
     },
     {
       "producto": "Total piezas sugeridas",
       "categoria": "FRÍAS / FRAPPÉS / SMOOTHIES",
-      "cantidad_sugerida": 17
+      "cantidad_sugerida": 25
     },
     {
       "producto": "Total piezas sugeridas",
       "categoria": "OTRAS BEBIDAS",
-      "cantidad_sugerida": 3
+      "cantidad_sugerida": 5
     },
     {
       "producto": "SANDWICH P",
       "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 8
+      "cantidad_sugerida": 7
     },
     {
       "producto": "CHAPATA P",
       "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 4
+      "cantidad_sugerida": 5
+    },
+    {
+      "producto": "WRAP DE OMELETTE JAMON Y QUESO",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 3
     },
     {
       "producto": "CHAPATA CHILORIO",
       "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 2
+      "cantidad_sugerida": 3
     },
     {
       "producto": "MOLLETES",
@@ -41,14 +46,14 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "WRAP DE OMELETTE JAMON Y QUESO",
+      "producto": "ENSALADA",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 2
     },
     {
-      "producto": "ENSALADA",
+      "producto": "SINCRONIZADAS DE JAMON",
       "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 1
+      "cantidad_sugerida": 2
     },
     {
       "producto": "SINCRONIZADAS DE CHILORIO",
@@ -56,29 +61,9 @@
       "cantidad_sugerida": 1
     },
     {
-      "producto": "SINCRONIZADAS DE JAMON",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "WRAP DE OMELETTE Y CHILORIO",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 1
-    },
-    {
       "producto": "ROL DE CANELA",
       "categoria": "POSTRES",
-      "cantidad_sugerida": 3
-    },
-    {
-      "producto": "TRENZAS DE MAPLE Y NUEZ",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 3
-    },
-    {
-      "producto": "NUTRI BARRA",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 2
+      "cantidad_sugerida": 4
     },
     {
       "producto": "ROL DE CANELA CAJETA Y NUEZ",
@@ -91,12 +76,22 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "POLVORONES",
+      "producto": "TRENZAS DE MAPLE Y NUEZ",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 2
+    },
+    {
+      "producto": "ROL DE CANELA NUTELLA",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 2
+    },
+    {
+      "producto": "NUTRI BARRA",
       "categoria": "POSTRES",
       "cantidad_sugerida": 1
     },
     {
-      "producto": "GALLETAS NEW YORK",
+      "producto": "YOGURT GRIEGO CON FRESAS",
       "categoria": "POSTRES",
       "cantidad_sugerida": 1
     },
