@@ -563,12 +563,12 @@
       "ingreso": 0.0
     },
     {
-      "producto": "WRAP DE OMELETTE JAMON Y QUESO",
+      "producto": "LATTE CALIENTE（02 LECHE DESLACTOSADA）",
       "unidades": 61,
       "ingreso": 0.0
     },
     {
-      "producto": "LATTE CALIENTE（02 LECHE DESLACTOSADA）",
+      "producto": "WRAP DE OMELETTE JAMON Y QUESO",
       "unidades": 61,
       "ingreso": 0.0
     },
@@ -578,12 +578,12 @@
       "ingreso": 0.0
     },
     {
-      "producto": "OREJITAS",
+      "producto": "CHOCOLATIN MINI",
       "unidades": 54,
       "ingreso": 0.0
     },
     {
-      "producto": "CHOCOLATIN MINI",
+      "producto": "OREJITAS",
       "unidades": 54,
       "ingreso": 0.0
     },
@@ -762,11 +762,11 @@
           "unidades": 3
         },
         {
-          "producto": "AMARETTO CAPUCCINO FRAPPE",
+          "producto": "CAPUCCINO FRAPPE/16 OZ",
           "unidades": 1
         },
         {
-          "producto": "CAPUCCINO FRAPPE/16 OZ",
+          "producto": "AMARETTO CAPUCCINO FRAPPE",
           "unidades": 1
         },
         {
@@ -815,7 +815,7 @@
           "unidades": 6
         },
         {
-          "producto": "FRAPPE HORCHATA",
+          "producto": "CHOCOLATE ITALIANO FRAPPE",
           "unidades": 5
         },
         {
@@ -1028,7 +1028,7 @@
           "unidades": 5
         },
         {
-          "producto": "CONSUMO SEMANAL FARMACADEL",
+          "producto": "Mazapán - Frappé",
           "unidades": 4
         },
         {
@@ -1036,7 +1036,7 @@
           "unidades": 4
         },
         {
-          "producto": "Mazapán - Frappé",
+          "producto": "CONSUMO SEMANAL FARMACADEL",
           "unidades": 4
         },
         {
@@ -1065,15 +1065,15 @@
           "unidades": 12
         },
         {
+          "producto": "GUANABANA SMOOTHIE",
+          "unidades": 3
+        },
+        {
           "producto": "MANGO SMOOTHIE/16 OZ",
           "unidades": 3
         },
         {
           "producto": "LIMON SMOOTHIE",
-          "unidades": 3
-        },
-        {
-          "producto": "GUANABANA SMOOTHIE",
           "unidades": 3
         },
         {
@@ -1085,7 +1085,7 @@
           "unidades": 2
         },
         {
-          "producto": "MIX BERRIES SMOOTHIE/16 OZ",
+          "producto": "COCO SMOOTHIE/16 OZ",
           "unidades": 1
         }
       ]
@@ -1110,19 +1110,19 @@
           "unidades": 4
         },
         {
-          "producto": "Wrap Omelette-Jamón y Queso",
-          "unidades": 4
-        },
-        {
           "producto": "Moka - Frappé",
           "unidades": 4
         },
         {
-          "producto": "Chocomenta - Frappé",
-          "unidades": 3
+          "producto": "Wrap Omelette-Jamón y Queso",
+          "unidades": 4
         },
         {
           "producto": "Moka Blanco - Caliente",
+          "unidades": 3
+        },
+        {
+          "producto": "Chocomenta - Frappé",
           "unidades": 3
         },
         {
@@ -1130,7 +1130,7 @@
           "unidades": 2
         },
         {
-          "producto": "Capuccino - Caliente",
+          "producto": "Molletes Naturales",
           "unidades": 1
         }
       ]
