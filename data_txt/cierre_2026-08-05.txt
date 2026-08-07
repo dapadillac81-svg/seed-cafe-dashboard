@@ -239,4 +239,4 @@ CHOCOLATIN MINI: 7 uds — $350.00
 - Datos: API de órdenes + detalle de productos por orden
 - El Cierre formal no fue ejecutado por el cajero
 - Match órdenes vs productos: DIFERENCIA $137.50
-- Generado: 2026-08-06T18:22:05.016Z (Render / telegramBot.js)
+- Generado: 2026-08-07T00:37:14.350Z (Render / telegramBot.js)
