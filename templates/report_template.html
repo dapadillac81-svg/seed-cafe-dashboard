@@ -438,30 +438,24 @@
           }
         }
 
-        // Esperar a que Plotly termine: escucha plotly_afterplot en todos los divs.
-        // Cuando el último termina, hace el scroll. Fallback: 3 segundos.
-        function esperarPlotyYScroll() {
-          var plots = document.querySelectorAll('.plotly-graph-div');
-          if (!plots.length) { doScroll(); return; }
-          var total = plots.length, done = 0;
-          function onDone() {
-            done++;
-            if (done >= total) doScroll();
+        // Esperar a que el layout se estabilice: pollea el scrollHeight cada 100ms.
+        // Cuando no cambia 4 veces seguidas (400ms sin reflow), hace el scroll.
+        // Esto es más confiable que plotly_afterplot (que usa .on(), no addEventListener).
+        var lastH = 0, stableCount = 0;
+        var maxWait = setTimeout(doScroll, 4000); // fallback absoluto: 4s
+        function pollLayout() {
+          if (userScrolled) { clearTimeout(maxWait); show(); return; }
+          var h = document.body.scrollHeight;
+          if (h > 0 && h === lastH) {
+            stableCount++;
+            if (stableCount >= 4) { clearTimeout(maxWait); doScroll(); return; }
+          } else {
+            stableCount = 0;
+            lastH = h;
           }
-          plots.forEach(function(div) {
-            if (div._fullLayout !== undefined) {
-              // Ya renderizado
-              onDone();
-            } else {
-              div.addEventListener('plotly_afterplot', function handler() {
-                div.removeEventListener('plotly_afterplot', handler);
-                onDone();
-              });
-            }
-          });
+          setTimeout(pollLayout, 100);
         }
-        // Pequeño delay para que Plotly empiece a registrar sus eventos
-        setTimeout(esperarPlotyYScroll, 200);
+        setTimeout(pollLayout, 100);
       } else {
         document.documentElement.style.visibility = 'visible';
       }
