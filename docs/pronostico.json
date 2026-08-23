@@ -1,14 +1,14 @@
 {
   "fecha_objetivo": "2026-08-22",
   "dia_semana": "Sábado",
-  "generado": "22-08-2026 21:07",
-  "dias_historial_mismo_dia": 9,
-  "dias_historial_total": 57,
+  "generado": "22-08-2026 21:09",
+  "dias_historial_mismo_dia": 11,
+  "dias_historial_total": 61,
   "productos": [
     {
       "producto": "Total piezas sugeridas",
       "categoria": "BEBIDAS CALIENTES",
-      "cantidad_sugerida": 21
+      "cantidad_sugerida": 22
     },
     {
       "producto": "Total piezas sugeridas",
@@ -18,7 +18,7 @@
     {
       "producto": "Total piezas sugeridas",
       "categoria": "OTRAS BEBIDAS",
-      "cantidad_sugerida": 1
+      "cantidad_sugerida": 2
     },
     {
       "producto": "CHAPATA P",
@@ -56,14 +56,14 @@
       "cantidad_sugerida": 1
     },
     {
-      "producto": "TRENZAS DE MAPLE Y NUEZ",
+      "producto": "ROL DE CANELA",
       "categoria": "POSTRES",
       "cantidad_sugerida": 2
     },
     {
-      "producto": "POLVORONES",
+      "producto": "TRENZAS DE MAPLE Y NUEZ",
       "categoria": "POSTRES",
-      "cantidad_sugerida": 1
+      "cantidad_sugerida": 2
     },
     {
       "producto": "NUTRI BARRA",
@@ -71,17 +71,7 @@
       "cantidad_sugerida": 1
     },
     {
-      "producto": "ROL DE CANELA",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "ROL DE CANELA CAJETA Y NUEZ",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "ROL DE CANELA NUTELLA",
+      "producto": "POLVORONES",
       "categoria": "POSTRES",
       "cantidad_sugerida": 1
     },
@@ -93,7 +83,7 @@
     {
       "producto": "AGUA",
       "categoria": "REFRESCOS",
-      "cantidad_sugerida": 2
+      "cantidad_sugerida": 1
     }
   ]
 }
