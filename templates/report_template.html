@@ -190,6 +190,38 @@
       box-shadow: var(--shadow-sm);
       border: 1px solid var(--border);
       overflow-x: auto;
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    .chart-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 400ms cubic-bezier(0.23, 1, 0.32, 1),
+                  transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    /* ── Botón Plan de producción ────────────────── */
+    .btn-produccion {
+      display: inline-block;
+      padding: 8px 16px;
+      background: var(--accent-light);
+      color: #fff;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      font-family: inherit;
+      letter-spacing: -0.01em;
+      transition: transform 120ms cubic-bezier(0.23, 1, 0.32, 1), background 150ms ease;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    .btn-produccion:active {
+      transform: scale(0.96);
+      transition: transform 80ms ease-out;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .btn-produccion:hover { background: var(--accent); }
     }
     .chart-card .plotly-graph-div,
     .chart-card .plotly-graph-div * {
@@ -303,12 +335,23 @@
       font-size: 0.82rem;
       margin-top: 10px;
       font-weight: 500;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: opacity 200ms ease-out, transform 200ms ease-out;
+    }
+    .auth-error.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* ── Reduced motion ──────────────────────────── */
     @media (prefers-reduced-motion: reduce) {
-      .kpi-card { animation: none; }
+      .kpi-card  { animation: none; }
       .auth-box  { animation: none; }
+      .chart-card { opacity: 1; transform: none; }
+      .chart-card.visible { transition: none; }
+      .auth-error { transition: none; }
+      .btn-produccion { transition: background 150ms ease; }
       .nav-bar a,
       .auth-box button { transition: background 150ms ease; }
     }
@@ -322,7 +365,7 @@
       <p class="hint">Ingresa la contraseña para ver el dashboard</p>
       <input type="password" id="auth-pass" placeholder="Contraseña" autocomplete="off">
       <button id="auth-submit" type="button">Entrar</button>
-      <p id="auth-error" class="auth-error" style="display:none;">Contraseña incorrecta, intenta de nuevo</p>
+      <p id="auth-error" class="auth-error">Contraseña incorrecta, intenta de nuevo</p>
     </div>
   </div>
   <header>
@@ -337,7 +380,7 @@
   </div>
   <main>
     <div style="text-align:center; margin-bottom:12px;">
-      <a href="pronostico.html" style="display:inline-block; padding:8px 16px; background:var(--accent-light); color:#fff; border-radius:8px; text-decoration:none; font-size:0.85rem; font-weight:bold;">📋 Plan de producción (mañana)</a>
+      <a href="pronostico.html" class="btn-produccion">📋 Plan de producción (mañana)</a>
     </div>
     <div class="kpi-grid">
       <div class="kpi-card">
@@ -442,6 +485,27 @@
         });
       }
 
+      // Chart cards: fade-in al hacer scroll (una sola vez por card)
+      var chartCards = document.querySelectorAll('.chart-card');
+      if ('IntersectionObserver' in window) {
+        var cardObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var card = entry.target;
+              var delay = parseInt(card.getAttribute('data-stagger') || '0');
+              setTimeout(function() { card.classList.add('visible'); }, delay);
+              cardObserver.unobserve(card);
+            }
+          });
+        }, { threshold: 0.08 });
+        chartCards.forEach(function(card, i) {
+          card.setAttribute('data-stagger', String(i * 50));
+          cardObserver.observe(card);
+        });
+      } else {
+        chartCards.forEach(function(c) { c.classList.add('visible'); });
+      }
+
       // Al pulsar ← →: guarda el gráfico que el observer está viendo ahora
       document.querySelectorAll('.nav-bar a:not(.disabled)').forEach(function(link) {
         link.addEventListener('click', function() {
@@ -521,7 +585,7 @@
             localStorage.setItem(AUTH_KEY, 'ok');
             unlock();
           } else {
-            err.style.display = 'block';
+            err.classList.add('visible');
             input.value = '';
             input.focus();
           }
