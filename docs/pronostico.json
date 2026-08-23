@@ -1,9 +1,9 @@
 {
-  "fecha_objetivo": "2026-08-06",
+  "fecha_objetivo": "2026-08-20",
   "dia_semana": "Jueves",
-  "generado": "06-08-2026 18:37",
-  "dias_historial_mismo_dia": 7,
-  "dias_historial_total": 48,
+  "generado": "22-08-2026 20:16",
+  "dias_historial_mismo_dia": 8,
+  "dias_historial_total": 54,
   "productos": [
     {
       "producto": "Total piezas sugeridas",
@@ -13,17 +13,17 @@
     {
       "producto": "Total piezas sugeridas",
       "categoria": "FRÍAS / FRAPPÉS / SMOOTHIES",
-      "cantidad_sugerida": 23
+      "cantidad_sugerida": 26
     },
     {
       "producto": "Total piezas sugeridas",
       "categoria": "OTRAS BEBIDAS",
-      "cantidad_sugerida": 4
+      "cantidad_sugerida": 3
     },
     {
       "producto": "SANDWICH P",
       "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 7
+      "cantidad_sugerida": 8
     },
     {
       "producto": "CHAPATA P",
@@ -41,19 +41,14 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "SINCRONIZADAS DE JAMON",
+      "producto": "ENSALADA",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 2
     },
     {
-      "producto": "ENSALADA",
+      "producto": "SINCRONIZADAS DE JAMON",
       "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "SINCRONIZADAS DE CHILORIO",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 1
+      "cantidad_sugerida": 2
     },
     {
       "producto": "WRAP DE OMELETTE JAMON Y QUESO",
@@ -66,12 +61,12 @@
       "cantidad_sugerida": 1
     },
     {
-      "producto": "ROL DE CANELA CAJETA Y NUEZ",
+      "producto": "ROL DE CANELA",
       "categoria": "POSTRES",
-      "cantidad_sugerida": 3
+      "cantidad_sugerida": 4
     },
     {
-      "producto": "ROL DE CANELA",
+      "producto": "ROL DE CANELA CAJETA Y NUEZ",
       "categoria": "POSTRES",
       "cantidad_sugerida": 3
     },
@@ -98,15 +93,10 @@
     {
       "producto": "AGUA",
       "categoria": "REFRESCOS",
-      "cantidad_sugerida": 1
+      "cantidad_sugerida": 2
     },
     {
       "producto": "COCA COLA",
-      "categoria": "REFRESCOS",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "COCA COLA LIGHT",
       "categoria": "REFRESCOS",
       "cantidad_sugerida": 1
     },
