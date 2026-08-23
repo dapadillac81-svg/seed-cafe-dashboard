@@ -394,7 +394,6 @@
   </main>
   <footer>Generado automáticamente desde RecoPOS · Seed Café</footer>
   <script>
-    // Contraseña de acceso (guardada como hash SHA-256, no en texto plano)
     var AUTH_HASH = '31ddf9a38b9141ca7730321bea19b093204a5ef19809bc8d625e6d58a23fb2af';
     var AUTH_KEY = 'seedcafe_auth';
 
@@ -408,92 +407,83 @@
     }
 
     function initDashboard() {
-      // Desactiva zoom, drag y doble clic en todos los gráficos de Plotly
+      // Desactiva zoom y doble clic en gráficos Plotly
       function fijarGraficos() {
-        var divs = document.querySelectorAll('.plotly-graph-div');
-        divs.forEach(function(div) {
+        document.querySelectorAll('.plotly-graph-div').forEach(function(div) {
           if (window.Plotly && div.layout !== undefined) {
-            window.Plotly.relayout(div, {dragmode: false});
+            window.Plotly.relayout(div, { dragmode: false });
             div.on('plotly_doubleclick', function() { return false; });
           }
         });
       }
-      // Espera a que Plotly termine de renderizar
       setTimeout(fijarGraficos, 800);
 
-      // Mantiene la posición en el mismo gráfico al cambiar de día
       var STORAGE_KEY = 'seedcafe_scroll_chart';
       var navBar = document.querySelector('.nav-bar');
-      var navHeight = navBar ? navBar.offsetHeight : 0;
 
-      // Al cargar la página, si hay un gráfico recordado, baja hasta él.
-      // Se reintenta varias veces porque los gráficos de Plotly tardan en
-      // renderizarse y van cambiando la altura de la página.
-      var savedId = sessionStorage.getItem(STORAGE_KEY);
-      if (savedId) {
-        // Evita que el navegador "ayude" restaurando su propio scroll
-        if ('scrollRestoration' in history) {
-          history.scrollRestoration = 'manual';
-        }
-
-        // Si el usuario toca/desplaza manualmente, no seguir forzando el scroll
-        var userInteracted = false;
-        var markInteracted = function() { userInteracted = true; };
-        ['touchstart', 'wheel', 'pointerdown'].forEach(function(evt) {
-          window.addEventListener(evt, markInteracted, { passive: true, once: true });
-        });
-
-        var attempts = 0;
-        var maxAttempts = 8;
-        var tryScroll = function() {
-          if (!userInteracted) {
-            var target = document.querySelector('.chart-card[data-chart-id="' + savedId + '"]');
-            if (target) {
-              var top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 8;
-              window.scrollTo(0, Math.max(top, 0));
-            }
-          }
-          // Ya se posicionó (o no existe el gráfico): mostrar la página
-          document.documentElement.style.visibility = 'visible';
-          attempts++;
-          if (attempts < maxAttempts && !userInteracted) {
-            setTimeout(tryScroll, 350);
-          }
-        };
-        setTimeout(tryScroll, 100);
-      } else {
-        document.documentElement.style.visibility = 'visible';
-      }
-
-      // Al darle a "anterior"/"siguiente", guarda qué gráfico se estaba viendo
-      document.querySelectorAll('.nav-bar a:not(.disabled)').forEach(function(link) {
-        link.addEventListener('click', function() {
-          var cards = document.querySelectorAll('.chart-card[data-chart-id]');
-          var current = null;
-          cards.forEach(function(card) {
-            var rect = card.getBoundingClientRect();
-            if (rect.top <= navHeight + 10 && rect.bottom > navHeight + 10) {
-              current = card;
+      // IntersectionObserver: rastrea continuamente qué gráfico está visible.
+      // Así cuando el usuario pulsa ← →, el ID ya está guardado sin necesidad
+      // de calcular getBoundingClientRect en el momento del clic.
+      var currentVisibleId = null;
+      if ('IntersectionObserver' in window) {
+        var navHeight = navBar ? navBar.offsetHeight : 0;
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.15) {
+              currentVisibleId = entry.target.getAttribute('data-chart-id');
             }
           });
-          if (!current) {
-            for (var i = 0; i < cards.length; i++) {
-              if (cards[i].getBoundingClientRect().bottom > navHeight) {
-                current = cards[i];
-                break;
-              }
-            }
-          }
-          if (current) {
-            sessionStorage.setItem(STORAGE_KEY, current.getAttribute('data-chart-id'));
+        }, {
+          rootMargin: '-' + navHeight + 'px 0px 0px 0px',
+          threshold: 0.15
+        });
+        document.querySelectorAll('.chart-card[data-chart-id]').forEach(function(c) {
+          observer.observe(c);
+        });
+      }
+
+      // Al pulsar ← →: guarda el gráfico que el observer está viendo ahora
+      document.querySelectorAll('.nav-bar a:not(.disabled)').forEach(function(link) {
+        link.addEventListener('click', function() {
+          if (currentVisibleId) {
+            sessionStorage.setItem(STORAGE_KEY, currentVisibleId);
           } else {
             sessionStorage.removeItem(STORAGE_KEY);
           }
         });
       });
+
+      // Al cargar: scroll al gráfico guardado.
+      // Solo cancela si el usuario realmente DESPLAZA la página (no solo toca).
+      var savedId = sessionStorage.getItem(STORAGE_KEY);
+      if (savedId) {
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+        var userScrolled = false;
+        window.addEventListener('scroll', function() { userScrolled = true; }, { passive: true, once: true });
+
+        var navH = navBar ? navBar.offsetHeight : 0;
+        var attempts = 0;
+
+        function tryScroll() {
+          if (userScrolled) { show(); return; }
+          var target = document.querySelector('.chart-card[data-chart-id="' + savedId + '"]');
+          if (target) {
+            var top = target.getBoundingClientRect().top + window.scrollY - navH - 8;
+            window.scrollTo({ top: Math.max(top, 0), behavior: 'instant' });
+          }
+          show();
+          attempts++;
+          if (attempts < 12 && !userScrolled) setTimeout(tryScroll, 300);
+        }
+
+        function show() { document.documentElement.style.visibility = 'visible'; }
+        setTimeout(tryScroll, 80);
+      } else {
+        document.documentElement.style.visibility = 'visible';
+      }
     }
 
-    // Pantalla de acceso con contraseña
     document.addEventListener('DOMContentLoaded', function() {
       var gate = document.getElementById('auth-gate');
       var input = document.getElementById('auth-pass');
@@ -511,7 +501,6 @@
         return;
       }
 
-      // Hay que pedir contraseña: mostrar la página solo para ver el candado
       document.documentElement.style.visibility = 'visible';
       gate.classList.remove('hidden');
       input.focus();
@@ -533,6 +522,13 @@
         if (e.key === 'Enter') tryLogin();
       });
     });
+
+    // Service worker: network-first para HTML, offline fallback para assets
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('sw.js').catch(function() {});
+      });
+    }
   </script>
 </body>
 </html>
