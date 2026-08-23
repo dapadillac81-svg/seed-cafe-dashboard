@@ -465,20 +465,30 @@
         var navH = navBar ? navBar.offsetHeight : 0;
         var attempts = 0;
 
+        function show() { document.documentElement.style.visibility = 'visible'; }
+
+        // Seguridad: mostrar la página aunque todo falle
+        var safetyTimer = setTimeout(show, 2500);
+
         function tryScroll() {
-          if (userScrolled) { show(); return; }
+          if (userScrolled) { clearTimeout(safetyTimer); show(); return; }
           var target = document.querySelector('.chart-card[data-chart-id="' + savedId + '"]');
           if (target) {
             var top = target.getBoundingClientRect().top + window.scrollY - navH - 8;
             window.scrollTo({ top: Math.max(top, 0), behavior: 'instant' });
           }
-          show();
           attempts++;
-          if (attempts < 12 && !userScrolled) setTimeout(tryScroll, 300);
+          if (attempts < 4 && !userScrolled) {
+            // Sigue reintentando por si Plotly aún está moviendo el layout
+            setTimeout(tryScroll, 250);
+          } else {
+            clearTimeout(safetyTimer);
+            show();
+          }
         }
 
-        function show() { document.documentElement.style.visibility = 'visible'; }
-        setTimeout(tryScroll, 80);
+        // Esperar a que Plotly termine de renderizar (~800ms) antes de hacer scroll
+        setTimeout(tryScroll, 900);
       } else {
         document.documentElement.style.visibility = 'visible';
       }
