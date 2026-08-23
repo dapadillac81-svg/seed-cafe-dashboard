@@ -12,9 +12,7 @@
   <meta name="apple-mobile-web-app-title" content="Dashboard">
   <link rel="apple-touch-icon" href="icon-192.png">
   <script>
-    // Oculta la página de inicio hasta saber si hay que pedir contraseña
-    // o saltar a un gráfico recordado, para que no se vea ningún "salto".
-    if (localStorage.getItem('seedcafe_auth') !== 'ok' || sessionStorage.getItem('seedcafe_scroll_chart')) {
+    if (sessionStorage.getItem('seedcafe_scroll_chart')) {
       document.documentElement.style.visibility = 'hidden';
     }
   </script>
@@ -246,128 +244,17 @@
       padding: 20px 16px;
     }
 
-    /* ── Auth gate ───────────────────────────────── */
-    @keyframes auth-in {
-      from { opacity: 0; transform: scale(0.96) translateY(8px); }
-      to   { opacity: 1; transform: scale(1)    translateY(0);   }
-    }
-    .auth-gate {
-      position: fixed;
-      inset: 0;
-      background: rgba(242, 237, 232, 0.85);
-      backdrop-filter: blur(24px) saturate(160%);
-      -webkit-backdrop-filter: blur(24px) saturate(160%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 5000;
-    }
-    .auth-gate.hidden { display: none; }
-    .auth-box {
-      background: var(--card);
-      padding: 28px 24px;
-      border-radius: var(--radius-lg);
-      text-align: center;
-      box-shadow: var(--shadow-md);
-      border: 1px solid var(--border);
-      width: 90%;
-      max-width: 320px;
-      animation: auth-in 380ms var(--ease-out) both;
-    }
-    .auth-box img {
-      height: 56px;
-      width: auto;
-      margin-bottom: 14px;
-      border-radius: var(--radius-sm);
-    }
-    .auth-box h2 {
-      margin: 0 0 4px;
-      font-size: 1.15rem;
-      font-weight: 700;
-      letter-spacing: -0.015em;
-    }
-    .auth-box p.hint {
-      margin: 0 0 16px;
-      font-size: 0.8rem;
-      color: var(--muted);
-      line-height: 1.4;
-    }
-    .auth-box input {
-      width: 100%;
-      padding: 11px 12px;
-      margin-bottom: 12px;
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius-sm);
-      font-size: 1rem;
-      font-family: inherit;
-      background: var(--bg);
-      color: var(--ink);
-      outline: none;
-      transition: border-color 150ms ease;
-      box-sizing: border-box;
-    }
-    .auth-box input:focus {
-      border-color: var(--accent);
-    }
-    .auth-box button {
-      width: 100%;
-      padding: 11px;
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      border-radius: var(--radius-sm);
-      font-size: 1rem;
-      font-weight: 600;
-      font-family: inherit;
-      letter-spacing: -0.01em;
-      cursor: pointer;
-      transition: transform 120ms var(--ease-out), background 150ms ease;
-    }
-    .auth-box button:active {
-      transform: scale(0.97);
-      transition: transform 80ms ease-out;
-    }
-    @media (hover: hover) and (pointer: fine) {
-      .auth-box button:hover { background: var(--accent-hover); }
-    }
-    .auth-error {
-      color: var(--bad);
-      font-size: 0.82rem;
-      margin-top: 10px;
-      font-weight: 500;
-      opacity: 0;
-      transform: translateY(-4px);
-      transition: opacity 200ms ease-out, transform 200ms ease-out;
-    }
-    .auth-error.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
     /* ── Reduced motion ──────────────────────────── */
     @media (prefers-reduced-motion: reduce) {
       .kpi-card  { animation: none; }
-      .auth-box  { animation: none; }
       .chart-card { opacity: 1; transform: none; }
       .chart-card.visible { transition: none; }
-      .auth-error { transition: none; }
       .btn-produccion { transition: background 150ms ease; }
-      .nav-bar a,
-      .auth-box button { transition: background 150ms ease; }
+      .nav-bar a { transition: background 150ms ease; }
     }
   </style>
 </head>
 <body>
-  <div id="auth-gate" class="auth-gate">
-    <div class="auth-box">
-      <img src="logo.png" alt="Seed Café">
-      <h2>Acceso restringido</h2>
-      <p class="hint">Ingresa la contraseña para ver el dashboard</p>
-      <input type="password" id="auth-pass" placeholder="Contraseña" autocomplete="off">
-      <button id="auth-submit" type="button">Entrar</button>
-      <p id="auth-error" class="auth-error">Contraseña incorrecta, intenta de nuevo</p>
-    </div>
-  </div>
   <header>
     <img src="logo.png" alt="Seed Café">
     <h1>KPIs del día</h1>
@@ -437,18 +324,6 @@
   </main>
   <footer>Generado automáticamente desde RecoPOS · Seed Café</footer>
   <script>
-    var AUTH_HASH = '31ddf9a38b9141ca7730321bea19b093204a5ef19809bc8d625e6d58a23fb2af';
-    var AUTH_KEY = 'seedcafe_auth';
-
-    function sha256Hex(text) {
-      var data = new TextEncoder().encode(text);
-      return crypto.subtle.digest('SHA-256', data).then(function(buf) {
-        return Array.prototype.map.call(new Uint8Array(buf), function(b) {
-          return ('0' + b.toString(16)).slice(-2);
-        }).join('');
-      });
-    }
-
     function initDashboard() {
       // Desactiva zoom y doble clic en gráficos Plotly
       function fijarGraficos() {
@@ -593,42 +468,8 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-      var gate = document.getElementById('auth-gate');
-      var input = document.getElementById('auth-pass');
-      var btn = document.getElementById('auth-submit');
-      var err = document.getElementById('auth-error');
-
-      function unlock() {
-        gate.classList.add('hidden');
-        document.documentElement.style.visibility = 'visible';
-        initDashboard();
-      }
-
-      if (localStorage.getItem(AUTH_KEY) === 'ok') {
-        unlock();
-        return;
-      }
-
       document.documentElement.style.visibility = 'visible';
-      gate.classList.remove('hidden');
-      input.focus();
-
-      function tryLogin() {
-        sha256Hex(input.value).then(function(hash) {
-          if (hash === AUTH_HASH) {
-            localStorage.setItem(AUTH_KEY, 'ok');
-            unlock();
-          } else {
-            err.classList.add('visible');
-            input.value = '';
-            input.focus();
-          }
-        });
-      }
-      btn.addEventListener('click', tryLogin);
-      input.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') tryLogin();
-      });
+      initDashboard();
     });
 
     // Service worker: network-first para HTML, offline fallback para assets
