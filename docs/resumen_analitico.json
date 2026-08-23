@@ -919,7 +919,7 @@
           "unidades": 2
         },
         {
-          "producto": "AMARETTO CAPUCCINO FRAPPE",
+          "producto": "MOKA CAPUCCINO FRAPPE/16 OZ",
           "unidades": 1
         },
         {
@@ -927,7 +927,7 @@
           "unidades": 1
         },
         {
-          "producto": "MOKA CAPUCCINO FRAPPE/16 OZ",
+          "producto": "AMARETTO CAPUCCINO FRAPPE",
           "unidades": 1
         }
       ]
@@ -952,11 +952,11 @@
           "unidades": 25
         },
         {
-          "producto": "TARO FRAPPE",
+          "producto": "CHAI VAINILLA S/A FRAPPE",
           "unidades": 24
         },
         {
-          "producto": "CHAI VAINILLA S/A FRAPPE",
+          "producto": "TARO FRAPPE",
           "unidades": 24
         },
         {
@@ -1185,11 +1185,11 @@
           "unidades": 6
         },
         {
-          "producto": "Mazapán - Frappé",
+          "producto": "Chai Vainilla sin Azúcar - Frappé",
           "unidades": 4
         },
         {
-          "producto": "Chai Vainilla sin Azúcar - Frappé",
+          "producto": "Mazapán - Frappé",
           "unidades": 4
         },
         {
@@ -1230,15 +1230,15 @@
           "unidades": 4
         },
         {
-          "producto": "MANGO SMOOTHIE/16 OZ",
-          "unidades": 3
-        },
-        {
           "producto": "COCO SMOOTHIE",
           "unidades": 3
         },
         {
-          "producto": "GUAYABA SMOOTHIE/16 OZ",
+          "producto": "MANGO SMOOTHIE/16 OZ",
+          "unidades": 3
+        },
+        {
+          "producto": "COCO SMOOTHIE/16 OZ",
           "unidades": 1
         }
       ]
@@ -1271,11 +1271,11 @@
           "unidades": 4
         },
         {
-          "producto": "Moka Blanco - Caliente",
+          "producto": "Americano - Caliente",
           "unidades": 3
         },
         {
-          "producto": "Americano - Caliente",
+          "producto": "Moka Blanco - Caliente",
           "unidades": 3
         },
         {
