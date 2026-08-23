@@ -541,27 +541,52 @@
         function show() { document.documentElement.style.visibility = 'visible'; }
 
         // Seguridad: mostrar la página aunque todo falle
-        var safetyTimer = setTimeout(show, 2500);
+        var safetyTimer = setTimeout(doScroll, 3000);
 
-        function tryScroll() {
-          if (userScrolled) { clearTimeout(safetyTimer); show(); return; }
+        function doScroll() {
+          clearTimeout(safetyTimer);
+          if (userScrolled) { show(); return; }
           var target = document.querySelector('.chart-card[data-chart-id="' + savedId + '"]');
           if (target) {
             var top = target.getBoundingClientRect().top + window.scrollY - navH - 8;
             window.scrollTo({ top: Math.max(top, 0), behavior: 'instant' });
-          }
-          attempts++;
-          if (attempts < 4 && !userScrolled) {
-            // Sigue reintentando por si Plotly aún está moviendo el layout
-            setTimeout(tryScroll, 250);
+            // Un reintento 150ms después para absorber cualquier reflow residual
+            setTimeout(function() {
+              if (!userScrolled) {
+                var top2 = target.getBoundingClientRect().top + window.scrollY - navH - 8;
+                window.scrollTo({ top: Math.max(top2, 0), behavior: 'instant' });
+              }
+              show();
+            }, 150);
           } else {
-            clearTimeout(safetyTimer);
             show();
           }
         }
 
-        // Esperar a que Plotly termine de renderizar (~800ms) antes de hacer scroll
-        setTimeout(tryScroll, 900);
+        // Esperar a que Plotly termine: escucha plotly_afterplot en todos los divs.
+        // Cuando el último termina, hace el scroll. Fallback: 3 segundos.
+        function esperarPlotyYScroll() {
+          var plots = document.querySelectorAll('.plotly-graph-div');
+          if (!plots.length) { doScroll(); return; }
+          var total = plots.length, done = 0;
+          function onDone() {
+            done++;
+            if (done >= total) doScroll();
+          }
+          plots.forEach(function(div) {
+            if (div._fullLayout !== undefined) {
+              // Ya renderizado
+              onDone();
+            } else {
+              div.addEventListener('plotly_afterplot', function handler() {
+                div.removeEventListener('plotly_afterplot', handler);
+                onDone();
+              });
+            }
+          });
+        }
+        // Pequeño delay para que Plotly empiece a registrar sus eventos
+        setTimeout(esperarPlotyYScroll, 200);
       } else {
         document.documentElement.style.visibility = 'visible';
       }
