@@ -263,4 +263,4 @@ OREJITAS: 5 uds — $200.00
 - Datos: API de órdenes + detalle de productos por orden
 - El Cierre formal no fue ejecutado por el cajero
 - Match órdenes vs productos: DIFERENCIA $69.25
-- Generado: 2026-08-23T02:32:16.816Z (Render / telegramBot.js)
+- Generado: 2026-08-23T03:10:22.490Z (Render / telegramBot.js)
