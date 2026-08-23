@@ -1,0 +1,166 @@
+# Cierre Diario — SEED CAFÉ
+## Sábado 8 de agosto de 2026
+
+---
+
+## RESUMEN DEL DÍA
+
+Tienda: SEED CAFÉ (200012148)
+Horario operativo: 07:48 – 14:17
+Total de órdenes: 35
+Total ventas: $8055.20
+Ticket promedio: $230.15
+Ticket mínimo: $50.00
+Ticket máximo: $794.00
+
+---
+
+## POR MÉTODO DE PAGO
+
+Tarjeta bancaria: 12 órdenes — $3233.20 (40%)
+Efectivo: 12 órdenes — $2055.00 (26%)
+Tarjeta de débito: 7 órdenes — $883.00 (11%)
+Efectivo,Tarjeta de débito: 1 órdenes — $794.00 (10%)
+Uber Eats: 2 órdenes — $758.00 (9%)
+Tarjeta bancaria,Tarjeta de débito: 1 órdenes — $332.00 (4%)
+TOTAL: 35 órdenes — $8055.20
+
+---
+
+## TOP 5 PRODUCTOS
+
+CAPUCCINO CALIENTE: 10 uds — $772.00
+FRESA SMOOTHIE: 5 uds — $500.00
+CHAPATA P/P/PANELA: 5 uds — $600.00
+AMERICANO CALIENTE: 5 uds — $295.00
+SANDWICH P/P/PANELA: 5 uds — $495.00
+
+---
+
+## DETALLE DE ÓRDENES
+
+| No. Orden | Monto | Folio/Mesa | Hora | Pago | Fuente | Tipo |
+|---|---|---|---|---|---|---|
+| 202608080035 | 315.00 | 0033 | 08-08-2026 14:17:35 | Efectivo | Orden en TPV | orden |
+| 202608080034 | 197.00 | 0032 | 08-08-2026 14:10:21 | Efectivo | Orden en TPV | orden |
+| 202608080033 | 95.00 | 0031 | 08-08-2026 13:35:18 | Tarjeta de débito | Orden en TPV | orden |
+| 202608080032 | 609.40 | 0030 | 08-08-2026 13:30:47 | Tarjeta bancaria | Orden en TPV | orden |
+| 202608080028 | 359.00 | BBFCE | 08-08-2026 12:55:33 | Uber Eats | Orden en TPV | orden |
+| 202608080031 | 332.00 | 0026 | 08-08-2026 12:15:43 | Tarjeta bancaria,Tarjeta de débito | Orden en TPV | orden |
+| 202608080030 | 252.00 | 0029 | 08-08-2026 12:08:18 | Tarjeta bancaria | Orden en TPV | orden |
+| 202608080029 | 182.00 | 0028 | 08-08-2026 12:05:49 | Tarjeta bancaria | Orden en TPV | orden |
+| 202608080027 | 82.00 | 0027 | 08-08-2026 11:42:46 | Efectivo | Orden en TPV | orden |
+| 202608080026 | 100.00 | 0025 | 08-08-2026 11:27:37 | Efectivo | Orden en TPV | orden |
+| 202608080025 | 340.00 | 0024 | 08-08-2026 11:25:46 | Tarjeta bancaria | Orden en TPV | orden |
+| 202608080024 | 120.00 | 0023 | 08-08-2026 11:10:04 | Efectivo | Orden en TPV | orden |
+| 202608080017 | 399.00 | 7DC8F | 08-08-2026 11:08:28 | Uber Eats | Orden en TPV | orden |
+| 202608080023 | 423.00 | 0022 | 08-08-2026 11:02:35 | Tarjeta bancaria | Orden en TPV | orden |
+| 202608080022 | 247.00 | 0021 | 08-08-2026 10:57:36 | Efectivo | Orden en TPV | orden |
+| 202608080021 | 126.00 | 0020 | 08-08-2026 10:46:06 | Efectivo | Orden en TPV | orden |
+| 202608080020 | 230.00 | 0019 | 08-08-2026 10:38:42 | Efectivo | Orden en TPV | orden |
+| 202608080019 | 59.00 | 0018 | 08-08-2026 10:36:28 | Efectivo | Orden en TPV | orden |
+| 202608080018 | 168.00 | 0017 | 08-08-2026 10:17:49 | Tarjeta bancaria | Orden en TPV | orden |
+| 202608080016 | 100.00 | 0016 | 08-08-2026 10:01:02 | Tarjeta de débito | Orden en TPV | orden |
+| 202608080015 | 150.00 | 0015 | 08-08-2026 09:41:12 | Tarjeta bancaria | Orden en TPV | orden |
+| 202608080014 | 289.00 | 0014 | 08-08-2026 09:36:24 | Tarjeta bancaria | Orden en TPV | orden |
+| 202608080013 | 50.00 | 0013 | 08-08-2026 09:28:47 | Tarjeta bancaria | Orden en TPV | orden |
+| 202608080012 | 175.00 | 0012 | 08-08-2026 09:25:46 | Efectivo | Orden en TPV | orden |
+| 202608080011 | 99.00 | 0011 | 08-08-2026 09:23:03 | Tarjeta de débito | Orden en TPV | orden |
+| 202608080010 | 248.00 | 0010 | 08-08-2026 09:20:32 | Efectivo | Orden en TPV | orden |
+| 202608080009 | 492.80 | 0006 | 08-08-2026 09:15:33 | Tarjeta bancaria | Orden en TPV | orden |
+| 202608080008 | 174.00 | 0009 | 08-08-2026 09:14:01 | Tarjeta de débito | Orden en TPV | orden |
+| 202608080007 | 175.00 | 0008 | 08-08-2026 09:10:36 | Tarjeta de débito | Orden en TPV | orden |
+| 202608080006 | 156.00 | 0007 | 08-08-2026 09:01:12 | Efectivo | Orden en TPV | orden |
+| 202608080005 | 168.00 | 0005 | 08-08-2026 08:31:44 | Tarjeta bancaria | Orden en TPV | orden |
+| 202608080004 | 794.00 | 0004 | 08-08-2026 08:26:43 | Efectivo,Tarjeta de débito | Orden en TPV | orden |
+| 202608080003 | 109.00 | 0003 | 08-08-2026 08:05:04 | Tarjeta bancaria | Orden en TPV | orden |
+| 202608080002 | 150.00 | 0002 | 08-08-2026 07:49:25 | Tarjeta de débito | Orden en TPV | orden |
+| 202608080001 | 90.00 | 0001 | 08-08-2026 07:48:36 | Tarjeta de débito | Orden en TPV | orden |
+
+---
+
+## DETALLE DE PRODUCTOS
+
+| No. Orden | Producto | Opciones | Cantidad | Monto | Reembolso |
+|---|---|---|---|---|---|
+| 202608080035 | FRESA SMOOTHIE |  | 1 | 100.00 | No |
+| 202608080035 | MOKA CAPUCCINO FRAPPE | 01LECHE ENTERA | 1 | 110.00 | No |
+| 202608080035 | CHAI ORIGINAL FRIO | 01 LECHE ENTERA | 1 | 105.00 | No |
+| 202608080034 | CAPUCCINO CALIENTE VAINILLA | 01 LECHE ENTERA | 1 | 92.00 | No |
+| 202608080034 | CHAI ORIGINAL FRIO | 01 LECHE ENTERA | 1 | 105.00 | No |
+| 202608080033 | CAPUCCINO FRAPPE | LECHE LIGHT | 1 | 95.00 | No |
+| 202608080032 | CHAPATA P/P/PANELA | PAVO | 3 | 360.00 | No |
+| 202608080032 | COCA ZERO |  | 2 | 90.00 | No |
+| 202608080032 | AGUA MINERAL |  | 1 | 45.00 | No |
+| 202608080032 | AMERICANO CALIENTE |  | 1 | 59.00 | No |
+| 202608080028 | Latte - Frio |  | 1 | 102.00 | No |
+| 202608080028 | Horchata Nuez - Frio |  | 1 | 118.00 | No |
+| 202608080028 | Moka - Frio |  | 1 | 120.00 | No |
+| 202608080031 | FRESA SMOOTHIE |  | 1 | 100.00 | No |
+| 202608080031 | LATTE FRIO | 02 LECHE DESLACTOSADA | 1 | 82.00 | No |
+| 202608080031 | WRAP DE OMELETTE Y CHILORIO |  | 1 | 150.00 | No |
+| 202608080030 | LATTE CALIENTE | 01 LECHE ENTERA | 1 | 76.00 | No |
+| 202608080030 | CAPUCCINO CALIENTE | 01 LECHE ENTERA | 1 | 76.00 | No |
+| 202608080030 | FRESA SMOOTHIE |  | 1 | 100.00 | No |
+| 202608080029 | CAPUCCINO FRIO | 02 LECHE DESLACTOSADA | 1 | 82.00 | No |
+| 202608080029 | FRESA SMOOTHIE |  | 1 | 100.00 | No |
+| 202608080027 | LATTE FRIO | 02 LECHE DESLACTOSADA | 1 | 82.00 | No |
+| 202608080026 | CHOCOLATIN MINI |  | 2 | 100.00 | No |
+| 202608080025 | MANGO SMOOTHIE |  | 2 | 200.00 | No |
+| 202608080025 | WRAP DE OMELETTE JAMON Y QUESO |  | 1 | 140.00 | No |
+| 202608080024 | CHAPATA P/P/PANELA | PAVO | 1 | 120.00 | No |
+| 202608080017 | Coffee Tonic Mandarina |  | 2 | 240.00 | No |
+| 202608080017 | Taro sin Azúcar - Frappé |  | 1 | 144.00 | No |
+| 202608080023 | SANDWICH P/P/PANELA | PIERNA | 2 | 198.00 | No |
+| 202608080023 | CHAPATA P/P/PANELA |  | 1 | 120.00 | No |
+| 202608080023 | CHAI GUAYABA FRIO | 02 LECHE DESLACTOSADA | 1 | 105.00 | No |
+| 202608080022 | SINCRONIZADAS DE JAMON |  | 1 | 130.00 | No |
+| 202608080022 | COFFE TONIC | 12 ESENCIA | 1 | 117.00 | No |
+| 202608080021 | LATTE CALIENTE | 02 LECHE DESLACTOSADA | 1 | 76.00 | No |
+| 202608080021 | NUTRI BARRA |  | 1 | 50.00 | No |
+| 202608080020 | AMERICANO CALIENTE |  | 1 | 59.00 | No |
+| 202608080020 | CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1 | 76.00 | No |
+| 202608080020 | CHOCOLATE FRIO | 02 LECHE DESLACTOSADA | 1 | 95.00 | No |
+| 202608080019 | AMERICANO CALIENTE | 11 DESCAFEINADO | 1 | 59.00 | No |
+| 202608080018 | CAPUCCINO CALIENTE | 01 LECHE ENTERA | 1 | 76.00 | No |
+| 202608080018 | CAPUCCINO CALIENTE VAINILLA | 02 LECHE DESLACTOSADA | 1 | 92.00 | No |
+| 202608080016 | FRESA SMOOTHIE |  | 1 | 100.00 | No |
+| 202608080015 | CHAPATA CHILORIO |  | 1 | 150.00 | No |
+| 202608080014 | AMERICANO CALIENTE |  | 1 | 59.00 | No |
+| 202608080014 | CAPUCCINO CALIENTE | 01 LECHE ENTERA | 2 | 152.00 | No |
+| 202608080014 | AGUA FRIA1 | LIMON | 1 | 78.00 | No |
+| 202608080013 | CHOCOLATIN MINI |  | 1 | 50.00 | No |
+| 202608080012 | SANDWICH P/P/PANELA | MANTEQUILLA | 1 | 99.00 | No |
+| 202608080012 | CAPUCCINO CALIENTE | 01 LECHE ENTERA | 1 | 76.00 | No |
+| 202608080011 | SANDWICH P/P/PANELA | MULTIGRANO | 1 | 99.00 | No |
+| 202608080010 | NUTRI BARRA |  | 2 | 100.00 | No |
+| 202608080010 | AGUA |  | 2 | 40.00 | No |
+| 202608080010 | TE MANZANILLA JENGIBRE FRIO |  | 1 | 60.00 | No |
+| 202608080010 | ESPRESSO DOBLE |  | 1 | 48.00 | No |
+| 202608080009 | WRAP DE OMELETTE JAMON Y QUESO |  | 2 | 280.00 | No |
+| 202608080009 | CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1 | 76.00 | No |
+| 202608080009 | MOKA CAPUCCINO CALIENTE | 01 LECHE ENTERA | 1 | 92.00 | No |
+| 202608080008 | CAPUCCINO CALIENTE CREMA IRLANDESA | 02 LECHE DESLACTOSADA | 1 | 92.00 | No |
+| 202608080008 | LATTE FRIO | LECHE LIGHT | 1 | 82.00 | No |
+| 202608080007 | CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1 | 76.00 | No |
+| 202608080007 | SANDWICH P/P/PANELA | MULTIGRANO | 1 | 99.00 | No |
+| 202608080006 | LATTE CALIENTE | 13 LECHE DE SOYA | 1 | 88.00 | No |
+| 202608080006 | ROL DE CANELA MANZANA |  | 1 | 68.00 | No |
+| 202608080005 | CHAI GUAYABA |  | 1 | 100.00 | No |
+| 202608080005 | ROL DE CANELA MANZANA |  | 1 | 68.00 | No |
+| 202608080004 | CAPUCCINO CALIENTE | 01 LECHE ENTERA | 1 | 76.00 | No |
+| 202608080004 | CAPUCCINO CALIENTE | 14 LECHE DE AVENA | 1 | 88.00 | No |
+| 202608080004 | CONSUMO SEMANAL FARMACADEL |  | 1 | 900.00 | No |
+| 202608080003 | AMERICANO CALIENTE |  | 1 | 59.00 | No |
+| 202608080003 | CHOCOLATIN MINI |  | 1 | 50.00 | No |
+| 202608080002 | SINCRONIZADAS DE CHILORIO |  | 1 | 150.00 | No |
+| 202608080001 | CHOCOLATE CALIENTE | 01 LECHE ENTERA | 1 | 90.00 | No |
+
+---
+
+## NOTAS
+
+- Datos: API de órdenes + detalle de productos por orden
+- El Cierre formal no fue ejecutado por el cajero
+- Match órdenes vs productos: DIFERENCIA $135.80
+- Generado: 2026-08-23T03:07:22.746Z (Render / telegramBot.js)
