@@ -1,15 +1,15 @@
 {
-  "generado": "2026-08-26",
+  "generado": "2026-08-27",
   "negocio": "Seed Café",
   "periodo": {
     "inicio": "2026-06-06",
-    "fin": "2026-08-25",
-    "dias_con_ventas": 64
+    "fin": "2026-08-26",
+    "dias_con_ventas": 65
   },
   "kpis_globales": {
-    "ventas_totales": 605484.2,
-    "ticket_promedio_global": 164.18,
-    "total_ordenes": 3688,
+    "ventas_totales": 614135.2,
+    "ticket_promedio_global": 163.9,
+    "total_ordenes": 3747,
     "mejor_dia": {
       "fecha": "2026-08-14",
       "dia_semana": "Friday",
@@ -30,10 +30,10 @@
     }
   },
   "tendencia_ticket_promedio": {
-    "slope_por_dia": 0.491,
+    "slope_por_dia": 0.2872,
     "tendencia": "estable",
-    "ticket_inicio_periodo": 152.44,
-    "ticket_fin_periodo": 179.15,
+    "ticket_inicio_periodo": 164.15,
+    "ticket_fin_periodo": 146.63,
     "dias_analizados": 30
   },
   "ventas_por_dia_semana": [
@@ -53,10 +53,10 @@
     },
     {
       "dia_semana": "Wednesday",
-      "dias_registrados": 10,
-      "ventas_promedio": 10680.83,
-      "ordenes_promedio": 66.1,
-      "ticket_promedio": 161.11
+      "dias_registrados": 11,
+      "ventas_promedio": 10496.3,
+      "ordenes_promedio": 65.5,
+      "ticket_promedio": 159.79
     },
     {
       "dia_semana": "Thursday",
@@ -656,52 +656,56 @@
       "ticket_promedio": 179.15,
       "reembolsos_monto": 0.0,
       "reembolsos_count": 0
+    },
+    {
+      "fecha": "2026-08-26",
+      "dia_semana": "Wednesday",
+      "ventas_totales": 8651.0,
+      "num_ordenes": 59,
+      "ticket_promedio": 146.63,
+      "reembolsos_monto": 0.0,
+      "reembolsos_count": 0
     }
   ],
   "top_20_productos": [
     {
       "producto": "AMERICANO CALIENTE",
-      "unidades": 373,
+      "unidades": 376,
       "ingreso": 0.0
     },
     {
       "producto": "CAPUCCINO CALIENTE（02 LECHE DESLACTOSADA）",
-      "unidades": 257,
+      "unidades": 263,
       "ingreso": 0.0
     },
     {
       "producto": "SANDWICH P/P/PANELA（MULTIGRANO）",
-      "unidades": 230,
+      "unidades": 233,
       "ingreso": 0.0
     },
     {
       "producto": "CHAPATA P/P/PANELA（PAVO）",
-      "unidades": 225,
+      "unidades": 226,
       "ingreso": 0.0
     },
     {
       "producto": "ROL DE CANELA",
-      "unidades": 200,
+      "unidades": 205,
       "ingreso": 0.0
     },
     {
       "producto": "ROL DE CANELA MANZANA",
-      "unidades": 129,
+      "unidades": 131,
       "ingreso": 0.0
     },
     {
       "producto": "ROL DE CANELA CAJETA Y NUEZ",
-      "unidades": 126,
+      "unidades": 129,
       "ingreso": 0.0
     },
     {
       "producto": "CAPUCCINO CALIENTE（01 LECHE ENTERA）",
-      "unidades": 117,
-      "ingreso": 0.0
-    },
-    {
-      "producto": "CHAPATA CHILORIO",
-      "unidades": 106,
+      "unidades": 119,
       "ingreso": 0.0
     },
     {
@@ -710,28 +714,33 @@
       "ingreso": 0.0
     },
     {
+      "producto": "CHAPATA CHILORIO",
+      "unidades": 106,
+      "ingreso": 0.0
+    },
+    {
       "producto": "WRAP DE OMELETTE JAMON Y QUESO",
-      "unidades": 101,
+      "unidades": 103,
       "ingreso": 0.0
     },
     {
       "producto": "LATTE CALIENTE（02 LECHE DESLACTOSADA）",
-      "unidades": 100,
+      "unidades": 102,
       "ingreso": 0.0
     },
     {
       "producto": "AGUA",
-      "unidades": 98,
+      "unidades": 100,
       "ingreso": 0.0
     },
     {
       "producto": "FLAT WHITE CALIENTE（02 LECHE DESLACTOSADA）",
-      "unidades": 93,
+      "unidades": 94,
       "ingreso": 0.0
     },
     {
       "producto": "COFFE TONIC",
-      "unidades": 91,
+      "unidades": 92,
       "ingreso": 0.0
     },
     {
@@ -741,7 +750,7 @@
     },
     {
       "producto": "SANDWICH P/P/PANELA（MANTEQUILLA）",
-      "unidades": 86,
+      "unidades": 87,
       "ingreso": 0.0
     },
     {
@@ -750,13 +759,13 @@
       "ingreso": 0.0
     },
     {
-      "producto": "MOLLETES",
-      "unidades": 78,
+      "producto": "NUTRI BARRA",
+      "unidades": 79,
       "ingreso": 0.0
     },
     {
-      "producto": "NUTRI BARRA",
-      "unidades": 76,
+      "producto": "MOLLETES",
+      "unidades": 78,
       "ingreso": 0.0
     }
   ],
@@ -766,27 +775,27 @@
       "top_productos": [
         {
           "producto": "SANDWICH P/P/PANELA",
-          "unidades": 463
+          "unidades": 468
         },
         {
           "producto": "CHAPATA P/P/PANELA",
-          "unidades": 277
+          "unidades": 279
         },
         {
           "producto": "MOLLETES",
           "unidades": 120
         },
         {
+          "producto": "ENSALADA",
+          "unidades": 107
+        },
+        {
           "producto": "CHAPATA CHILORIO",
           "unidades": 106
         },
         {
-          "producto": "ENSALADA",
-          "unidades": 104
-        },
-        {
           "producto": "WRAP DE OMELETTE JAMON Y QUESO",
-          "unidades": 101
+          "unidades": 103
         },
         {
           "producto": "SINCRONIZADAS DE JAMON",
@@ -794,7 +803,7 @@
         },
         {
           "producto": "WRAP DE OMELETTE Y CHILORIO",
-          "unidades": 54
+          "unidades": 55
         },
         {
           "producto": "SINCRONIZADAS DE CHILORIO",
@@ -811,31 +820,31 @@
       "top_productos": [
         {
           "producto": "CAPUCCINO CALIENTE",
-          "unidades": 584
+          "unidades": 596
         },
         {
           "producto": "AMERICANO CALIENTE",
-          "unidades": 428
+          "unidades": 435
         },
         {
           "producto": "LATTE CALIENTE",
-          "unidades": 203
+          "unidades": 207
         },
         {
           "producto": "FLAT WHITE CALIENTE",
-          "unidades": 196
+          "unidades": 198
         },
         {
           "producto": "MOKA CAPUCCINO CALIENTE",
-          "unidades": 72
+          "unidades": 75
         },
         {
           "producto": "MOKA BLANCO CAPUCCINO CALIENTE",
-          "unidades": 43
+          "unidades": 44
         },
         {
           "producto": "CAPUCCINO CALIENTE CARAMEL",
-          "unidades": 38
+          "unidades": 40
         },
         {
           "producto": "CAPUCCINO CALIENTE/16 OZ",
@@ -856,15 +865,15 @@
       "top_productos": [
         {
           "producto": "CHAI VAINILLA S/A CALIENTE",
-          "unidades": 71
+          "unidades": 72
         },
         {
           "producto": "CHAI VAINILLA CALIENTE",
-          "unidades": 52
+          "unidades": 54
         },
         {
           "producto": "CHOCOLATE CALIENTE",
-          "unidades": 45
+          "unidades": 48
         },
         {
           "producto": "MATCHA CALIENTE",
@@ -872,23 +881,23 @@
         },
         {
           "producto": "CHAI ORIGINAL CALIENTE",
-          "unidades": 22
+          "unidades": 23
         },
         {
           "producto": "HORCHATA CALIENTE",
-          "unidades": 21
+          "unidades": 22
         },
         {
           "producto": "TÉ MANZANILLA CALIENTE",
           "unidades": 17
         },
         {
-          "producto": "MAZAPAN CALIENTE",
-          "unidades": 14
+          "producto": "CHOCOLATE TRADICIONAL CALIENTE",
+          "unidades": 16
         },
         {
-          "producto": "CHOCOLATE TRADICIONAL CALIENTE",
-          "unidades": 13
+          "producto": "MAZAPAN CALIENTE",
+          "unidades": 14
         },
         {
           "producto": "CHAI GUAYABA",
@@ -901,11 +910,11 @@
       "top_productos": [
         {
           "producto": "CAPUCCINO FRAPPE",
-          "unidades": 98
+          "unidades": 99
         },
         {
           "producto": "MOKA CAPUCCINO FRAPPE",
-          "unidades": 42
+          "unidades": 43
         },
         {
           "producto": "CARAMEL CAPUCCINO FRAPPE",
@@ -917,11 +926,11 @@
         },
         {
           "producto": "CREMA IRLANDESA CAPUCCINO FRAPPE",
-          "unidades": 7
+          "unidades": 8
         },
         {
           "producto": "AVELLANA CAPUCCINO FRAPPE",
-          "unidades": 5
+          "unidades": 6
         },
         {
           "producto": "VAINILLA S/A CAPUCCINO FRAPPE",
@@ -932,11 +941,11 @@
           "unidades": 1
         },
         {
-          "producto": "MOKA CAPUCCINO FRAPPE/16 OZ",
+          "producto": "CAPUCCINO FRAPPE/16 OZ",
           "unidades": 1
         },
         {
-          "producto": "CAPUCCINO FRAPPE/16 OZ",
+          "producto": "MOKA CAPUCCINO FRAPPE/16 OZ",
           "unidades": 1
         }
       ]
@@ -946,7 +955,7 @@
       "top_productos": [
         {
           "producto": "FRAPPE NUTELLA",
-          "unidades": 64
+          "unidades": 66
         },
         {
           "producto": "MATCHA FRAPPE",
@@ -962,7 +971,7 @@
         },
         {
           "producto": "TARO FRAPPE",
-          "unidades": 24
+          "unidades": 25
         },
         {
           "producto": "CHAI VAINILLA S/A FRAPPE",
@@ -991,27 +1000,27 @@
       "top_productos": [
         {
           "producto": "CAPUCCINO FRIO",
-          "unidades": 124
+          "unidades": 126
         },
         {
           "producto": "COFFE TONIC",
-          "unidades": 108
+          "unidades": 110
         },
         {
           "producto": "LATTE FRIO",
-          "unidades": 88
+          "unidades": 91
         },
         {
           "producto": "AMERICANO FRIO",
-          "unidades": 63
+          "unidades": 65
         },
         {
           "producto": "LATTE FRIO VAINILLA",
-          "unidades": 54
+          "unidades": 55
         },
         {
           "producto": "MOKA CAPUCCINO FRIO",
-          "unidades": 37
+          "unidades": 38
         },
         {
           "producto": "CAPUCCINO FRIO VAINILLA",
@@ -1036,7 +1045,7 @@
       "top_productos": [
         {
           "producto": "MATCHA FRIO",
-          "unidades": 63
+          "unidades": 64
         },
         {
           "producto": "AGUA FRIA1",
@@ -1048,19 +1057,19 @@
         },
         {
           "producto": "TE FRUTOS ROJOS FRIO",
-          "unidades": 42
+          "unidades": 43
         },
         {
           "producto": "CHAI VAINILLA S/A FRIO",
-          "unidades": 38
+          "unidades": 39
         },
         {
           "producto": "MAZAPAN FRIO",
-          "unidades": 31
+          "unidades": 32
         },
         {
           "producto": "HORCHATA FRIA",
-          "unidades": 29
+          "unidades": 30
         },
         {
           "producto": "AGUA FRIA2",
@@ -1071,8 +1080,8 @@
           "unidades": 18
         },
         {
-          "producto": "MATCHA-MENTA FRIO",
-          "unidades": 16
+          "producto": "CHAI ORIGINAL FRIO",
+          "unidades": 17
         }
       ]
     },
@@ -1081,15 +1090,15 @@
       "top_productos": [
         {
           "producto": "ROL DE CANELA",
-          "unidades": 200
+          "unidades": 205
         },
         {
           "producto": "ROL DE CANELA MANZANA",
-          "unidades": 129
+          "unidades": 131
         },
         {
           "producto": "ROL DE CANELA CAJETA Y NUEZ",
-          "unidades": 126
+          "unidades": 129
         },
         {
           "producto": "TRENZAS DE MAPLE Y NUEZ",
@@ -1097,7 +1106,7 @@
         },
         {
           "producto": "NUTRI BARRA",
-          "unidades": 76
+          "unidades": 79
         },
         {
           "producto": "POLVORONES",
@@ -1105,7 +1114,7 @@
         },
         {
           "producto": "ROL DE CANELA NUTELLA",
-          "unidades": 36
+          "unidades": 37
         },
         {
           "producto": "YOGURT GRIEGO CON FRESAS",
@@ -1126,14 +1135,14 @@
       "top_productos": [
         {
           "producto": "AGUA",
-          "unidades": 98
-        },
-        {
-          "producto": "COCA ZERO",
-          "unidades": 48
+          "unidades": 100
         },
         {
           "producto": "COCA COLA",
+          "unidades": 48
+        },
+        {
+          "producto": "COCA ZERO",
           "unidades": 48
         },
         {
@@ -1178,11 +1187,11 @@
           "unidades": 24
         },
         {
-          "producto": "TÉ HIERBABUENA CALIENTE",
+          "producto": "MEDIA ENSALADA",
           "unidades": 9
         },
         {
-          "producto": "MEDIA ENSALADA",
+          "producto": "TÉ HIERBABUENA CALIENTE",
           "unidades": 9
         },
         {
@@ -1227,11 +1236,11 @@
           "unidades": 16
         },
         {
-          "producto": "GUAYABA SMOOTHIE",
+          "producto": "LIMON SMOOTHIE",
           "unidades": 6
         },
         {
-          "producto": "LIMON SMOOTHIE",
+          "producto": "GUAYABA SMOOTHIE",
           "unidades": 6
         },
         {
@@ -1239,15 +1248,15 @@
           "unidades": 4
         },
         {
-          "producto": "MANGO SMOOTHIE/16 OZ",
-          "unidades": 3
-        },
-        {
           "producto": "COCO SMOOTHIE",
           "unidades": 3
         },
         {
-          "producto": "COCO SMOOTHIE/16 OZ",
+          "producto": "MANGO SMOOTHIE/16 OZ",
+          "unidades": 3
+        },
+        {
+          "producto": "GUAYABA SMOOTHIE/16 OZ",
           "unidades": 1
         }
       ]
@@ -1264,24 +1273,20 @@
           "unidades": 8
         },
         {
-          "producto": "Capuccino con Sabor de Avellana - Frappé",
-          "unidades": 6
-        },
-        {
           "producto": "Wrap Omelette-Jamón y Queso",
           "unidades": 6
         },
         {
-          "producto": "Nutella - Frappé",
-          "unidades": 4
+          "producto": "Capuccino con Sabor de Avellana - Frappé",
+          "unidades": 6
         },
         {
           "producto": "Moka - Frappé",
           "unidades": 4
         },
         {
-          "producto": "Americano - Caliente",
-          "unidades": 3
+          "producto": "Nutella - Frappé",
+          "unidades": 4
         },
         {
           "producto": "Moka Blanco - Caliente",
@@ -1292,6 +1297,10 @@
           "unidades": 3
         },
         {
+          "producto": "Americano - Caliente",
+          "unidades": 3
+        },
+        {
           "producto": "Horchata Nuez - Frio",
           "unidades": 2
         }
@@ -1299,27 +1308,27 @@
     }
   ],
   "uso_de_leches": {
-    "total_bebidas_registradas": 2527,
+    "total_bebidas_registradas": 2583,
     "nota": "Solo desde jun-12 (inicio de cierres individuales vía API)",
     "desglose": {
       "Deslactosada": {
-        "unidades": 1326,
-        "pct": 52.5
+        "unidades": 1359,
+        "pct": 52.6
       },
       "Entera": {
-        "unidades": 486,
+        "unidades": 496,
         "pct": 19.2
       },
       "Light": {
-        "unidades": 348,
+        "unidades": 356,
         "pct": 13.8
       },
       "Almendra": {
-        "unidades": 130,
-        "pct": 5.1
+        "unidades": 134,
+        "pct": 5.2
       },
       "Coco": {
-        "unidades": 91,
+        "unidades": 92,
         "pct": 3.6
       },
       "Avena": {
