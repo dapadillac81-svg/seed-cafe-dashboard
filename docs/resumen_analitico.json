@@ -709,12 +709,12 @@
       "ingreso": 0.0
     },
     {
-      "producto": "TRENZAS DE MAPLE Y NUEZ",
+      "producto": "CHAPATA CHILORIO",
       "unidades": 106,
       "ingreso": 0.0
     },
     {
-      "producto": "CHAPATA CHILORIO",
+      "producto": "TRENZAS DE MAPLE Y NUEZ",
       "unidades": 106,
       "ingreso": 0.0
     },
@@ -941,11 +941,11 @@
           "unidades": 1
         },
         {
-          "producto": "CAPUCCINO FRAPPE/16 OZ",
+          "producto": "MOKA CAPUCCINO FRAPPE/16 OZ",
           "unidades": 1
         },
         {
-          "producto": "MOKA CAPUCCINO FRAPPE/16 OZ",
+          "producto": "CAPUCCINO FRAPPE/16 OZ",
           "unidades": 1
         }
       ]
@@ -1138,11 +1138,11 @@
           "unidades": 100
         },
         {
-          "producto": "COCA COLA",
+          "producto": "COCA ZERO",
           "unidades": 48
         },
         {
-          "producto": "COCA ZERO",
+          "producto": "COCA COLA",
           "unidades": 48
         },
         {
@@ -1187,11 +1187,11 @@
           "unidades": 24
         },
         {
-          "producto": "MEDIA ENSALADA",
+          "producto": "TÉ HIERBABUENA CALIENTE",
           "unidades": 9
         },
         {
-          "producto": "TÉ HIERBABUENA CALIENTE",
+          "producto": "MEDIA ENSALADA",
           "unidades": 9
         },
         {
@@ -1248,15 +1248,15 @@
           "unidades": 4
         },
         {
-          "producto": "COCO SMOOTHIE",
-          "unidades": 3
-        },
-        {
           "producto": "MANGO SMOOTHIE/16 OZ",
           "unidades": 3
         },
         {
-          "producto": "GUAYABA SMOOTHIE/16 OZ",
+          "producto": "COCO SMOOTHIE",
+          "unidades": 3
+        },
+        {
+          "producto": "COCO SMOOTHIE/16 OZ",
           "unidades": 1
         }
       ]
@@ -1273,11 +1273,11 @@
           "unidades": 8
         },
         {
-          "producto": "Wrap Omelette-Jamón y Queso",
+          "producto": "Capuccino con Sabor de Avellana - Frappé",
           "unidades": 6
         },
         {
-          "producto": "Capuccino con Sabor de Avellana - Frappé",
+          "producto": "Wrap Omelette-Jamón y Queso",
           "unidades": 6
         },
         {
@@ -1289,15 +1289,15 @@
           "unidades": 4
         },
         {
+          "producto": "Americano - Caliente",
+          "unidades": 3
+        },
+        {
           "producto": "Moka Blanco - Caliente",
           "unidades": 3
         },
         {
           "producto": "Chocomenta - Frappé",
-          "unidades": 3
-        },
-        {
-          "producto": "Americano - Caliente",
           "unidades": 3
         },
         {
