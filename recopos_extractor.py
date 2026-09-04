@@ -117,7 +117,7 @@ def resolver_captcha_por_telegram() -> tuple[str, str]:
                 if str(msg.get("chat", {}).get("id")) == str(TG_CHAT):
                     txt = (msg.get("text") or "").strip()
                     if 3 <= len(txt) <= 6:
-                        return txt.upper(), uuid
+                        return txt, uuid
 
     fail(f"sin respuesta al CAPTCHA tras {CAPTCHA_MAX_MIN} minutos reenviando intentos")
 
