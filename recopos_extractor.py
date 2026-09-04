@@ -1,8 +1,14 @@
 """Extrae el cierre diario de RecoPOS sin navegador (para correr en GitHub Actions).
 
-Replica el flujo del SKILL `recopos-cierre-diario`: resuelve el CAPTCHA via Telegram,
-hace login, trae las órdenes del día y el detalle de productos por orden, y escribe
-`data_txt/cierre_YYYY-MM-DD.txt` en el mismo formato que ya consume `data_loader.py`.
+Hace login (con CAPTCHA resuelto vía Telegram SOLO cuando hace falta — ver
+`obtener_token`), trae las órdenes del día y el detalle de productos por
+orden, y escribe `data_txt/cierre_YYYY-MM-DD.txt` en el mismo formato que ya
+consume `data_loader.py`.
+
+Corre automático en cada tick del schedule — YA NO espera que nadie escriba
+"cierre" en Telegram. El token de sesión se guarda en TOKEN_FILE (persistido
+entre corridas por el workflow vía actions/cache) y se reutiliza mientras
+siga vigente; el CAPTCHA solo se pide cuando el token guardado ya no sirve.
 
 Variables de entorno requeridas:
   RECOPOS_SHOP_ID, RECOPOS_USER, RECOPOS_PASSWORD
@@ -12,6 +18,7 @@ Variables de entorno requeridas:
 from __future__ import annotations
 
 import datetime as dt
+import json
 import os
 import re
 import sys
@@ -33,6 +40,7 @@ MESES = [
 ]
 
 OUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data_txt")
+TOKEN_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", ".recopos_token.json")
 
 
 def tg_send_message(text: str) -> None:
@@ -62,40 +70,6 @@ def fail(mensaje: str) -> None:
 
 CAPTCHA_CICLO_MIN = 15  # minutos que espera por cada imagen antes de mandar una nueva
 CAPTCHA_MAX_MIN = 120  # tope total: ~2 horas (máx. 8 mensajes) reenviando captcha cada ciclo
-
-TRIGGER_PALABRAS = {"cierre", "reporte", "start", "inicio", "hoy"}
-TRIGGER_VENTANA_MIN = 10  # minutos hacia atrás para buscar el mensaje trigger
-
-
-def hay_trigger_en_telegram() -> bool:
-    """Revisa si el usuario mandó una palabra clave en los últimos TRIGGER_VENTANA_MIN minutos.
-    Si workflow_dispatch o FECHA_OBJETIVO están activos, se considera trigger automático.
-    """
-    if os.environ.get("FECHA_OBJETIVO", "").strip():
-        return True
-    if os.environ.get("GITHUB_EVENT_NAME", "") == "workflow_dispatch":
-        return True
-
-    import time as _time
-    ahora = _time.time()
-    ventana = TRIGGER_VENTANA_MIN * 60
-
-    r = requests.get(
-        f"https://api.telegram.org/bot{TG_TOKEN}/getUpdates",
-        params={"limit": 20, "offset": -20},
-        timeout=15,
-    )
-    for u in r.json().get("result", []):
-        msg = u.get("message", {})
-        if str(msg.get("chat", {}).get("id")) != str(TG_CHAT):
-            continue
-        fecha_msg = msg.get("date", 0)
-        if ahora - fecha_msg > ventana:
-            continue
-        texto = (msg.get("text") or "").strip().lower()
-        if any(p in texto for p in TRIGGER_PALABRAS):
-            return True
-    return False
 
 
 def _offset_inicial() -> int:
@@ -148,7 +122,54 @@ def resolver_captcha_por_telegram() -> tuple[str, str]:
     fail(f"sin respuesta al CAPTCHA tras {CAPTCHA_MAX_MIN} minutos reenviando intentos")
 
 
+def leer_token_guardado() -> str | None:
+    try:
+        with open(TOKEN_FILE, "r", encoding="utf-8") as f:
+            return json.load(f).get("token")
+    except (FileNotFoundError, json.JSONDecodeError, KeyError):
+        return None
+
+
+def guardar_token(token: str) -> None:
+    os.makedirs(os.path.dirname(TOKEN_FILE), exist_ok=True)
+    with open(TOKEN_FILE, "w", encoding="utf-8") as f:
+        json.dump({"token": token, "guardado": dt.datetime.now().isoformat()}, f)
+
+
+def token_valido(token: str) -> bool:
+    """Prueba el token guardado con una llamada barata (rango de fechas absurdo,
+    0 filas esperadas) — evita gastar una consulta real solo para validar."""
+    try:
+        r = requests.post(
+            f"{BASE_URL}/admin/baigong/order/list",
+            headers={"Authorization": f"Bearer {token}"},
+            json={
+                "shopId": SHOP_ID,
+                "beginTime": "01-01-2000 00:00:00",
+                "endTime": "01-01-2000 00:00:01",
+                "pageNum": 1,
+                "pageSize": 1,
+            },
+            timeout=15,
+        )
+        if r.status_code in (401, 403):
+            return False
+        data = r.json()
+        # RecoPOS a veces responde 200 HTTP con un código de error de sesión en el body.
+        code = data.get("code")
+        return code is None or code == 200
+    except Exception:
+        return False
+
+
 def login() -> str:
+    """Reutiliza el token guardado de una corrida anterior si sigue vigente —
+    así el CAPTCHA solo se pide cuando de verdad hace falta, no en cada corrida."""
+    guardado = leer_token_guardado()
+    if guardado and token_valido(guardado):
+        print("Token de RecoPOS guardado sigue vigente — se reutiliza, sin CAPTCHA.")
+        return guardado
+
     code, uuid = resolver_captcha_por_telegram()
     r = requests.post(
         f"{BASE_URL}/admin/typeLogin",
@@ -166,6 +187,7 @@ def login() -> str:
     token = data.get("data", {}).get("token")
     if not token:
         fail(f"login fallido: {data}")
+    guardar_token(token)
     return token
 
 
@@ -408,27 +430,42 @@ def fechas_a_procesar(objetivo: dt.date) -> list[dt.date]:
     faltantes = []
     cursor = inicio
     while cursor <= objetivo:
-        if cursor not in existentes:
+        # Domingo: Seed Café siempre cierra — ni se procesa ni se cuenta como
+        # hueco, así se evita pedirle a la API un día que nunca va a tener
+        # órdenes (y que además, antes de este fix, se reintentaba para
+        # siempre porque nunca se marcaba como "ya resuelto").
+        if cursor not in existentes and cursor.weekday() != 6:
             faltantes.append(cursor)
         cursor += dt.timedelta(days=1)
     return faltantes  # vacío = nada pendiente, no re-extraer
 
 
 def procesar_fecha(token: str, fecha: dt.date) -> bool:
-    """Extrae y guarda el cierre de una fecha. Devuelve True si hubo órdenes
-    (día procesado) o False si el café no abrió ese día (se omite sin error).
+    """Extrae y guarda el cierre de una fecha. Devuelve True si hubo órdenes.
+
+    Si no hubo órdenes (día abierto pero sin ventas — no debería pasar salvo
+    algo raro, ya que domingo se filtra antes de llegar aquí) igual se
+    escribe un archivo marcador: sin esto, un día vacío nunca queda
+    "resuelto" y se reintenta en cada corrida para siempre.
     """
     orders = extraer_ordenes(token, fecha)
+    nombre_archivo = f"cierre_{fecha.isoformat()}.txt"
+    ruta = os.path.join(OUT_DIR, nombre_archivo)
+
     if not orders:
-        tg_send_message(f"ℹ️ SEED CAFÉ — {fecha.isoformat()}: sin órdenes (café cerrado o sin ventas), se omite.")
+        with open(ruta, "w", encoding="utf-8") as f:
+            f.write(
+                f"# Cierre Diario — SEED CAFÉ\n## {fecha.isoformat()}\n\n"
+                "Sin órdenes registradas este día (tienda cerrada o sin ventas).\n"
+                f"Generado: {dt.datetime.now().isoformat()} (recopos_extractor.py)\n"
+            )
+        tg_send_message(f"ℹ️ SEED CAFÉ — {fecha.isoformat()}: sin órdenes (café cerrado o sin ventas).")
         return False
 
     items = extraer_items(token, orders)
     r = resumen_pagos(orders)
     contenido = construir_txt(fecha, orders, items, r)
 
-    nombre_archivo = f"cierre_{fecha.isoformat()}.txt"
-    ruta = os.path.join(OUT_DIR, nombre_archivo)
     with open(ruta, "w", encoding="utf-8") as f:
         f.write(contenido)
 
@@ -446,24 +483,20 @@ def main() -> None:
         print(f"OK — cierre de {objetivo.isoformat()} ya existe, nada que hacer.")
         sys.exit(0)
 
-    if not hay_trigger_en_telegram():
-        print(f"Sin trigger en Telegram (últimos {TRIGGER_VENTANA_MIN} min). Esperando mensaje del usuario.")
-        sys.exit(0)
-
     if len(pendientes) > 1:
         tg_send_message(
             f"🔄 SEED CAFÉ — Rescatando {len(pendientes)} días sin cierre: "
             + ", ".join(f.isoformat() for f in pendientes)
         )
 
+    # "Éxito" aquí significa "se procesaron las fechas pendientes sin que
+    # tronara el script" — un día sin órdenes también es un resultado válido
+    # (ver procesar_fecha), no una falla. Si algo truena de verdad (login,
+    # CAPTCHA sin respuesta, error de red), fail() ya corta la ejecución
+    # antes de llegar aquí.
     token = login()
-    algun_exito = False
     for fecha in pendientes:
-        if procesar_fecha(token, fecha):
-            algun_exito = True
-
-    if not algun_exito:
-        fail(f"sin órdenes en ninguna de las fechas pendientes: {', '.join(f.isoformat() for f in pendientes)}")
+        procesar_fecha(token, fecha)
 
     github_output = os.environ.get("GITHUB_OUTPUT")
     if github_output:
