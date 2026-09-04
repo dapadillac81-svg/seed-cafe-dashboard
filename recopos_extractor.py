@@ -42,6 +42,13 @@ MESES = [
 OUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data_txt")
 TOKEN_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", ".recopos_token.json")
 
+# Sesión compartida para todo el flujo de login: RecoPOS liga la validez del
+# CAPTCHA a la cookie de sesión con la que se pidió la imagen, no solo al
+# codeUuid. Pedir la imagen y mandar el login con peticiones sueltas (sin
+# cookies en común) hace que el login falle siempre, sin importar si el
+# código se leyó bien.
+SESSION = requests.Session()
+
 
 def tg_send_message(text: str) -> None:
     requests.post(
@@ -91,7 +98,7 @@ def resolver_captcha_por_telegram() -> tuple[str, str]:
     ciclos = CAPTCHA_MAX_MIN // CAPTCHA_CICLO_MIN
 
     for ciclo in range(ciclos):
-        r = requests.get(f"{BASE_URL}/admin/captchaImage", timeout=15)
+        r = SESSION.get(f"{BASE_URL}/admin/captchaImage", timeout=15)
         data = r.json()
         img_b64, uuid = data["img"], data["uuid"]
 
@@ -171,7 +178,7 @@ def login() -> str:
         return guardado
 
     code, uuid = resolver_captcha_por_telegram()
-    r = requests.post(
+    r = SESSION.post(
         f"{BASE_URL}/admin/typeLogin",
         json={
             "userName": USER,
