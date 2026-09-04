@@ -1,19 +1,19 @@
 {
   "fecha_objetivo": "2026-09-04",
   "dia_semana": "Viernes",
-  "generado": "04-09-2026 15:39",
-  "dias_historial_mismo_dia": 11,
-  "dias_historial_total": 73,
+  "generado": "04-09-2026 16:01",
+  "dias_historial_mismo_dia": 17,
+  "dias_historial_total": 110,
   "productos": [
     {
       "producto": "Total piezas sugeridas",
       "categoria": "BEBIDAS CALIENTES",
-      "cantidad_sugerida": 34
+      "cantidad_sugerida": 29
     },
     {
       "producto": "Total piezas sugeridas",
       "categoria": "FRÍAS / FRAPPÉS / SMOOTHIES",
-      "cantidad_sugerida": 20
+      "cantidad_sugerida": 23
     },
     {
       "producto": "Total piezas sugeridas",
@@ -28,12 +28,12 @@
     {
       "producto": "CHAPATA P",
       "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 5
+      "cantidad_sugerida": 4
     },
     {
-      "producto": "MOLLETES",
+      "producto": "ENSALADA",
       "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 3
+      "cantidad_sugerida": 2
     },
     {
       "producto": "CHAPATA CHILORIO",
@@ -41,7 +41,7 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "ENSALADA",
+      "producto": "MOLLETES",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 2
     },
@@ -73,7 +73,7 @@
     {
       "producto": "ROL DE CANELA CAJETA Y NUEZ",
       "categoria": "POSTRES",
-      "cantidad_sugerida": 3
+      "cantidad_sugerida": 2
     },
     {
       "producto": "TRENZAS DE MAPLE Y NUEZ",
@@ -81,12 +81,17 @@
       "cantidad_sugerida": 2
     },
     {
+      "producto": "POLVORONES",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 1
+    },
+    {
       "producto": "NUTRI BARRA",
       "categoria": "POSTRES",
       "cantidad_sugerida": 1
     },
     {
-      "producto": "POLVORONES",
+      "producto": "JAMAICA ENCHILADA",
       "categoria": "POSTRES",
       "cantidad_sugerida": 1
     },

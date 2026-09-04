@@ -462,7 +462,13 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-      document.documentElement.style.visibility = 'visible';
+      // Si hay una gráfica guardada para restaurar, la página se queda oculta
+      // (ver <script> en <head>) hasta que initDashboard() calcule el scroll
+      // correcto y la muestre — mostrarla aquí de inmediato rompe eso y causa
+      // el salto (aparece arriba, luego brinca a la gráfica).
+      if (!sessionStorage.getItem('seedcafe_scroll_chart')) {
+        document.documentElement.style.visibility = 'visible';
+      }
       initDashboard();
     });
 
