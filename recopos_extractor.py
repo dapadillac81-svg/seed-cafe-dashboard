@@ -377,7 +377,78 @@ TOTAL: {r['totalOrdenes']} órdenes — ${r['totalVentas']:.2f}
 """
 
 
-def notificar_telegram(fecha: dt.date, r: dict, items: list[dict], archivo: str) -> None:
+MARCADOR_LIQUIDACION = "CONSUMO SEMANAL"
+UMBRAL_REVISAR_MXN = 50  # abajo de esto no vale la pena avisar: es ruido de operación
+
+
+def explicar_diferencias(orders: list[dict], items: list[dict]) -> tuple[list[str], float]:
+    """Clasifica por qué el detalle de productos no cuadra con el total de la orden.
+
+    El total de la orden y la suma de sus productos casi nunca coinciden, y
+    hasta ahora eso disparaba la misma alerta genérica TODOS los días — con lo
+    que dejó de significar nada. Las causas conocidas son legítimas:
+
+      • Propina: el total queda exactamente 10% o 15% arriba de los productos.
+      • Liquidación semanal (Farmacadel): se registra un producto de monto fijo
+        por el acuerdo de alimentos para su personal, pero se cobra lo que de
+        verdad consumieron esa semana, que casi siempre es menos.
+      • Cortesía / programa de lealtad: la orden trae un producto en $0.
+      • Uber Eats: el precio en la plataforma no es el de mostrador, así que el
+        cobro casi nunca coincide con la suma de los productos.
+
+    Lo que queda fuera de esas cuatro se reporta aparte, separando si se cobró
+    de MENOS (descuento) o de MÁS. Eso es lo único que amerita revisarse.
+    """
+    por_orden: dict[str, float] = {}
+    productos_de: dict[str, list[dict]] = {}
+    for it in items:
+        oid = str(it["orden"])
+        signo = -1 if it["refund"] else 1
+        por_orden[oid] = por_orden.get(oid, 0.0) + signo * float(it["monto"] or 0)
+        productos_de.setdefault(oid, []).append(it)
+
+    causas: dict[str, list[float]] = {
+        "propina": [], "liquidación": [], "cortesía": [], "uber": [],
+        "cobrado de menos": [], "cobrado de más": [],
+    }
+    for o in orders:
+        oid = str(o.get("orderNumber"))
+        total = float(o.get("actualSum") or o.get("orderMoney") or o.get("totalSum") or 0)
+        prods = por_orden.get(oid)
+        if prods is None or abs(total - prods) < 0.01:
+            continue
+        dif = total - prods
+        nombres = " ".join((p.get("producto") or "").upper() for p in productos_de.get(oid, []))
+        pago = (o.get("paymentName") or o.get("payTypeName") or "").upper()
+        if prods and any(abs(total - prods * f) < 0.02 for f in (1.10, 1.15)):
+            causas["propina"].append(dif)
+        elif MARCADOR_LIQUIDACION in nombres:
+            causas["liquidación"].append(dif)
+        elif any(float(p.get("monto") or 0) == 0 for p in productos_de.get(oid, [])):
+            causas["cortesía"].append(dif)
+        elif "UBER" in pago:
+            causas["uber"].append(dif)
+        else:
+            causas["cobrado de menos" if dif < 0 else "cobrado de más"].append(dif)
+
+    etiquetas = {
+        "propina": "🪙 Propinas",
+        "liquidación": "🧾 Liquidación semanal",
+        "cortesía": "🎁 Cortesías/lealtad",
+        "uber": "🛵 Uber Eats (precio de plataforma)",
+        "cobrado de menos": "🔻 Cobrado de menos",
+        "cobrado de más": "🔺 Cobrado de más",
+    }
+    lineas = [
+        f"{etiquetas[k]}: {len(v)} orden(es), ${sum(v):+,.2f}"
+        for k, v in causas.items()
+        if v
+    ]
+    revisar = sum(causas["cobrado de menos"]) + sum(causas["cobrado de más"])
+    return lineas, revisar
+
+
+def notificar_telegram(fecha: dt.date, r: dict, items: list[dict], archivo: str, orders: list[dict] | None = None) -> None:
     por_producto: dict[str, dict] = {}
     for it in items:
         monto = float(it["monto"] or 0)
@@ -392,7 +463,22 @@ def notificar_telegram(fecha: dt.date, r: dict, items: list[dict], archivo: str)
         for m, v in sorted(r["byPago"].items(), key=lambda x: -x[1]["monto"])
     )
     total_items = sum((-1 if it["refund"] else 1) * float(it["monto"] or 0) for it in items)
-    match_ok = abs(total_items - r["totalVentas"]) < 5
+    dif_total = r["totalVentas"] - total_items
+
+    # Solo se avisa de lo que NO tiene explicación conocida. Antes se comparaba
+    # el total a secas, así que la alerta saltaba todos los días por propinas y
+    # liquidaciones normales y acabó siendo ruido. Con el umbral en $50, de 57
+    # días de histórico solo 7 habrían levantado la mano.
+    if orders:
+        lineas_dif, revisar = explicar_diferencias(orders, items)
+        if abs(revisar) >= UMBRAL_REVISAR_MXN:
+            bloque = f"⚠️ Revisar ${abs(revisar):,.2f} sin explicación:\n" + "\n".join(f"  {l}" for l in lineas_dif)
+        elif lineas_dif:
+            bloque = "✅ Diferencias, todas normales:\n" + "\n".join(f"  {l}" for l in lineas_dif)
+        else:
+            bloque = "✅ Órdenes y productos cuadran"
+    else:
+        bloque = f"{'✅' if abs(dif_total) < 5 else '⚠️'} Match órdenes/productos: {'OK' if abs(dif_total) < 5 else 'revisar diff'}"
 
     msg = (
         f"✅ SEED CAFÉ — Cierre Diario\n📅 {fecha.isoformat()}\n\n"
@@ -401,7 +487,7 @@ def notificar_telegram(fecha: dt.date, r: dict, items: list[dict], archivo: str)
         f"⏰ Operación: {r['horaInicio']} – {r['horaFin']}\n\n"
         f"🏆 Top 5 productos:\n{top_lines}\n\n"
         f"💳 Por forma de pago:\n{pago_lines}\n\n"
-        f"{'✅' if match_ok else '⚠️'} Match órdenes/productos: {'OK' if match_ok else 'revisar diff'}\n"
+        f"{bloque}\n"
         f"📁 {archivo} guardado (vía GitHub Actions ☁️)"
     )
     tg_send_message(msg)
@@ -476,7 +562,7 @@ def procesar_fecha(token: str, fecha: dt.date) -> bool:
     with open(ruta, "w", encoding="utf-8") as f:
         f.write(contenido)
 
-    notificar_telegram(fecha, r, items, nombre_archivo)
+    notificar_telegram(fecha, r, items, nombre_archivo, orders)
     print(f"OK: {ruta} ({r['totalOrdenes']} órdenes, ${r['totalVentas']:.2f})")
     return True
 
