@@ -338,26 +338,27 @@
 
       var STORAGE_KEY = 'seedcafe_scroll_chart';
       var navBar = document.querySelector('.nav-bar');
+      function navH() { return navBar ? navBar.offsetHeight : 0; }
 
-      // IntersectionObserver: rastrea continuamente qué gráfico está visible.
-      // Así cuando el usuario pulsa ← →, el ID ya está guardado sin necesidad
-      // de calcular getBoundingClientRect en el momento del clic.
-      var currentVisibleId = null;
-      if ('IntersectionObserver' in window) {
-        var navHeight = navBar ? navBar.offsetHeight : 0;
-        var observer = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting && entry.intersectionRatio >= 0.15) {
-              currentVisibleId = entry.target.getAttribute('data-chart-id');
-            }
-          });
-        }, {
-          rootMargin: '-' + navHeight + 'px 0px 0px 0px',
-          threshold: 0.15
-        });
+      // Ancla = la tarjeta que MÁS píxeles ocupa en pantalla en este momento.
+      // En móvil caben 2-3 gráficas a la vez, así que "la última que reportó
+      // el IntersectionObserver" elegía cualquiera de ellas, no la que se está
+      // viendo. Se calcula en el momento del clic, que es cuando importa.
+      // Se guarda también el desplazamiento dentro de la tarjeta para
+      // reproducir el encuadre exacto (no solo el inicio de la gráfica).
+      function anclaActual() {
+        var vh = window.innerHeight, tope = navH();
+        var mejor = null, mejorPx = 0;
         document.querySelectorAll('.chart-card[data-chart-id]').forEach(function(c) {
-          observer.observe(c);
+          var r = c.getBoundingClientRect();
+          var px = Math.min(r.bottom, vh) - Math.max(r.top, tope);
+          if (px > mejorPx) { mejorPx = px; mejor = c; }
         });
+        if (!mejor || mejorPx <= 0) return null;
+        return {
+          id: mejor.getAttribute('data-chart-id'),
+          offset: Math.round(mejor.getBoundingClientRect().top - tope)
+        };
       }
 
       // Chart cards: fade-in al hacer scroll (una sola vez por card).
@@ -390,74 +391,62 @@
         chartCards.forEach(function(c) { c.classList.add('visible'); });
       }
 
-      // Al pulsar ← →: guarda el gráfico que el observer está viendo ahora
+      // Al pulsar ← →: guarda la gráfica dominante y el encuadre exacto.
       document.querySelectorAll('.nav-bar a:not(.disabled)').forEach(function(link) {
         link.addEventListener('click', function() {
-          if (currentVisibleId) {
-            sessionStorage.setItem(STORAGE_KEY, currentVisibleId);
-          } else {
-            sessionStorage.removeItem(STORAGE_KEY);
-          }
+          var ancla = anclaActual();
+          if (ancla) sessionStorage.setItem(STORAGE_KEY, JSON.stringify(ancla));
+          else sessionStorage.removeItem(STORAGE_KEY);
         });
       });
 
-      // Al cargar: scroll al gráfico guardado.
-      // Solo cancela si el usuario realmente DESPLAZA la página (no solo toca).
-      var savedId = sessionStorage.getItem(STORAGE_KEY);
-      if (savedId) {
+      function mostrar() { document.documentElement.style.visibility = 'visible'; }
+
+      // Al cargar: reanclar a la gráfica guardada mientras la página está oculta.
+      var guardado = sessionStorage.getItem(STORAGE_KEY);
+      sessionStorage.removeItem(STORAGE_KEY); // se consume una sola vez
+      var ancla = null;
+      try { ancla = guardado ? JSON.parse(guardado) : null; } catch (e) { ancla = null; }
+      var target = ancla ? document.querySelector('.chart-card[data-chart-id="' + ancla.id + '"]') : null;
+
+      if (!target) {
+        mostrar();
+      } else {
         if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
-        var userScrolled = false;
-        window.addEventListener('scroll', function() { userScrolled = true; }, { passive: true, once: true });
+        // Detectar interacción REAL del usuario: el evento 'scroll' no sirve,
+        // lo dispara nuestro propio scrollTo y cancelaba la restauración.
+        var usuarioIntervino = false;
+        ['wheel', 'touchstart', 'keydown'].forEach(function(ev) {
+          window.addEventListener(ev, function() { usuarioIntervino = true; },
+            { passive: true, once: true });
+        });
 
-        var navH = navBar ? navBar.offsetHeight : 0;
-        var attempts = 0;
+        // Plotly redimensiona las gráficas en varias pasadas después de cargar.
+        // En vez de adivinar cuándo termina, se reancla en cada frame hasta que
+        // la altura deja de cambiar — así el reflow nunca se ve como un salto.
+        var inicio = performance.now();
+        var alturaPrev = -1, framesEstables = 0;
 
-        function show() { document.documentElement.style.visibility = 'visible'; }
-
-        // Seguridad: mostrar la página aunque todo falle
-        var safetyTimer = setTimeout(doScroll, 3000);
-
-        function doScroll() {
-          clearTimeout(safetyTimer);
-          if (userScrolled) { show(); return; }
-          var target = document.querySelector('.chart-card[data-chart-id="' + savedId + '"]');
-          if (target) {
-            var top = target.getBoundingClientRect().top + window.scrollY - navH - 8;
-            window.scrollTo({ top: Math.max(top, 0), behavior: 'instant' });
-            // Un reintento 150ms después para absorber cualquier reflow residual
-            setTimeout(function() {
-              if (!userScrolled) {
-                var top2 = target.getBoundingClientRect().top + window.scrollY - navH - 8;
-                window.scrollTo({ top: Math.max(top2, 0), behavior: 'instant' });
-              }
-              show();
-            }, 150);
-          } else {
-            show();
-          }
+        function reanclar() {
+          var y = target.getBoundingClientRect().top + window.scrollY - navH() - ancla.offset;
+          window.scrollTo(0, Math.max(0, Math.round(y)));
         }
 
-        // Esperar a que el layout se estabilice: pollea el scrollHeight cada 100ms.
-        // Cuando no cambia 4 veces seguidas (400ms sin reflow), hace el scroll.
-        // Esto es más confiable que plotly_afterplot (que usa .on(), no addEventListener).
-        var lastH = 0, stableCount = 0;
-        var maxWait = setTimeout(doScroll, 4000); // fallback absoluto: 4s
-        function pollLayout() {
-          if (userScrolled) { clearTimeout(maxWait); show(); return; }
+        function paso() {
+          if (usuarioIntervino) { mostrar(); return; }
+          reanclar();
           var h = document.body.scrollHeight;
-          if (h > 0 && h === lastH) {
-            stableCount++;
-            if (stableCount >= 4) { clearTimeout(maxWait); doScroll(); return; }
-          } else {
-            stableCount = 0;
-            lastH = h;
+          if (h === alturaPrev) { framesEstables++; } else { framesEstables = 0; alturaPrev = h; }
+          var transcurrido = performance.now() - inicio;
+          // ~10 frames sin reflow y mínimo 300ms, o tope duro de 3s.
+          if ((framesEstables >= 10 && transcurrido > 300) || transcurrido > 3000) {
+            mostrar();
+            return;
           }
-          setTimeout(pollLayout, 100);
+          requestAnimationFrame(paso);
         }
-        setTimeout(pollLayout, 100);
-      } else {
-        document.documentElement.style.visibility = 'visible';
+        requestAnimationFrame(paso);
       }
     }
 
