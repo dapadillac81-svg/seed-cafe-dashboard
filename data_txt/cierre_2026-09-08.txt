@@ -1,0 +1,94 @@
+# Cierre Diario — SEED CAFÉ
+## Martes 8 de septiembre de 2026
+
+---
+
+## RESUMEN DEL DÍA
+
+Tienda: SEED CAFÉ (200012148)
+Horario operativo: 07:02 – 09:39
+Total de órdenes: 15
+Total ventas: $2057.00
+Ticket promedio: $137.13
+Ticket mínimo: $60.00
+Ticket máximo: $303.00
+
+---
+
+## POR MÉTODO DE PAGO
+
+Efectivo: 7 órdenes — $884.00 (43%)
+Tarjeta bancaria: 5 órdenes — $685.00 (33%)
+Tarjeta de débito: 3 órdenes — $488.00 (24%)
+TOTAL: 15 órdenes — $2057.00
+
+---
+
+## TOP 5 PRODUCTOS
+
+GALLETAS NEW YORK: 3.0 uds — $265.00
+LATTE CALIENTE: 2.0 uds — $152.00
+AMERICANO CALIENTE: 2.0 uds — $118.00
+COFFE TONIC: 2.0 uds — $213.00
+FLAT WHITE CALIENTE: 2.0 uds — $152.00
+
+---
+
+## DETALLE DE ÓRDENES
+
+| No. Orden | Monto | Folio/Mesa | Hora | Pago | Fuente | Tipo |
+|---|---|---|---|---|---|---|
+| 202609080015 | 239.00 | 0015 | 08-09-2026 09:39:16 | Efectivo | Orden en TPV | orden |
+| 202609080014 | 60.00 | 0014 | 08-09-2026 09:35:29 | Efectivo | Orden en TPV | orden |
+| 202609080013 | 110.00 | 0013 | 08-09-2026 09:13:59 | Efectivo | Orden en TPV | orden |
+| 202609080012 | 251.00 | 0012 | 08-09-2026 08:58:09 | Efectivo | Orden en TPV | orden |
+| 202609080011 | 78.00 | 0011 | 08-09-2026 08:19:14 | Tarjeta bancaria | Orden en TPV | orden |
+| 202609080010 | 124.00 | 0010 | 08-09-2026 08:14:24 | Tarjeta de débito | Orden en TPV | orden |
+| 202609080009 | 114.00 | 0009 | 08-09-2026 08:09:28 | Tarjeta bancaria | Orden en TPV | orden |
+| 202609080008 | 65.00 | 0008 | 08-09-2026 07:49:08 | Efectivo | Orden en TPV | orden |
+| 202609080007 | 303.00 | 0007 | 08-09-2026 07:46:10 | Tarjeta bancaria | Orden en TPV | orden |
+| 202609080006 | 99.00 | 0006 | 08-09-2026 07:38:49 | Efectivo | Orden en TPV | orden |
+| 202609080005 | 288.00 | 0005 | 08-09-2026 07:37:58 | Tarjeta de débito | Orden en TPV | orden |
+| 202609080004 | 76.00 | 0004 | 08-09-2026 07:35:02 | Tarjeta de débito | Orden en TPV | orden |
+| 202609080003 | 60.00 | 0003 | 08-09-2026 07:20:19 | Efectivo | Orden en TPV | orden |
+| 202609080002 | 76.00 | 0002 | 08-09-2026 07:08:07 | Tarjeta bancaria | Orden en TPV | orden |
+| 202609080001 | 114.00 | 0001 | 08-09-2026 07:02:44 | Tarjeta bancaria | Orden en TPV | orden |
+
+---
+
+## DETALLE DE PRODUCTOS
+
+| No. Orden | Producto | Opciones | Cantidad | Monto | Reembolso |
+|---|---|---|---|---|---|
+| 202609080015 | MATCHA FRIO | 14 LECHE DE AVENA | 1.0 | 117.00 | No |
+| 202609080015 | MAZAPAN FRIO | 14 LECHE DE AVENA/Shot Extra Cafe | 1.0 | 122.00 | No |
+| 202609080014 | TE DURAZNO JAMAICA FRIO |  | 1.0 | 60.00 | No |
+| 202609080013 | HORCHATA FRIA | 02 LECHE DESLACTOSADA/Shot Extra Cafe | 1.0 | 110.00 | No |
+| 202609080012 | LATTE CALIENTE |  | 2.0 | 152.00 | No |
+| 202609080012 | SANDWICH P/P/PANELA |  | 1.0 | 99.00 | No |
+| 202609080011 | AGUA FRIA1 | MIXBERRIES | 1.0 | 78.00 | No |
+| 202609080010 | AMERICANO CALIENTE |  | 1.0 | 59.00 | No |
+| 202609080010 | GALLETAS NEW YORK | CHOCO CHIP | 1.0 | 65.00 | No |
+| 202609080009 | COFFE TONIC | Shot Extra Cafe | 1.0 | 114.00 | No |
+| 202609080008 | GALLETAS NEW YORK | MATCHA | 1.0 | 65.00 | No |
+| 202609080007 | FLAT WHITE CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 76.00 | No |
+| 202609080007 | CAPUCCINO CALIENTE AVELLANA | 02 LECHE DESLACTOSADA | 1.0 | 92.00 | No |
+| 202609080007 | GALLETAS NEW YORK | DOBLE CHOCOLATE/OREO | 1.0 | 135.00 | No |
+| 202609080006 | COFFE TONIC |  | 1.0 | 99.00 | No |
+| 202609080005 | CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 76.00 | No |
+| 202609080005 | CAPUCCINO CALIENTE CREMA IRLANDESA | 02 LECHE DESLACTOSADA | 1.0 | 92.00 | No |
+| 202609080005 | CHAPATA P/P/PANELA | PAVO | 1.0 | 120.00 | No |
+| 202609080004 | CAPUCCINO CALIENTE | LECHE LIGHT | 1.0 | 76.00 | No |
+| 202609080003 | ROL DE CANELA |  | 1.0 | 60.00 | No |
+| 202609080002 | FLAT WHITE CALIENTE | LECHE LIGHT | 1.0 | 76.00 | No |
+| 202609080001 | AMERICANO CALIENTE |  | 1.0 | 59.00 | No |
+| 202609080001 | NUTRI BARRA |  | 1.0 | 55.00 | No |
+
+---
+
+## NOTAS
+
+- Datos: API de órdenes (`/admin/baigong/order/list`) + detalle de productos por orden (`/admin/baigong/order/info`)
+- El Cierre formal no fue ejecutado por el cajero
+- Match órdenes vs productos: OK
+- Generado: 2026-09-09T04:38:01.120078 (recopos_extractor.py / GitHub Actions)
