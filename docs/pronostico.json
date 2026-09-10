@@ -1,19 +1,19 @@
 {
-  "fecha_objetivo": "2026-09-09",
-  "dia_semana": "Miércoles",
-  "generado": "08-09-2026 22:38",
+  "fecha_objetivo": "2026-09-10",
+  "dia_semana": "Jueves",
+  "generado": "10-09-2026 10:47",
   "dias_historial_mismo_dia": 12,
-  "dias_historial_total": 77,
+  "dias_historial_total": 78,
   "productos": [
     {
       "producto": "Total piezas sugeridas",
       "categoria": "BEBIDAS CALIENTES",
-      "cantidad_sugerida": 35
+      "cantidad_sugerida": 33
     },
     {
       "producto": "Total piezas sugeridas",
       "categoria": "FRÍAS / FRAPPÉS / SMOOTHIES",
-      "cantidad_sugerida": 23
+      "cantidad_sugerida": 25
     },
     {
       "producto": "Total piezas sugeridas",
@@ -29,11 +29,6 @@
       "producto": "CHAPATA P",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 4
-    },
-    {
-      "producto": "WRAP DE OMELETTE JAMON Y QUESO",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 3
     },
     {
       "producto": "CHAPATA CHILORIO",
@@ -61,6 +56,11 @@
       "cantidad_sugerida": 1
     },
     {
+      "producto": "WRAP DE OMELETTE JAMON Y QUESO",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 1
+    },
+    {
       "producto": "WRAP DE OMELETTE Y CHILORIO",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 1
@@ -73,12 +73,7 @@
     {
       "producto": "ROL DE CANELA CAJETA Y NUEZ",
       "categoria": "POSTRES",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "NUTRI BARRA",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 2
+      "cantidad_sugerida": 3
     },
     {
       "producto": "ROL DE CANELA MANZANA",
@@ -86,27 +81,17 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "GALLETAS NEW YORK",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 1
-    },
-    {
       "producto": "POLVORONES",
       "categoria": "POSTRES",
-      "cantidad_sugerida": 1
+      "cantidad_sugerida": 2
     },
     {
-      "producto": "ROL DE CANELA NUTELLA",
+      "producto": "NUTRI BARRA",
       "categoria": "POSTRES",
       "cantidad_sugerida": 1
     },
     {
       "producto": "TRENZAS DE MAPLE Y NUEZ",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "YOGURT GRIEGO CON FRESAS",
       "categoria": "POSTRES",
       "cantidad_sugerida": 1
     },
