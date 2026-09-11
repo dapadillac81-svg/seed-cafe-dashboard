@@ -1,14 +1,22 @@
 """Extrae el cierre diario de RecoPOS sin navegador (para correr en GitHub Actions).
 
 Hace login (con CAPTCHA resuelto vía Telegram SOLO cuando hace falta — ver
-`obtener_token`), trae las órdenes del día y el detalle de productos por
-orden, y escribe `data_txt/cierre_YYYY-MM-DD.txt` en el mismo formato que ya
-consume `data_loader.py`.
+`login`), trae las órdenes del día y el detalle de productos por orden, y
+escribe `data_txt/cierre_YYYY-MM-DD.txt` en el mismo formato que ya consume
+`data_loader.py`.
 
 Corre automático en cada tick del schedule — YA NO espera que nadie escriba
 "cierre" en Telegram. El token de sesión se guarda en TOKEN_FILE (persistido
 entre corridas por el workflow vía actions/cache) y se reutiliza mientras
 siga vigente; el CAPTCHA solo se pide cuando el token guardado ya no sirve.
+
+Cuando sí hace falta el CAPTCHA, el diálogo es de dos tiempos (ver
+`resolver_captcha_por_telegram`): primero un aviso de texto, y la imagen solo
+cuando hay señal de que Daniel está del otro lado. Cada corrida es corta y se
+retira en silencio si no hay respuesta; el estado del diálogo (offset de
+Telegram y hora del último aviso) vive en data/ y sobrevive vía el mismo
+caché. Ninguna corrida sin datos se reporta como éxito: escribe `exito=false`
+para que el vigía del workflow pueda avisar si el historial se atrasa.
 
 Variables de entorno requeridas:
   RECOPOS_SHOP_ID, RECOPOS_USER, RECOPOS_PASSWORD
@@ -41,6 +49,11 @@ MESES = [
 
 OUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data_txt")
 TOKEN_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", ".recopos_token.json")
+# Estado del diálogo por Telegram, en data/ para que el caché de Actions lo
+# conserve entre corridas. Sin esto cada tick del cron empezaba de cero: no
+# sabía si ya te había avisado ni si ya habías contestado.
+OFFSET_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", ".tg_offset")
+AVISO_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", ".tg_ultimo_aviso")
 
 # Sesión compartida para todo el flujo de login: RecoPOS liga la validez del
 # CAPTCHA a la cookie de sesión con la que se pidió la imagen, no solo al
@@ -72,61 +85,220 @@ def tg_send_photo_b64(img_b64: str, caption: str) -> None:
 
 def fail(mensaje: str) -> None:
     tg_send_message(f"❌ SEED CAFÉ — Error Cierre Diario\n\nError: {mensaje}\n⏰ {dt.datetime.now().isoformat()}")
-    sys.exit(0)  # no se trata como fallo del workflow: simplemente no hubo cierre esta noche
+    # Se sale con 0 a propósito: con el cron cada 15 min, marcar el workflow en
+    # rojo por un CAPTCHA sin contestar llenaría el historial de fallos y nadie
+    # los miraría. Pero SÍ se deja `exito=false` escrito para que el vigía del
+    # workflow (que ahora corre con if: always()) sepa que esta corrida no trajo
+    # datos y pueda avisar por Telegram si el historial se quedó atrás.
+    #
+    # Antes no escribía nada: el workflow quedaba VERDE, el vigía se saltaba por
+    # su condición `exito == 'true'`, y el robot podía estar caído sin que nadie
+    # se enterara. Pasó: 6 días en septiembre 2026.
+    github_output = os.environ.get("GITHUB_OUTPUT")
+    if github_output:
+        with open(github_output, "a", encoding="utf-8") as f:
+            f.write("exito=false\n")
+    sys.exit(0)
 
 
-CAPTCHA_CICLO_MIN = 15  # minutos que espera por cada imagen antes de mandar una nueva
-CAPTCHA_MAX_MIN = 120  # tope total: ~2 horas (máx. 8 mensajes) reenviando captcha cada ciclo
+def sin_cierre(motivo: str) -> None:
+    """Termina la corrida sin datos y SIN mandar nada por Telegram.
+
+    Distinto de fail(): esto no es un error, es "todavía no se puede entrar".
+    Con el cron cada 15 min, avisar por Telegram en cada intento significaría
+    ~60 mensajes al día — Daniel silenciaría el chat y volveríamos al punto
+    ciego. Quien avisa de verdad es el vigía del workflow, una vez al día.
+    """
+    print(f"Sin cierre esta corrida: {motivo}")
+    github_output = os.environ.get("GITHUB_OUTPUT")
+    if github_output:
+        with open(github_output, "a", encoding="utf-8") as f:
+            f.write("exito=false\n")
+    sys.exit(0)
+
+
+# El CAPTCHA de RecoPOS vence MUCHO antes de los 15 minutos que el bot
+# prometía. Y como el cron reintenta cada 15 min, cada corrida debe ser corta
+# y callada en vez de quedarse dos horas colgada mandando imágenes. El trato
+# quedó en dos tiempos:
+#
+#   1. Un aviso de TEXTO, sin imagen: "contéstame cuando puedas". Se manda
+#      como mucho una vez por hora, no una por corrida.
+#   2. En cuanto contestas cualquier cosa, se pide la imagen EN ESE MOMENTO y
+#      tienes 4 minutos frescos para resolverla.
+#
+# Y si contestas cuando ninguna corrida está escuchando, tu mensaje se queda
+# en la cola de Telegram: la siguiente corrida (≤15 min después) lo ve, sabe
+# que estás despierto y te manda la imagen de una vez.
+#
+# Antes la imagen se generaba de inmediato y envejecía en el chat mientras
+# dormías: cuando la veías ya estaba muerta. Eso tumbó 6 días de reportes
+# (5-11 sep 2026).
+CAPTCHA_CICLO_MIN = 4            # ventana para resolver una imagen ya mandada
+CAPTCHA_IMAGENES_MAX = 4         # imágenes por corrida antes de rendirse
+CAPTCHA_ESPERA_LISTO_MIN = 20    # cuánto escucha una corrida tras mandar el aviso
+AVISO_LOGIN_CADA_MIN = 60        # mínimo entre avisos de texto, aunque el cron insista
+
+# Si el código llega tarde igual, RecoPOS responde 10020 (vencido). Ese mensaje
+# prueba que ya estás frente al teléfono, así que se reintenta de inmediato
+# saltándose el aviso de texto.
+LOGIN_MAX_INTENTOS = 4
 
 
 def _offset_inicial() -> int:
-    r = requests.get(
-        f"https://api.telegram.org/bot{TG_TOKEN}/getUpdates",
-        params={"limit": 1, "offset": -1},
-        timeout=15,
-    )
-    result = r.json().get("result", [])
-    return result[-1]["update_id"] + 1 if result else 0
+    """Marca como leído todo lo que haya en la cola y devuelve el offset siguiente."""
+    try:
+        r = requests.get(
+            f"https://api.telegram.org/bot{TG_TOKEN}/getUpdates",
+            params={"limit": 1, "offset": -1},
+            timeout=15,
+        )
+        result = r.json().get("result", [])
+        return result[-1]["update_id"] + 1 if result else 0
+    except Exception as e:
+        print(f"No se pudo leer el offset inicial ({e}), se arranca en 0.")
+        return 0
 
 
-def resolver_captcha_por_telegram() -> tuple[str, str]:
-    """Pide un CAPTCHA y espera respuesta por Telegram. Si no contestas a tiempo,
-    pide uno nuevo (el anterior ya venció en RecoPOS) y vuelve a esperar — así, sin
-    importar cuándo abras el chat, hay un CAPTCHA vigente listo para resolver.
+def _cargar_offset() -> int:
+    """Offset guardado de la corrida anterior.
+
+    Es lo que permite que contestes cuando quieras: si mandas el mensaje
+    mientras ninguna corrida está escuchando, queda en la cola de Telegram y
+    la siguiente lo encuentra, en vez de descartarlo como hacía antes.
     """
-    offset = _offset_inicial()
-    ciclos = CAPTCHA_MAX_MIN // CAPTCHA_CICLO_MIN
+    try:
+        with open(OFFSET_FILE, encoding="utf-8") as f:
+            return int(f.read().strip())
+    except (FileNotFoundError, ValueError):
+        return _offset_inicial()
 
-    for ciclo in range(ciclos):
+
+def _guardar_offset(offset: int) -> None:
+    os.makedirs(os.path.dirname(OFFSET_FILE), exist_ok=True)
+    with open(OFFSET_FILE, "w", encoding="utf-8") as f:
+        f.write(str(offset))
+
+
+def _aviso_reciente() -> bool:
+    """¿Ya se avisó hace poco? Evita que el cron de 15 min te nague toda la noche."""
+    try:
+        with open(AVISO_FILE, encoding="utf-8") as f:
+            ultimo = dt.datetime.fromisoformat(f.read().strip())
+    except (FileNotFoundError, ValueError):
+        return False
+    return (dt.datetime.now() - ultimo).total_seconds() < AVISO_LOGIN_CADA_MIN * 60
+
+
+def _marcar_aviso() -> None:
+    os.makedirs(os.path.dirname(AVISO_FILE), exist_ok=True)
+    with open(AVISO_FILE, "w", encoding="utf-8") as f:
+        f.write(dt.datetime.now().isoformat())
+
+
+def _leer_pendientes(offset: int) -> tuple[str | None, int]:
+    """Mira la cola SIN esperar: ¿contestaste mientras nadie escuchaba?"""
+    try:
+        r = requests.get(
+            f"https://api.telegram.org/bot{TG_TOKEN}/getUpdates",
+            params={"offset": offset, "limit": 10},
+            timeout=15,
+        )
+        updates = r.json().get("result", [])
+    except Exception as e:
+        print(f"getUpdates falló ({e}); se asume cola vacía.")
+        return None, offset
+    encontrado = None
+    for u in updates:
+        offset = u["update_id"] + 1
+        msg = u.get("message", {})
+        if str(msg.get("chat", {}).get("id")) == str(TG_CHAT):
+            txt = (msg.get("text") or "").strip()
+            if txt:
+                encontrado = txt
+    return encontrado, offset
+
+
+def _esperar_mensaje(offset: int, minutos: int) -> tuple[str | None, int]:
+    """Espera hasta `minutos` un mensaje de texto del chat autorizado.
+
+    Devuelve (texto, offset_actualizado); texto es None si se agotó el tiempo.
+    El offset vuelve siempre para que quien llama lo guarde y no reprocese
+    mensajes que este ciclo ya consumió.
+    """
+    for _ in range(max(1, minutos * 6)):  # intervalos de 10s
+        time.sleep(10)
+        txt, offset = _leer_pendientes(offset)
+        if txt is not None:
+            return txt, offset
+    return None, offset
+
+
+def resolver_captcha_por_telegram(ya_presente: bool = False) -> tuple[str, str]:
+    """Consigue un CAPTCHA resuelto sin que la imagen envejezca en el chat.
+
+    Tiempo 1 (se salta con ya_presente=True): confirmar que Daniel está del
+    otro lado — o porque ya contestó y su mensaje esperaba en la cola, o
+    mandándole un aviso de texto y escuchando un rato.
+    Tiempo 2: con él presente, se pide la imagen AL MOMENTO y se espera poco.
+    Así el código que contesta siempre es el que sigue vigente.
+    """
+    offset = _cargar_offset()
+
+    if not ya_presente:
+        txt, offset = _leer_pendientes(offset)
+        if txt is None:
+            if _aviso_reciente():
+                # Ya se avisó hace menos de una hora y sigue sin contestar.
+                # La corrida se retira en silencio; el cron vuelve en 15 min.
+                _guardar_offset(offset)
+                sin_cierre("aviso de login ya enviado, esperando respuesta")
+
+            _marcar_aviso()
+            tg_send_message(
+                "🔐 <b>SEED CAFÉ — Login Recopos</b>\n\n"
+                "El cierre del día necesita que inicies sesión.\n"
+                "<b>Contéstame cualquier cosa</b> (un punto basta) y te mando "
+                "la imagen del código en ese momento, recién hecha.\n\n"
+                "No hay prisa: contesta cuando lo veas, aunque sea mañana."
+            )
+            txt, offset = _esperar_mensaje(offset, CAPTCHA_ESPERA_LISTO_MIN)
+            if txt is None:
+                _guardar_offset(offset)
+                sin_cierre("nadie contestó el aviso de login en esta corrida")
+
+    for _ in range(CAPTCHA_IMAGENES_MAX):
         r = SESSION.get(f"{BASE_URL}/admin/captchaImage", timeout=15)
         data = r.json()
         img_b64, uuid = data["img"], data["uuid"]
 
-        intro = "🔐 <b>SEED CAFÉ — Login Recopos</b>" if ciclo == 0 else "🔄 <b>SEED CAFÉ — Nuevo intento de login</b>\n(el código anterior ya venció)"
+        # La cola se purga DESPUÉS de pedir la imagen, nunca antes.
+        #
+        # El bug original: el bot mandaba un captcha, minutos después lo
+        # reemplazaba por otro, y la respuesta tardía al PRIMERO seguía en la
+        # cola. El bucle aceptaba cualquier mensaje de 3-6 letras y lo mandaba
+        # con el uuid del SEGUNDO — combinación que no existe. RecoPOS devolvía
+        # "验证码过期" (code 10020) y el robot se moría en silencio.
+        offset = _offset_inicial()
+
         tg_send_photo_b64(
             img_b64,
-            f"{intro}\n\nEl proceso automático necesita acceso.\n"
-            "<b>Responde con los caracteres que ves en esta imagen</b> para continuar.\n\n"
-            f"⏰ Tienes {CAPTCHA_CICLO_MIN} minutos — si no contestas, te mando uno nuevo "
-            "automáticamente y puedes resolverlo en cuanto lo veas.",
+            "🔢 <b>Aquí está el código</b>\n\n"
+            "Responde con los caracteres que ves en la imagen.\n\n"
+            f"⏰ Vence en {CAPTCHA_CICLO_MIN} minutos. Si se te pasa, te mando "
+            "otra — contesta siempre a la ÚLTIMA imagen."
         )
 
-        for _ in range(CAPTCHA_CICLO_MIN * 6):  # intervalos de 10s
-            time.sleep(10)
-            r = requests.get(
-                f"https://api.telegram.org/bot{TG_TOKEN}/getUpdates",
-                params={"offset": offset, "limit": 10},
-                timeout=15,
+        txt, offset = _esperar_mensaje(offset, CAPTCHA_CICLO_MIN)
+        _guardar_offset(offset)
+        if txt and 3 <= len(txt) <= 6:
+            return txt, uuid
+        if txt:
+            tg_send_message(
+                f"🤔 «{txt}» no parece un código (son 4 caracteres). Va otra imagen."
             )
-            for u in r.json().get("result", []):
-                offset = u["update_id"] + 1
-                msg = u.get("message", {})
-                if str(msg.get("chat", {}).get("id")) == str(TG_CHAT):
-                    txt = (msg.get("text") or "").strip()
-                    if 3 <= len(txt) <= 6:
-                        return txt, uuid
 
-    fail(f"sin respuesta al CAPTCHA tras {CAPTCHA_MAX_MIN} minutos reenviando intentos")
+    sin_cierre(f"no se resolvió el CAPTCHA tras {CAPTCHA_IMAGENES_MAX} imágenes")
 
 
 def leer_token_guardado() -> str | None:
@@ -177,25 +349,39 @@ def login() -> str:
         print("Token de RecoPOS guardado sigue vigente — se reutiliza, sin CAPTCHA.")
         return guardado
 
-    code, uuid = resolver_captcha_por_telegram()
-    r = SESSION.post(
-        f"{BASE_URL}/admin/typeLogin",
-        json={
-            "userName": USER,
-            "shopId": SHOP_ID,
-            "passWord": PASSWORD,
-            "code": code,
-            "codeUuid": uuid,
-            "loginType": "01",
-        },
-        timeout=15,
-    )
-    data = r.json()
-    token = data.get("data", {}).get("token")
-    if not token:
-        fail(f"login fallido: {data}")
-    guardar_token(token)
-    return token
+    ultimo = None
+    for intento in range(LOGIN_MAX_INTENTOS):
+        # Del 2º intento en adelante la espera es corta: si estamos aquí es
+        # porque acabas de contestar (aunque tarde), o sea que tienes el
+        # teléfono en la mano. Esperar 4 min otra vez solo regala la ventana.
+        code, uuid = resolver_captcha_por_telegram(ya_presente=intento > 0)
+        r = SESSION.post(
+            f"{BASE_URL}/admin/typeLogin",
+            json={
+                "userName": USER,
+                "shopId": SHOP_ID,
+                "passWord": PASSWORD,
+                "code": code,
+                "codeUuid": uuid,
+                "loginType": "01",
+            },
+            timeout=15,
+        )
+        data = r.json()
+        token = data.get("data", {}).get("token")
+        if token:
+            guardar_token(token)
+            return token
+
+        ultimo = data
+        # 10020 = código vencido o equivocado. Es lo ÚNICO que vale la pena
+        # reintentar: cualquier otro error (usuario, contraseña, tienda) va a
+        # fallar igual las 4 veces, y reintentarlo solo llena el chat.
+        if data.get("code") != 10020:
+            break
+        print(f"CAPTCHA rechazado (intento {intento + 1}/{LOGIN_MAX_INTENTOS}): {data}")
+
+    fail(f"login fallido tras {LOGIN_MAX_INTENTOS} intentos: {ultimo}")
 
 
 def fecha_objetivo() -> dt.date:

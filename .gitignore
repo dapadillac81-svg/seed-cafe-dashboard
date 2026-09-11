@@ -8,3 +8,5 @@ data/*.xlsx
 !docs/*.json
 !product_category_map.json
 nightly_update.log
+data/.tg_offset
+data/.tg_ultimo_aviso

@@ -29,6 +29,12 @@ concurrency:
 jobs:
   generar-reporte:
     runs-on: ubuntu-latest
+    # Cada corrida es corta a propósito: escucha ~20 min por el aviso de
+    # login y ~16 min por las imágenes del CAPTCHA, y si no hay respuesta se
+    # retira en silencio — el cron vuelve en 15 min. 90 min le da margen a los
+    # reintentos y, sobre todo, le pone techo: sin esto una corrida colgada
+    # bloquea el grupo de concurrencia y ningún tick posterior vuelve a correr.
+    timeout-minutes: 90
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -70,8 +76,12 @@ jobs:
           FECHA_OBJETIVO: ${{ github.event.inputs.fecha }}
         run: python recopos_extractor.py
 
+      # if: always() y no `exito == 'true'`. Ese era el punto ciego: el vigía
+      # existe para avisar cuando el robot se cae, pero su condición lo apagaba
+      # exactamente en ese caso. Seis días de septiembre 2026 pasaron sin datos
+      # y sin una sola alerta.
       - name: Verificar historial (avisa por Telegram si hay huecos o si el último día está muy atrasado)
-        if: steps.sync.outputs.exito == 'true' || github.event_name == 'workflow_dispatch'
+        if: always()
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -125,7 +135,22 @@ jobs:
                   1 for i in range(1, (hoy - fin).days + 1)
                   if (hoy - datetime.timedelta(days=i)).weekday() != 6
               )
-              if dias_habiles_atras >= 2:
+              # Freno de spam: el vigía ahora corre en CADA tick (~60 al día).
+              # Sin esto, un robot caído mandaría 60 alertas idénticas y Daniel
+              # silenciaría el chat — que es justo lo contrario de lo que se
+              # busca. Un aviso por día basta. El marcador vive en data/, que
+              # se conserva con el caché de Actions y no se commitea.
+              os.makedirs("data", exist_ok=True)
+              marcador = "data/.ultimo_aviso_atraso"
+              try:
+                  with open(marcador, encoding="utf-8") as f:
+                      ultimo_aviso = f.read().strip()
+              except FileNotFoundError:
+                  ultimo_aviso = ""
+
+              if dias_habiles_atras >= 2 and ultimo_aviso != hoy.isoformat():
+                  with open(marcador, "w", encoding="utf-8") as f:
+                      f.write(hoy.isoformat())
                   avisar_telegram(
                       f"⚠️ <b>SEED CAFÉ — Reporte diario atrasado</b>\n\n"
                       f"El último cierre registrado es del {fin.isoformat()} "
