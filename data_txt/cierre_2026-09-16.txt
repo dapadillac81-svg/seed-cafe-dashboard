@@ -1,0 +1,90 @@
+# Cierre Diario — SEED CAFÉ
+## Miércoles 16 de septiembre de 2026
+
+---
+
+## RESUMEN DEL DÍA
+
+Tienda: SEED CAFÉ (200012148)
+Horario operativo: 09:28 – 15:10
+Total de órdenes: 10
+Total ventas: $2842.35
+Ticket promedio: $284.24
+Ticket mínimo: $65.00
+Ticket máximo: $740.00
+
+---
+
+## POR MÉTODO DE PAGO
+
+Tarjeta bancaria: 4 órdenes — $1117.00 (39%)
+Tarjeta de débito: 4 órdenes — $920.35 (32%)
+Efectivo: 2 órdenes — $805.00 (28%)
+TOTAL: 10 órdenes — $2842.35
+
+---
+
+## TOP 5 PRODUCTOS
+
+ROL DE CANELA MANZANA: 6.0 uds — $420.00
+MAZAPAN CALIENTE: 3.0 uds — $315.00
+CHOCOLATE CALIENTE: 2.0 uds — $192.00
+AMERICANO CALIENTE: 2.0 uds — $124.00
+FRAPPE MAZAPAN: 2.0 uds — $250.00
+
+---
+
+## DETALLE DE ÓRDENES
+
+| No. Orden | Monto | Folio/Mesa | Hora | Pago | Fuente | Tipo |
+|---|---|---|---|---|---|---|
+| 202609160010 | 192.00 | 0010 | 16-09-2026 15:10:20 | Tarjeta de débito | Orden en TPV | orden |
+| 202609160009 | 65.00 | 0009 | 16-09-2026 13:56:44 | Efectivo | Orden en TPV | orden |
+| 202609160008 | 440.00 | 0008 | 16-09-2026 13:55:13 | Tarjeta bancaria | Orden en TPV | orden |
+| 202609160007 | 350.00 | 0007 | 16-09-2026 13:07:14 | Tarjeta de débito | Orden en TPV | orden |
+| 202609160006 | 230.00 | 0006 | 16-09-2026 13:06:13 | Tarjeta de débito | Orden en TPV | orden |
+| 202609160005 | 148.35 | 0005 | 16-09-2026 12:34:55 | Tarjeta de débito | Orden en TPV | orden |
+| 202609160004 | 280.00 | 0004 | 16-09-2026 12:29:15 | Tarjeta bancaria | Orden en TPV | orden |
+| 202609160003 | 740.00 | 0003 | 16-09-2026 11:41:12 | Efectivo | Orden en TPV | orden |
+| 202609160002 | 298.00 | 0002 | 16-09-2026 09:37:58 | Tarjeta bancaria | Orden en TPV | orden |
+| 202609160001 | 99.00 | 0001 | 16-09-2026 09:28:26 | Tarjeta bancaria | Orden en TPV | orden |
+
+---
+
+## DETALLE DE PRODUCTOS
+
+| No. Orden | Producto | Opciones | Cantidad | Monto | Reembolso |
+|---|---|---|---|---|---|
+| 202609160010 | CHOCOLATE CALIENTE | 01 LECHE ENTERA | 1.0 | 90.00 | No |
+| 202609160010 | CHOCOLATE CALIENTE | 04 LECHE DE ALMENDRA | 1.0 | 102.00 | No |
+| 202609160009 | AMERICANO CALIENTE | 10 CORTADO | 1.0 | 65.00 | No |
+| 202609160008 | MAZAPAN CALIENTE | 11 DESCAFEINADO/Shot Extra Cafe/09 LECHE DESLC LIGHT | 3.0 | 315.00 | No |
+| 202609160008 | FRAPPE MAZAPAN | Shot Extra Cafe/09 LECHE DESLC LIGHT | 1.0 | 125.00 | No |
+| 202609160007 | ROL DE CANELA MANZANA |  | 5.0 | 350.00 | No |
+| 202609160006 | FLAT WHITE CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 76.00 | No |
+| 202609160006 | SANDWICH P/P/PANELA | MULTIGRANO | 1.0 | 99.00 | No |
+| 202609160006 | NUTRI BARRA |  | 1.0 | 55.00 | No |
+| 202609160005 | AMERICANO CALIENTE |  | 1.0 | 59.00 | No |
+| 202609160005 | ROL DE CANELA MANZANA |  | 1.0 | 70.00 | No |
+| 202609160004 | CAPUCCINO FRAPPE | 02 LECHE DESLACTOSADA | 1.0 | 95.00 | No |
+| 202609160004 | FRAPPE MAZAPAN | 01 LECHE ENTERA/Shot Extra Cafe | 1.0 | 125.00 | No |
+| 202609160004 | ROL DE CANELA |  | 1.0 | 60.00 | No |
+| 202609160003 | WRAP DE OMELETTE JAMON Y QUESO |  | 2.0 | 280.00 | No |
+| 202609160003 | SINCRONIZADAS DE CHILORIO |  | 1.0 | 150.00 | No |
+| 202609160003 | AGUA FRIA1 | MANGO | 1.0 | 78.00 | No |
+| 202609160003 | AGUA FRIA1 | FRESA | 1.0 | 78.00 | No |
+| 202609160003 | AGUA FRIA2 | MARACUYA | 1.0 | 84.00 | No |
+| 202609160003 | ROL DE CANELA CAJETA Y NUEZ |  | 1.0 | 70.00 | No |
+| 202609160002 | MOLLETES |  | 1.0 | 140.00 | No |
+| 202609160002 | CAPUCCINO CALIENTE | 14 LECHE DE AVENA | 1.0 | 88.00 | No |
+| 202609160002 | GALLETAS NEW YORK | OREO | 1.0 | 70.00 | No |
+| 202609160001 | COFFE TONIC |  | 1.0 | 99.00 | No |
+
+---
+
+## NOTAS
+
+- Datos: API de órdenes (`/admin/baigong/order/list`) + detalle de productos por orden (`/admin/baigong/order/info`)
+- El Cierre formal no fue ejecutado por el cajero
+- Match órdenes vs productos: DIFERENCIA $19.35
+- Generado: 2026-09-17T17:23:37.401885 (recopos_extractor.py / GitHub Actions)
