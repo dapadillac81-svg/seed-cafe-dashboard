@@ -4,8 +4,8 @@
   "description": "Dashboard diario de ventas Seed Café",
   "start_url": "/seed-cafe-dashboard/",
   "display": "standalone",
-  "background_color": "#f6f3ee",
-  "theme_color": "#6f4e37",
+  "background_color": "#f4efe7",
+  "theme_color": "#ffffff",
   "orientation": "portrait",
   "icons": [
     {

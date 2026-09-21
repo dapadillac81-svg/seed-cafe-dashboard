@@ -8,6 +8,7 @@ import sys
 
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 import plotly.io as pio
 from jinja2 import Environment, FileSystemLoader
 
@@ -19,12 +20,47 @@ DOCS_DIR = os.path.join(HERE, "docs")
 TEMPLATES_DIR = os.path.join(HERE, "templates")
 
 PLOTLY_CONFIG = {"displayModeBar": False, "responsive": True}
-CHART_TEMPLATE = "plotly_white"
 
-# Paleta fija para que cada categoría/tipo de leche tenga siempre el mismo
-# color, sin importar el día (de lo contrario Plotly reasigna colores según
-# el orden en que aparecen las categorías en cada día).
-COLOR_PALETTE = px.colors.qualitative.Light24
+# Colores de DESIGN.md (seed-cafe-manager): los mismos del dashboard y de la
+# app de inventario. No se escriben otros hex en las gráficas.
+ESPRESSO, INK, MUTED, LINE, OLIVE_600 = "#3b2a20", "#2a2620", "#6d6559", "#e2d9c9", "#7d755c"
+
+# Categorías: la paleta CAT_COLORS de seed-cafe-manager/src/lib/dashboard-data.ts,
+# para que cada categoría tenga el mismo color en las dos apps. Si cambia allá,
+# cambia aquí.
+CAT_COLORS = {
+    "ALIMENTOS": "#3B2A20",
+    "CALIENTES CON CAFE": "#B5651D",
+    "FRIAS SIN CAFE": "#6B8E9E",
+    "POSTRES": "#C9852C",
+    "FRIAS CON CAFE": "#4E7A8C",
+    "CALIENTES SIN CAFE": "#A0785A",
+    "FRAPPES SIN CAFE": "#9A8CC2",
+    "FRAPPES CON CAFE": "#7B9E6B",
+    "SMOOTHIES": "#C77B58",
+    "SIN CATEGORÍA": "#B0A99A",
+    "REFRESCOS": "#5C8A72",
+}
+SIN_CATEGORIA = CAT_COLORS["SIN CATEGORÍA"]
+# Paleta fija para lo que no es categoría (tipos de leche): los mismos tonos terrosos.
+COLOR_PALETTE = [c for k, c in CAT_COLORS.items() if k != "SIN CATEGORÍA"]
+
+_AXIS = dict(gridcolor=LINE, linecolor=LINE, zerolinecolor=LINE, tickfont=dict(color=MUTED))
+pio.templates["seedcafe"] = go.layout.Template(layout=dict(
+    font=dict(family="Inter, -apple-system, 'Segoe UI', sans-serif", size=12, color=INK),
+    title=dict(font=dict(family="Fraunces, Georgia, serif", size=18, color=ESPRESSO)),
+    colorway=[ESPRESSO] + COLOR_PALETTE,
+    paper_bgcolor="#ffffff",
+    plot_bgcolor="#ffffff",
+    xaxis=_AXIS,
+    yaxis=_AXIS,
+    legend=dict(font=dict(size=12)),
+    hoverlabel=dict(bgcolor="#ffffff", bordercolor=LINE, font=dict(color=INK)),
+))
+CHART_TEMPLATE = "plotly_white+seedcafe"
+# px fija el color de cada serie al crear la figura: la plantilla tiene que ser
+# la predeterminada desde antes, no solo aplicarse al final en _fig_to_html.
+px.defaults.template = CHART_TEMPLATE
 
 
 def _build_color_map(values) -> dict:
@@ -34,8 +70,18 @@ def _build_color_map(values) -> dict:
     return {val: COLOR_PALETTE[i % len(COLOR_PALETTE)] for i, val in enumerate(uniq)}
 
 
+def _category_color_map(values) -> dict:
+    """Color de cada categoría según CAT_COLORS; las desconocidas (y "OTROS",
+    que usa la gráfica por hora) van en el gris de SIN CATEGORÍA."""
+    mapa = {v: CAT_COLORS.get(v, SIN_CATEGORIA) for v in values if pd.notna(v)}
+    mapa["OTROS"] = SIN_CATEGORIA
+    return mapa
+
+
 def _fig_to_html(fig, include_js=False):
-    fig.update_layout(template=CHART_TEMPLATE, margin=dict(l=10, r=10, t=40, b=10))
+    # r=30 y sin recorte: la cifra fuera de la barra más larga no se corta en el borde
+    fig.update_layout(template=CHART_TEMPLATE, margin=dict(l=10, r=30, t=40, b=10))
+    fig.update_traces(cliponaxis=False, selector=dict(type="bar"))
     return pio.to_html(
         fig,
         full_html=False,
@@ -84,7 +130,7 @@ def build_hourly_chart(orders_df: pd.DataFrame, target_date):
         .reindex(range(8, 21), fill_value=0)
         .reset_index()
     )
-    by_hour["hora_label"] = by_hour["hora"].apply(lambda h: f"{h}:00")
+    by_hour["hora_label"] = by_hour["hora"].apply(lambda h: f"{h}")
     fig = px.bar(
         by_hour,
         x="hora_label",
@@ -93,10 +139,12 @@ def build_hourly_chart(orders_df: pd.DataFrame, target_date):
         labels={"hora_label": "Hora", "ventas": "Ventas ($)"},
         title="Ventas por hora (8 AM – 8 PM)",
     )
-    fig.update_traces(textposition="outside", textfont_size=12)
+    # Vertical: a 12 px "$1,414" no cabe a lo ancho de una barra de teléfono, y Plotly lo encogía a ~6 px
+    fig.update_traces(textposition="outside", textfont_size=12, textangle=-90, constraintext="none")
     fig.update_layout(
-        xaxis=dict(tickangle=0, tickfont=dict(size=8)),
-        yaxis=dict(visible=False),
+        xaxis=dict(tickangle=0),
+        # 30 % de aire arriba para que la cifra vertical de la barra más alta no toque el título
+        yaxis=dict(visible=False, range=[0, max(by_hour["ventas"].max(), 1) * 1.3]),
         bargap=0.3,
     )
     return _fig_to_html(fig, include_js=True)
@@ -135,7 +183,7 @@ def build_hourly_category_chart(orders_df: pd.DataFrame, items_df: pd.DataFrame,
     categorias = sorted(by_hour_cat["categoria"].unique())
     full = pd.MultiIndex.from_product([range(8, 21), categorias], names=["hora", "categoria"]).to_frame(index=False)
     by_hour_cat = full.merge(by_hour_cat, on=["hora", "categoria"], how="left").fillna(0)
-    by_hour_cat["hora_label"] = by_hour_cat["hora"].apply(lambda h: f"{h}:00")
+    by_hour_cat["hora_label"] = by_hour_cat["hora"].apply(lambda h: f"{h}")
 
     fig = px.bar(
         by_hour_cat,
@@ -148,16 +196,15 @@ def build_hourly_category_chart(orders_df: pd.DataFrame, items_df: pd.DataFrame,
     )
     fig.update_layout(
         barmode="stack",
-        xaxis=dict(tickangle=0, tickfont=dict(size=8)),
+        xaxis=dict(tickangle=0),
         yaxis=dict(visible=False),
         bargap=0.3,
         legend=dict(
             orientation="h",
             yanchor="top",
-            y=-0.15,
+            y=-0.22,
             xanchor="center",
             x=0.5,
-            font=dict(size=9),
             title=None,
         ),
         margin=dict(b=120),
@@ -266,8 +313,7 @@ def build_milk_chart(items_df: pd.DataFrame, target_date, color_map: dict):
     )
     fig.update_traces(textposition="outside")
     fig.update_layout(
-        font=dict(size=11),
-        yaxis=dict(tickfont=dict(size=9), autorange="reversed"),
+        yaxis=dict(autorange="reversed"),
         xaxis=dict(visible=False),
         showlegend=False,
         height=max(160, 35 * len(by_leche) + 60),
@@ -301,8 +347,6 @@ def build_top_products_chart(items_df: pd.DataFrame, target_date, top_n=10):
     )
     fig.update_traces(textposition="outside")
     fig.update_layout(
-        font=dict(size=11),
-        yaxis=dict(tickfont=dict(size=9)),
         xaxis=dict(visible=False),
         height=300,
     )
@@ -324,6 +368,14 @@ def build_category_chart(categoria_df: pd.DataFrame, target_date, color_map: dic
         hole=0.4,
         color="Clasificación",
         color_discrete_map=color_map,
+    )
+    # % solo dentro de las rebanadas donde cabe a 12 px (las chicas se ven al tocarlas),
+    # y la leyenda abajo para que el pastel use todo el ancho del teléfono.
+    fig.update_traces(textposition="inside", textinfo="percent")
+    fig.update_layout(
+        uniformtext=dict(minsize=12, mode="hide"),
+        legend=dict(orientation="h", yanchor="top", y=-0.05, xanchor="center", x=0.5),
+        height=480,
     )
     return _fig_to_html(fig)
 
@@ -368,8 +420,6 @@ def build_top_categoria_charts(categoria_df: pd.DataFrame, target_date, top_n=10
         fig.update_traces(textposition="outside")
         height = max(160, 35 * len(by_product) + 60)
         fig.update_layout(
-            font=dict(size=11),
-            yaxis=dict(tickfont=dict(size=9)),
             xaxis=dict(visible=False),
             height=height,
         )
@@ -408,9 +458,11 @@ def build_comparativa_chart(orders_df: pd.DataFrame, target_date, days=30):
         y=tendencia,
         mode="lines",
         name="Tendencia",
-        line=dict(dash="dash", color="#b08968", width=2),
+        line=dict(dash="dash", color=OLIVE_600, width=2),
         hovertemplate="Tendencia: $%{y:,.0f}<extra></extra>",
     ))
+    # Leyenda abajo: a la derecha le quitaba un tercio del ancho a la gráfica en el teléfono
+    fig.update_layout(legend=dict(orientation="h", yanchor="top", y=-0.3, xanchor="center", x=0.5))
     return _fig_to_html(fig)
 
 
@@ -739,7 +791,7 @@ def render_report(target_date=None):
 
     # Mapas de color fijos (mismo color para la misma categoría/tipo de leche
     # en todos los días, calculados sobre todo el histórico disponible)
-    category_color_map = _build_color_map(categoria_df["Clasificación"]) if not categoria_df.empty else {}
+    category_color_map = _category_color_map(categoria_df["Clasificación"]) if not categoria_df.empty else {}
     milk_color_map = (
         _build_color_map(items_df["Nombre de producto"].apply(_tipo_leche)) if not items_df.empty else {}
     )
