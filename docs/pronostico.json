@@ -1,24 +1,24 @@
 {
-  "fecha_objetivo": "2026-09-21",
-  "dia_semana": "Lunes",
-  "generado": "19-09-2026 23:24",
+  "fecha_objetivo": "2026-09-23",
+  "dia_semana": "Miércoles",
+  "generado": "23-09-2026 00:24",
   "dias_historial_mismo_dia": 14,
-  "dias_historial_total": 87,
+  "dias_historial_total": 89,
   "productos": [
     {
       "producto": "Total piezas sugeridas",
       "categoria": "BEBIDAS CALIENTES",
-      "cantidad_sugerida": 40
+      "cantidad_sugerida": 35
     },
     {
       "producto": "Total piezas sugeridas",
       "categoria": "FRÍAS / FRAPPÉS / SMOOTHIES",
-      "cantidad_sugerida": 16
+      "cantidad_sugerida": 23
     },
     {
       "producto": "Total piezas sugeridas",
       "categoria": "OTRAS BEBIDAS",
-      "cantidad_sugerida": 2
+      "cantidad_sugerida": 3
     },
     {
       "producto": "SANDWICH P",
@@ -28,7 +28,12 @@
     {
       "producto": "CHAPATA P",
       "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 5
+      "cantidad_sugerida": 4
+    },
+    {
+      "producto": "WRAP DE OMELETTE JAMON Y QUESO",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 3
     },
     {
       "producto": "CHAPATA CHILORIO",
@@ -46,14 +51,9 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "WRAP DE OMELETTE Y CHILORIO",
+      "producto": "SINCRONIZADAS DE CHILORIO",
       "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "WRAP DE OMELETTE JAMON Y QUESO",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 2
+      "cantidad_sugerida": 1
     },
     {
       "producto": "SINCRONIZADAS DE JAMON",
@@ -61,7 +61,7 @@
       "cantidad_sugerida": 1
     },
     {
-      "producto": "SINCRONIZADAS DE CHILORIO",
+      "producto": "WRAP DE OMELETTE Y CHILORIO",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 1
     },
@@ -76,7 +76,7 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "GALLETAS NEW YORK",
+      "producto": "NUTRI BARRA",
       "categoria": "POSTRES",
       "cantidad_sugerida": 2
     },
@@ -86,7 +86,7 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "NUTRI BARRA",
+      "producto": "GALLETAS NEW YORK",
       "categoria": "POSTRES",
       "cantidad_sugerida": 1
     },
@@ -96,22 +96,27 @@
       "cantidad_sugerida": 1
     },
     {
+      "producto": "ROL DE CANELA NUTELLA",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 1
+    },
+    {
       "producto": "TRENZAS DE MAPLE Y NUEZ",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 1
+    },
+    {
+      "producto": "YOGURT GRIEGO CON FRESAS",
       "categoria": "POSTRES",
       "cantidad_sugerida": 1
     },
     {
       "producto": "AGUA",
       "categoria": "REFRESCOS",
-      "cantidad_sugerida": 1
+      "cantidad_sugerida": 2
     },
     {
       "producto": "COCA COLA",
-      "categoria": "REFRESCOS",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "COCA COLA LIGHT",
       "categoria": "REFRESCOS",
       "cantidad_sugerida": 1
     },
