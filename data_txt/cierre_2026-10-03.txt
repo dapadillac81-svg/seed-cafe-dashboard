@@ -1,0 +1,164 @@
+# Cierre Diario — SEED CAFÉ
+## Sábado 3 de octubre de 2026
+
+---
+
+## RESUMEN DEL DÍA
+
+Tienda: SEED CAFÉ (200012148)
+Horario operativo: 07:35 – 15:26
+Total de órdenes: 41
+Total ventas: $5963.20
+Ticket promedio: $145.44
+Ticket mínimo: $59.00
+Ticket máximo: $420.20
+
+---
+
+## POR MÉTODO DE PAGO
+
+Tarjeta de débito: 17 órdenes — $2711.20 (45%)
+Efectivo: 16 órdenes — $2054.00 (34%)
+Tarjeta bancaria: 8 órdenes — $1198.00 (20%)
+TOTAL: 41 órdenes — $5963.20
+
+---
+
+## TOP 5 PRODUCTOS
+
+CAPUCCINO CALIENTE: 9.0 uds — $696.00
+SANDWICH P/P/PANELA: 6.0 uds — $594.00
+ROL DE CANELA: 6.0 uds — $360.00
+AMERICANO CALIENTE: 4.0 uds — $236.00
+LATTE CALIENTE: 4.0 uds — $304.00
+
+---
+
+## DETALLE DE ÓRDENES
+
+| No. Orden | Monto | Folio/Mesa | Hora | Pago | Fuente | Tipo |
+|---|---|---|---|---|---|---|
+| 202610030041 | 269.00 | 0044 | 03-10-2026 15:26:48 | Tarjeta de débito | Orden en TPV | orden |
+| 202610030040 | 222.00 | 0043 | 03-10-2026 14:53:50 | Efectivo | Orden en TPV | orden |
+| 202610030039 | 420.20 | 0042 | 03-10-2026 14:05:19 | Tarjeta de débito | Orden en TPV | orden |
+| 202610030038 | 92.00 | 0041 | 03-10-2026 13:51:29 | Efectivo | Orden en TPV | orden |
+| 202610030037 | 64.00 | 0039 | 03-10-2026 13:20:27 | Tarjeta bancaria | Orden en TPV | orden |
+| 202610030036 | 115.00 | 0038 | 03-10-2026 13:15:29 | Tarjeta de débito | Orden en TPV | orden |
+| 202610030035 | 99.00 | 0037 | 03-10-2026 12:44:23 | Tarjeta de débito | Orden en TPV | orden |
+| 202610030034 | 227.00 | 0036 | 03-10-2026 12:43:38 | Tarjeta de débito | Orden en TPV | orden |
+| 202610030033 | 235.00 | 0035 | 03-10-2026 12:33:53 | Tarjeta bancaria | Orden en TPV | orden |
+| 202610030032 | 195.00 | 0034 | 03-10-2026 12:16:28 | Efectivo | Orden en TPV | orden |
+| 202610030031 | 115.00 | 0033 | 03-10-2026 12:02:15 | Efectivo | Orden en TPV | orden |
+| 202610030030 | 76.00 | 0032 | 03-10-2026 12:00:17 | Efectivo | Orden en TPV | orden |
+| 202610030029 | 115.00 | 0031 | 03-10-2026 11:41:22 | Tarjeta bancaria | Orden en TPV | orden |
+| 202610030028 | 120.00 | 0030 | 03-10-2026 11:30:52 | Tarjeta de débito | Orden en TPV | orden |
+| 202610030027 | 198.00 | 0029 | 03-10-2026 11:13:50 | Tarjeta de débito | Orden en TPV | orden |
+| 202610030026 | 176.00 | 0028 | 03-10-2026 10:58:59 | Tarjeta de débito | Orden en TPV | orden |
+| 202610030025 | 196.00 | 0027 | 03-10-2026 10:51:30 | Tarjeta bancaria | Orden en TPV | orden |
+| 202610030024 | 148.00 | 0026 | 03-10-2026 10:42:23 | Efectivo | Orden en TPV | orden |
+| 202610030023 | 76.00 | 0025 | 03-10-2026 10:27:12 | Tarjeta de débito | Orden en TPV | orden |
+| 202610030022 | 152.00 | 0024 | 03-10-2026 10:15:47 | Efectivo | Orden en TPV | orden |
+| 202610030021 | 175.00 | 0023 | 03-10-2026 10:14:04 | Tarjeta de débito | Orden en TPV | orden |
+| 202610030020 | 59.00 | 0022 | 03-10-2026 10:12:12 | Tarjeta de débito | Orden en TPV | orden |
+| 202610030019 | 76.00 | 0021 | 03-10-2026 10:10:24 | Efectivo | Orden en TPV | orden |
+| 202610030018 | 175.00 | 0020 | 03-10-2026 10:05:22 | Efectivo | Orden en TPV | orden |
+| 202610030017 | 76.00 | 0019 | 03-10-2026 10:03:03 | Efectivo | Orden en TPV | orden |
+| 202610030016 | 120.00 | 0018 | 03-10-2026 10:01:43 | Efectivo | Orden en TPV | orden |
+| 202610030015 | 76.00 | 0017 | 03-10-2026 09:59:12 | Tarjeta de débito | Orden en TPV | orden |
+| 202610030014 | 115.00 | 0016 | 03-10-2026 09:53:02 | Tarjeta bancaria | Orden en TPV | orden |
+| 202610030013 | 254.00 | 0015 | 03-10-2026 09:50:53 | Tarjeta bancaria | Orden en TPV | orden |
+| 202610030012 | 99.00 | 0014 | 03-10-2026 09:35:36 | Tarjeta bancaria | Orden en TPV | orden |
+| 202610030011 | 120.00 | 0013 | 03-10-2026 09:24:34 | Tarjeta bancaria | Orden en TPV | orden |
+| 202610030010 | 168.00 | 0010 | 03-10-2026 09:09:57 | Tarjeta de débito | Orden en TPV | orden |
+| 202610030009 | 90.00 | 0009 | 03-10-2026 08:37:42 | Efectivo | Orden en TPV | orden |
+| 202610030008 | 117.00 | 0008 | 03-10-2026 08:34:25 | Tarjeta de débito | Orden en TPV | orden |
+| 202610030007 | 184.00 | 0007 | 03-10-2026 08:27:07 | Tarjeta de débito | Orden en TPV | orden |
+| 202610030006 | 76.00 | 0006 | 03-10-2026 08:22:38 | Efectivo | Orden en TPV | orden |
+| 202610030005 | 76.00 | 0005 | 03-10-2026 08:16:27 | Tarjeta de débito | Orden en TPV | orden |
+| 202610030004 | 156.00 | 0004 | 03-10-2026 08:03:42 | Tarjeta de débito | Orden en TPV | orden |
+| 202610030003 | 179.00 | 0003 | 03-10-2026 07:46:24 | Efectivo | Orden en TPV | orden |
+| 202610030002 | 186.00 | 0002 | 03-10-2026 07:37:24 | Efectivo | Orden en TPV | orden |
+| 202610030001 | 76.00 | 0001 | 03-10-2026 07:35:03 | Efectivo | Orden en TPV | orden |
+
+---
+
+## DETALLE DE PRODUCTOS
+
+| No. Orden | Producto | Opciones | Cantidad | Monto | Reembolso |
+|---|---|---|---|---|---|
+| 202610030041 | FRAPPE NUTELLA | 02 LECHE DESLACTOSADA | 1.0 | 115.00 | No |
+| 202610030041 | ROL DE CANELA CAJETA Y NUEZ |  | 1.0 | 70.00 | No |
+| 202610030041 | AGUA FRIA2 | MARACUYA | 1.0 | 84.00 | No |
+| 202610030040 | CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 2.0 | 152.00 | No |
+| 202610030040 | ROL DE CANELA MANZANA |  | 1.0 | 70.00 | No |
+| 202610030039 | AMERICANO CALIENTE |  | 1.0 | 59.00 | No |
+| 202610030039 | TÉ MANZANA/CANELA CALIENTE |  | 1.0 | 55.00 | No |
+| 202610030039 | SANDWICH P/P/PANELA | MULTIGRANO | 2.0 | 198.00 | No |
+| 202610030039 | ROL DE CANELA CAJETA Y NUEZ |  | 1.0 | 70.00 | No |
+| 202610030038 | MOKA CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 92.00 | No |
+| 202610030037 | AMERICANO FRIO |  | 1.0 | 64.00 | No |
+| 202610030036 | MATCHA FRAPPE | 01 LECHE ENTERA | 1.0 | 115.00 | No |
+| 202610030035 | COFFE TONIC |  | 1.0 | 99.00 | No |
+| 202610030034 | CHAI VAINILLA S/A CALIENTE | 02LECHE DESLACTOSADA | 1.0 | 100.00 | No |
+| 202610030034 | CHAI VAINILLA S/A FRAPPE | 13 LECHE DE SOYA | 1.0 | 127.00 | No |
+| 202610030033 | ROL DE CANELA |  | 1.0 | 60.00 | No |
+| 202610030033 | ROL DE CANELA MANZANA |  | 1.0 | 70.00 | No |
+| 202610030033 | CHAI ORIGINAL FRIO |  | 1.0 | 105.00 | No |
+| 202610030032 | CHAPATA CHILORIO |  | 1.0 | 150.00 | No |
+| 202610030032 | COCA ZERO |  | 1.0 | 45.00 | No |
+| 202610030031 | MATCHA FRAPPE | 02 LECHE DESLACTOSADA | 1.0 | 115.00 | No |
+| 202610030030 | LATTE CALIENTE |  | 1.0 | 76.00 | No |
+| 202610030029 | FRAPPE NUTELLA | 01 LECHE ENTERA | 1.0 | 115.00 | No |
+| 202610030028 | MANZANA ENCHILADA |  | 1.0 | 50.00 | No |
+| 202610030028 | ROL DE CANELA MANZANA |  | 1.0 | 70.00 | No |
+| 202610030027 | SANDWICH P/P/PANELA | MANTEQUILLA | 2.0 | 198.00 | No |
+| 202610030026 | FLAT WHITE CALIENTE | 01 LECHE ENTERA | 1.0 | 76.00 | No |
+| 202610030026 | CHAI ORIGINAL CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 100.00 | No |
+| 202610030025 | FLAT WHITE CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 76.00 | No |
+| 202610030025 | CHAPATA P/P/PANELA | PAVO | 1.0 | 120.00 | No |
+| 202610030024 | CAPUCCINO CALIENTE | 04 LECHE DE ALMENDRA | 1.0 | 88.00 | No |
+| 202610030024 | ROL DE CANELA |  | 1.0 | 60.00 | No |
+| 202610030023 | CAPUCCINO CALIENTE |  | 1.0 | 76.00 | No |
+| 202610030022 | MOKA BLANCO CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 92.00 | No |
+| 202610030022 | ROL DE CANELA |  | 1.0 | 60.00 | No |
+| 202610030021 | FLAT WHITE CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 76.00 | No |
+| 202610030021 | SANDWICH P/P/PANELA | MULTIGRANO | 1.0 | 99.00 | No |
+| 202610030020 | AMERICANO CALIENTE |  | 1.0 | 59.00 | No |
+| 202610030019 | CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 76.00 | No |
+| 202610030018 | FRAPPE NUTELLA | 02 LECHE DESLACTOSADA | 1.0 | 115.00 | No |
+| 202610030018 | ROL DE CANELA |  | 1.0 | 60.00 | No |
+| 202610030017 | CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 76.00 | No |
+| 202610030016 | CHAPATA P/P/PANELA | PAVO | 1.0 | 120.00 | No |
+| 202610030015 | LATTE CALIENTE | LECHE LIGHT | 1.0 | 76.00 | No |
+| 202610030014 | CHAI VAINILLA S/A FRAPPE | 02 LECHE DESLACTOSADA | 1.0 | 115.00 | No |
+| 202610030013 | TÉ VERDE CALIENTE |  | 1.0 | 55.00 | No |
+| 202610030013 | EUROPEO CALIENTE |  | 1.0 | 79.00 | No |
+| 202610030013 | ROL DE CANELA |  | 2.0 | 120.00 | No |
+| 202610030012 | SANDWICH P/P/PANELA | MULTIGRANO/PAVO | 1.0 | 99.00 | No |
+| 202610030011 | CHAI VAINILLA S/A CALIENTE | 02LECHE DESLACTOSADA | 1.0 | 100.00 | No |
+| 202610030011 | AGUA |  | 1.0 | 20.00 | No |
+| 202610030010 | CAPUCCINO CALIENTE | 09 LECHE DESLC LIGHT | 1.0 | 76.00 | No |
+| 202610030010 | CAPUCCINO CALIENTE CARAMEL | 09 LECHE DESLC LIGHT | 1.0 | 92.00 | No |
+| 202610030009 | CHOCOLATE CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 90.00 | No |
+| 202610030008 | CHAI VAINILLA FRIO | 04 LECHE DE ALMENDRA | 1.0 | 117.00 | No |
+| 202610030007 | CAPUCCINO CALIENTE CARAMEL | 02 LECHE DESLACTOSADA | 1.0 | 92.00 | No |
+| 202610030007 | MOKA CAPUCCINO CALIENTE | 09 LECHE DESLC LIGHT | 1.0 | 92.00 | No |
+| 202610030006 | CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1.0 | 76.00 | No |
+| 202610030005 | LATTE CALIENTE | 09 LECHE DESLC LIGHT | 1.0 | 76.00 | No |
+| 202610030004 | CAPUCCINO FRIO VAINILLA | 02 LECHE DESLACTOSADA | 1.0 | 97.00 | No |
+| 202610030004 | AMERICANO CALIENTE |  | 1.0 | 59.00 | No |
+| 202610030003 | CHAPATA P/P/PANELA | PAVO | 1.0 | 120.00 | No |
+| 202610030003 | AMERICANO CALIENTE |  | 1.0 | 59.00 | No |
+| 202610030002 | ESPRESSO SENCILLO |  | 1.0 | 40.00 | No |
+| 202610030002 | CAPUCCINO CALIENTE | 09 LECHE DESLC LIGHT | 1.0 | 76.00 | No |
+| 202610030002 | GALLETAS NEW YORK | MATCHA | 1.0 | 70.00 | No |
+| 202610030001 | LATTE CALIENTE | 01 LECHE ENTERA | 1.0 | 76.00 | No |
+
+---
+
+## NOTAS
+
+- Datos: API de órdenes (`/admin/baigong/order/list`) + detalle de productos por orden (`/admin/baigong/order/info`)
+- El Cierre formal no fue ejecutado por el cajero
+- Match órdenes vs productos: DIFERENCIA $38.20
+- Generado: 2026-10-04T20:11:44.365676 (recopos_extractor.py / GitHub Actions)
