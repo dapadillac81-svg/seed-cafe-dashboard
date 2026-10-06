@@ -1,9 +1,9 @@
 {
-  "fecha_objetivo": "2026-10-05",
-  "dia_semana": "Lunes",
-  "generado": "04-10-2026 14:11",
-  "dias_historial_mismo_dia": 16,
-  "dias_historial_total": 99,
+  "fecha_objetivo": "2026-10-06",
+  "dia_semana": "Martes",
+  "generado": "06-10-2026 12:51",
+  "dias_historial_mismo_dia": 17,
+  "dias_historial_total": 100,
   "productos": [
     {
       "producto": "Total piezas sugeridas",
@@ -13,27 +13,22 @@
     {
       "producto": "Total piezas sugeridas",
       "categoria": "FRÍAS / FRAPPÉS / SMOOTHIES",
-      "cantidad_sugerida": 17
+      "cantidad_sugerida": 22
     },
     {
       "producto": "Total piezas sugeridas",
       "categoria": "OTRAS BEBIDAS",
-      "cantidad_sugerida": 2
+      "cantidad_sugerida": 4
     },
     {
       "producto": "SANDWICH P",
       "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 9
+      "cantidad_sugerida": 8
     },
     {
       "producto": "CHAPATA P",
       "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 5
-    },
-    {
-      "producto": "CHAPATA CHILORIO",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 2
+      "cantidad_sugerida": 4
     },
     {
       "producto": "ENSALADA",
@@ -46,9 +41,9 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "WRAP DE OMELETTE JAMON Y QUESO",
+      "producto": "CHAPATA CHILORIO",
       "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 2
+      "cantidad_sugerida": 1
     },
     {
       "producto": "SINCRONIZADAS DE CHILORIO",
@@ -57,6 +52,11 @@
     },
     {
       "producto": "SINCRONIZADAS DE JAMON",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 1
+    },
+    {
+      "producto": "WRAP DE OMELETTE JAMON Y QUESO",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 1
     },
@@ -71,12 +71,22 @@
       "cantidad_sugerida": 4
     },
     {
-      "producto": "ROL DE CANELA CAJETA Y NUEZ",
+      "producto": "GALLETAS NEW YORK",
       "categoria": "POSTRES",
       "cantidad_sugerida": 2
     },
     {
-      "producto": "GALLETAS NEW YORK",
+      "producto": "NUTRI BARRA",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 2
+    },
+    {
+      "producto": "POLVORONES",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 2
+    },
+    {
+      "producto": "ROL DE CANELA CAJETA Y NUEZ",
       "categoria": "POSTRES",
       "cantidad_sugerida": 2
     },
@@ -86,12 +96,7 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "NUTRI BARRA",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "POLVORONES",
+      "producto": "ROL DE CANELA NUTELLA",
       "categoria": "POSTRES",
       "cantidad_sugerida": 1
     },
@@ -103,7 +108,7 @@
     {
       "producto": "AGUA",
       "categoria": "REFRESCOS",
-      "cantidad_sugerida": 1
+      "cantidad_sugerida": 2
     },
     {
       "producto": "COCA COLA",
