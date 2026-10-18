@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-16",
+  "generado": "2026-10-18",
   "negocio": "Seed Café",
   "periodo": {
     "inicio": "2026-06-06",
@@ -1055,12 +1055,12 @@
       "ingreso": 0.0
     },
     {
-      "producto": "FLAT WHITE CALIENTE（02 LECHE DESLACTOSADA）",
+      "producto": "CAPUCCINO CALIENTE（01 LECHE ENTERA）",
       "unidades": 184,
       "ingreso": 0.0
     },
     {
-      "producto": "CAPUCCINO CALIENTE（01 LECHE ENTERA）",
+      "producto": "FLAT WHITE CALIENTE（02 LECHE DESLACTOSADA）",
       "unidades": 184,
       "ingreso": 0.0
     },
@@ -1100,12 +1100,12 @@
       "ingreso": 0.0
     },
     {
-      "producto": "SANDWICH P/P/PANELA（MANTEQUILLA）",
+      "producto": "POLVORONES",
       "unidades": 135,
       "ingreso": 0.0
     },
     {
-      "producto": "POLVORONES",
+      "producto": "SANDWICH P/P/PANELA（MANTEQUILLA）",
       "unidades": 135,
       "ingreso": 0.0
     },
@@ -1194,11 +1194,11 @@
           "unidades": 74
         },
         {
-          "producto": "MOKA BLANCO CAPUCCINO CALIENTE",
+          "producto": "CAPUCCINO CALIENTE VAINILLA",
           "unidades": 62
         },
         {
-          "producto": "CAPUCCINO CALIENTE VAINILLA",
+          "producto": "MOKA BLANCO CAPUCCINO CALIENTE",
           "unidades": 62
         },
         {
@@ -1288,15 +1288,15 @@
           "unidades": 3
         },
         {
-          "producto": "MOKA CAPUCCINO FRAPPE/16 OZ",
-          "unidades": 1
-        },
-        {
           "producto": "CAPUCCINO FRAPPE/16 OZ",
           "unidades": 1
         },
         {
           "producto": "AMARETTO CAPUCCINO FRAPPE",
+          "unidades": 1
+        },
+        {
+          "producto": "MOKA CAPUCCINO FRAPPE/16 OZ",
           "unidades": 1
         }
       ]
@@ -1431,7 +1431,7 @@
           "unidades": 26
         },
         {
-          "producto": "AGUA FRIA2",
+          "producto": "TE DURAZNO JAMAICA FRIO",
           "unidades": 25
         }
       ]
@@ -1505,11 +1505,11 @@
           "unidades": 5
         },
         {
-          "producto": "GINGER ALE",
+          "producto": "COCA ZERO/355 ML LATA",
           "unidades": 3
         },
         {
-          "producto": "COCA ZERO/355 ML LATA",
+          "producto": "GINGER ALE",
           "unidades": 3
         },
         {
@@ -1595,11 +1595,11 @@
           "unidades": 8
         },
         {
-          "producto": "GUANABANA SMOOTHIE",
+          "producto": "COCO SMOOTHIE",
           "unidades": 5
         },
         {
-          "producto": "COCO SMOOTHIE",
+          "producto": "GUANABANA SMOOTHIE",
           "unidades": 5
         },
         {
@@ -1607,7 +1607,7 @@
           "unidades": 3
         },
         {
-          "producto": "GUAYABA SMOOTHIE/16 OZ",
+          "producto": "MIX BERRIES SMOOTHIE/16 OZ",
           "unidades": 1
         }
       ]
@@ -1636,15 +1636,15 @@
           "unidades": 5
         },
         {
-          "producto": "Moka - Frappé",
-          "unidades": 4
-        },
-        {
           "producto": "Chocomenta - Frappé",
           "unidades": 4
         },
         {
-          "producto": "Americano - Caliente",
+          "producto": "Moka - Frappé",
+          "unidades": 4
+        },
+        {
+          "producto": "Capuccino - Caliente",
           "unidades": 3
         },
         {
@@ -1652,7 +1652,7 @@
           "unidades": 3
         },
         {
-          "producto": "Capuccino - Caliente",
+          "producto": "Americano - Caliente",
           "unidades": 3
         }
       ]
