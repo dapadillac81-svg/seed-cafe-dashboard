@@ -1,48 +1,30 @@
 name: Reporte diario Seed Café
 
+# La extracción de RecoPOS vive en Render (bot Asistente), que sube data_txt/cierre_*.txt.
+# Este workflow solo regenera el dashboard cuando llega un cierre nuevo.
 on:
-  schedule:
-    # Intenta extraer el cierre de RecoPOS cada 15 minutos durante el horario
-    # de la cafetería (13:00-03:00 UTC ≈ 07:00 AM-09:00 PM hora de Ciudad de
-    # México). La mayoría de los ticks no hacen nada (el día ya está
-    # procesado) — es barato, y así el reporte sale apenas hay datos nuevos
-    # sin depender de que alguien lo dispare a mano.
-    - cron: "*/15 13-23,0-3 * * *"
+  push:
+    branches: [main]
+    paths: ["data_txt/**"]
   workflow_dispatch:
-    inputs:
-      fecha:
-        description: "Fecha a regenerar el dashboard (YYYY-MM-DD). Vacío = usa datos existentes."
-        required: false
-        type: string
 
 permissions:
   contents: write
 
 concurrency:
-  # Evita corridas encimadas: si el login pide CAPTCHA, puede tardar hasta 2h
-  # esperando respuesta por Telegram — sin esto, el siguiente tick del
-  # schedule (cada 15 min) lanzaría OTRA corrida en paralelo y mandaría un
-  # segundo CAPTCHA mientras el primero sigue esperando.
+  # Varios cierres seguidos (pendientes): basta con que termine la última corrida
   group: reporte-diario
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   generar-reporte:
     runs-on: ubuntu-latest
-    # Cada corrida es corta a propósito: escucha ~20 min por el aviso de
-    # login y ~16 min por las imágenes del CAPTCHA, y si no hay respuesta se
-    # retira en silencio — el cron vuelve en 15 min. 90 min le da margen a los
-    # reintentos y, sobre todo, le pone techo: sin esto una corrida colgada
-    # bloquea el grupo de concurrencia y ningún tick posterior vuelve a correr.
-    timeout-minutes: 90
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Los .xlsx con detalle de ventas son sensibles y NO se suben al repo
-      # (que es público en esta fase piloto). Se conservan entre ejecuciones
-      # (junto con el manifiesto de archivos ya procesados) usando el caché de
-      # Actions, que es privado del repositorio.
+      # Los .xlsx históricos son sensibles y no se suben al repo público; viven en el caché privado
       - name: Restaurar histórico de datos (caché privado)
         uses: actions/cache@v4
         with:
@@ -59,133 +41,23 @@ jobs:
       - name: Instalar dependencias
         run: pip install -r requirements.txt
 
-      # Extracción de RecoPOS: corre aquí mismo, en cada tick del schedule —
-      # ya no depende de que Daniel escriba "cierre" en Telegram, ni de
-      # Google Drive como intermediario. El token de sesión se guarda en
-      # data/.recopos_token.json (persistido por el caché de arriba) y se
-      # reutiliza mientras siga vigente; el CAPTCHA solo se pide por
-      # Telegram cuando de verdad hace falta volver a iniciar sesión.
-      - name: Extraer cierre diario de RecoPOS
-        id: sync
-        env:
-          RECOPOS_SHOP_ID: ${{ secrets.RECOPOS_SHOP_ID }}
-          RECOPOS_USER: ${{ secrets.RECOPOS_USER }}
-          RECOPOS_PASSWORD: ${{ secrets.RECOPOS_PASSWORD }}
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          FECHA_OBJETIVO: ${{ github.event.inputs.fecha }}
-        run: python recopos_extractor.py
-
-      # if: always() y no `exito == 'true'`. Ese era el punto ciego: el vigía
-      # existe para avisar cuando el robot se cae, pero su condición lo apagaba
-      # exactamente en ese caso. Seis días de septiembre 2026 pasaron sin datos
-      # y sin una sola alerta.
-      - name: Verificar historial (avisa por Telegram si hay huecos o si el último día está muy atrasado)
-        if: always()
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: |
-          python - <<'EOF'
-          import os, re, datetime, urllib.request, json
-
-          def avisar_telegram(texto):
-              token = os.environ.get("TELEGRAM_BOT_TOKEN")
-              chat_id = os.environ.get("TELEGRAM_CHAT_ID")
-              if not token or not chat_id:
-                  print("::warning::TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID no configurados — no se pudo avisar.")
-                  return
-              body = json.dumps({"chat_id": chat_id, "text": texto, "parse_mode": "HTML"}).encode()
-              req = urllib.request.Request(
-                  f"https://api.telegram.org/bot{token}/sendMessage",
-                  data=body, headers={"Content-Type": "application/json"},
-              )
-              try:
-                  urllib.request.urlopen(req, timeout=10)
-              except Exception as e:
-                  print(f"::warning::Fallo enviando alerta a Telegram: {e}")
-
-          txt_dir = "data_txt"
-          fechas = set()
-          for fn in os.listdir(txt_dir):
-              m = re.match(r"cierre_(\d{4}-\d{2}-\d{2})\.txt$", fn)
-              if m:
-                  fechas.add(datetime.date.fromisoformat(m.group(1)))
-
-          if not fechas:
-              print("Sin archivos cierre_*.txt, continuando.")
-          else:
-              inicio, fin = min(fechas), max(fechas)
-              faltantes = [
-                  str(inicio + datetime.timedelta(days=i))
-                  for i in range((fin - inicio).days + 1)
-                  if (d := inicio + datetime.timedelta(days=i)).weekday() != 6
-                  and d not in fechas
-              ]
-              if faltantes:
-                  msg = f"::warning::Faltan {len(faltantes)} día(s) en el historial: {', '.join(faltantes)}"
-                  print(msg)
-
-              # Vigía: si el último cierre registrado tiene más de 2 días hábiles
-              # de atraso, algo se rompió (probablemente el CAPTCHA de RecoPOS
-              # sigue esperando respuesta, o el login falló) y nadie se va a
-              # enterar solo si no se avisa explícitamente.
-              hoy = datetime.date.today()
-              dias_habiles_atras = sum(
-                  1 for i in range(1, (hoy - fin).days + 1)
-                  if (hoy - datetime.timedelta(days=i)).weekday() != 6
-              )
-              # Freno de spam: el vigía ahora corre en CADA tick (~60 al día).
-              # Sin esto, un robot caído mandaría 60 alertas idénticas y Daniel
-              # silenciaría el chat — que es justo lo contrario de lo que se
-              # busca. Un aviso por día basta. El marcador vive en data/, que
-              # se conserva con el caché de Actions y no se commitea.
-              os.makedirs("data", exist_ok=True)
-              marcador = "data/.ultimo_aviso_atraso"
-              try:
-                  with open(marcador, encoding="utf-8") as f:
-                      ultimo_aviso = f.read().strip()
-              except FileNotFoundError:
-                  ultimo_aviso = ""
-
-              if dias_habiles_atras >= 2 and ultimo_aviso != hoy.isoformat():
-                  with open(marcador, "w", encoding="utf-8") as f:
-                      f.write(hoy.isoformat())
-                  avisar_telegram(
-                      f"⚠️ <b>SEED CAFÉ — Reporte diario atrasado</b>\n\n"
-                      f"El último cierre registrado es del {fin.isoformat()} "
-                      f"({dias_habiles_atras} días hábiles de atraso).\n\n"
-                      f"Revisa las corridas de 'Reporte diario Seed Café' en GitHub Actions — "
-                      f"probablemente el login a RecoPOS está esperando que respondas un CAPTCHA, "
-                      f"o falló por otra razón."
-                  )
-
-              print(f"OK — {inicio} → {fin} ({len(fechas)} días registrados)")
-          EOF
-
       - name: Generar dashboard HTML
-        if: steps.sync.outputs.exito == 'true' || github.event_name == 'workflow_dispatch'
         run: python generate_report.py
 
       - name: Generar resumen analítico JSON
-        if: steps.sync.outputs.exito == 'true' || github.event_name == 'workflow_dispatch'
         run: python generate_summary.py
 
-      - name: Publicar dashboard y cierre del día
-        if: steps.sync.outputs.exito == 'true' || github.event_name == 'workflow_dispatch'
+      - name: Publicar dashboard
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/*.html docs/*.json docs/resumen_analitico.json data_txt/cierre_*.txt
+          git add docs/*.html docs/*.json
           if git diff --cached --quiet; then
             echo "Sin cambios para publicar."
-          else
-            git commit -m "Reporte automático: actualiza dashboard"
-            for intento in 1 2 3; do
-              if git push; then
-                break
-              fi
-              echo "Push rechazado (probablemente otra corrida en paralelo), reintentando con rebase..."
-              git pull --rebase origin main
-            done
+            exit 0
           fi
+          git commit -m "Reporte automático: actualiza dashboard"
+          for intento in 1 2 3; do
+            git push && break
+            git pull --rebase origin main
+          done
