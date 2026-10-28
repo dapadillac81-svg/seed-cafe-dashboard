@@ -260,4 +260,4 @@ OREJITAS: 8 uds — $320.00
 - Datos: API de órdenes + detalle de productos por orden
 - El Cierre formal no fue ejecutado por el cajero
 - Match órdenes vs productos: OK
-- Generado: 2026-10-28T01:39:41.681Z (Render)
+- Generado: 2026-10-28T01:42:29.322Z (Render)
