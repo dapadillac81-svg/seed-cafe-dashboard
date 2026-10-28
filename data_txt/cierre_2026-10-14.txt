@@ -1,5 +1,0 @@
-# Cierre Diario — SEED CAFÉ
-## 2026-10-14
-
-Sin órdenes registradas este día (tienda cerrada o sin ventas).
-Generado: 2026-10-15T17:31:48.345655 (recopos_extractor.py)
