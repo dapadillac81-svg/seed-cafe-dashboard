@@ -1,0 +1,143 @@
+# Cierre Diario — SEED CAFÉ
+## Lunes 2 de noviembre de 2026
+
+---
+
+## RESUMEN DEL DÍA
+
+Tienda: SEED CAFÉ (200012148)
+Horario operativo: 07:59 – 18:09
+Total de órdenes: 33
+Total ventas: $4594.00
+Ticket promedio: $139.21
+Ticket mínimo: $27.00
+Ticket máximo: $401.00
+
+---
+
+## POR MÉTODO DE PAGO
+
+Tarjeta bancaria: 14 órdenes — $2333.00 (51%)
+Efectivo: 14 órdenes — $1577.00 (34%)
+Tarjeta de débito: 4 órdenes — $620.00 (13%)
+Transferencia: 1 órdenes — $64.00 (1%)
+TOTAL: 33 órdenes — $4594.00
+
+---
+
+## TOP 5 PRODUCTOS
+
+BROWNIE: 4 uds — $180.00
+ROL DE CANELA: 3 uds — $180.00
+MAZAPAN CALIENTE: 3 uds — $297.00
+FLAT WHITE CALIENTE: 3 uds — $240.00
+CAPUCCINO CALIENTE: 3 uds — $228.00
+
+---
+
+## DETALLE DE ÓRDENES
+
+| No. Orden | Monto | Folio/Mesa | Hora | Pago | Fuente | Tipo |
+|---|---|---|---|---|---|---|
+| 202611020033 | 202.00 | 0036 | 02-11-2026 18:09:29 | Tarjeta de débito | Orden en TPV | orden |
+| 202611020032 | 159.00 | 0035 | 02-11-2026 18:04:01 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611020031 | 177.00 | 0034 | 02-11-2026 17:39:00 | Tarjeta de débito | Orden en TPV | orden |
+| 202611020030 | 90.00 | 0033 | 02-11-2026 17:24:25 | Efectivo | Orden en TPV | orden |
+| 202611020029 | 50.00 | 0032 | 02-11-2026 16:58:39 | Efectivo | Orden en TPV | orden |
+| 202611020028 | 110.00 | 0031 | 02-11-2026 16:58:09 | Efectivo | Orden en TPV | orden |
+| 202611020027 | 298.00 | 0029 | 02-11-2026 16:56:03 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611020026 | 102.00 | 0030 | 02-11-2026 16:34:47 | Tarjeta de débito | Orden en TPV | orden |
+| 202611020025 | 115.00 | 0028 | 02-11-2026 15:37:16 | Efectivo | Orden en TPV | orden |
+| 202611020024 | 64.00 | 0027 | 02-11-2026 15:04:22 | Transferencia | Orden en TPV | orden |
+| 202611020023 | 45.00 | 0026 | 02-11-2026 14:57:08 | Efectivo | Orden en TPV | orden |
+| 202611020022 | 105.00 | 0025 | 02-11-2026 14:56:08 | Efectivo | Orden en TPV | orden |
+| 202611020021 | 105.00 | 0024 | 02-11-2026 14:37:30 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611020020 | 139.00 | 0023 | 02-11-2026 13:58:14 | Tarjeta de débito | Orden en TPV | orden |
+| 202611020019 | 64.00 | 0022 | 02-11-2026 13:41:40 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611020018 | 76.00 | 0021 | 02-11-2026 13:06:08 | Efectivo | Orden en TPV | orden |
+| 202611020017 | 182.00 | 0020 | 02-11-2026 13:00:46 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611020016 | 175.00 | 0019 | 02-11-2026 12:46:07 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611020015 | 76.00 | 0018 | 02-11-2026 12:34:48 | Efectivo | Orden en TPV | orden |
+| 202611020014 | 115.00 | 0017 | 02-11-2026 12:29:18 | Efectivo | Orden en TPV | orden |
+| 202611020013 | 75.00 | 0016 | 02-11-2026 12:21:04 | Efectivo | Orden en TPV | orden |
+| 202611020012 | 401.00 | 0015 | 02-11-2026 12:03:23 | Efectivo | Orden en TPV | orden |
+| 202611020011 | 240.00 | 0014 | 02-11-2026 12:00:07 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611020010 | 250.00 | 0013 | 02-11-2026 11:19:18 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611020009 | 152.00 | 0012 | 02-11-2026 11:17:09 | Efectivo | Orden en TPV | orden |
+| 202611020008 | 48.00 | 0011 | 02-11-2026 11:00:40 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611020007 | 76.00 | 0009 | 02-11-2026 10:51:35 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611020006 | 140.00 | 0008 | 02-11-2026 10:50:49 | Efectivo | Orden en TPV | orden |
+| 202611020005 | 27.00 | 0006 | 02-11-2026 10:01:39 | Efectivo | Orden en TPV | orden |
+| 202611020004 | 76.00 | 0005 | 02-11-2026 09:33:23 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611020003 | 318.00 | 0003 | 02-11-2026 09:00:05 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611020002 | 230.00 | 0002 | 02-11-2026 08:33:20 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611020001 | 112.00 | 0001 | 02-11-2026 07:59:57 | Tarjeta bancaria | Orden en TPV | orden |
+
+---
+
+## DETALLE DE PRODUCTOS
+
+| No. Orden | Producto | Opciones | Cantidad | Monto | Reembolso |
+|---|---|---|---|---|---|
+| 202611020033 | CHAI VAINILLA CALIENTE | 04 LECHE DE ALMENDRA | 1 | 112.00 | No |
+| 202611020033 | BROWNIE |  | 2 | 90.00 | No |
+| 202611020032 | COFFE TONIC |  | 1 | 99.00 | No |
+| 202611020032 | TÉ CANELA A LA MANZANA FRIO |  | 1 | 60.00 | No |
+| 202611020031 | MATCHA FRIO | 03 LECHE DE COCO | 1 | 117.00 | No |
+| 202611020031 | ROL DE CANELA |  | 1 | 60.00 | No |
+| 202611020030 | MAZAPAN CALIENTE | 01LECHE ENTERA | 1 | 90.00 | No |
+| 202611020029 | GOMITAS |  | 2 | 50.00 | No |
+| 202611020028 | MOKA BLANCO CAPUCCINO FRAPPE | 01 LECHE ENTERA | 1 | 110.00 | No |
+| 202611020027 | WRAP DE OMELETTE JAMON Y QUESO |  | 1 | 140.00 | No |
+| 202611020027 | FLAT WHITE CALIENTE | 04 LECHE DE ALMENDRA | 1 | 88.00 | No |
+| 202611020027 | GALLETAS NEW YORK | MATCHA | 1 | 70.00 | No |
+| 202611020026 | MAZAPAN CALIENTE | 14 LECHE DE AVENA | 1 | 102.00 | No |
+| 202611020025 | BROWNIE |  | 1 | 45.00 | No |
+| 202611020025 | ROL DE CANELA MANZANA |  | 1 | 70.00 | No |
+| 202611020024 | AMERICANO FRIO |  | 1 | 64.00 | No |
+| 202611020023 | BROWNIE |  | 1 | 45.00 | No |
+| 202611020022 | MAZAPAN CALIENTE | Shot Extra Cafe/09 LECHE DESLC LIGHT | 1 | 105.00 | No |
+| 202611020021 | GUANABANA SMOOTHIE |  | 1 | 105.00 | No |
+| 202611020020 | COFFE TONIC |  | 1 | 99.00 | No |
+| 202611020020 | OREJITAS |  | 1 | 40.00 | No |
+| 202611020019 | AMERICANO FRIO |  | 1 | 64.00 | No |
+| 202611020018 | LATTE CALIENTE |  | 1 | 76.00 | No |
+| 202611020017 | TÉ DURAZNO JAMAICA CALIENTE |  | 1 | 55.00 | No |
+| 202611020017 | CHAI ORIGINAL FRAPPE | 04 LECHE DE ALMENDRA | 1 | 127.00 | No |
+| 202611020016 | SANDWICH P/P/PANELA | MULTIGRANO | 1 | 99.00 | No |
+| 202611020016 | FLAT WHITE CALIENTE | 02 LECHE DESLACTOSADA | 1 | 76.00 | No |
+| 202611020015 | CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1 | 76.00 | No |
+| 202611020014 | MATCHA FRAPPE | 01 LECHE ENTERA/02 LECHE DESLACTOSADA | 1 | 115.00 | No |
+| 202611020013 | AGUA TONICA |  | 2 | 90.00 | No |
+| 202611020012 | SINCRONIZADAS DE CHILORIO |  | 1 | 150.00 | No |
+| 202611020012 | LATTE CALIENTE | 01 LECHE ENTERA | 1 | 76.00 | No |
+| 202611020012 | FRAPPE YOGURT MIX BERRIES |  | 1 | 115.00 | No |
+| 202611020012 | ROL DE CANELA |  | 1 | 60.00 | No |
+| 202611020011 | CHAPATA CHILORIO |  | 1 | 150.00 | No |
+| 202611020011 | CHOCOLATE TRADICIONAL CALIENTE |  | 1 | 90.00 | No |
+| 202611020010 | MOLLETES |  | 1 | 140.00 | No |
+| 202611020010 | FRAPPE HORCHATA | 01 LECHE ENTERA | 1 | 110.00 | No |
+| 202611020009 | CAPUCCINO CALIENTE AMARETTO | 02 LECHE DESLACTOSADA | 1 | 92.00 | No |
+| 202611020009 | ROL DE CANELA |  | 1 | 60.00 | No |
+| 202611020008 | ESPRESSO DOBLE |  | 1 | 48.00 | No |
+| 202611020007 | CAPUCCINO CALIENTE | 11 DESCAFEINADO | 1 | 76.00 | No |
+| 202611020006 | FRESA SMOOTHIE |  | 1 | 100.00 | No |
+| 202611020006 | POLVORONES |  | 1 | 40.00 | No |
+| 202611020005 | MATCHA FRAPPE | 01 LECHE ENTERA | 1 | 115.00 | No |
+| 202611020005 | BEBIDA GRATIS PROGRAMA LEALTAD |  | 1 | 0.00 | No |
+| 202611020004 | CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1 | 76.00 | No |
+| 202611020003 | CHAPATA CHILORIO |  | 1 | 150.00 | No |
+| 202611020003 | FLAT WHITE CALIENTE | 02 LECHE DESLACTOSADA | 1 | 76.00 | No |
+| 202611020003 | CAPUCCINO CALIENTE AMARETTO | 02 LECHE DESLACTOSADA | 1 | 92.00 | No |
+| 202611020002 | TARO S/A CALIENTE | 02 LECHE DESLACTOSADA | 1 | 100.00 | No |
+| 202611020002 | SINCRONIZADAS DE JAMON |  | 1 | 130.00 | No |
+| 202611020001 | CHAI VAINILLA CALIENTE | 14 LECHE DE AVENA | 1 | 112.00 | No |
+
+---
+
+## NOTAS
+
+- Datos: API de órdenes + detalle de productos por orden
+- El Cierre formal no fue ejecutado por el cajero
+- Match órdenes vs productos: DIFERENCIA $103.00
+- Generado: 2026-11-03T03:51:39.850Z (Render)
