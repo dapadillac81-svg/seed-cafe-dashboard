@@ -1,19 +1,19 @@
 {
-  "fecha_objetivo": "2026-11-03",
-  "dia_semana": "Martes",
-  "generado": "02-11-2026 21:52",
-  "dias_historial_mismo_dia": 21,
-  "dias_historial_total": 124,
+  "fecha_objetivo": "2026-11-04",
+  "dia_semana": "Miércoles",
+  "generado": "04-11-2026 09:23",
+  "dias_historial_mismo_dia": 20,
+  "dias_historial_total": 125,
   "productos": [
     {
       "producto": "Total piezas sugeridas",
       "categoria": "BEBIDAS CALIENTES",
-      "cantidad_sugerida": 39
+      "cantidad_sugerida": 40
     },
     {
       "producto": "Total piezas sugeridas",
       "categoria": "FRÍAS / FRAPPÉS / SMOOTHIES",
-      "cantidad_sugerida": 18
+      "cantidad_sugerida": 19
     },
     {
       "producto": "Total piezas sugeridas",
@@ -23,15 +23,20 @@
     {
       "producto": "SANDWICH P",
       "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 8
+      "cantidad_sugerida": 9
     },
     {
       "producto": "CHAPATA P",
       "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 4
+      "cantidad_sugerida": 5
     },
     {
-      "producto": "CHAPATA CHILORIO",
+      "producto": "WRAP DE OMELETTE JAMON Y QUESO",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 2
+    },
+    {
+      "producto": "ENSALADA",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 2
     },
@@ -41,7 +46,7 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "ENSALADA",
+      "producto": "CHAPATA CHILORIO",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 1
     },
@@ -56,11 +61,6 @@
       "cantidad_sugerida": 1
     },
     {
-      "producto": "WRAP DE OMELETTE JAMON Y QUESO",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 1
-    },
-    {
       "producto": "WRAP DE OMELETTE Y CHILORIO",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 1
@@ -71,17 +71,17 @@
       "cantidad_sugerida": 4
     },
     {
+      "producto": "ROL DE CANELA CAJETA Y NUEZ",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 3
+    },
+    {
       "producto": "GALLETAS NEW YORK",
       "categoria": "POSTRES",
       "cantidad_sugerida": 2
     },
     {
       "producto": "POLVORONES",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 2
-    },
-    {
-      "producto": "ROL DE CANELA CAJETA Y NUEZ",
       "categoria": "POSTRES",
       "cantidad_sugerida": 2
     },
@@ -102,6 +102,11 @@
     },
     {
       "producto": "TRENZAS DE MAPLE Y NUEZ",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 1
+    },
+    {
+      "producto": "YOGURT GRIEGO CON FRESAS",
       "categoria": "POSTRES",
       "cantidad_sugerida": 1
     },
