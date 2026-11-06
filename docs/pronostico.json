@@ -1,9 +1,9 @@
 {
-  "fecha_objetivo": "2026-11-04",
-  "dia_semana": "Miércoles",
-  "generado": "04-11-2026 09:23",
+  "fecha_objetivo": "2026-11-06",
+  "dia_semana": "Viernes",
+  "generado": "06-11-2026 07:50",
   "dias_historial_mismo_dia": 20,
-  "dias_historial_total": 125,
+  "dias_historial_total": 127,
   "productos": [
     {
       "producto": "Total piezas sugeridas",
@@ -18,7 +18,7 @@
     {
       "producto": "Total piezas sugeridas",
       "categoria": "OTRAS BEBIDAS",
-      "cantidad_sugerida": 6
+      "cantidad_sugerida": 4
     },
     {
       "producto": "SANDWICH P",
@@ -28,10 +28,10 @@
     {
       "producto": "CHAPATA P",
       "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 5
+      "cantidad_sugerida": 6
     },
     {
-      "producto": "WRAP DE OMELETTE JAMON Y QUESO",
+      "producto": "CHAPATA CHILORIO",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 2
     },
@@ -46,17 +46,17 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "CHAPATA CHILORIO",
+      "producto": "SINCRONIZADAS DE JAMON",
       "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 1
+      "cantidad_sugerida": 2
+    },
+    {
+      "producto": "WRAP DE OMELETTE JAMON Y QUESO",
+      "categoria": "ALIMENTOS",
+      "cantidad_sugerida": 2
     },
     {
       "producto": "SINCRONIZADAS DE CHILORIO",
-      "categoria": "ALIMENTOS",
-      "cantidad_sugerida": 1
-    },
-    {
-      "producto": "SINCRONIZADAS DE JAMON",
       "categoria": "ALIMENTOS",
       "cantidad_sugerida": 1
     },
@@ -71,6 +71,11 @@
       "cantidad_sugerida": 4
     },
     {
+      "producto": "ROL DE CANELA MANZANA",
+      "categoria": "POSTRES",
+      "cantidad_sugerida": 3
+    },
+    {
       "producto": "ROL DE CANELA CAJETA Y NUEZ",
       "categoria": "POSTRES",
       "cantidad_sugerida": 3
@@ -81,14 +86,14 @@
       "cantidad_sugerida": 2
     },
     {
-      "producto": "POLVORONES",
+      "producto": "CHILLI PARADISE",
       "categoria": "POSTRES",
-      "cantidad_sugerida": 2
+      "cantidad_sugerida": 1
     },
     {
-      "producto": "ROL DE CANELA MANZANA",
+      "producto": "POLVORONES",
       "categoria": "POSTRES",
-      "cantidad_sugerida": 2
+      "cantidad_sugerida": 1
     },
     {
       "producto": "NUTRI BARRA",
@@ -106,19 +111,9 @@
       "cantidad_sugerida": 1
     },
     {
-      "producto": "YOGURT GRIEGO CON FRESAS",
-      "categoria": "POSTRES",
-      "cantidad_sugerida": 1
-    },
-    {
       "producto": "AGUA",
       "categoria": "REFRESCOS",
       "cantidad_sugerida": 2
-    },
-    {
-      "producto": "COCA COLA",
-      "categoria": "REFRESCOS",
-      "cantidad_sugerida": 1
     },
     {
       "producto": "COCA ZERO",
