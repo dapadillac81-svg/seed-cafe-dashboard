@@ -1504,15 +1504,15 @@
           "unidades": 4
         },
         {
-          "producto": "MOKA CAPUCCINO FRAPPE/16 OZ",
-          "unidades": 1
-        },
-        {
           "producto": "CAPUCCINO FRAPPE/16 OZ",
           "unidades": 1
         },
         {
           "producto": "AMARETTO CAPUCCINO FRAPPE",
+          "unidades": 1
+        },
+        {
+          "producto": "MOKA CAPUCCINO FRAPPE/16 OZ",
           "unidades": 1
         }
       ]
@@ -1545,11 +1545,11 @@
           "unidades": 41
         },
         {
-          "producto": "FRAPPE HORCHATA",
+          "producto": "FRAPPE YOGURT MIX BERRIES",
           "unidades": 18
         },
         {
-          "producto": "FRAPPE YOGURT MIX BERRIES",
+          "producto": "FRAPPE HORCHATA",
           "unidades": 18
         },
         {
@@ -1557,7 +1557,7 @@
           "unidades": 17
         },
         {
-          "producto": "CHOCOLATE ITALIANO FRAPPE",
+          "producto": "TARO S/A FRAPPE",
           "unidades": 14
         }
       ]
@@ -1647,7 +1647,7 @@
           "unidades": 31
         },
         {
-          "producto": "TE DURAZNO JAMAICA FRIO",
+          "producto": "AGUA FRIA2",
           "unidades": 28
         }
       ]
@@ -1823,7 +1823,7 @@
           "unidades": 3
         },
         {
-          "producto": "MIX BERRIES SMOOTHIE/16 OZ",
+          "producto": "COCO SMOOTHIE/16 OZ",
           "unidades": 1
         }
       ]
@@ -1852,11 +1852,11 @@
           "unidades": 5
         },
         {
-          "producto": "Chocomenta - Frappé",
+          "producto": "Moka - Frappé",
           "unidades": 4
         },
         {
-          "producto": "Moka - Frappé",
+          "producto": "Chocomenta - Frappé",
           "unidades": 4
         },
         {
@@ -1864,11 +1864,11 @@
           "unidades": 3
         },
         {
-          "producto": "Capuccino - Caliente",
+          "producto": "Moka Blanco - Caliente",
           "unidades": 3
         },
         {
-          "producto": "Moka Blanco - Caliente",
+          "producto": "Capuccino - Caliente",
           "unidades": 3
         }
       ]
