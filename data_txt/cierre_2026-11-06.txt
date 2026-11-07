@@ -227,4 +227,4 @@ CHAPATA P/P/PANELA: 5 uds — $650.00
 - Datos: API de órdenes + detalle de productos por orden
 - El Cierre formal no fue ejecutado por el cajero
 - Match órdenes vs productos: DIFERENCIA $25.80
-- Generado: 2026-11-07T14:00:34.516Z (Render)
+- Generado: 2026-11-07T21:38:37.539Z (Render)
