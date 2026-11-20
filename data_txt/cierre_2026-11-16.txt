@@ -1,0 +1,127 @@
+# Cierre Diario — SEED CAFÉ
+## Lunes 16 de noviembre de 2026
+
+---
+
+## RESUMEN DEL DÍA
+
+Tienda: SEED CAFÉ (200012148)
+Horario operativo: 08:58 – 14:48
+Total de órdenes: 23
+Total ventas: $4803.00
+Ticket promedio: $208.83
+Ticket mínimo: $59.00
+Ticket máximo: $400.00
+
+---
+
+## POR MÉTODO DE PAGO
+
+Tarjeta bancaria: 12 órdenes — $2855.00 (59%)
+Efectivo: 9 órdenes — $1699.00 (35%)
+Tarjeta de débito: 2 órdenes — $249.00 (5%)
+TOTAL: 23 órdenes — $4803.00
+
+---
+
+## TOP 5 PRODUCTOS
+
+AMERICANO CALIENTE: 9 uds — $573.00
+CAPUCCINO CALIENTE: 8 uds — $659.00
+ROL DE CANELA CAJETA Y NUEZ: 4 uds — $280.00
+MOLLETES: 4 uds — $620.00
+MATCHA FRIO: 3 uds — $366.00
+
+---
+
+## DETALLE DE ÓRDENES
+
+| No. Orden | Monto | Folio/Mesa | Hora | Pago | Fuente | Tipo |
+|---|---|---|---|---|---|---|
+| 202611160023 | 184.00 | 0023 | 16-11-2026 14:48:48 | Tarjeta de débito | Orden en TPV | orden |
+| 202611160022 | 258.00 | 0022 | 16-11-2026 14:40:45 | Efectivo | Orden en TPV | orden |
+| 202611160021 | 140.00 | 0021 | 16-11-2026 14:19:17 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611160020 | 70.00 | 0020 | 16-11-2026 14:15:27 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611160019 | 65.00 | 0019 | 16-11-2026 14:06:09 | Tarjeta de débito | Orden en TPV | orden |
+| 202611160018 | 158.00 | 0018 | 16-11-2026 14:04:15 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611160017 | 249.00 | 0010 | 16-11-2026 13:58:40 | Efectivo | Orden en TPV | orden |
+| 202611160016 | 285.00 | 0017 | 16-11-2026 13:44:28 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611160015 | 242.00 | 0016 | 16-11-2026 13:36:05 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611160014 | 83.00 | 0015 | 16-11-2026 13:30:05 | Efectivo | Orden en TPV | orden |
+| 202611160013 | 222.00 | 0014 | 16-11-2026 13:07:35 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611160012 | 366.00 | 0013 | 16-11-2026 12:54:20 | Efectivo | Orden en TPV | orden |
+| 202611160011 | 99.00 | 0012 | 16-11-2026 12:32:59 | Efectivo | Orden en TPV | orden |
+| 202611160010 | 308.00 | 0011 | 16-11-2026 12:09:50 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611160009 | 392.00 | 0008 | 16-11-2026 12:04:49 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611160008 | 229.00 | 0007 | 16-11-2026 11:31:39 | Efectivo | Orden en TPV | orden |
+| 202611160007 | 105.00 | 0009 | 16-11-2026 11:29:10 | Efectivo | Orden en TPV | orden |
+| 202611160006 | 251.00 | 0006 | 16-11-2026 10:58:17 | Efectivo | Orden en TPV | orden |
+| 202611160005 | 299.00 | 0005 | 16-11-2026 10:46:58 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611160004 | 274.00 | 0004 | 16-11-2026 10:11:03 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611160003 | 400.00 | 0003 | 16-11-2026 09:40:04 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611160002 | 59.00 | 0002 | 16-11-2026 09:24:24 | Efectivo | Orden en TPV | orden |
+| 202611160001 | 65.00 | 0001 | 16-11-2026 08:58:36 | Tarjeta bancaria | Orden en TPV | orden |
+
+---
+
+## DETALLE DE PRODUCTOS
+
+| No. Orden | Producto | Opciones | Cantidad | Monto | Reembolso |
+|---|---|---|---|---|---|
+| 202611160023 | CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1 | 79.00 | No |
+| 202611160023 | CHAI VAINILLA S/A CALIENTE | 02LECHE DESLACTOSADA | 1 | 105.00 | No |
+| 202611160022 | AMERICANO CALIENTE |  | 2 | 118.00 | No |
+| 202611160022 | ROL DE CANELA MANZANA |  | 1 | 70.00 | No |
+| 202611160022 | ROL DE CANELA CAJETA Y NUEZ |  | 1 | 70.00 | No |
+| 202611160021 | ROL DE CANELA CAJETA Y NUEZ |  | 2 | 140.00 | No |
+| 202611160020 | ROL DE CANELA CAJETA Y NUEZ |  | 1 | 70.00 | No |
+| 202611160019 | AMERICANO CALIENTE | 10 CORTADO | 1 | 65.00 | No |
+| 202611160018 | CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 2 | 158.00 | No |
+| 202611160017 | CAPUCCINO CALIENTE | 01 LECHE ENTERA | 1 | 79.00 | No |
+| 202611160017 | CAPUCCINO CALIENTE | 14 LECHE DE AVENA | 1 | 91.00 | No |
+| 202611160017 | CAPUCCINO CALIENTE | LECHE LIGHT | 1 | 79.00 | No |
+| 202611160016 | CHAPATA P/P/PANELA | PAVO/MULTIGRANO | 2 | 260.00 | No |
+| 202611160016 | CHILLI PARADISE |  | 1 | 25.00 | No |
+| 202611160015 | FLAT WHITE CALIENTE |  | 1 | 79.00 | No |
+| 202611160015 | PUMPKIN SPICE (CALABAZA) CALIENTE | 02 LECHE DESLACTOSADA | 1 | 103.00 | No |
+| 202611160015 | ROL DE CANELA |  | 1 | 60.00 | No |
+| 202611160014 | AMERICANO CALIENTE | 10 CORTADO/12 ESENCIA | 1 | 83.00 | No |
+| 202611160013 | MATCHA CALIENTE | 03 LECHE DE COCO | 1 | 117.00 | No |
+| 202611160013 | TARO S/A CALIENTE | 02 LECHE DESLACTOSADA | 1 | 105.00 | No |
+| 202611160012 | MATCHA FRIO | 03 LECHE DE COCO | 2 | 244.00 | No |
+| 202611160012 | MATCHA FRIO | 14 LECHE DE AVENA | 1 | 122.00 | No |
+| 202611160011 | SANDWICH P/P/PANELA | MANTEQUILLA | 1 | 99.00 | No |
+| 202611160010 | WRAP DE OMELETTE Y CHILORIO |  | 1 | 160.00 | No |
+| 202611160010 | TÉ HIERBABUENA CALIENTE |  | 1 | 55.00 | No |
+| 202611160010 | CHOCOLATE TRADICIONAL CALIENTE | 02 LECHE DESLACTOSADA | 1 | 93.00 | No |
+| 202611160009 | FLAT WHITE CALIENTE | LECHE LIGHT | 1 | 79.00 | No |
+| 202611160009 | MOLLETES |  | 1 | 150.00 | No |
+| 202611160009 | MAZAPAN CALIENTE | 01LECHE ENTERA | 1 | 93.00 | No |
+| 202611160009 | ROL DE CANELA NUTELLA |  | 1 | 70.00 | No |
+| 202611160008 | CAPUCCINO CALIENTE | 01 LECHE ENTERA | 1 | 79.00 | No |
+| 202611160008 | MOLLETES |  | 1 | 150.00 | No |
+| 202611160007 | CHAI VAINILLA CALIENTE | 02 LECHE DESLACTOSADA | 1 | 105.00 | No |
+| 202611160006 | CAPUCCINO CALIENTE | Shot Extra Cafe | 1 | 94.00 | No |
+| 202611160006 | CHAI VAINILLA CALIENTE | 04 LECHE DE ALMENDRA | 1 | 117.00 | No |
+| 202611160006 | POLVORONES |  | 1 | 40.00 | No |
+| 202611160005 | LATTE CALIENTE | 02 LECHE DESLACTOSADA | 1 | 79.00 | No |
+| 202611160005 | MOLLETES | JAMON DE PAVO | 1 | 170.00 | No |
+| 202611160005 | MANZANA ENCHILADA |  | 1 | 50.00 | No |
+| 202611160004 | AMERICANO CALIENTE |  | 1 | 59.00 | No |
+| 202611160004 | AMERICANO CALIENTE | 11 DESCAFEINADO/10 CORTADO | 1 | 65.00 | No |
+| 202611160004 | MOLLETES |  | 1 | 150.00 | No |
+| 202611160003 | LATTE CALIENTE | 03 LECHE DE COCO | 1 | 91.00 | No |
+| 202611160003 | AMERICANO CALIENTE |  | 1 | 59.00 | No |
+| 202611160003 | WRAP DE OMELETTE Y CHILORIO |  | 1 | 160.00 | No |
+| 202611160003 | PANQUE DE VAINILLA |  | 2 | 90.00 | No |
+| 202611160002 | AMERICANO CALIENTE |  | 1 | 59.00 | No |
+| 202611160001 | AMERICANO CALIENTE | 10 CORTADO | 1 | 65.00 | No |
+
+---
+
+## NOTAS
+
+- Datos: API de órdenes + detalle de productos por orden
+- El Cierre formal no fue ejecutado por el cajero
+- Match órdenes vs productos: OK
+- Generado: 2026-11-20T23:23:18.667Z (Render)
