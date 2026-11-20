@@ -225,4 +225,4 @@ ESPRESSO SENCILLO: 7 uds — $298.00
 - Datos: API de órdenes + detalle de productos por orden
 - El Cierre formal no fue ejecutado por el cajero
 - Match órdenes vs productos: DIFERENCIA $60.75
-- Generado: 2026-11-20T23:23:40.757Z (Render)
+- Generado: 2026-11-20T23:46:12.796Z (Render)
