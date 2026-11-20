@@ -141,7 +141,8 @@ def top_productos(items: pd.DataFrame, top_n=20) -> list[dict]:
     ventas = items[~items["es_reembolso"]] if "es_reembolso" in items.columns else items
     col_nombre = "nombre_base" if "nombre_base" in ventas.columns else "Nombre de producto"
     col_cant = "Cantidad"
-    col_monto = "Precio total después del descuento"
+    # Misma columna que generate_report.py: la traen los .txt y los .xlsx
+    col_monto = "Precio total después del descuento (modificado)"
 
     agg = (
         ventas.groupby(col_nombre)
