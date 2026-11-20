@@ -1,0 +1,140 @@
+# Cierre Diario — SEED CAFÉ
+## Sábado 14 de noviembre de 2026
+
+---
+
+## RESUMEN DEL DÍA
+
+Tienda: SEED CAFÉ (200012148)
+Horario operativo: 08:32 – 14:18
+Total de órdenes: 30
+Total ventas: $5277.80
+Ticket promedio: $175.93
+Ticket mínimo: $45.00
+Ticket máximo: $549.00
+
+---
+
+## POR MÉTODO DE PAGO
+
+Efectivo: 14 órdenes — $2258.00 (43%)
+Tarjeta de débito: 10 órdenes — $2060.00 (39%)
+Tarjeta bancaria: 6 órdenes — $959.80 (18%)
+TOTAL: 30 órdenes — $5277.80
+
+---
+
+## TOP 5 PRODUCTOS
+
+AMERICANO CALIENTE: 9 uds — $537.00
+SANDWICH P/P/PANELA: 6 uds — $594.00
+CHAPATA P/P/PANELA: 5 uds — $650.00
+LATTE CALIENTE: 3 uds — $249.00
+PANQUE DE VAINILLA: 3 uds — $135.00
+
+---
+
+## DETALLE DE ÓRDENES
+
+| No. Orden | Monto | Folio/Mesa | Hora | Pago | Fuente | Tipo |
+|---|---|---|---|---|---|---|
+| 202611140030 | 344.00 | 0030 | 14-11-2026 14:18:35 | Efectivo | Orden en TPV | orden |
+| 202611140029 | 179.00 | 0029 | 14-11-2026 14:15:31 | Tarjeta de débito | Orden en TPV | orden |
+| 202611140028 | 79.00 | 0028 | 14-11-2026 13:59:25 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611140027 | 549.00 | 0027 | 14-11-2026 13:18:17 | Tarjeta de débito | Orden en TPV | orden |
+| 202611140026 | 150.00 | 0026 | 14-11-2026 12:51:35 | Efectivo | Orden en TPV | orden |
+| 202611140025 | 118.80 | 0025 | 14-11-2026 12:40:51 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611140024 | 327.00 | 0024 | 14-11-2026 12:28:29 | Efectivo | Orden en TPV | orden |
+| 202611140023 | 95.00 | 0023 | 14-11-2026 12:25:17 | Tarjeta de débito | Orden en TPV | orden |
+| 202611140022 | 45.00 | 0022 | 14-11-2026 12:23:16 | Efectivo | Orden en TPV | orden |
+| 202611140021 | 68.00 | 0021 | 14-11-2026 12:18:09 | Efectivo | Orden en TPV | orden |
+| 202611140020 | 59.00 | 0020 | 14-11-2026 12:15:28 | Efectivo | Orden en TPV | orden |
+| 202611140019 | 158.00 | 0019 | 14-11-2026 12:14:19 | Efectivo | Orden en TPV | orden |
+| 202611140018 | 294.00 | 0018 | 14-11-2026 12:11:40 | Efectivo | Orden en TPV | orden |
+| 202611140017 | 79.00 | 0017 | 14-11-2026 12:02:48 | Efectivo | Orden en TPV | orden |
+| 202611140016 | 79.00 | 0016 | 14-11-2026 11:44:38 | Tarjeta de débito | Orden en TPV | orden |
+| 202611140015 | 205.00 | 0015 | 14-11-2026 11:39:32 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611140014 | 99.00 | 0014 | 14-11-2026 11:27:29 | Tarjeta de débito | Orden en TPV | orden |
+| 202611140013 | 110.00 | 0013 | 14-11-2026 11:26:05 | Efectivo | Orden en TPV | orden |
+| 202611140012 | 180.00 | 0012 | 14-11-2026 11:18:16 | Efectivo | Orden en TPV | orden |
+| 202611140011 | 118.00 | 0011 | 14-11-2026 11:14:50 | Tarjeta de débito | Orden en TPV | orden |
+| 202611140010 | 79.00 | 0010 | 14-11-2026 11:08:14 | Tarjeta de débito | Orden en TPV | orden |
+| 202611140009 | 200.00 | 0009 | 14-11-2026 10:48:19 | Tarjeta de débito | Orden en TPV | orden |
+| 202611140008 | 255.00 | 0008 | 14-11-2026 10:30:16 | Tarjeta de débito | Orden en TPV | orden |
+| 202611140007 | 268.00 | 0007 | 14-11-2026 10:24:38 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611140006 | 154.00 | 0006 | 14-11-2026 10:19:10 | Efectivo | Orden en TPV | orden |
+| 202611140005 | 99.00 | 0005 | 14-11-2026 09:49:48 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611140004 | 190.00 | 0004 | 14-11-2026 09:37:59 | Tarjeta bancaria | Orden en TPV | orden |
+| 202611140003 | 407.00 | 0003 | 14-11-2026 09:32:39 | Tarjeta de débito | Orden en TPV | orden |
+| 202611140002 | 65.00 | 0002 | 14-11-2026 08:53:33 | Efectivo | Orden en TPV | orden |
+| 202611140001 | 225.00 | 0001 | 14-11-2026 08:32:13 | Efectivo | Orden en TPV | orden |
+
+---
+
+## DETALLE DE PRODUCTOS
+
+| No. Orden | Producto | Opciones | Cantidad | Monto | Reembolso |
+|---|---|---|---|---|---|
+| 202611140030 | CHAPATA P/P/PANELA |  | 2 | 260.00 | No |
+| 202611140030 | COCA COLA LIGHT |  | 2 | 84.00 | No |
+| 202611140029 | FRAPPE NUTELLA | 02 LECHE DESLACTOSADA | 1 | 120.00 | No |
+| 202611140029 | AMERICANO CALIENTE |  | 1 | 59.00 | No |
+| 202611140028 | LATTE CALIENTE | 01 LECHE ENTERA | 1 | 79.00 | No |
+| 202611140027 | SANDWICH P/P/PANELA | MANTEQUILLA/PAVO | 1 | 99.00 | No |
+| 202611140027 | MOLLETES A LA MEXICANA |  | 1 | 160.00 | No |
+| 202611140027 | CHAPATA P/P/PANELA |  | 1 | 130.00 | No |
+| 202611140027 | CHAPATA CHILORIO |  | 1 | 160.00 | No |
+| 202611140026 | PANQUE DE VAINILLA |  | 1 | 45.00 | No |
+| 202611140026 | CHAI ORIGINAL CALIENTE | 02 LECHE DESLACTOSADA | 1 | 105.00 | No |
+| 202611140025 | MAZAPAN CALIENTE | Shot Extra Cafe/02LECHE DESLACTOSADA | 1 | 108.00 | No |
+| 202611140024 | PANQUE DE VAINILLA |  | 1 | 45.00 | No |
+| 202611140024 | MANZANA ENCHILADA |  | 1 | 50.00 | No |
+| 202611140024 | PUMPKIN SPICE FRIO | 14 LECHE DE AVENA/2 SHOT EXTRA CAFE | 1 | 121.00 | No |
+| 202611140024 | PUMPKIN SPICE FRIO | 09 LECHE DESLC LIGHT/2 SHOT EXTRA CAFE | 1 | 111.00 | No |
+| 202611140023 | MOKA CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1 | 95.00 | No |
+| 202611140022 | PANQUE DE VAINILLA |  | 1 | 45.00 | No |
+| 202611140021 | TISANA |  | 1 | 68.00 | No |
+| 202611140020 | AMERICANO CALIENTE |  | 1 | 59.00 | No |
+| 202611140019 | SANDWICH P/P/PANELA |  | 1 | 99.00 | No |
+| 202611140019 | AMERICANO CALIENTE | 11 DESCAFEINADO | 1 | 59.00 | No |
+| 202611140018 | TÉ FRUTOS ROJOS CALIENTE |  | 1 | 55.00 | No |
+| 202611140018 | LATTE CALIENTE | 02 LECHE DESLACTOSADA | 1 | 79.00 | No |
+| 202611140018 | CHAPATA CHILORIO |  | 1 | 160.00 | No |
+| 202611140017 | CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1 | 79.00 | No |
+| 202611140016 | CAPUCCINO CALIENTE | 09 LECHE DESLC LIGHT | 1 | 79.00 | No |
+| 202611140015 | TÉ FRUTOS ROJOS CALIENTE |  | 1 | 55.00 | No |
+| 202611140015 | WRAP DE OMELETTE JAMON Y QUESO |  | 1 | 150.00 | No |
+| 202611140014 | SANDWICH P/P/PANELA | MULTIGRANO/PAVO | 1 | 99.00 | No |
+| 202611140013 | GUANABANA SMOOTHIE |  | 1 | 110.00 | No |
+| 202611140012 | ROL DE CANELA CAJETA Y NUEZ |  | 1 | 70.00 | No |
+| 202611140012 | MARACUYA SMOOTHIE |  | 1 | 110.00 | No |
+| 202611140011 | AMERICANO CALIENTE |  | 2 | 118.00 | No |
+| 202611140010 | CAPUCCINO CALIENTE | 02 LECHE DESLACTOSADA | 1 | 79.00 | No |
+| 202611140009 | CHAPATA P/P/PANELA | PAVO/MULTIGRANO | 1 | 130.00 | No |
+| 202611140009 | ROL DE CANELA CAJETA Y NUEZ |  | 1 | 70.00 | No |
+| 202611140008 | CHAI VAINILLA S/A CALIENTE | 02LECHE DESLACTOSADA | 1 | 105.00 | No |
+| 202611140008 | AGUA |  | 1 | 20.00 | No |
+| 202611140008 | CHAPATA P/P/PANELA |  | 1 | 130.00 | No |
+| 202611140007 | AMERICANO CALIENTE | 11 DESCAFEINADO | 1 | 59.00 | No |
+| 202611140007 | AMERICANO CALIENTE |  | 1 | 59.00 | No |
+| 202611140007 | MOLLETES |  | 1 | 150.00 | No |
+| 202611140006 | SANDWICH P/P/PANELA | MULTIGRANO | 1 | 99.00 | No |
+| 202611140006 | TÉ FRUTOS ROJOS CALIENTE |  | 1 | 55.00 | No |
+| 202611140005 | SANDWICH P/P/PANELA | MANTEQUILLA/PAVO | 1 | 99.00 | No |
+| 202611140004 | LATTE CALIENTE | 14 LECHE DE AVENA | 1 | 91.00 | No |
+| 202611140004 | SANDWICH P/P/PANELA | MULTIGRANO/PAVO | 1 | 99.00 | No |
+| 202611140003 | SINCRONIZADAS DE JAMON |  | 2 | 280.00 | No |
+| 202611140003 | TISANA |  | 1 | 68.00 | No |
+| 202611140003 | AMERICANO CALIENTE |  | 1 | 59.00 | No |
+| 202611140002 | AMERICANO CALIENTE | 10 CORTADO | 1 | 65.00 | No |
+| 202611140001 | CAPUCCINO FRIO | 02 LECHE DESLACTOSADA | 1 | 85.00 | No |
+| 202611140001 | SINCRONIZADAS DE JAMON |  | 1 | 140.00 | No |
+
+---
+
+## NOTAS
+
+- Datos: API de órdenes + detalle de productos por orden
+- El Cierre formal no fue ejecutado por el cajero
+- Match órdenes vs productos: DIFERENCIA $10.80
+- Generado: 2026-11-20T23:23:14.110Z (Render)
